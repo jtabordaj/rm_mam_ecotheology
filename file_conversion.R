@@ -1,7 +1,10 @@
-library(haven)
-library(writexl)
-library(readr)
-library(sf)
+Sys.setlocale('LC_ALL','en_US.UTF-8')
+packages <- c("haven", "writexl", "sf", "readr")
+packages_to_install <- packages[!(packages %in% installed.packages()[,"Package"])]
+if (length(packages_to_install) > 0) {
+  install.packages(packages_to_install, dependencies = TRUE)
+}
+invisible(lapply(packages, library, character.only = TRUE))
 
 # df <- read_sav("./data/Environmental_attitudes.sav")
 # df_numeric <- zap_labels(df)
