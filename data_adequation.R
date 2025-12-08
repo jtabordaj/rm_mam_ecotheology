@@ -28,16 +28,5 @@ dataDominican <- st_transform(dataDominican, 3035)
 
 # Now that everything is standardized we join monastery data with the NUTS dataset at level 2
 
-dataFranciscan_NUTS <- st_join(dataFranciscan, mapEurope, join = st_intersects)
-
-# Fallback for NA's is to snap to the nearest region
-missing_monasteries <- dataFranciscan_NUTS %>% filter(is.na(NUTS_ID))
-nearest_indices <- st_nearest_feature(missing_monasteries, mapEurope)
-filled_data <- missing_monasteries %>% mutate(
-    NUTS_ID = mapEurope$NUTS_ID[nearest_indices],
-    NUTS_NAME = mapEurope$NUTS_NAME[nearest_indices]
-)
-dataFranciscan_NUTS <- dataFranciscan_NUTS %>% filter(!is.na(NUTS_ID)) %>% bind_rows(filled_data)
-
-
-dataDominican_NUTS <- st_join(dataDominican, mapEurope, join = st_intersects)
+enrich_monastery_data(dataFranciscan)
+enrich_monastery_data(dataDominican)
