@@ -15,7 +15,7 @@ mapEurope <- st_transform(mapEurope, 4326)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69)
 mapEurope <- st_transform(mapEurope, 3035)
 mapEurope <- st_make_valid(mapEurope)
-# plot(st_geometry(mapEurope))
+plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
 # First, Franciscan and Dominican latitudes and longitudes become a geometrical object through the following lines
