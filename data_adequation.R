@@ -14,8 +14,8 @@ mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
 mapEurope <- st_transform(mapEurope, 4326)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69)
 mapEurope <- st_transform(mapEurope, 3035)
-st_make_valid(mapEurope)
-plot(st_geometry(mapEurope))
+mapEurope <- st_make_valid(mapEurope)
+# plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
 # First, Franciscan and Dominican latitudes and longitudes become a geometrical object through the following lines
@@ -26,23 +26,18 @@ dataDominican <- dataDominican %>% st_as_sf(coords = c("lon", "lat"), crs = 4326
 dataFranciscan <- st_transform(dataFranciscan, 3035)
 dataDominican <- st_transform(dataDominican, 3035)
 
-test <- st_join(dataFranciscan, mapEurope, join = st_intersects)
+# Now that everything is standardized we join monastery data with the NUTS dataset at level 2
 
-#
+dataFranciscan_NUTS <- st_join(dataFranciscan, mapEurope, join = st_intersects)
 
-mapEurope <- st_make_valid(mapEurope)
+# Fallback for NA's is to snap to the nearest region
+missing_monasteries <- dataFranciscan_NUTS %>% filter(is.na(NUTS_ID))
+nearest_indices <- st_nearest_feature(missing_monasteries, mapEurope)
+filled_data <- missing_monasteries %>% mutate(
+    NUTS_ID = mapEurope$NUTS_ID[nearest_indices],
+    NUTS_NAME = mapEurope$NUTS_NAME[nearest_indices]
+)
+dataFranciscan_NUTS <- dataFranciscan_NUTS %>% filter(!is.na(NUTS_ID)) %>% bind_rows(filled_data)
 
-# 2. Filter for just London (or a point that is failing) from your points
-london_point <- dataFranciscan %>% 
-  filter(grepl("London", monastery_name)) # Replace with your actual column name
 
-# 3. Visual Diagnostic
-# We plot the map borders in grey and your point in red
-ggplot() +
-  # Plot the map (limited to UK area to zoom in)
-  geom_sf(data = mapEurope, fill = "white", color = "black") +
-  # Plot the point
-  geom_sf(data = london_point, color = "red", size = 3) +
-  # Zoom in on Northern Europe to see clearly
-  coord_sf(xlim = c(2500000, 4500000), ylim = c(2500000, 4500000), crs = 3035) +
-  theme_minimal()
+dataDominican_NUTS <- st_join(dataDominican, mapEurope, join = st_intersects)
