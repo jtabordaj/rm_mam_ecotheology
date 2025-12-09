@@ -4,7 +4,7 @@ source('./dependencies.R')
 # We remove islands and overseas territories, such as Iceland, French peripherals, Azores, Madeira, Canary Islands.
 # We also decide on NUTS 2 specificity
 
-overseasTerritories <- c("^FRY", "^PT2", "^PT3", "^ES7", "^IS")
+overseasTerritories <- c("^FRY", "^PT2", "^PT3", "^ES7", "^IS") # Umbrella term for anything not close to mainland Europe + Britain
 filterStatement <- paste(overseasTerritories, collapse = "|")
 mapEurope <- mapEurope %>% filter(!str_detect(NUTS_ID, filterStatement))
 mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
