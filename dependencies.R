@@ -8,13 +8,20 @@ if (length(packages_to_install) > 0) {
 }
 invisible(lapply(packages, library, character.only = TRUE))
 
-# Path
+# Paths
 online_path_hyde <- "https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/population.nc"
 local_path_hyde <- "./data/hyde/hyde_grid.nc"
 local_path_nuts <- "./data/NUTS.shp/NUTS_RG_20M_2021_3035.shp"
 local_path_environmental <- "./data/environmental/environmental_attitudes.csv"
 local_path_dominican <- "./data/houses/mps_dominican_1216_1500.csv"
 local_path_franciscan <- "./data/houses/mps_franciscan_1300.csv"
+
+if (!dir.exists('./data/hyde')) {
+  dir.create('./data/hyde', recursive = TRUE)
+  message("HYDE Folder created")
+} else {
+  message("HYDE Folder exists")
+}
 
 # Read
 mapEurope <- st_read(local_path_nuts)

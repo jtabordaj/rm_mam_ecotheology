@@ -35,7 +35,7 @@ names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N2"] <- "NUTS_ID"
 
 dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
-## 4. Working with HYDE data
+## 4. Working with HYDE data (3.3 Version, Baseline)
 
 print(names(dataHYDE))
 dataHYDE <- dataHYDE[[21:28]] # population_21 = 1000 CE, scales century-wise until population_28 = 1700
