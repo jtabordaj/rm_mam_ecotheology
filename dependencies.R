@@ -24,13 +24,13 @@ dataFranciscan <- read_csv(local_path_franciscan, show_col_types = FALSE)
 
 if (file.exists(local_path_hyde)) {
   message("Loading HYDE...")
-  hyde_data <- rast(local_path_hyde)
+  dataHYDE <- rast(local_path_hyde)
   message("...SUCCESS")
 } else {
   message("Downloading HYDE...")
   tryCatch({
     download.file(url = online_path_hyde, destfile = "./data/hyde/hyde_grid.nc", mode = "wb")
-    hyde_data <- rast(local_path_hyde)
+    dataHYDE <- rast(local_path_hyde)
     message("...SUCCESS")
   }, error = function(e) {
     message("...FAIL")
