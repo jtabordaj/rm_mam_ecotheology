@@ -48,3 +48,23 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 # There may be inaccuracies in small regions (see London and Low Countries)
 # Prompt used in Gemini 3.0 for this section: Give me a generic code that overlaps NUTS 2 data with an S4 SpatRaster object. We then modified as needed
 # In theory, row order should maintain across the section, so row 1 in dataPopulation corresponds to mapEurope row 1. Would love to have a second opinion
+
+## 5. Enriching HYDE data
+# pixel value = distance to nearest point (in meters). Note: On 4326, geodetic distance (meters) by default.
+
+rasterFranciscan <- vect(dataFranciscan, geom = c("lon", "lat"), crs = "EPSG:4326")
+distancesFranciscan <- distance(dataHYDE[[1]], rasterFranciscan) 
+geodeticThreshold <- 25000
+exposureFranciscan <- distancesFranciscan <= geodeticThreshold
+
+# plot(exposureFranciscan, main = "Exposure Map (25km Radius)")
+# points(rasterFranciscan, pch = 20, col = "red", cex = 0.5)
+
+dataHYDE_exposed <- mask(dataHYDE, exposureFranciscan, maskvalue = 0)
+dataPopulation_exposed <- extract(dataHYDE_exposed, mapEurope, fun = sum, na.rm = TRUE, ID = FALSE)
+
+colnames(dataPopulation_exposed) <- paste0(colnames(dataPopulation_exposed), "_exposed")
+dataPopulation_exposed <- dataPopulation_exposed %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
+
+dataPopulation_exposed <- cbind(dataPopulation, dataPopulation_exposed)
+
