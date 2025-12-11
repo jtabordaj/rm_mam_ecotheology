@@ -10,7 +10,7 @@ mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
 
 # We also zoom-in the map in Europe, latitudinal/longitudinal coordinates are handcrafted based on the project data
 
-mapEurope <- st_transform(mapEurope, crs(dataHYDE))
+mapEurope <- st_transform(mapEurope, standardCRS)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
 plot(st_geometry(mapEurope))
@@ -36,8 +36,6 @@ dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
 ## 4. Working with HYDE data (3.3 Version, Baseline)
 
-# dataHYDE <- project(dataHYDE, 'epsg:4326')
-print(names(dataHYDE))
 dataHYDE <- dataHYDE[[21:28]] # population_21 = 1000 CE, scales century-wise until population_28 = 1700
 names(dataHYDE) <- c("pop_1000", "pop_1100", "pop_1200", "pop_1300", "pop_1400", "pop_1500", "pop_1600", "pop_1700")
 dataHYDE <- crop(dataHYDE, mapEurope)
@@ -52,36 +50,4 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 ## 5. Enriching HYDE data
 # pixel value = distance to nearest point (in meters). Note: On 4326, geodetic distance (meters) by default.
 
-rasterFranciscan <- vect(dataFranciscan, geom = c("lon", "lat"), crs = crs(dataHYDE))
-distancesFranciscan <- distance(dataHYDE[[1]], rasterFranciscan) 
-geodeticThreshold <- 25000
-exposureFranciscan <- distancesFranciscan <= geodeticThreshold
-
-# plot(exposureFranciscan, main = "Exposure Map (25km Radius)")
-# points(rasterFranciscan, pch = 20, col = "red", cex = 0.5)
-
-dataHYDE_exposed <- mask(dataHYDE, exposureFranciscan, maskvalue = 0)
-dataPopulation_exposed <- terra::extract(dataHYDE_exposed, mapEurope, fun = sum, na.rm = TRUE, ID = FALSE)
-
-colnames(dataPopulation_exposed) <- paste0(colnames(dataPopulation_exposed), "_exposed")
-dataPopulation_exposed <- dataPopulation_exposed %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
-
-dataPopulation_exposed <- cbind(dataPopulation, dataPopulation_exposed)
-
-# Now exposure is calculate dynamically across years as a division of exposed over the total
-
-pop_cols <- grep("^pop_[0-9]+$", names(dataPopulation_exposed), value = TRUE)
-pop_year <- gsub("pop_", "", pop_cols)
-
-for (y in pop_year) {
-  total_col <- paste0("pop_", y)            
-  exposed_col <- paste0("pop_", y, "_exposed")
-  new_col <- paste0("exposure_", y)
-  if (total_col %in% names(dataPopulation_exposed) && exposed_col %in% names(dataPopulation_exposed)) {
-    dataPopulation_exposed[[new_col]] <- ifelse(
-        dataPopulation_exposed[[total_col]] == 0, 
-        0, 
-        dataPopulation_exposed[[exposed_col]] / dataPopulation_exposed[[total_col]]
-    )
-  }
-}
+enrich_hyde_with_monasteries(dataFranciscan, dataHYDE, dataPopulation, mapEurope, 25000)

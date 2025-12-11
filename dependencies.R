@@ -45,6 +45,8 @@ if (file.exists(local_path_hyde)) {
   })
 }
 
+standardCRS <- crs(dataHYDE)
+
 # Functions
 enrich_monastery_data <- function(dataset){
   target <- dataset
@@ -68,4 +70,35 @@ coerceNAPoints <- function(dataset){
   ) 
   dataset <- dataset %>% filter(!is.na(NUTS_ID)) %>% bind_rows(completedData)
   return(dataset)
+}
+
+enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, european_map, geodeticThreshold){
+  # Get exposure directly from the rasterized monastery data
+  rasterOrder <- vect(order, geom = c("lon", "lat"), crs = standardCRS)
+  distanceOrder <- distance(hyde_grid[[1]], rasterOrder)
+  exposureOrder <- distanceOrder <= geodeticThreshold
+
+  # Overlap the HYDE grid with the exposure
+  exposureGrid <- mask(hyde_grid, exposureOrder, maskvalues = 0)
+  exposedPopulation <- terra::extract(exposureGrid, european_map, fun = sum, na.rm = TRUE, ID = FALSE)
+  colnames(exposedPopulation) <- paste0(colnames(exposedPopulation), "_exposed")
+  exposedPopulation <- exposedPopulation %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
+  exposedPopulation <- cbind(population_data, exposedPopulation)
+
+  # Loop to get exposure ratios
+  pop_cols <- grep("^pop_[0-9]+$", names(exposedPopulation), value = TRUE)
+  pop_year <- gsub("pop_", "", pop_cols)
+  for (y in pop_year) {
+    total_col <- paste0("pop_", y)            
+    exposed_col <- paste0("pop_", y, "_exposed")
+    new_col <- paste0("exposure_", y)
+    if (total_col %in% names(exposedPopulation) && exposed_col %in% names(exposedPopulation)) {
+      exposedPopulation[[new_col]] <- ifelse(
+          exposedPopulation[[total_col]] == 0, 
+          0, 
+          exposedPopulation[[exposed_col]] / exposedPopulation[[total_col]]
+      )
+    }
+  }
+  assign(paste(deparse(substitute(order)), "_complete", sep = ""), exposedPopulation, envir = .GlobalEnv)
 }
