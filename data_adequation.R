@@ -9,14 +9,10 @@ mapEurope <- mapEurope %>% filter(!str_detect(NUTS_ID, filterStatement))
 mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
 
 # We also zoom-in the map in Europe, latitudinal/longitudinal coordinates are handcrafted based on the project data
-
 mapEurope <- st_transform(mapEurope, standardCRS)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
 plot(st_geometry(mapEurope))
-
-# Prompt used in Gemini 3.0 for this section: Give me the furthest cardinal points of the European continent, constrained to NUTS 2 regions.
-# We then adjusted +-1 or 2 degrees based on existing data
 
 ## 2. To enrich NUTS data with Monastery location
 
@@ -43,7 +39,6 @@ dataPopulation <- terra::extract(dataHYDE, mapEurope, fun = sum, na.rm = TRUE, I
 dataPopulation <- cbind(mapEurope, dataPopulation)
 
 # For medieval Europe I would say extract() does the job well without weights = TRUE or  exact = TRUE (see ?terra::extract)
-# Prompt used in Gemini 3.0 for this section: Give me a generic code that overlaps NUTS 2 data with an S4 SpatRaster object. We then modified as needed
 
 ## 5. Enriching HYDE data
 # pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
