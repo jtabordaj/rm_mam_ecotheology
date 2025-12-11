@@ -1,7 +1,7 @@
 Sys.setlocale('LC_ALL','en_US.UTF-8')
 options(timeout = 600)
 options(scipen = 999)
-packages <- c("haven", "writexl", "sf", "readr", "readxl", "dplyr", "ggplot2", "stringr", "terra")
+packages <- c("haven", "writexl", "sf", "readr", "readxl", "dplyr", "ggplot2", "stringr", "terra", "tidyr")
 packages_to_install <- packages[!(packages %in% installed.packages()[,"Package"])]
 if (length(packages_to_install) > 0) {
   install.packages(packages_to_install, dependencies = TRUE)

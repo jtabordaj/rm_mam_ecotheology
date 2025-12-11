@@ -14,7 +14,7 @@ mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
 mapEurope <- st_transform(mapEurope, 4326)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
-plot(st_geometry(mapEurope))
+# plot(st_geometry(mapEurope))
 
 # Prompt used in Gemini 3.0 for this section: Give me the furthest cardinal points of the European continent, constrained to NUTS 2 regions.
 # We then adjusted +-1 or 2 degrees based on existing data
@@ -41,7 +41,7 @@ print(names(dataHYDE))
 dataHYDE <- dataHYDE[[21:28]] # population_21 = 1000 CE, scales century-wise until population_28 = 1700
 names(dataHYDE) <- c("pop_1000", "pop_1100", "pop_1200", "pop_1300", "pop_1400", "pop_1500", "pop_1600", "pop_1700")
 dataHYDE <- crop(dataHYDE, mapEurope)
-dataPopulation <- extract(dataHYDE, mapEurope, fun = sum, na.rm = TRUE, ID = TRUE)
+dataPopulation <- terra::extract(dataHYDE, mapEurope, fun = sum, na.rm = TRUE, ID = TRUE)
 dataPopulation <- cbind(mapEurope, dataPopulation)
 
 # For medieval Europe I would say extract() does the job well without weights = TRUE or  exact = TRUE (see ?terra::extract)
@@ -61,10 +61,27 @@ exposureFranciscan <- distancesFranciscan <= geodeticThreshold
 # points(rasterFranciscan, pch = 20, col = "red", cex = 0.5)
 
 dataHYDE_exposed <- mask(dataHYDE, exposureFranciscan, maskvalue = 0)
-dataPopulation_exposed <- extract(dataHYDE_exposed, mapEurope, fun = sum, na.rm = TRUE, ID = FALSE)
+dataPopulation_exposed <- terra::extract(dataHYDE_exposed, mapEurope, fun = sum, na.rm = TRUE, ID = FALSE)
 
 colnames(dataPopulation_exposed) <- paste0(colnames(dataPopulation_exposed), "_exposed")
 dataPopulation_exposed <- dataPopulation_exposed %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
 
 dataPopulation_exposed <- cbind(dataPopulation, dataPopulation_exposed)
 
+# Now exposure is calculate dynamically across years as a division of exposed over the total
+
+pop_cols <- grep("^pop_[0-9]+$", names(dataPopulation_exposed), value = TRUE)
+pop_year <- gsub("pop_", "", pop_cols)
+
+for (y in pop_year) {
+  total_col <- paste0("pop_", y)            
+  exposed_col <- paste0("pop_", y, "_exposed")
+  new_col <- paste0("exposure_", y)
+  if (total_col %in% names(dataPopulation_exposed) && exposed_col %in% names(dataPopulation_exposed)) {
+    dataPopulation_exposed[[new_col]] <- ifelse(
+        dataPopulation_exposed[[total_col]] == 0, 
+        0, 
+        dataPopulation_exposed[[exposed_col]] / dataPopulation_exposed[[total_col]]
+    )
+  }
+}
