@@ -43,11 +43,9 @@ dataPopulation <- terra::extract(dataHYDE, mapEurope, fun = sum, na.rm = TRUE, I
 dataPopulation <- cbind(mapEurope, dataPopulation)
 
 # For medieval Europe I would say extract() does the job well without weights = TRUE or  exact = TRUE (see ?terra::extract)
-# There may be inaccuracies in small regions (see London and Low Countries)
 # Prompt used in Gemini 3.0 for this section: Give me a generic code that overlaps NUTS 2 data with an S4 SpatRaster object. We then modified as needed
-# In theory, row order should maintain across the section, so row 1 in dataPopulation corresponds to mapEurope row 1. Would love to have a second opinion
 
 ## 5. Enriching HYDE data
-# pixel value = distance to nearest point (in meters). Note: On 4326, geodetic distance (meters) by default.
+# pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
 
 enrich_hyde_with_monasteries(dataFranciscan, dataHYDE, dataPopulation, mapEurope, 25000)
