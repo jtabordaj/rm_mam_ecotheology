@@ -52,7 +52,7 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 ## 5. Enriching HYDE data
 # pixel value = distance to nearest point (in meters). Note: On 4326, geodetic distance (meters) by default.
 
-rasterFranciscan <- vect(dataFranciscan, geom = c("lon", "lat"), crs = "EPSG:4326")
+rasterFranciscan <- vect(dataFranciscan, geom = c("lon", "lat"), crs = crs(dataHYDE))
 distancesFranciscan <- distance(dataHYDE[[1]], rasterFranciscan) 
 geodeticThreshold <- 25000
 exposureFranciscan <- distancesFranciscan <= geodeticThreshold
