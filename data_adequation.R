@@ -12,7 +12,11 @@ mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
 mapEurope <- st_transform(mapEurope, standardCRS)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
+
+# Save nuts2 plot to "figures" folder
+png(filename = "figures/nuts2.png", width = 1200, height = 1200, res = 150)
 plot(st_geometry(mapEurope))
+dev.off()
 
 ## 2. To enrich NUTS data with Monastery location
 
