@@ -2,6 +2,7 @@ library(sf)
 library(dplyr)
 library(ggplot2)
 library(tidyr)
+library(terra)
 
 # 1. Ensure Map IDs are characters for clean joining
 mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
@@ -54,9 +55,6 @@ print(p_monasteries)
 ########################################################
 # 2. Exposure to Franciscans (Calculated Variable)
 ########################################################
-
-# We use the sophisticated 'exposure_1500' variable from your
-# dataFranciscan_complete object.
 
 p_exposure <- ggplot(dataFranciscan_complete) +
   # Plot the exposure_1500 variable
@@ -173,8 +171,104 @@ p_env_faceted <- ggplot(env_long) +
 print(p_env_faceted)
 
 ########################################################
-# 4. Save
+# 4. HYDE Population Grid (1200-1500)
+########################################################
+
+# 1. Select specific years from the raster
+hyde_subset <- dataHYDE[[c("pop_1200", "pop_1300", "pop_1400", "pop_1500")]]
+
+# 2. Convert Raster to DataFrame (Pixels)
+hyde_df <- as.data.frame(hyde_subset, xy = TRUE) %>%
+  pivot_longer(
+    cols = starts_with("pop_"),
+    names_to = "year_raw",
+    values_to = "population"
+  ) %>%
+  mutate(
+    year = gsub("pop_", "", year_raw)
+  ) %>%
+  filter(!is.na(population)) %>% 
+  filter(population > 0)
+
+# 3. Plot Grids (Log Scale)
+p_hyde_grid <- ggplot() +
+  geom_raster(data = hyde_df, aes(x = x, y = y, fill = population)) +
+  geom_sf(data = mapEurope, fill = NA, color = "white", linewidth = 0.05, alpha = 0.2) +
+  scale_fill_viridis_c(
+    option = "magma",
+    direction = 1,
+    na.value = "transparent",
+    name = "Population\n(Log Scale)",
+    trans = "pseudo_log", 
+    breaks = c(0, 100, 1000, 10000, 100000)
+  ) +
+  facet_wrap(~ year, ncol = 2) +
+  labs(
+    title = "Population Density (HYDE 3.3)",
+    subtitle = "Grid-level estimates (85km² resolution)"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    strip.text = element_text(size = 12, face = "bold"),
+    legend.position = "right"
+  )
+
+print(p_hyde_grid)
+
+
+########################################################
+# 5. HYDE Population NUTS-2 (Aggregated)
+########################################################
+
+# 1. Prepare Long Data from the dataPopulation sf object
+hyde_nuts_long <- dataPopulation %>%
+  select(NUTS_ID, geometry, pop_1200, pop_1300, pop_1400, pop_1500) %>%
+  pivot_longer(
+    cols = starts_with("pop_"),
+    names_to = "year_raw",
+    values_to = "population"
+  ) %>%
+  mutate(
+    year = gsub("pop_", "", year_raw)
+  )
+
+# 2. Plot NUTS-2 Map (Sqrt Scale usually works best for regions)
+p_hyde_nuts <- ggplot(hyde_nuts_long) +
+  geom_sf(aes(fill = population), color = NA) +
+  scale_fill_viridis_c(
+    option = "magma",
+    direction = 1,
+    na.value = "grey90",
+    name = "Total\nPopulation",
+    trans = "sqrt",  # Sqrt helps smooth the gap between big regions and small ones
+    breaks = c(50000, 500000, 2000000),
+    labels = scales::comma
+  ) +
+  facet_wrap(~ year, ncol = 2) +
+  labs(
+    title = "Regional Population Estimates (NUTS-2)",
+    subtitle = "Aggregated HYDE 3.3 data per region"
+  ) +
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    strip.text = element_text(size = 12, face = "bold"),
+    legend.position = "right"
+  )
+
+print(p_hyde_nuts)
+
+
+########################################################
+# 6. Save All Plots
 ########################################################
 ggsave("figures/monasteries_map.png", p_monasteries, width = 10, height = 8, dpi = 300, bg="white")
 ggsave("figures/franciscan_exposure_1500.png", p_exposure, width = 10, height = 8, dpi = 300, bg="white")
 ggsave("figures/environmental_attitudes.png", p_env_faceted, width = 14, height = 8, dpi = 300, bg="white")
+ggsave("figures/hyde_population_grid.png", p_hyde_grid, width = 10, height = 10, dpi = 300, bg="white")
+ggsave("figures/hyde_population_nuts2.png", p_hyde_nuts, width = 10, height = 10, dpi = 300, bg="white")
