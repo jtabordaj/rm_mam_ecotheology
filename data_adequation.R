@@ -5,6 +5,7 @@ source('./dependencies.R')
 # NUTS 1 specificity
 overseasTerritories <- c("^FRY", "^PT2", "^PT3", "^ES7", "^IS") # Umbrella term for anything not close to mainland Europe + Britain
 filterStatement <- paste(overseasTerritories, collapse = "|")
+mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
 mapEurope <- mapEurope %>% filter(!str_detect(NUTS_ID, filterStatement))
 mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(1))
 

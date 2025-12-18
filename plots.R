@@ -1,11 +1,4 @@
-library(sf)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-library(terra)
-
-# 1. Ensure Map IDs are characters for clean joining
-mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
+source('./data_adequation.R')
 
 ########################################################
 # 1. Map of Franciscan and Dominican houses
@@ -15,13 +8,13 @@ mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
 dataFranciscan_sf <- st_as_sf(
   dataFranciscan,
   coords = c("lon", "lat"),
-  crs = st_crs(mapEurope)
+  crs = standardCRS
 )
 
 dataDominican_sf <- st_as_sf(
   dataDominican,
   coords = c("lon", "lat"),
-  crs = st_crs(mapEurope)
+  crs = standardCRS
 )
 
 # Combine for plotting
@@ -34,7 +27,7 @@ p_monasteries <- ggplot() +
   geom_sf(data = mapEurope, fill = "grey96", color = "grey75", linewidth = 0.1) +
   geom_sf(data = monasteries_sf, aes(color = order), size = 0.8, alpha = 0.7) +
   scale_color_manual(
-    values = c("Franciscan" = "#008080", "Dominican" = "#E65100"), # Teal vs Deep Orange
+    values = c("Franciscan" = "#008080", "Dominican" = "#E65100"),
     name = "Order"
   ) +
   labs(
@@ -262,7 +255,6 @@ p_hyde_nuts <- ggplot(hyde_nuts_long) +
   )
 
 print(p_hyde_nuts)
-
 
 ########################################################
 # 6. Save All Plots
