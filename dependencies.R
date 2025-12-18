@@ -110,8 +110,8 @@ enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, euro
 check_write_hyde_data <- function(filePath, order, variable){
   if(file.exists(filePath)){
     message(paste("File ", filePath, " already exists, reading from disk", sep = ""))
-    diskRead <- read_csv(filePath)
-    objName <- gsub(".csv", "", basename(filePath))
+    diskRead <- read_rds(filePath)
+    objName <- gsub(".rds", "", basename(filePath))
     assign(objName, diskRead, envir = .GlobalEnv)
   } else {
     message(paste("File ", filePath, " does not exist, creating...", sep = ""))
