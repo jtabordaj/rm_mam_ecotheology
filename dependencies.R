@@ -103,4 +103,20 @@ enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, euro
     }
   }
   assign(paste(deparse(substitute(order)), "_complete", sep = ""), exposedPopulation, envir = .GlobalEnv)
+  return(exposedPopulation)
+}
+
+
+check_write_hyde_data <- function(filePath, order, variable){
+  if(file.exists(filePath)){
+    message(paste("File ", filePath, " already exists, reading from disk", sep = ""))
+    diskRead <- read_csv(filePath)
+    objName <- gsub(".csv", "", basename(filePath))
+    assign(objName, diskRead, envir = .GlobalEnv)
+  } else {
+    message(paste("File ", filePath, " does not exist, creating...", sep = ""))
+    enriched_data <- enrich_hyde_with_monasteries(order, dataHYDE, variable, mapEurope, 25000)
+    write_rds(enriched_data, filePath)
+    message("...SUCCESS")
+  } 
 }

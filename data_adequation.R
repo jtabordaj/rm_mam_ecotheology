@@ -45,5 +45,22 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 # For medieval Europe I would say extract() does the job well without weights = TRUE or  exact = TRUE (see ?terra::extract)
 
 ## 5. Enriching HYDE data
-# pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
-enrich_hyde_with_monasteries(dataFranciscan, dataHYDE, dataPopulation, mapEurope, 25000)
+# Pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
+
+# For Population
+
+check_write_hyde_data("./output/dataFranciscan_complete.rds", dataFranciscan, dataPopulation)
+
+# if(file.exists("./output/dataFranciscan_complete.csv")){
+#     message(paste("File ", "./output/dataFranciscan_complete.csv", " already exists, reading from disk", sep = ""))
+#     diskRead <- read_csv("./output/dataFranciscan_complete.csv")
+#     objName <- gsub(".csv", "", basename("./output/dataFranciscan_complete.csv"))
+#     assign(objName, diskRead, envir = .GlobalEnv)
+# } else {
+#     message(paste("File ", "./output/dataFranciscan_complete.csv", " does not exist, creating...", sep = ""))
+#     enriched_data <- enrich_hyde_with_monasteries(dataFranciscan, dataHYDE, dataPopulation, mapEurope, 25000)
+#     message("...SUCCESS")
+# }
+
+# enrich_hyde_with_monasteries(dataFranciscan, dataHYDE, dataPopulation, mapEurope, 25000)
+# enrich_hyde_with_monasteries(dataDominican, dataHYDE, dataPopulation, mapEurope, 25000)
