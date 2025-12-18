@@ -14,6 +14,7 @@ local_path_hyde <- "./data/hyde/hyde_grid.nc"
 local_path_nuts <- "./data/NUTS.shp/NUTS_RG_20M_2021_3035.shp"
 local_path_environmental <- "./data/environmental/environmental_attitudes.dta"
 local_path_dominican <- "./data/houses/mps_dominican_1216_1500.csv"
+local_path_franciscan_date <- "./data/houses/novel_franciscan_1300_nuts.xlsx"
 local_path_franciscan <- "./data/houses/mps_franciscan_1300.csv"
 
 if (!dir.exists('./data/hyde')) {
@@ -28,6 +29,7 @@ mapEurope <- st_read(local_path_nuts)
 dataEnvironmental <- read_dta(local_path_environmental) %>% zap_labels()
 dataDominican <- read_csv(local_path_dominican, show_col_types = FALSE)
 dataFranciscan <- read_csv(local_path_franciscan, show_col_types = FALSE)
+dataFranciscan_date <- read_xlsx(local_path_franciscan_date, sheet = "Franciscans")
 
 if (file.exists(local_path_hyde)) {
   message("Loading HYDE...")
