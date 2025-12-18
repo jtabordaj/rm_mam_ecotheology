@@ -17,9 +17,10 @@ mapEurope <- st_make_valid(mapEurope)
 # plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
-# Join additional data on time of Franciscan monasteries
-dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery = str_to_title(monastery))
-dataFranciscan_date <- dataFranciscan_date %>% select(monastery, lat, lon, start, end)
+# Join additional data on time of Franciscan monasteries, is a one time procedure so it is written here
+dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
+dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, start, end)
+dataFranciscan <- left_join(dataFranciscan, dataFranciscan_date, by = "monastery_name")
 
 enrich_monastery_data(dataFranciscan)
 enrich_monastery_data(dataDominican)
