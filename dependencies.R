@@ -12,7 +12,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 online_path_hyde <- "https://geo.public.data.uu.nl/vault-hyde/HYDE%203.3%5B1710493486%5D/original/hyde33_c7_base_mrt2023/NetCDF/population.nc"
 local_path_hyde <- "./data/hyde/hyde_grid.nc"
 local_path_nuts <- "./data/NUTS.shp/NUTS_RG_20M_2021_3035.shp"
-local_path_environmental <- "./data/environmental/environmental_attitudes.csv"
+local_path_environmental <- "./data/environmental/environmental_attitudes.dta"
 local_path_dominican <- "./data/houses/mps_dominican_1216_1500.csv"
 local_path_franciscan <- "./data/houses/mps_franciscan_1300.csv"
 
@@ -25,7 +25,7 @@ if (!dir.exists('./data/hyde')) {
 
 # Read
 mapEurope <- st_read(local_path_nuts)
-dataEnvironmental <- read_csv(local_path_environmental, show_col_types = FALSE)
+dataEnvironmental <- read_dta(local_path_environmental) %>% zap_labels()
 dataDominican <- read_csv(local_path_dominican, show_col_types = FALSE)
 dataFranciscan <- read_csv(local_path_franciscan, show_col_types = FALSE)
 

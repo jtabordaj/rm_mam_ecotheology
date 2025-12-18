@@ -2,16 +2,18 @@ source('./dependencies.R')
 
 ## 1. To clean Europe's map
 # We remove islands and overseas territories, such as Iceland, French peripherals, Azores, Madeira, Canary Islands.
-# NUTS 2 specificity
+# NUTS 1 specificity
 overseasTerritories <- c("^FRY", "^PT2", "^PT3", "^ES7", "^IS") # Umbrella term for anything not close to mainland Europe + Britain
 filterStatement <- paste(overseasTerritories, collapse = "|")
 mapEurope <- mapEurope %>% filter(!str_detect(NUTS_ID, filterStatement))
-mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(2))
+mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(1))
 
 # We also zoom-in the map in Europe, latitudinal/longitudinal coordinates are handcrafted based on the project data
 mapEurope <- st_transform(mapEurope, standardCRS)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
+
+plot(st_geometry(mapEurope))
 
 # Save nuts2 plot to "figures" folder
 png(filename = "figures/nuts2.png", width = 1200, height = 1200, res = 150)
@@ -28,9 +30,9 @@ enrich_monastery_data(dataDominican)
 dataEnvironmental <- dataEnvironmental %>% select(
     studyno, doi, studynoc, id_cocas, caseno, year, country, c_abrv, cntry_y, 
     v13, v129, v199, v200, v201, v202, v203, v204,
-    v275b_N2, v275c_N2
+    v275b_N1, v275c_N1
 )
-names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N2"] <- "NUTS_ID"
+names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
 
 dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
