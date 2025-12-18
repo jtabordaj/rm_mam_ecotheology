@@ -78,7 +78,6 @@ p_exposure <- ggplot(dataFranciscan_complete) +
 
 print(p_exposure)
 
-
 ########################################################
 # 3. Environmental attitudes (Standard Join)
 ########################################################

@@ -20,7 +20,7 @@ mapEurope <- st_make_valid(mapEurope)
 # Join additional data on time of Franciscan monasteries, is a one time procedure so it is written here
 dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
 dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, start, end)
-dataFranciscan <- left_join(dataFranciscan, dataFranciscan_date, by = "monastery_name")
+dataFranciscan <- left_join(dataFranciscan, dataFranciscan_date, by = "monastery_name", relationship = "many-to-many")
 
 enrich_monastery_data(dataFranciscan)
 enrich_monastery_data(dataDominican)
