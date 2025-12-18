@@ -117,6 +117,8 @@ check_write_hyde_data <- function(filePath, order, variable){
     message(paste("File ", filePath, " does not exist, creating...", sep = ""))
     enriched_data <- enrich_hyde_with_monasteries(order, dataHYDE, variable, mapEurope, 25000)
     write_rds(enriched_data, filePath)
+    objName <- gsub(".rds", "", basename(filePath))
+    assign(objName, enriched_data, envir = .GlobalEnv)
     message("...SUCCESS")
   } 
 }
