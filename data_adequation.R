@@ -17,13 +17,8 @@ mapEurope <- st_make_valid(mapEurope)
 # plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
-# Join additional data on time of Franciscan monasteries, is a one time procedure so it is written here
-dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
-dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, start, end)
-dataFranciscan <- left_join(dataFranciscan, dataFranciscan_date, by = "monastery_name", relationship = "many-to-many")
-
-enrich_monastery_data(dataFranciscan)
-enrich_monastery_data(dataDominican)
+map_monasteries(dataFranciscan)
+map_monasteries(dataDominican)
 
 ## 3. To enrich NUTS data with environmental attitudes
 dataEnvironmental <- dataEnvironmental %>% select(
@@ -48,6 +43,18 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 # Pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
 
 # For Population
-
 check_write_hyde_data("./output/dataFranciscan_complete.rds", dataFranciscan, dataPopulation)
 check_write_hyde_data("./output/dataDominican_complete.rds", dataDominican, dataPopulation)
+
+## 6. Adding external information on foundation/building date to the complete dataset.
+dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
+dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+
+dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, lat, lon, start, end)
+dataFranciscan_date$lat <- as.numeric(dataFranciscan_date$lat)
+dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
+dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
+
+dataFranciscan_complete <- st_join(dataFranciscan_complete, dataFranciscan_date, join = st_intersects)
+dataDominican_complete <- st_join(dataDominican_complete, dataDominican_date, join = st_intersects)

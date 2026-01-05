@@ -50,7 +50,7 @@ if (file.exists(local_path_hyde)) {
 standardCRS <- crs(dataHYDE)
 
 # Functions
-enrich_monastery_data <- function(dataset){
+map_monasteries <- function(dataset){
   # Receives houses dataset and returns a dataset with house data on NUTS regions to the global environment.
   target <- dataset
   target <- target %>% st_as_sf(coords = c("lon", "lat"), crs = 4326, remove = FALSE)
