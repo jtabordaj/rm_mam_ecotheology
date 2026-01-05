@@ -51,6 +51,7 @@ standardCRS <- crs(dataHYDE)
 
 # Functions
 enrich_monastery_data <- function(dataset){
+  # Receives houses dataset and returns a dataset with house data on NUTS regions to the global environment.
   target <- dataset
   target <- target %>% st_as_sf(coords = c("lon", "lat"), crs = 4326, remove = FALSE)
   join <- st_join(target, mapEurope, join = st_intersects)
@@ -64,6 +65,7 @@ enrich_monastery_data <- function(dataset){
 }
 
 coerceNAPoints <- function(dataset){
+  # Receives a dataset with NUTS_ID and coerces points not in the map to the nearest NUTS region.
   missingPoints <- dataset %>% filter(is.na(NUTS_ID))
   nearestRegion <- st_nearest_feature(missingPoints, mapEurope)
   completedData <- missingPoints %>% mutate (
@@ -108,6 +110,7 @@ enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, euro
 
 
 check_write_hyde_data <- function(filePath, order, variable){
+  # Checks if we have a fully enriched hyde data saved to the local folder, loads it if true, creates it if false.
   if(file.exists(filePath)){
     message(paste("File ", filePath, " already exists, reading from disk", sep = ""))
     diskRead <- read_rds(filePath)
