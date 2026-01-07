@@ -43,10 +43,11 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 # Pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
 
 # For Population
-check_write_hyde_data("./output/dataFranciscan_complete.rds", dataFranciscan, dataPopulation)
-check_write_hyde_data("./output/dataDominican_complete.rds", dataDominican, dataPopulation)
+check_create_hyde_data("./output/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation)
+check_create_hyde_data("./output/dataDominican_popExposure.rds", dataDominican, dataPopulation)
 
-## 6. Adding external information on foundation/building date to the complete dataset.
+## 6. Adding information on foundation/building date to the complete dataset.
+# First we modify the objects directly
 dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
 dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
 
@@ -56,5 +57,14 @@ dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
 dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
 dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
 
-dataFranciscan_complete <- st_join(dataFranciscan_complete, dataFranciscan_date, join = st_intersects)
-dataDominican_complete <- st_join(dataDominican_complete, dataDominican_date, join = st_intersects)
+# Now we append this information on dates to the dataset
+
+# For population
+dataFranciscan_popExposure <- st_join(dataFranciscan_popExposure, dataFranciscan_date, join = st_intersects)
+dataDominican_popExposure <- st_join(dataDominican_popExposure, dataDominican_date, join = st_intersects)
+
+## Write the final dataset
+
+# For population
+write_rds(dataDominican_popExposure, "./output/dataDominican_popExposure.rds")
+write_rds(dataFranciscan_popExposure, "./output/dataFranciscan_popExposure.rds")
