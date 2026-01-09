@@ -1,4 +1,4 @@
-source('./dependencies.R')
+source('./code/00_dependencies.R')
 
 ## 1. To clean Europe's map
 # We decide to remove islands and overseas territories such as Iceland, French peripherals, Azores, Madeira, Canary Islands.
