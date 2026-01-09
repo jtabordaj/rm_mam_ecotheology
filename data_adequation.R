@@ -46,25 +46,18 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 check_create_hyde_data("./output/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation)
 check_create_hyde_data("./output/dataDominican_popExposure.rds", dataDominican, dataPopulation)
 
-## 6. Adding information on foundation/building date to the complete dataset.
-# First we modify the objects directly
-dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
-dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+## 6. Adding information on foundation/building date to the complete dataset. ONLY NECESSARY IF IT IS NOT CACHED
+# dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
+# dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
 
-dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, lat, lon, start, end)
-dataFranciscan_date$lat <- as.numeric(dataFranciscan_date$lat)
-dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
-dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
-dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
+# dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, lat, lon, start, end)
+# dataFranciscan_date$lat <- as.numeric(dataFranciscan_date$lat)
+# dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
+# dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+# dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
 
-# Now we append this information on dates to the dataset
+# dataFranciscan_popExposure <- st_join(dataFranciscan_popExposure, dataFranciscan_date, join = st_intersects)
+# dataDominican_popExposure <- st_join(dataDominican_popExposure, dataDominican_date, join = st_intersects)
 
-# For population
-dataFranciscan_popExposure <- st_join(dataFranciscan_popExposure, dataFranciscan_date, join = st_intersects)
-dataDominican_popExposure <- st_join(dataDominican_popExposure, dataDominican_date, join = st_intersects)
-
-## Write the final dataset
-
-# For population
-write_rds(dataDominican_popExposure, "./output/dataDominican_popExposure.rds")
-write_rds(dataFranciscan_popExposure, "./output/dataFranciscan_popExposure.rds")
+# write_rds(dataDominican_popExposure, "./output/dataDominican_popExposure.rds")
+# write_rds(dataFranciscan_popExposure, "./output/dataFranciscan_popExposure.rds")

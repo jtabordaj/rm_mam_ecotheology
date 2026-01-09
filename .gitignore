@@ -1,5 +1,6 @@
 # Own needs
 /data/hyde
+/cache
 
 # History files
 .Rhistory
