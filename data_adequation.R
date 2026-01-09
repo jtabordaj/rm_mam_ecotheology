@@ -41,23 +41,24 @@ dataPopulation <- cbind(mapEurope, dataPopulation)
 
 ## 5. Enriching HYDE data
 # Pixel value = distance to nearest point (in meters). Note: Distance is geodetic (meters).
+# First prepare monastery dates before joining them
+dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
+dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+
+dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, lat, lon, start, end)
+dataFranciscan_date$lat <- as.numeric(dataFranciscan_date$lat)
+dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
+dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
+dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
 
 # For Population
-check_create_hyde_data("./output/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation)
-check_create_hyde_data("./output/dataDominican_popExposure.rds", dataDominican, dataPopulation)
+check_create_hyde_data("./cache/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation, dataFranciscan_date)
+check_create_hyde_data("./cache/dataDominican_popExposure.rds", dataDominican, dataPopulation, dataDominican_date)
 
-## 6. Adding information on foundation/building date to the complete dataset. ONLY NECESSARY IF IT IS NOT CACHED
-# dataDominican_date <- dataDominican %>% select(name, founded, lat, lon, start_century)
-# dataDominican_date <- dataDominican_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
-
-# dataFranciscan_date <- dataFranciscan_date %>% select(monastery_name, lat, lon, start, end)
-# dataFranciscan_date$lat <- as.numeric(dataFranciscan_date$lat)
-# dataFranciscan_date$lon <- as.numeric(dataFranciscan_date$lon)
-# dataFranciscan_date <- dataFranciscan_date %>% st_as_sf(coords = c("lon", "lat"), crs = standardCRS)
-# dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_title(monastery_name))
+# ## 6. Adding information on foundation/building date to the complete dataset. ONLY NECESSARY IF IT IS NOT CACHED
 
 # dataFranciscan_popExposure <- st_join(dataFranciscan_popExposure, dataFranciscan_date, join = st_intersects)
 # dataDominican_popExposure <- st_join(dataDominican_popExposure, dataDominican_date, join = st_intersects)
 
-# write_rds(dataDominican_popExposure, "./output/dataDominican_popExposure.rds")
-# write_rds(dataFranciscan_popExposure, "./output/dataFranciscan_popExposure.rds")
+# write_rds(dataDominican_popExposure, "./cache/dataDominican_popExposure.rds")
+# write_rds(dataFranciscan_popExposure, "./cache/dataFranciscan_popExposure.rds")

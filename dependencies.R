@@ -24,6 +24,13 @@ if (!dir.exists('./data/hyde')) {
   message("HYDE Folder exists")
 }
 
+if (!dir.exists("./cache")) {
+  dir.create("./cache")
+  message("Cache folder did not exist and was created successfully!")
+} else {
+  message("Cache folder already exists.")
+}
+
 # Read
 mapEurope <- st_read(local_path_nuts)
 dataEnvironmental <- read_dta(local_path_environmental) %>% zap_labels()
@@ -114,7 +121,7 @@ enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, euro
 }
 
 
-check_create_hyde_data <- function(filePath, order, variable){
+check_create_hyde_data <- function(filePath, order, variable, foundationDates){
   # Checks if we have a complete dataset for a variable saved to the local folder, loads it if true, creates it if false.
   if(file.exists(filePath)){
     objName <- gsub(".rds", "", basename(filePath))
@@ -125,7 +132,9 @@ check_create_hyde_data <- function(filePath, order, variable){
     objName <- gsub(".rds", "", basename(filePath))
     message(paste("Object ", objName, " does not exist, creating...", sep = ""))
     enriched_data <- enrich_hyde_with_monasteries(order, dataHYDE, variable, mapEurope, 25000)
-    assign(objName, enriched_data, envir = .GlobalEnv)
+    enriched_data_with_date <- st_join(enriched_data, foundationDates, join = st_intersects)
+    assign(objName, enriched_data_with_date, envir = .GlobalEnv)
+    write_rds(enriched_data_with_date, filePath)
     message("...SUCCESS")
   } 
 }
