@@ -1,4 +1,4 @@
-source('./data_adequation.R')
+source('./code/01_data_adequation.R')
 
 # Preamble: Save Europe Map
 png(filename = "figures/nuts2.png", width = 1200, height = 1200, res = 150)
