@@ -23,11 +23,17 @@ map_monasteries(dataDominican)
 ## 3. To enrich NUTS data with environmental attitudes
 dataEnvironmental <- dataEnvironmental %>% select(
     studyno, doi, studynoc, id_cocas, caseno, year, country, c_abrv, cntry_y, 
-    v13, v129, v199, v200, v201, v202, v203, v204,
-    v275b_N1, v275c_N1
-)
-names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
+    v199, v204, v275b_N1, v275c_N1
+) 
 
+dataEnvironmental <- dataEnvironmental %>%
+  mutate(
+    envir_econ_priority = ifelse(v199 %in% c(1, 2), v199, NA), # v199: Growth vs Protection priorities
+    envir_protection_money = ifelse(v204 > 0, v204, NA) # v204: Give income to environmental causes
+  ) %>%
+  na.omit()
+
+names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
 dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
 ## 4. Working with HYDE data (3.3 Version, Baseline)
@@ -54,11 +60,3 @@ dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_ti
 # For Population
 check_create_hyde_data("./cache/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation, dataFranciscan_date)
 check_create_hyde_data("./cache/dataDominican_popExposure.rds", dataDominican, dataPopulation, dataDominican_date)
-
-# ## 6. Adding information on foundation/building date to the complete dataset. ONLY NECESSARY IF IT IS NOT CACHED
-
-# dataFranciscan_popExposure <- st_join(dataFranciscan_popExposure, dataFranciscan_date, join = st_intersects)
-# dataDominican_popExposure <- st_join(dataDominican_popExposure, dataDominican_date, join = st_intersects)
-
-# write_rds(dataDominican_popExposure, "./cache/dataDominican_popExposure.rds")
-# write_rds(dataFranciscan_popExposure, "./cache/dataFranciscan_popExposure.rds")
