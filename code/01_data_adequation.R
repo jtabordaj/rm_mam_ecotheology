@@ -23,14 +23,18 @@ map_monasteries(dataDominican)
 ## 3. To enrich NUTS data with environmental attitudes
 dataEnvironmental <- dataEnvironmental %>% select(
     studyno, doi, studynoc, id_cocas, caseno, year, country, c_abrv, cntry_y, 
-    v199, v204, v275b_N1, v275c_N1
+    v13, v129, v199, v200, v201, v202, v203, v204, v275b_N1, v275c_N1
 ) 
 names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
 
-dataEnvironmental <- dataEnvironmental %>%
-    mutate(
-        envir_econ_priority = ifelse(v199 %in% c(1, 2), v199, NA), # v199: Growth vs Protection priorities. 1: Envir, 2: Economy
-        envir_protection_money = ifelse(v204 > 0, v204, NA) # v204: Give income to environmental causes. Lower: More Pro-Environment
+dataEnvironmental <- dataEnvironmental %>% 
+    mutate( # Mutate Idea: Values further away from 1 indicate less pro-environmental attitudes
+        envir_econ_priority = ifelse(v199 %in% c(1, 2), v199, NA), # v199: Growth vs Protection priorities.
+        envir_protection_money = ifelse(v204 > 0, v204, NA), # v204: Give income to environmental causes.
+        envir_efforts_pointless = 6 - v200, # v200: Too difficult for someone like me to do much about the environment. REVERSED DIRECTION
+        envir_other_importances = 6 - v201, # v201: There are more important things to do in life than protect the environment
+        envir_network_effect = 6 - v202, # v202: No point in doing what I can for the environment unless others do the same
+        envir_threats_exaggerated = 6 - v203, # v203: Many of the claims about environmental threats are exaggerated.
     ) %>% 
     na.omit()
 #
@@ -40,10 +44,13 @@ dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
 dataEnvironmental <- dataEnvironmental %>% select(
     country, c_abrv, cntry_y, NUTS_ID, 
-    envir_econ_priority, envir_protection_money, 
+    envir_econ_priority, envir_protection_money, envir_efforts_pointless, envir_other_importances, envir_network_effect, envir_threats_exaggerated
     LEVL_CODE, NAME_LATN, NUTS_NAME, geometry
     )
 #
+
+
+
 
 ## 4. Working with HYDE data (3.3 Version, Baseline)
 dataHYDE <- dataHYDE[[21:28]] # population_21 = 1000 CE, scales century-wise until population_28 = 1700
