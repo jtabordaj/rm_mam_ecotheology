@@ -13,7 +13,6 @@ mapEurope <- mapEurope %>% filter(LEVL_CODE %in% c(1)) # Switch for NUTS specifi
 mapEurope <- st_transform(mapEurope, standardCRS)
 mapEurope <- st_crop(mapEurope, xmin = -10, xmax = 45, ymin = 0, ymax = 69) 
 mapEurope <- st_make_valid(mapEurope)
-
 # plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
@@ -23,12 +22,13 @@ map_monasteries(dataDominican)
 ## 3. To enrich NUTS data with environmental attitudes
 dataEnvironmental <- dataEnvironmental %>% select(
     studyno, doi, studynoc, id_cocas, caseno, year, country, c_abrv, cntry_y, 
-    v13, v129, v199, v200, v201, v202, v203, v204, v275b_N1, v275c_N1
+    v129, v199, v200, v201, v202, v203, v204, v275b_N1, v275c_N1
 ) 
 names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
 
 dataEnvironmental <- dataEnvironmental %>% 
     mutate( # Mutate Idea: Values further away from 1 indicate less pro-environmental attitudes
+        envir_orgs_confidence =  ifelse(v129 %in% c(1, 2, 3, 4), v129, NA), # v129: How much confidence you have in environmental orgs.
         envir_econ_priority = ifelse(v199 %in% c(1, 2), v199, NA), # v199: Growth vs Protection priorities.
         envir_protection_money = ifelse(v204 > 0, v204, NA), # v204: Give income to environmental causes.
         envir_efforts_pointless = 6 - v200, # v200: Too difficult for someone like me to do much about the environment. REVERSED DIRECTION
@@ -39,18 +39,15 @@ dataEnvironmental <- dataEnvironmental %>%
     na.omit()
 #
 
-
 dataEnvironmental <- left_join(dataEnvironmental, mapEurope, by = "NUTS_ID")
 
 dataEnvironmental <- dataEnvironmental %>% select(
     country, c_abrv, cntry_y, NUTS_ID, 
-    envir_econ_priority, envir_protection_money, envir_efforts_pointless, envir_other_importances, envir_network_effect, envir_threats_exaggerated
+    envir_econ_priority, envir_efforts_pointless, envir_other_importances, 
+    envir_network_effect, envir_threats_exaggerated, envir_protection_money,
     LEVL_CODE, NAME_LATN, NUTS_NAME, geometry
     )
 #
-
-
-
 
 ## 4. Working with HYDE data (3.3 Version, Baseline)
 dataHYDE <- dataHYDE[[21:28]] # population_21 = 1000 CE, scales century-wise until population_28 = 1700

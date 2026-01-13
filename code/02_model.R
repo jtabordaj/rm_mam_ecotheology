@@ -14,4 +14,8 @@ dataEnvironmental$env_index_scaled <- rescale(
   dataEnvironmental$env_index, 
   to = c(0, 1) 
 )
+
 summary(dataEnvironmental$env_index_scaled)
+# [0,1] where  0 approaches high environmental attitude, and 1 approaches less environmental attitude.
+
+
