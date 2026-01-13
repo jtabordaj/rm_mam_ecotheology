@@ -31,10 +31,10 @@ dataEnvironmental <- dataEnvironmental %>%
         envir_orgs_confidence =  ifelse(v129 %in% c(1, 2, 3, 4), v129, NA), # v129: How much confidence you have in environmental orgs.
         envir_econ_priority = ifelse(v199 %in% c(1, 2), v199, NA), # v199: Growth vs Protection priorities.
         envir_protection_money = ifelse(v204 > 0, v204, NA), # v204: Give income to environmental causes.
-        envir_efforts_pointless = 6 - v200, # v200: Too difficult for someone like me to do much about the environment. REVERSED DIRECTION
-        envir_other_importances = 6 - v201, # v201: There are more important things to do in life than protect the environment
-        envir_network_effect = 6 - v202, # v202: No point in doing what I can for the environment unless others do the same
-        envir_threats_exaggerated = 6 - v203, # v203: Many of the claims about environmental threats are exaggerated.
+        envir_efforts_pointless = ifelse(v200 %in% c(1, 2, 3 , 4 , 5), 6 - v200, NA), # v200: Too difficult for someone like me to do much about the environment. REVERSED DIRECTION
+        envir_other_importances = ifelse(v201 %in% c(1, 2, 3 , 4, 5), 6 - v201, NA), # v201: There are more important things to do in life than protect the environment
+        envir_network_effect = ifelse(v202 %in% c(1, 2, 3, 4, 5), 6 - v202, NA), # v202: No point in doing what I can for the environment unless others do the same
+        envir_threats_exaggerated = ifelse(v203 %in% c(1, 2, 3, 4, 5), 6 - v203, NA) # v203: Many of the claims about environmental threats are exaggerated.
     ) %>% 
     na.omit()
 #
