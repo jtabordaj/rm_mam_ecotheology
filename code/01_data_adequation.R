@@ -29,8 +29,8 @@ names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
 dataEnvironmental <- dataEnvironmental %>% 
     mutate( # Mutate Idea: Values further away from 1 indicate less pro-environmental attitudes
         envir_orgs_confidence =  ifelse(v129 %in% c(1, 2, 3, 4), v129, NA), # v129: How much confidence you have in environmental orgs.
-        envir_econ_priority = ifelse(v204 %in% c(1, 2), v204, NA),, # v204: Growth vs Protection priorities.
-        envir_protection_money = ifelse(v199 > 0, v199, NA),, # v199: Give income to environmental causes.
+        envir_econ_priority = ifelse(v204 %in% c(1, 2), v204, NA), # v204: Growth vs Protection priorities.
+        envir_protection_money = ifelse(v199 > 0, v199, NA), # v199: Give income to environmental causes.
         envir_efforts_pointless = ifelse(v200 %in% c(1, 2, 3 , 4 , 5), 6 - v200, NA), # v200: Too difficult for someone like me to do much about the environment. REVERSED DIRECTION
         envir_other_importances = ifelse(v201 %in% c(1, 2, 3 , 4, 5), 6 - v201, NA), # v201: There are more important things to do in life than protect the environment
         envir_network_effect = ifelse(v202 %in% c(1, 2, 3, 4, 5), 6 - v202, NA), # v202: No point in doing what I can for the environment unless others do the same
