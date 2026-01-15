@@ -1,17 +1,7 @@
-# Libraries
-library(sf)
-library(dplyr)
-library(ggplot2)
-library(tidyr)
-library(terra)
-
-# 1. Load Data Check
 if(!exists("mapEurope") || !exists("dataEnvironmental")) {
-  stop("Please run '01_data_adequation.R' and '02_model.R' first!")
+  message("Please run '02_model.R' first!")
+  source('./code/02_model.R')
 }
-
-# Ensure map ID is character for clean joining
-mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
 
 ########################################################
 # 1. Monasteries Map (Franciscan & Dominican)
@@ -122,9 +112,6 @@ if(file.exists(exposure_file)) {
   p_franciscan_exposure <- NULL
 }
 
-# Save Plot 4
-ggsave("figures/04_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
-
 ########################################################
 # 5. Environmental Questions (Faceted)
 ########################################################
@@ -220,15 +207,12 @@ p_env_index <- ggplot(env_index_sf) +
     subtitle = "Regional Averages: Dark Green = Pro-Env, Orange = Anti-Env"
   ) +
   theme_minimal() +
-  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
-
-# Save Plot 6
-ggsave("figures/06_env_index.png", p_env_index, width = 8, height = 8, bg = "white")
+  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank()
+)
 
 ########################################################
 # Save All Plots
 ########################################################
-if(!dir.exists("figures")) dir.create("figures")
 
 ggsave("figures/01_monasteries_map.png", p_monasteries, width = 10, height = 8, bg = "white")
 ggsave("figures/02_hyde_grid.png", p_hyde_grid, width = 10, height = 10, bg = "white")
@@ -241,4 +225,4 @@ if(!is.null(p_franciscan_exposure)) {
 ggsave("figures/05_env_questions.png", p_env_questions, width = 12, height = 10, bg = "white")
 ggsave("figures/06_env_index.png", p_env_index, width = 8, height = 8, bg = "white")
 
-print("All plots generated and saved successfully!")
+message("All plots generated and saved successfully!")

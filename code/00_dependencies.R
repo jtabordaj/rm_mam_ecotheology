@@ -17,6 +17,13 @@ local_path_dominican <- "./data/houses/mps_dominican_1216_1500.csv"
 local_path_franciscan_date <- "./data/houses/novel_franciscan_1300_nuts.xlsx"
 local_path_franciscan <- "./data/houses/mps_franciscan_1300.csv"
 
+if(!dir.exists("./figures")){
+  dir.create("./figures")
+  message("Figures Folder created")
+} else {
+    message("Figures Folder exists")
+  }
+
 if (!dir.exists('./data/hyde')) {
   dir.create('./data/hyde', recursive = TRUE)
   message("HYDE Folder created")
@@ -26,9 +33,9 @@ if (!dir.exists('./data/hyde')) {
 
 if (!dir.exists("./cache")) {
   dir.create("./cache")
-  message("Cache folder did not exist and was created successfully!")
+  message("Cache Folder created")
 } else {
-  message("Cache folder already exists.")
+  message("Cache Folder exists.")
 }
 
 # Read
@@ -83,58 +90,75 @@ coerceNAPoints <- function(dataset){
   return(dataset)
 }
 
+# Functions
+
 enrich_hyde_with_monasteries <- function(order, hyde_grid, population_data, european_map, geodeticThreshold){
   # Receives an order dataset, a HYDE grid, its population, a map and a threshold of exposure
-  # The data for mendican orders is turned into a rasterized object and constrained to the threshold we set
-  # mask() is used to filter grids with no exposure and keep those with at least one person exposed, hence maskvalues = 0
-  # extract(..., fun = sum) aggregates all the exposure grids inside NUTS regions, thus returns exposed people per region
-  # Then it loops across the exposedPopulation object, retrieves the year and returns exposed and total population organized
-  # Exposure value is simply a proportion over the total (exposedPopulation[[exposed_col]] / exposedPopulation[[total_col]])
+tryCatch({
+    # 1. Clean inputs to prevent "non-numeric argument" errors
+    # We ensure coordinates are strictly numeric before creating the vector
+    order$lat <- as.numeric(order$lat)
+    order$lon <- as.numeric(order$lon)
+    
+    # 2. Prepare Terra objects
+    rasterOrder <- terra::vect(order, geom = c("lon", "lat"), crs = standardCRS)
+    # Ensure hyde_grid is a SpatRaster (safe wrapper)
+    r_grid <- if (inherits(hyde_grid, "SpatRaster")) hyde_grid else terra::rast(hyde_grid)
+    # 3. Calculate Distance
+    # Explicitly use terra::distance to avoid namespace conflicts with raster::distance
+    distanceOrder <- terra::distance(r_grid[[1]], rasterOrder)
+    exposureOrder <- distanceOrder <= geodeticThreshold
 
-  rasterOrder <- vect(order, geom = c("lon", "lat"), crs = standardCRS)
-  distanceOrder <- distance(hyde_grid[[1]], rasterOrder)
-  exposureOrder <- distanceOrder <= geodeticThreshold
-
-  exposureGrid <- mask(hyde_grid, exposureOrder, maskvalues = 0)
-  exposedPopulation <- terra::extract(exposureGrid, european_map, fun = sum, na.rm = TRUE, ID = FALSE)
-  colnames(exposedPopulation) <- paste0(colnames(exposedPopulation), "_exposed")
-  exposedPopulation <- exposedPopulation %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
-  exposedPopulation <- cbind(population_data, exposedPopulation)
-
-  # Loop to get exposure ratios
-  pop_cols <- grep("^pop_[0-9]+$", names(exposedPopulation), value = TRUE)
-  pop_year <- gsub("pop_", "", pop_cols)
-  for (y in pop_year) {
-    total_col <- paste0("pop_", y)            
-    exposed_col <- paste0("pop_", y, "_exposed")
-    new_col <- paste0("exposure_", y)
-    if (total_col %in% names(exposedPopulation) && exposed_col %in% names(exposedPopulation)) {
-      exposedPopulation[[new_col]] <- ifelse(
+    exposureGrid <- terra::mask(r_grid, exposureOrder, maskvalues = 0)
+    exposedPopulation <- terra::extract(exposureGrid, european_map, fun = sum, na.rm = TRUE, ID = FALSE)
+    colnames(exposedPopulation) <- paste0(colnames(exposedPopulation), "_exposed")
+    exposedPopulation <- exposedPopulation %>% mutate(across(ends_with("_exposed"), ~ replace_na(., 0)))
+    exposedPopulation <- cbind(population_data, exposedPopulation)
+    
+    # 4. Loop to get exposure ratios
+    pop_cols <- grep("^pop_[0-9]+$", names(exposedPopulation), value = TRUE)
+    pop_year <- gsub("pop_", "", pop_cols)
+    for (y in pop_year) {
+      total_col <- paste0("pop_", y)            
+      exposed_col <- paste0("pop_", y, "_exposed")
+      new_col <- paste0("exposure_", y)
+      if (total_col %in% names(exposedPopulation) && exposed_col %in% names(exposedPopulation)) {
+        exposedPopulation[[new_col]] <- ifelse(
           exposedPopulation[[total_col]] == 0, 
           0, 
           exposedPopulation[[exposed_col]] / exposedPopulation[[total_col]]
-      )
+        )
+      }
     }
-  }
-  assign(paste(deparse(substitute(order)), "_complete", sep = ""), exposedPopulation, envir = .GlobalEnv)
-  return(exposedPopulation)
+    assign(paste(deparse(substitute(order)), "_complete", sep = ""), exposedPopulation, envir = .GlobalEnv)
+    return(exposedPopulation)
+  }, error = function(e) {
+    message("...FAIL in enrich_hyde_with_monasteries")
+    print(e)
+    return(NULL)
+  })
 }
-
 
 check_create_hyde_data <- function(filePath, order, variable, foundationDates){
   # Checks if we have a complete dataset for a variable saved to the local folder, loads it if true, creates it if false.
-  if(file.exists(filePath)){
+  tryCatch({
     objName <- gsub(".rds", "", basename(filePath))
-    message(paste("Object ", objName, " already exists, reading from disk ", filePath, sep = ""))
-    diskRead <- read_rds(filePath)
-    assign(objName, diskRead, envir = .GlobalEnv)
-  } else {
-    objName <- gsub(".rds", "", basename(filePath))
-    message(paste("Object ", objName, " does not exist, creating...", sep = ""))
-    enriched_data <- enrich_hyde_with_monasteries(order, dataHYDE, variable, mapEurope, 25000)
-    enriched_data_with_date <- st_join(enriched_data, foundationDates, join = st_intersects)
-    assign(objName, enriched_data_with_date, envir = .GlobalEnv)
-    write_rds(enriched_data_with_date, filePath)
-    message("...SUCCESS")
-  } 
+    if(file.exists(filePath)){
+      message(paste("Object ", objName, " already exists, reading from disk ", filePath, sep = ""))
+      diskRead <- read_rds(filePath)
+      assign(objName, diskRead, envir = .GlobalEnv)
+      message("...SUCCESS")
+    } else {
+      message(paste("Object ", objName, " does not exist, creating...", sep = ""))
+      enriched_data <- enrich_hyde_with_monasteries(order, dataHYDE, variable, mapEurope, 25000)
+      if (is.null(enriched_data)) stop("Enrichment step returned NULL.")
+      enriched_data_with_date <- st_join(enriched_data, foundationDates, join = st_intersects)
+      assign(objName, enriched_data_with_date, envir = .GlobalEnv)
+      write_rds(enriched_data_with_date, filePath)
+      message("...SUCCESS")
+    } 
+  }, error = function(e) {
+    message("...FAIL in check_create_hyde_data")
+    print(e)
+  })
 }
