@@ -15,9 +15,14 @@ mapEurope <- st_make_valid(mapEurope)
 
 # NUTS Selection
 mapEurope_N2 <- mapEurope %>% filter(LEVL_CODE %in% c(2))
-mapEurope_N1 <- mapEurope %>% filter(LEVL_CODE == %in% c(1))
+mapEurope_N1 <- mapEurope %>% filter(LEVL_CODE %in% c(1))
 
-# plot(st_geometry(mapEurope))
+# NUTS Hybrid Map. Experimental feature.
+germany_N1 <- mapEurope_N1 %>% filter(str_detect(NUTS_ID, "^DE"))
+europe_N2_no_DE <- mapEurope_N2 %>% filter(!str_detect(NUTS_ID, "^DE"))
+
+mapEurope <- bind_rows(europe_N2_no_DE, germany_N1)
+plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
 map_monasteries(dataFranciscan)
