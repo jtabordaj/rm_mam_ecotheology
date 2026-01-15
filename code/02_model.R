@@ -33,3 +33,80 @@ summary(dataEnvironmental$env_index_scaled)
 
 
 
+## 2. Regression Analysis
+
+# Ensure NAs in exposure are treated as 0 (Safety check)
+dataEnvironmental <- dataEnvironmental %>% 
+  mutate(
+    franc_exposure_1500 = replace_na(franc_exposure_1500, 0),
+    dom_exposure_1500 = replace_na(dom_exposure_1500, 0)
+  )
+
+# --- Model 1: Simple Bivariate (Franciscans Only) ---
+# Hypothesis: Higher exposure -> Lower Index (More Pro-Environment)
+model_1 <- lm(env_index_scaled ~ franc_exposure_1500, data = dataEnvironmental)
+
+message("\n==========================================")
+message(" MODEL 1: Franciscans Only")
+message("==========================================")
+print(summary(model_1))
+
+
+# --- Model 2: Franciscans vs Dominicans ---
+# Do Franciscans differ from Dominicans?
+model_2 <- lm(env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500, data = dataEnvironmental)
+
+message("\n==========================================")
+message(" MODEL 2: Franciscans vs Dominicans")
+message("==========================================")
+print(summary(model_2))
+
+
+# --- Model 3: Country Fixed Effects ---
+# Adding Country Fixed Effects (factor(c_abrv))
+model_3 <- lm(env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500 + factor(c_abrv), data = dataEnvironmental)
+
+message("\n==========================================")
+message(" MODEL 3: Fixed Effects (Hybrid Map)")
+message("==========================================")
+# Print only the main coefficients to avoid scrolling through 30 country dummies
+print(summary(model_3)$coefficients[1:3, ])
+
+
+## 3. Visualization of Results
+library(broom)
+library(dplyr)
+library(ggplot2)
+
+# Combine results into one table for plotting
+models_list <- list(
+  "1. Simple" = model_1,
+  "2. No FE" = model_2,
+  "3. With FE" = model_3
+)
+
+plot_data <- bind_rows(lapply(names(models_list), function(model_name) {
+  tidy(models_list[[model_name]], conf.int = TRUE) %>%
+    filter(term %in% c("franc_exposure_1500", "dom_exposure_1500")) %>%
+    mutate(Model = model_name)
+}))
+
+# Create the Coefficient Plot
+gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    title = "Impact of Monastic Orders on Environmental Cynicism",
+    subtitle = "Negative Coefficient = More Pro-Environmental",
+    y = "Effect Size (Std. Devs of Index)",
+    x = "Monastic Order"
+  ) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1")
+
+# Display Plot
+print(gg_coef)
+
+# Save Plot (Optional)
+ggsave("./figures/regression_results.png", plot = gg_coef, width = 8, height = 5)
