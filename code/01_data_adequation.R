@@ -22,7 +22,7 @@ germany_N1 <- mapEurope_N1 %>% filter(str_detect(NUTS_ID, "^DE"))
 europe_N2_no_DE <- mapEurope_N2 %>% filter(!str_detect(NUTS_ID, "^DE"))
 
 mapEurope <- bind_rows(europe_N2_no_DE, germany_N1)
-plot(st_geometry(mapEurope))
+# plot(st_geometry(mapEurope))
 
 ## 2. To enrich NUTS data with Monastery location
 map_monasteries(dataFranciscan)
@@ -31,9 +31,14 @@ map_monasteries(dataDominican)
 ## 3. To enrich NUTS data with environmental attitudes
 dataEnvironmental <- dataEnvironmental %>% select(
     studyno, doi, studynoc, id_cocas, caseno, year, country, c_abrv, cntry_y, 
-    v129, v199, v200, v201, v202, v203, v204, v275b_N1, v275c_N1
+    v129, v199, v200, v201, v202, v203, v204, v275b_N1, v275b_N2
 ) 
-names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N1"] <- "NUTS_ID"
+dataEnvironmental <- dataEnvironmental %>% 
+    mutate(
+        v275b_N2 = ifelse(v275b_N2 == "-4", v275b_N1, v275b_N2)
+    )
+#
+names(dataEnvironmental)[names(dataEnvironmental) == "v275b_N2"] <- "NUTS_ID"
 
 dataEnvironmental <- dataEnvironmental %>% 
     mutate( # Mutate Idea: Values further away from 1 indicate less pro-environmental attitudes
