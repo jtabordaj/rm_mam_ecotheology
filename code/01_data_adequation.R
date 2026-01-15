@@ -87,3 +87,53 @@ dataFranciscan_date <- dataFranciscan_date %>% mutate(monastery_name = str_to_ti
 # For Population
 check_create_hyde_data("./cache/dataFranciscan_popExposure.rds", dataFranciscan, dataPopulation, dataFranciscan_date)
 check_create_hyde_data("./cache/dataDominican_popExposure.rds", dataDominican, dataPopulation, dataDominican_date)
+
+
+## 6. Merge Exposure Data into Main Dataset
+
+# A. Process Franciscan Data
+franc_clean <- readRDS("./cache/dataFranciscan_popExposure.rds") %>% 
+  st_drop_geometry() %>% 
+  as_tibble() %>% 
+  select(NUTS_ID, exposure_1500) %>% 
+  rename(franc_exposure_1500 = exposure_1500) %>% 
+  distinct(NUTS_ID, .keep_all = TRUE)
+
+# B. Process Dominican Data
+dom_clean <- readRDS("./cache/dataDominican_popExposure.rds") %>% 
+  st_drop_geometry() %>% 
+  as_tibble() %>% 
+  select(NUTS_ID, exposure_1500) %>% 
+  rename(dom_exposure_1500 = exposure_1500) %>% 
+  distinct(NUTS_ID, .keep_all = TRUE)
+
+# C. Join with Environmental Data
+# We use left_join so we keep all survey respondents.
+dataEnvironmental <- dataEnvironmental %>%
+  left_join(franc_clean, by = "NUTS_ID") %>%
+  left_join(dom_clean, by = "NUTS_ID")
+
+# D. Handle Zero Exposure
+# If a region (NUTS_ID) does not appear in the monastery list, the join creates NA.
+# This implies 0 exposure (no monastery nearby).
+exposure_cols <- c("franc_exposure_1500", "dom_exposure_1500")
+
+dataEnvironmental <- dataEnvironmental %>%
+  mutate(across(all_of(exposure_cols), ~replace_na(., 0)))
+
+# E. Final Sanity Check
+# We check if we accidentally created duplicates during the join
+if(any(duplicated(dataEnvironmental$studyno))) {
+  warning("Duplicated respondents detected! Check the join logic.")
+} else {
+  message("Data Adequation Complete")
+}
+
+
+## 7. Save Final Data
+
+# Option A: Save as CSV (Best for checking in Excel)
+write_csv(dataEnvironmental, "./data/final_merged_data.csv")
+
+# Option B: Save as RDS (Best for loading back into R later)
+saveRDS(dataEnvironmental, "./data/final_merged_data.rds")
