@@ -97,7 +97,7 @@ gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, position = position_dodge(width = 0.5)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
   labs(
-    title = "Impact of Monastic Orders on Environmental Cynicism",
+    title = "Impact of Monastic Orders on Environmental Attitudes",
     subtitle = "Negative Coefficient = More Pro-Environmental",
     y = "Effect Size (Std. Devs of Index)",
     x = "Monastic Order"
