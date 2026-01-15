@@ -1,28 +1,25 @@
-source('./code/01_data_adequation.R')
+# Libraries
+library(sf)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(terra)
 
-# Preamble: Save Europe Map
-png(filename = "figures/nuts2.png", width = 1200, height = 1200, res = 150)
-plot(st_geometry(mapEurope))
-dev.off()
+# 1. Load Data Check
+if(!exists("mapEurope") || !exists("dataEnvironmental")) {
+  stop("Please run '01_data_adequation.R' and '02_model.R' first!")
+}
+
+# Ensure map ID is character for clean joining
+mapEurope <- mapEurope %>% mutate(NUTS_ID = as.character(NUTS_ID))
 
 ########################################################
-# 1. Map of Franciscan and Dominican houses
+# 1. Monasteries Map (Franciscan & Dominican)
 ########################################################
 
-# Convert coords to sf
-dataFranciscan_sf <- st_as_sf(
-  dataFranciscan,
-  coords = c("lon", "lat"),
-  crs = standardCRS
-)
+dataFranciscan_sf <- st_as_sf(dataFranciscan, coords = c("lon", "lat"), crs = st_crs(mapEurope))
+dataDominican_sf <- st_as_sf(dataDominican, coords = c("lon", "lat"), crs = st_crs(mapEurope))
 
-dataDominican_sf <- st_as_sf(
-  dataDominican,
-  coords = c("lon", "lat"),
-  crs = standardCRS
-)
-
-# Combine for plotting
 monasteries_sf <- bind_rows(
   dataFranciscan_sf %>% mutate(order = "Franciscan"),
   dataDominican_sf %>% mutate(order = "Dominican")
@@ -31,240 +28,217 @@ monasteries_sf <- bind_rows(
 p_monasteries <- ggplot() +
   geom_sf(data = mapEurope, fill = "grey96", color = "grey75", linewidth = 0.1) +
   geom_sf(data = monasteries_sf, aes(color = order), size = 0.8, alpha = 0.7) +
-  scale_color_manual(
-    values = c("Franciscan" = "#008080", "Dominican" = "#E65100"),
-    name = "Order"
-  ) +
-  labs(
-    title = "Franciscan and Dominican Houses (1300–1500)",
-    subtitle = "Locations of mendicant orders"
-  ) +
+  scale_color_manual(values = c("Franciscan" = "#008080", "Dominican" = "#E65100"), name = "Order") +
+  labs(title = "Franciscan and Dominican Houses", subtitle = "Locations of mendicant orders") +
   theme_minimal() +
-  theme(
-    legend.position = "right",
-    panel.grid = element_blank(),
-    axis.text = element_blank(),
-    axis.title = element_blank()
-  )
-
-print(p_monasteries)
-
+  theme(legend.position = "right", panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
 ########################################################
-# 2. Exposure to Franciscans (Calculated Variable)
+# 2. HYDE Population Grid (1200-1500)
 ########################################################
 
-p_exposure <- ggplot(dataFranciscan_complete) +
-  # Plot the exposure_1500 variable
-  geom_sf(aes(fill = exposure_1500), color = NA) +
-  
-  # "mako" palette gives a beautiful range of Greens/Blues/Teals
-  scale_fill_viridis_c(
-    option = "mako",
-    direction = -1,  # Darker colors = Higher exposure
-    na.value = "grey92",
-    name = "Franciscan\nExposure"
-  ) +
-  labs(
-    title = "Franciscan Exposure (1500)",
-    subtitle = "Calculated based on HYDE population density and distance"
-  ) +
-  theme_minimal() +
-  theme(
-    panel.grid = element_blank(),
-    axis.text = element_blank(),
-    axis.title = element_blank()
-  )
-
-print(p_exposure)
-
-########################################################
-# 3. Environmental attitudes (Standard Join)
-########################################################
-
-# Data Prep: Reverse coding and standardizing IDs to character
-dataEnvironmental_clean <- dataEnvironmental %>%
-  mutate(
-    v200_r = -v200,
-    v201_r = -v201,
-    v202_r = -v202,
-    v203_r = -v203,
-    NUTS_ID = as.character(NUTS_ID)
-  )
-
-# Calculate NUTS-2 Averages
-env_nuts2 <- dataEnvironmental_clean %>%
-  group_by(NUTS_ID) %>%
-  summarise(
-    env_v13  = mean(v13,  na.rm = TRUE),
-    env_v129 = mean(v129, na.rm = TRUE),
-    env_v199 = mean(v199, na.rm = TRUE),
-    env_v200 = mean(v200_r, na.rm = TRUE),
-    env_v201 = mean(v201_r, na.rm = TRUE),
-    env_v202 = mean(v202_r, na.rm = TRUE),
-    env_v203 = mean(v203_r, na.rm = TRUE),
-    env_v204 = mean(v204, na.rm = TRUE),
-    .groups = "drop"
-  )
-
-# Strict Left Join (No fallbacks)
-mapEurope_env <- left_join(mapEurope, env_nuts2, by = "NUTS_ID")
-
-# Prepare Long Format & Z-Scores
-env_long <- mapEurope_env %>%
-  select(NUTS_ID, geometry, starts_with("env_")) %>%
-  pivot_longer(
-    cols = starts_with("env_"),
-    names_to = "variable",
-    values_to = "value"
-  ) %>%
-  filter(!is.na(value)) %>%
-  # Standardize (Z-score) to fix color scaling issues
-  group_by(variable) %>%
-  mutate(z_score = as.numeric(scale(value))) %>%
-  ungroup() %>%
-  mutate(
-    variable = factor(
-      variable,
-      levels = c("env_v13", "env_v129", "env_v199", "env_v200",
-                 "env_v201", "env_v202", "env_v203", "env_v204"),
-      labels = c(
-        "Membership in orgs (Q4E)",
-        "Confidence in orgs (Q38O)",
-        "Willingness to give income (Q56A)",
-        "Env. too difficult (Q56B, rev)",
-        "Other things important (Q56C, rev)",
-        "No point acting alone (Q56D, rev)",
-        "Threats exaggerated (Q56E, rev)",
-        "Env. vs. Growth (Q57)"
-      )
-    )
-  )
-
-# Faceted Plot
-p_env_faceted <- ggplot(env_long) +
-  geom_sf(aes(fill = z_score), color = NA) +
-  scale_fill_viridis_c(
-    option = "mako",
-    direction = -1,
-    na.value = "grey90", # Missing data will be grey
-    name = "Standardized\nAttitude (Z-Score)"
-  ) +
-  facet_wrap(~ variable, ncol = 4) +
-  labs(
-    title = "Environmental Attitudes Across Europe",
-    subtitle = "Z-Scores (0 = Average). Grey areas indicate missing data or ID mismatches."
-  ) +
-  theme_minimal() +
-  theme(
-    panel.grid = element_blank(),
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    strip.text = element_text(size = 9, face = "bold"),
-    legend.position = "bottom",
-    legend.key.width = unit(2, "cm")
-  )
-
-print(p_env_faceted)
-
-########################################################
-# 4. HYDE Population Grid (1200-1500)
-########################################################
-
-# 1. Select specific years from the raster
 hyde_subset <- dataHYDE[[c("pop_1200", "pop_1300", "pop_1400", "pop_1500")]]
-
-# 2. Convert Raster to DataFrame (Pixels)
 hyde_df <- as.data.frame(hyde_subset, xy = TRUE) %>%
-  pivot_longer(
-    cols = starts_with("pop_"),
-    names_to = "year_raw",
-    values_to = "population"
-  ) %>%
-  mutate(
-    year = gsub("pop_", "", year_raw)
-  ) %>%
-  filter(!is.na(population)) %>% 
+  pivot_longer(cols = starts_with("pop_"), names_to = "year_raw", values_to = "population") %>%
+  mutate(year = gsub("pop_", "", year_raw)) %>%
   filter(population > 0)
 
-# 3. Plot Grids (Log Scale)
 p_hyde_grid <- ggplot() +
   geom_raster(data = hyde_df, aes(x = x, y = y, fill = population)) +
-  geom_sf(data = mapEurope, fill = NA, color = "white", linewidth = 0.05, alpha = 0.2) +
-  scale_fill_viridis_c(
-    option = "magma",
-    direction = 1,
-    na.value = "transparent",
-    name = "Population\n(Log Scale)",
-    trans = "pseudo_log", 
-    breaks = c(0, 100, 1000, 10000, 100000)
-  ) +
+  geom_sf(data = mapEurope, fill = NA, color = "white", linewidth = 0.05, alpha = 0.3) +
+  scale_fill_viridis_c(option = "magma", direction = 1, na.value = "transparent", name = "Pop (Log Scale)", trans = "pseudo_log", breaks = c(0, 100, 1000, 10000, 100000)) +
   facet_wrap(~ year, ncol = 2) +
-  labs(
-    title = "Population Density (HYDE 3.3)",
-    subtitle = "Grid-level estimates (85km² resolution)"
-  ) +
+  labs(title = "Population Density (HYDE 3.3)", subtitle = "Grid-level estimates (Log Scale)") +
   theme_minimal() +
-  theme(
-    panel.grid = element_blank(),
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    strip.text = element_text(size = 12, face = "bold"),
-    legend.position = "right"
-  )
-
-print(p_hyde_grid)
-
+  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
 ########################################################
-# 5. HYDE Population NUTS-2 (Aggregated)
+# 3. HYDE Population NUTS-1 (Aggregated)
 ########################################################
 
-# 1. Prepare Long Data from the dataPopulation sf object
-hyde_nuts_long <- dataPopulation %>%
-  select(NUTS_ID, geometry, pop_1200, pop_1300, pop_1400, pop_1500) %>%
-  pivot_longer(
-    cols = starts_with("pop_"),
-    names_to = "year_raw",
-    values_to = "population"
+nuts_pop_df <- dataPopulation %>%
+  as.data.frame() %>% 
+  select(-matches("geom")) %>% 
+  select(NUTS_ID, matches("pop_1[2-5]00")) %>%
+  pivot_longer(cols = -NUTS_ID, names_to = "year_raw", values_to = "population") %>%
+  mutate(year = gsub("pop_", "", year_raw))
+
+nuts_pop_sf <- left_join(mapEurope, nuts_pop_df, by = "NUTS_ID")
+
+p_hyde_nuts1 <- ggplot(nuts_pop_sf) +
+  geom_sf(aes(fill = population), color = NA) +
+  scale_fill_viridis_c(option = "magma", direction = 1, na.value = "grey90", name = "Total Pop", trans = "sqrt") +
+  facet_wrap(~ year, ncol = 2) +
+  labs(title = "Regional Population (NUTS-1)", subtitle = "Aggregated HYDE 3.3 data") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+
+########################################################
+# 4. Franciscan Exposure (1200-1500)
+########################################################
+
+exposure_file <- "./cache/dataFranciscan_popExposure.rds"
+
+if(file.exists(exposure_file)) {
+  franciscan_exp <- readRDS(exposure_file)
+  franciscan_exp$NUTS_ID <- as.character(franciscan_exp$NUTS_ID)
+
+  # 1. Clean and Pivot the Data
+  franciscan_long_df <- franciscan_exp %>%
+    as.data.frame() %>% 
+    select(-matches("geom")) %>% 
+    # Select columns starting with "exposure_" followed by the years we want
+    select(NUTS_ID, matches("exposure_1[2-5]00")) %>% 
+    pivot_longer(cols = -NUTS_ID, names_to = "year_raw", values_to = "exposure") %>%
+    mutate(year = gsub("exposure_", "", year_raw))
+  
+  # 2. Join with mapEurope
+  franciscan_sf_plot <- left_join(mapEurope, franciscan_long_df, by = "NUTS_ID") %>%
+    filter(!is.na(year))
+  
+  # 3. Plot
+  p_franciscan_exposure <- ggplot(franciscan_sf_plot) +
+    geom_sf(aes(fill = exposure), color = NA) +
+    
+    # --- UPDATED SCALE FOR 0-1 DATA ---
+    scale_fill_gradient(
+      low = "#e5f5f9",   # Lightest Green (0 / Low)
+      high = "#00441b",  # Darkest Green (1 / High)
+      na.value = "grey95",
+      name = "Exposure\nIndex (0-1)"
+      # Removed 'trans="pseudo_log"' because your data is already 0-1
+    ) +
+    # ----------------------------------
+    
+    facet_wrap(~ year, ncol = 2) +
+    labs(
+      title = "Franciscan Exposure (1200–1500)", 
+      subtitle = "Normalized Index (0 = None, 1 = High Exposure)"
+    ) +
+    theme_minimal() +
+    theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+
+} else {
+  p_franciscan_exposure <- NULL
+}
+
+# Save Plot 4
+ggsave("figures/04_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
+
+########################################################
+# 5. Environmental Questions (Faceted)
+########################################################
+
+env_vars_df <- dataEnvironmental %>%
+  as.data.frame() %>% 
+  select(-matches("geom")) %>% 
+  select(NUTS_ID, starts_with("envir_")) %>%
+  pivot_longer(cols = starts_with("envir_"), names_to = "variable", values_to = "value") %>%
+  mutate(variable = factor(variable, 
+                           labels = c(
+                             "Econ Priority (v204)", "Efforts Pointless (v200)", "Network Effect (v202)", 
+                             "Other Importances (v201)", "Protection Money (v199)", 
+                             "Threats Exaggerated (v203)"
+                           )))
+
+env_sf_plot <- left_join(mapEurope, env_vars_df, by = "NUTS_ID") %>%
+  filter(!is.na(variable))
+
+p_env_questions <- ggplot(env_sf_plot) +
+  geom_sf(aes(fill = value), color = NA) +
+  
+  # --- GREEN (Low/Pro) to ORANGE (High/Anti) ---
+  # Note: This assumes all questions are coded such that Low = Pro-Env
+  scale_fill_gradient(
+    low = "darkgreen", 
+    high = "orange", 
+    na.value = "grey90", 
+    name = "Score"
+  ) +
+  # ---------------------------------------------
+  
+  facet_wrap(~ variable, ncol = 3) +
+  labs(title = "Environmental Attitudes", subtitle = "Dark Green = Pro-Env (Low), Orange = Anti-Env (High)") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+
+########################################################
+# 6. Environmental Index (PCA Result)
+########################################################
+
+# 1. Create Regional Averages for the Map
+# We group the individual data by NUTS region to get one score per region
+region_stats <- dataEnvironmental %>%
+  st_drop_geometry() %>%
+  group_by(NUTS_ID) %>%
+  summarise(
+    avg_index = mean(env_index_scaled, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  filter(!is.na(avg_index)) # Remove regions with no data
+
+# 2. Join these averages back to the map geometry
+env_index_sf <- left_join(mapEurope, region_stats, by = "NUTS_ID")
+
+# 3. Identify Top 3 (Highest/Anti) and Bottom 3 (Lowest/Pro) REGIONS
+top_bottom_labels <- env_index_sf %>%
+  filter(!is.na(avg_index)) %>%    # Ensure we only look at valid data
+  arrange(avg_index) %>%           # Sort Low -> High
+  slice(c(1:3, (n()-2):n())) %>%   # Take 3 lowest and 3 highest regions
+  mutate(
+    label_text = sprintf("%.3f", avg_index),
+    coords = st_centroid(geometry)
   ) %>%
   mutate(
-    year = gsub("pop_", "", year_raw)
+    X = st_coordinates(coords)[,1],
+    Y = st_coordinates(coords)[,2]
   )
 
-# 2. Plot NUTS-2 Map (Sqrt Scale usually works best for regions)
-p_hyde_nuts <- ggplot(hyde_nuts_long) +
-  geom_sf(aes(fill = population), color = NA) +
-  scale_fill_viridis_c(
-    option = "magma",
-    direction = 1,
-    na.value = "grey90",
-    name = "Total\nPopulation",
-    trans = "sqrt",  # Sqrt helps smooth the gap between big regions and small ones
-    breaks = c(50000, 500000, 2000000),
-    labels = scales::comma
+# 4. Plot
+p_env_index <- ggplot(env_index_sf) +
+  geom_sf(aes(fill = avg_index), color = NA) +
+  
+  # --- LABELS LAYER ---
+  geom_text(
+    data = top_bottom_labels,
+    aes(x = X, y = Y, label = label_text),
+    color = "black",
+    fontface = "bold",
+    size = 3,
+    check_overlap = FALSE 
   ) +
-  facet_wrap(~ year, ncol = 2) +
+  # --------------------
+
+  scale_fill_gradient(
+    low = "darkgreen",   # Low Score = Pro-Env
+    high = "orange",     # High Score = Anti-Env
+    na.value = "grey90", 
+    name = "Index"
+  ) +
   labs(
-    title = "Regional Population Estimates (NUTS-2)",
-    subtitle = "Aggregated HYDE 3.3 data per region"
+    title = "Environmental Index (PCA)", 
+    subtitle = "Regional Averages: Dark Green = Pro-Env, Orange = Anti-Env"
   ) +
   theme_minimal() +
-  theme(
-    panel.grid = element_blank(),
-    axis.text = element_blank(),
-    axis.title = element_blank(),
-    strip.text = element_text(size = 12, face = "bold"),
-    legend.position = "right"
-  )
+  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
-print(p_hyde_nuts)
+# Save Plot 6
+ggsave("figures/06_env_index.png", p_env_index, width = 8, height = 8, bg = "white")
 
 ########################################################
-# 6. Save All Plots
+# Save All Plots
 ########################################################
-ggsave("figures/monasteries_map.png", p_monasteries, width = 10, height = 8, dpi = 300, bg="white")
-ggsave("figures/franciscan_exposure_1500.png", p_exposure, width = 10, height = 8, dpi = 300, bg="white")
-ggsave("figures/environmental_attitudes.png", p_env_faceted, width = 14, height = 8, dpi = 300, bg="white")
-ggsave("figures/hyde_population_grid.png", p_hyde_grid, width = 10, height = 10, dpi = 300, bg="white")
-ggsave("figures/hyde_population_nuts2.png", p_hyde_nuts, width = 10, height = 10, dpi = 300, bg="white")
+if(!dir.exists("figures")) dir.create("figures")
+
+ggsave("figures/01_monasteries_map.png", p_monasteries, width = 10, height = 8, bg = "white")
+ggsave("figures/02_hyde_grid.png", p_hyde_grid, width = 10, height = 10, bg = "white")
+ggsave("figures/03_hyde_nuts1.png", p_hyde_nuts1, width = 10, height = 10, bg = "white")
+
+if(!is.null(p_franciscan_exposure)) {
+  ggsave("figures/04_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
+}
+
+ggsave("figures/05_env_questions.png", p_env_questions, width = 12, height = 10, bg = "white")
+ggsave("figures/06_env_index.png", p_env_index, width = 8, height = 8, bg = "white")
+
+print("All plots generated and saved successfully!")
