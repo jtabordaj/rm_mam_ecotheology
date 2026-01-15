@@ -72,8 +72,26 @@ message("==========================================")
 # Print only the main coefficients to avoid scrolling through 30 country dummies
 print(summary(model_3)$coefficients[1:3, ])
 
+# --- Model 4: Full Specification (Fixed Effects + Individual Controls) ---
+# This is the most rigorous test. We check if the effect holds even when
+# accounting for Income, Education, Politics, Age, Gender, etc.
 
-## 3. Visualization of Results
+model_4 <- lm(
+  env_index_scaled ~ 
+    franc_exposure_1500 + dom_exposure_1500 +       # Main Variables
+    gender_female + age_clean + education + income_ppp + political_right + town_size + is_catholic + is_protestant + # Controls
+    factor(c_abrv),                                 # Country Fixed Effects
+  data = dataEnvironmental
+)
+
+message("\n==========================================")
+message(" MODEL 4: Full Controls + FE")
+message("==========================================")
+# We print the first 15 coefficients so you can see the Main Vars AND the key Controls
+print(summary(model_4)$coefficients[1:15, ])
+
+
+## 3. Visualization of Results (Updated for 4 Models)
 library(broom)
 library(dplyr)
 library(ggplot2)
@@ -82,7 +100,8 @@ library(ggplot2)
 models_list <- list(
   "1. Simple" = model_1,
   "2. No FE" = model_2,
-  "3. With FE" = model_3
+  "3. With FE" = model_3,
+  "4. Full Controls" = model_4
 )
 
 plot_data <- bind_rows(lapply(names(models_list), function(model_name) {
@@ -97,16 +116,17 @@ gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, position = position_dodge(width = 0.5)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
   labs(
-    title = "Impact of Monastic Orders on Environmental Attitudes",
+    title = "Impact of Monastic Orders on Environmental Cynicism",
     subtitle = "Negative Coefficient = More Pro-Environmental",
     y = "Effect Size (Std. Devs of Index)",
     x = "Monastic Order"
   ) +
   theme_minimal() +
-  scale_color_brewer(palette = "Set1")
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom")
 
 # Display Plot
 print(gg_coef)
 
-# Save Plot (Optional)
-ggsave("./figures/regression_results.png", plot = gg_coef, width = 8, height = 5)
+# Save Plot
+ggsave("./figures/regression_results_full.png", plot = gg_coef, width = 8, height = 5)
