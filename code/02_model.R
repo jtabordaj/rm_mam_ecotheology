@@ -74,9 +74,6 @@ print(summary(model_3)$coefficients[1:3, ])
 
 
 # --- Model 4: Full Specification (Fixed Effects + Individual Controls) ---
-# This is the most rigorous test. We check if the effect holds even when
-# accounting for Income, Education, Politics, Age, Gender, etc.
-
 model_4 <- lm(
   env_index_scaled ~ 
     franc_exposure_1500 + dom_exposure_1500 + 
@@ -179,3 +176,4 @@ msummary(
 )
 
 message("Success! Table saved to ./figures/regression_table_index.png")
+
