@@ -72,15 +72,19 @@ message("==========================================")
 # Print only the main coefficients to avoid scrolling through 30 country dummies
 print(summary(model_3)$coefficients[1:3, ])
 
+
 # --- Model 4: Full Specification (Fixed Effects + Individual Controls) ---
 # This is the most rigorous test. We check if the effect holds even when
 # accounting for Income, Education, Politics, Age, Gender, etc.
 
 model_4 <- lm(
   env_index_scaled ~ 
-    franc_exposure_1500 + dom_exposure_1500 +       # Main Variables
-    gender_female + age_clean + education + income_ppp + political_right + town_size + is_catholic + is_protestant + # Controls
-    factor(c_abrv),                                 # Country Fixed Effects
+    franc_exposure_1500 + dom_exposure_1500 + 
+    # The 8 Controls:
+    gender_female + age_clean + education + income_ppp + political_right + 
+    town_size + isei_status + is_catholic + is_protestant + 
+    # Country Fixed Effects:
+    factor(c_abrv), 
   data = dataEnvironmental
 )
 
@@ -88,10 +92,11 @@ message("\n==========================================")
 message(" MODEL 4: Full Controls + FE")
 message("==========================================")
 # We print the first 15 coefficients so you can see the Main Vars AND the key Controls
-print(summary(model_4)$coefficients[1:15, ])
+print(summary(model_4)$coefficients[1:16, ])
 
 
-## 3. Visualization of Results (Updated for 4 Models)
+
+## 3. Plot of estimates
 library(broom)
 library(dplyr)
 library(ggplot2)
@@ -129,4 +134,48 @@ gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
 print(gg_coef)
 
 # Save Plot
-ggsave("./figures/regression_results_full.png", plot = gg_coef, width = 8, height = 5)
+ggsave("./figures/regression_results_plot.png", plot = gg_coef, width = 8, height = 5)
+
+
+
+## 4. Regression Table
+if (!require("modelsummary")) install.packages("modelsummary")
+if (!require("gt")) install.packages("gt")
+if (!require("webshot2")) install.packages("webshot2")
+library(modelsummary)
+library(gt)
+
+# Define the list of models and their custom titles
+models_table <- list(
+  "Model 1: Franciscans Only" = model_1,
+  "Model 2: Fran vs Dom" = model_2,
+  "Model 3: Country FE" = model_3,
+  "Model 4: Full Controls + FE" = model_4
+)
+
+# Define clean names for variables
+coef_map <- c(
+  "franc_exposure_1500" = "Franciscan Exposure",
+  "dom_exposure_1500" = "Dominican Exposure",
+  "gender_female" = "Gender (Female)",
+  "age_clean" = "Age",
+  "education" = "Education Level",
+  "income_ppp" = "Income (PPP)",
+  "political_right" = "Political (Right)",
+  "town_size" = "Town Size",
+  "isei_status" = "Socio-Economic Index",
+  "is_catholic" = "Catholic",
+  "is_protestant" = "Protestant",
+  "(Intercept)" = "Intercept"
+)
+
+# Create and Save the Table
+msummary(
+  models_table,
+  coef_map = coef_map,
+  stars = c('*' = .05, '**' = .01, '***' = .001),
+  output = "./figures/regression_table_index.png",
+  title = "Regression Results: Impact of Monastic Orders on Environmental Cynicism"
+)
+
+message("Success! Table saved to ./figures/regression_table_index.png")
