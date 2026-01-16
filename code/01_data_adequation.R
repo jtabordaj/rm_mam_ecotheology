@@ -71,7 +71,7 @@ dataEnvironmental <- dataEnvironmental %>%
         political_right = ifelse(v174_LR >= 1, v174_LR, NA),
         is_catholic = ifelse(v52 == 1, 1, 0),
         is_protestant = ifelse(v52 == 2, 1, 0)
-    ) %>% 
+    )
 ## Note: na.omit() removes rows where ANY variable is NA.
 
 dataEnvironmental <- left_join(
@@ -81,7 +81,7 @@ dataEnvironmental <- left_join(
 )
 
 dataEnvironmental <- dataEnvironmental %>% select(
-    studyno, caseno, country, c_abrv, cntry_y, NUTS_ID,
+    studyno, caseno, id_cocas, country, c_abrv, cntry_y, NUTS_ID,
     envir_econ_priority, envir_efforts_pointless, envir_other_importances, 
     envir_network_effect, envir_threats_exaggerated, envir_protection_money,
     gender_female, age_clean, town_size, education, income_ppp, isei_status, 
