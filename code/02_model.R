@@ -95,47 +95,57 @@ message("==========================================")
 print(summary(model_4)$coefficients[1:16, ])
 
 
-
-## 3. Plot of estimates
+## 3. Plot of estimates (Clustered SEs)
 library(broom)
 library(dplyr)
 library(ggplot2)
+library(sandwich)
+library(lmtest)
 
-# Combine results into one table for plotting
-models_list <- list(
-  "1. Simple" = model_1,
-  "2. No FE" = model_2,
-  "3. With FE" = model_3,
-  "4. Full Controls" = model_4
-)
+# Helper function to extract clustered estimates for plotting
+get_clustered_stats <- function(model, name) {
+  # Calculate clustered SEs
+  coeftest_res <- coeftest(model, vcov = vcovCL, cluster = ~NUTS_ID)
+  
+  est <- coeftest_res[, 1]
+  se <- coeftest_res[, 2]
+  
+  data.frame(
+    term = names(est),
+    estimate = est,
+    conf.low = est - 1.96 * se,
+    conf.high = est + 1.96 * se,
+    Model = name
+  )
+}
 
-plot_data <- bind_rows(lapply(names(models_list), function(model_name) {
-  tidy(models_list[[model_name]], conf.int = TRUE) %>%
-    filter(term %in% c("franc_exposure_1500", "dom_exposure_1500")) %>%
-    mutate(Model = model_name)
-}))
+# Combine data
+plot_data <- bind_rows(
+  get_clustered_stats(model_1, "1. Simple"),
+  get_clustered_stats(model_2, "2. No FE"),
+  get_clustered_stats(model_3, "3. With FE"),
+  get_clustered_stats(model_4, "4. Full Controls")
+) %>% 
+  filter(term %in% c("franc_exposure_1500", "dom_exposure_1500"))
 
-# Create the Coefficient Plot
+# Create Plot
 gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
   geom_point(position = position_dodge(width = 0.5), size = 3) +
   geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, position = position_dodge(width = 0.5)) +
   geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
   labs(
-    title = "Impact of Monastic Orders on Environmental Cynicism",
-    subtitle = "Negative Coefficient = More Pro-Environmental",
-    y = "Effect Size (Std. Devs of Index)",
+    title = "Impact of Monastic Orders (Clustered Standard Errors)",
+    subtitle = "95% Confidence Intervals clustered by Region. Crossing 0 = Not Significant.",
+    y = "Effect Size (Std. Devs)",
     x = "Monastic Order"
   ) +
   theme_minimal() +
   scale_color_brewer(palette = "Set1") +
   theme(legend.position = "bottom")
 
-# Display Plot
+# Display and Save
 print(gg_coef)
-
-# Save Plot
 ggsave("./figures/regression_results_plot.png", plot = gg_coef, width = 8, height = 5)
-
 
 
 ## 4. Regression Table
@@ -173,9 +183,11 @@ coef_map <- c(
 msummary(
   models_table,
   coef_map = coef_map,
+  vcov = ~NUTS_ID,
   stars = c('*' = .05, '**' = .01, '***' = .001),
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE", 
   output = "./figures/regression_table_index.png",
-  title = "Regression Results: Impact of Monastic Orders on Environmental Cynicism"
+  title = "Regression Results (SE Clustered by Region)"
 )
 
 message("Success! Table saved to ./figures/regression_table_index.png")
@@ -274,10 +286,26 @@ coef_map_robust <- c(
 msummary(
   robustness_models,
   coef_map = coef_map_robust,
+  vcov = ~NUTS_ID, 
   stars = c('*' = .05, '**' = .01, '***' = .001),
   gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
   output = "./figures/individual_questions.png",
-  title = "Individual Environmental Questions"
+  title = "Individual Environmental Questions (Clustered SEs)"
 )
 
 message("Success! Full table saved to ./figures/individual_questions.png")
+
+
+
+# Check for Clustered Standard Errors
+if (!require("sandwich")) install.packages("sandwich")
+if (!require("lmtest")) install.packages("lmtest")
+
+library(sandwich)
+library(lmtest)
+
+message("--- Standard Errors (Naive) ---")
+print(coeftest(model_4)[1:3, ])
+
+message("\n--- Standard Errors (Clustered by NUTS Region) ---")
+print(coeftest(model_4, vcov = vcovCL, cluster = ~NUTS_ID)[1:3, ])
