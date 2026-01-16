@@ -1,6 +1,8 @@
 source("./code/01_data_adequation.R")
 
+##############################
 ## 1. Principal Component Analysis (PCA) to obtain the Environmental Index
+##############################
 
 pcaData <- dataEnvironmental %>% select(envir_econ_priority, envir_efforts_pointless, envir_other_importances, 
     envir_network_effect, envir_threats_exaggerated, envir_protection_money
@@ -32,8 +34,9 @@ summary(dataEnvironmental$env_index_scaled)
 
 
 
-
-## 2. Regression Analysis
+##############################
+## 2. Regression (Index)
+##############################
 
 # Ensure NAs in exposure are treated as 0 (Safety check)
 dataEnvironmental <- dataEnvironmental %>% 
@@ -177,3 +180,104 @@ msummary(
 
 message("Success! Table saved to ./figures/regression_table_index.png")
 
+
+##############################
+## Individual Questions Regressions
+##############################
+# Step A: Rescale DVs to 0-1 (0 = Pro-Environment, 1 = Anti-Environment)
+library(scales)
+
+vars_to_test <- c("envir_econ_priority", "envir_protection_money", 
+                  "envir_efforts_pointless", "envir_other_importances", 
+                  "envir_network_effect", "envir_threats_exaggerated")
+
+# Create scaled versions of the variables
+for(var in vars_to_test) {
+  new_name <- paste0(var, "_sc")
+  dataEnvironmental[[new_name]] <- rescale(dataEnvironmental[[var]], to = c(0, 1))
+}
+
+# Step B: Run the 6 Regressions (Model 4 Specification)
+
+# 1. Economy vs Environment
+m_econ <- lm(envir_econ_priority_sc ~ 
+               franc_exposure_1500 + dom_exposure_1500 + 
+               gender_female + age_clean + education + income_ppp + political_right + 
+               town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+             data = dataEnvironmental)
+
+# 2. Willingness to give Income
+m_money <- lm(envir_protection_money_sc ~ 
+                franc_exposure_1500 + dom_exposure_1500 + 
+                gender_female + age_clean + education + income_ppp + political_right + 
+                town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+              data = dataEnvironmental)
+
+# 3. Efforts are Pointless
+m_pointless <- lm(envir_efforts_pointless_sc ~ 
+                    franc_exposure_1500 + dom_exposure_1500 + 
+                    gender_female + age_clean + education + income_ppp + political_right + 
+                    town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+                  data = dataEnvironmental)
+
+# 4. Other problems more important
+m_other <- lm(envir_other_importances_sc ~ 
+                franc_exposure_1500 + dom_exposure_1500 + 
+                gender_female + age_clean + education + income_ppp + political_right + 
+                town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+              data = dataEnvironmental)
+
+# 5. No point unless others do
+m_network <- lm(envir_network_effect_sc ~ 
+                  franc_exposure_1500 + dom_exposure_1500 + 
+                  gender_female + age_clean + education + income_ppp + political_right + 
+                  town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+                data = dataEnvironmental)
+
+# 6. Threats are exaggerated
+m_threats <- lm(envir_threats_exaggerated_sc ~ 
+                  franc_exposure_1500 + dom_exposure_1500 + 
+                  gender_female + age_clean + education + income_ppp + political_right + 
+                  town_size + isei_status + is_catholic + is_protestant + factor(c_abrv), 
+                data = dataEnvironmental)
+
+
+# Step C: Export Results to Table (PNG)
+library(modelsummary)
+library(gt)
+
+robustness_models <- list(
+  "1. Econ Priority" = m_econ,
+  "2. Give Money" = m_money,
+  "3. Pointless" = m_pointless,
+  "4. Other Import." = m_other,
+  "5. Network Eff." = m_network,
+  "6. Threats Exag." = m_threats
+)
+
+# Variables
+coef_map_robust <- c(
+  "franc_exposure_1500" = "Franciscan Exposure",
+  "dom_exposure_1500" = "Dominican Exposure",
+  "gender_female" = "Gender (Female)",
+  "age_clean" = "Age",
+  "education" = "Education",
+  "income_ppp" = "Income (PPP)",
+  "isei_status" = "Socio-Economic Index",
+  "town_size" = "Town Size",
+  "political_right" = "Political Orientation (Right)",
+  "is_catholic" = "Catholic",
+  "is_protestant" = "Protestant"
+)
+
+# Create and Save the Table
+msummary(
+  robustness_models,
+  coef_map = coef_map_robust,
+  stars = c('*' = .05, '**' = .01, '***' = .001),
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  output = "./figures/individual_questions.png",
+  title = "Individual Environmental Questions"
+)
+
+message("Success! Full table saved to ./figures/individual_questions.png")
