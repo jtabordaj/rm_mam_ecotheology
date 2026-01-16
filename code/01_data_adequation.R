@@ -67,15 +67,12 @@ dataEnvironmental <- dataEnvironmental %>%
         town_size = ifelse(v276_r > 0, v276_r, NA),
         education = ifelse(v243_edulvlb >= 0, v243_edulvlb, NA),
         income_ppp = ifelse(v261_ppp >= 0, v261_ppp, NA),
-        sei_status = ifelse(v246_ISEI > 0, v246_ISEI, NA),
+        isei_status = ifelse(v246_ISEI > 0, v246_ISEI, NA),
         political_right = ifelse(v174_LR >= 1, v174_LR, NA),
         is_catholic = ifelse(v52 == 1, 1, 0),
         is_protestant = ifelse(v52 == 2, 1, 0)
     ) %>% 
-    na.omit()
-## Note: na.omit() removes rows where ANY variable is NA. 
-    # Income often has many NAs, so your sample size will drop. 
-    # If the drop is too large, remove 'income_ppp' from the select below.
+## Note: na.omit() removes rows where ANY variable is NA.
 
 dataEnvironmental <- left_join(
     dataEnvironmental, 
@@ -87,7 +84,7 @@ dataEnvironmental <- dataEnvironmental %>% select(
     studyno, caseno, country, c_abrv, cntry_y, NUTS_ID,
     envir_econ_priority, envir_efforts_pointless, envir_other_importances, 
     envir_network_effect, envir_threats_exaggerated, envir_protection_money,
-    gender_female, age_clean, town_size, education, income_ppp, sei_status, 
+    gender_female, age_clean, town_size, education, income_ppp, isei_status, 
     political_right, is_catholic, is_protestant,
     LEVL_CODE, NAME_LATN, NUTS_NAME, geometry
     )
