@@ -43,7 +43,7 @@ p_hyde_grid <- ggplot() +
   theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
 ########################################################
-# 3. HYDE Population NUTS-1 (Aggregated)
+# 3. HYDE Population NUTS2
 ########################################################
 
 nuts_pop_df <- dataPopulation %>%
@@ -59,7 +59,7 @@ p_hyde_nuts1 <- ggplot(nuts_pop_sf) +
   geom_sf(aes(fill = population), color = NA) +
   scale_fill_viridis_c(option = "magma", direction = 1, na.value = "grey90", name = "Total Pop", trans = "sqrt") +
   facet_wrap(~ year, ncol = 2) +
-  labs(title = "Regional Population (NUTS-1)", subtitle = "Aggregated HYDE 3.3 data") +
+  labs(title = "Regional Population (NUTS 2)", subtitle = "Aggregated HYDE 3.3 data") +
   theme_minimal() +
   theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
@@ -113,13 +113,16 @@ if(file.exists(exposure_file)) {
 }
 
 ########################################################
-# 5. Environmental Questions (Faceted)
+# 5. Environmental Questions
 ########################################################
 
 env_vars_df <- dataEnvironmental %>%
   as.data.frame() %>% 
   select(-matches("geom")) %>% 
+  # FIX: Select only environmental variables, but EXCLUDE the scaled ones (_sc) created in script 02
   select(NUTS_ID, starts_with("envir_")) %>%
+  select(-ends_with("_sc")) %>%
+  
   pivot_longer(cols = starts_with("envir_"), names_to = "variable", values_to = "value") %>%
   mutate(variable = factor(variable, 
                            labels = c(
@@ -135,14 +138,12 @@ p_env_questions <- ggplot(env_sf_plot) +
   geom_sf(aes(fill = value), color = NA) +
   
   # --- GREEN (Low/Pro) to ORANGE (High/Anti) ---
-  # Note: This assumes all questions are coded such that Low = Pro-Env
   scale_fill_gradient(
     low = "darkgreen", 
     high = "orange", 
     na.value = "grey90", 
     name = "Score"
   ) +
-  # ---------------------------------------------
   
   facet_wrap(~ variable, ncol = 3) +
   labs(title = "Environmental Attitudes", subtitle = "Dark Green = Pro-Env (Low), Orange = Anti-Env (High)") +
@@ -216,7 +217,7 @@ p_env_index <- ggplot(env_index_sf) +
 
 ggsave("figures/01_monasteries_map.png", p_monasteries, width = 10, height = 8, bg = "white")
 ggsave("figures/02_hyde_grid.png", p_hyde_grid, width = 10, height = 10, bg = "white")
-ggsave("figures/03_hyde_nuts1.png", p_hyde_nuts1, width = 10, height = 10, bg = "white")
+ggsave("figures/03_hyde_nuts.png", p_hyde_nuts1, width = 10, height = 10, bg = "white")
 
 if(!is.null(p_franciscan_exposure)) {
   ggsave("figures/04_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
