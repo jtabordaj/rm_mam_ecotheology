@@ -309,3 +309,133 @@ print(coeftest(model_4)[1:3, ])
 
 message("\n--- Standard Errors (Clustered by NUTS Region) ---")
 print(coeftest(model_4, vcov = vcovCL, cluster = ~NUTS_ID)[1:3, ])
+
+
+##############################
+## ROBUSTNESS CHECKS
+##############################
+library(modelsummary)
+library(sandwich)
+library(lmtest)
+library(ggplot2)
+library(dplyr)
+library(broom)
+
+# --- Check 1: Catholics Only ---
+# We filter for Catholics and remove religion controls
+data_catholic <- dataEnvironmental %>% filter(is_catholic == 1)
+
+model_catholic <- lm(
+  env_index_scaled ~ 
+    franc_exposure_1500 + dom_exposure_1500 + 
+    gender_female + age_clean + education + income_ppp + 
+    political_right + town_size + isei_status + 
+    factor(c_abrv), 
+  data = data_catholic
+)
+
+# --- Check 2: Exclude Germany ---
+# Germany had special NUTS handling, so we check if results hold without it.
+data_no_germany <- dataEnvironmental %>% filter(c_abrv != "DE")
+
+model_no_de <- lm(
+  env_index_scaled ~ 
+    franc_exposure_1500 + dom_exposure_1500 + 
+    gender_female + age_clean + education + income_ppp + 
+    political_right + town_size + isei_status + is_catholic + is_protestant +
+    factor(c_abrv), 
+  data = data_no_germany
+)
+
+# --- Export Table: Main vs Checks ---
+robustness_list <- list(
+  "Main Model (All)" = model_4,
+  "Catholics Only" = model_catholic,
+  "Exclude Germany" = model_no_de
+)
+
+msummary(
+  robustness_list,
+  coef_map = c("franc_exposure_1500" = "Franciscan Exposure",
+               "dom_exposure_1500" = "Dominican Exposure"),
+  vcov = ~NUTS_ID,
+  stars = c('*' = .05, '**' = .01, '***' = .001),
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  output = "./figures/robustness_subsamples.png",
+  title = "Robustness Checks: Subsamples"
+)
+message("Subsample table saved to ./figures/robustness_subsamples.png")
+
+
+# --- Check 3: Leave-One-Out Analysis ---
+# We run the model 30 times, dropping one country each time.
+# If the coefficient changes wildly, that country is driving the result.
+
+countries <- unique(as.character(dataEnvironmental$c_abrv))
+results_leave_one_out <- data.frame()
+
+message("Running Leave-One-Out analysis (this may take a minute)...")
+
+for(cntry in countries) {
+  # 1. Filter out the specific country
+  data_subset <- dataEnvironmental %>% filter(c_abrv != cntry)
+  
+  # 2. Run the model
+  model_temp <- lm(
+    env_index_scaled ~ 
+      franc_exposure_1500 + dom_exposure_1500 + 
+      gender_female + age_clean + education + income_ppp + 
+      political_right + town_size + isei_status + is_catholic + is_protestant + 
+      factor(c_abrv), 
+    data = data_subset
+  )
+  
+  # 3. Get Clustered SEs
+  res <- coeftest(model_temp, vcov = vcovCL, cluster = ~NUTS_ID)
+  
+  # 4. Extract Franciscan & Dominican stats
+  # We use tryCatch in case a country is too small and breaks the model
+  tryCatch({
+    franc_est <- res["franc_exposure_1500", 1]
+    franc_se  <- res["franc_exposure_1500", 2]
+    dom_est   <- res["dom_exposure_1500", 1]
+    dom_se    <- res["dom_exposure_1500", 2]
+    
+    results_leave_one_out <- rbind(results_leave_one_out, data.frame(
+      Country_Dropped = cntry,
+      Order = "Franciscan",
+      Estimate = franc_est,
+      Lower = franc_est - 1.96 * franc_se,
+      Upper = franc_est + 1.96 * franc_se
+    ))
+    
+    results_leave_one_out <- rbind(results_leave_one_out, data.frame(
+      Country_Dropped = cntry,
+      Order = "Dominican",
+      Estimate = dom_est,
+      Lower = dom_est - 1.96 * dom_se,
+      Upper = dom_est + 1.96 * dom_se
+    ))
+  }, error = function(e) { return(NULL) })
+}
+
+# --- Plot the Leave-One-Out Results ---
+gg_jack <- ggplot(results_leave_one_out, aes(x = Country_Dropped, y = Estimate)) +
+  geom_point() +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), width = 0.2) +
+  geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
+  facet_wrap(~Order, scales = "free_y", ncol = 1) +
+  labs(
+    title = "Does one country drive the results?",
+    subtitle = "Coefficients when excluding each country one-by-one (Clustered 95% CI)",
+    y = "Coefficient Estimate",
+    x = "Excluded Country"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+print(gg_jack)
+ggsave("./figures/robustness_leave_one_out_country.png", plot = gg_jack, width = 8, height = 8)
+
+message("leave_one_out plot saved to ./figures/robustness_leave_one_out_country.png")
+
