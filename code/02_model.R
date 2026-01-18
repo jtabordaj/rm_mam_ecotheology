@@ -145,7 +145,7 @@ gg_coef <- ggplot(plot_data, aes(x = term, y = estimate, color = Model)) +
 
 # Display and Save
 print(gg_coef)
-ggsave("./figures/regression_results_plot.png", plot = gg_coef, width = 8, height = 5)
+ggsave("./figures/07_regressions_plot_4_models.png", plot = gg_coef, width = 8, height = 5)
 
 
 ## 4. Regression Table
@@ -186,11 +186,11 @@ msummary(
   vcov = ~NUTS_ID,
   stars = c('*' = .05, '**' = .01, '***' = .001),
   gof_omit = "AIC|BIC|Log.Lik.|F|RMSE", 
-  output = "./figures/regression_table_index.png",
+  output = "./figures/08_regressions_table_4_models.png",
   title = "Regression Results (SE Clustered by Region)"
 )
 
-message("Success! Table saved to ./figures/regression_table_index.png")
+message("Success! Table saved to ./figures/08_regressions_table_4_models.png")
 
 
 ##############################
@@ -289,11 +289,11 @@ msummary(
   vcov = ~NUTS_ID, 
   stars = c('*' = .05, '**' = .01, '***' = .001),
   gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
-  output = "./figures/individual_questions.png",
+  output = "./figures/09_regressions_individual_questions.png",
   title = "Individual Environmental Questions (Clustered SEs)"
 )
 
-message("Success! Full table saved to ./figures/individual_questions.png")
+message("Success! Full table saved to ./figures/09_regressions_individual_questions.png")
 
 
 
@@ -361,10 +361,10 @@ msummary(
   vcov = ~NUTS_ID,
   stars = c('*' = .05, '**' = .01, '***' = .001),
   gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
-  output = "./figures/robustness_subsamples.png",
+  output = "./figures/10_robustness_subsamples.png",
   title = "Robustness Checks: Subsamples"
 )
-message("Subsample table saved to ./figures/robustness_subsamples.png")
+message("Subsample table saved to ./figures/10_robustness_subsamples.png")
 
 
 # --- Check 3: Leave-One-Out Analysis ---
@@ -435,7 +435,7 @@ gg_jack <- ggplot(results_leave_one_out, aes(x = Country_Dropped, y = Estimate))
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 print(gg_jack)
-ggsave("./figures/robustness_leave_one_out_country.png", plot = gg_jack, width = 8, height = 8)
+ggsave("./figures/11_robustness_leave_one_out.png", plot = gg_jack, width = 8, height = 8)
 
-message("leave_one_out plot saved to ./figures/robustness_leave_one_out_country.png")
+message("leave_one_out plot saved to ./figures/11_robustness_leave_one_out.png")
 
