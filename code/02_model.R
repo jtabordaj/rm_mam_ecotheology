@@ -1,8 +1,8 @@
 source("./code/01_data_adequation.R")
 
-##############################
+############################################################
 ## 1. Principal Component Analysis (PCA) to obtain the Environmental Index
-##############################
+############################################################
 
 pcaData <- dataEnvironmental %>% select(envir_econ_priority, envir_efforts_pointless, envir_other_importances, 
     envir_network_effect, envir_threats_exaggerated, envir_protection_money
@@ -34,9 +34,9 @@ summary(dataEnvironmental$env_index_scaled)
 
 
 
-##############################
-## 2. Regression (Index)
-##############################
+############################################################
+## 2. Regressions with Index
+############################################################
 
 # Ensure NAs in exposure are treated as 0 (Safety check)
 dataEnvironmental <- dataEnvironmental %>% 
@@ -193,9 +193,10 @@ msummary(
 message("Success! Table saved to ./figures/08_regressions_table_4_models.png")
 
 
-##############################
-## Individual Questions Regressions
-##############################
+############################################################
+## 3. Individual Questions Regressions
+############################################################
+
 # Step A: Rescale DVs to 0-1 (0 = Pro-Environment, 1 = Anti-Environment)
 library(scales)
 
@@ -296,8 +297,9 @@ msummary(
 message("Success! Full table saved to ./figures/09_regressions_individual_questions.png")
 
 
-
-# Check for Clustered Standard Errors
+############################################################
+# 4. Check for Clustered Standard Errors
+############################################################
 if (!require("sandwich")) install.packages("sandwich")
 if (!require("lmtest")) install.packages("lmtest")
 
@@ -311,9 +313,9 @@ message("\n--- Standard Errors (Clustered by NUTS Region) ---")
 print(coeftest(model_4, vcov = vcovCL, cluster = ~NUTS_ID)[1:3, ])
 
 
-##############################
-## ROBUSTNESS CHECKS
-##############################
+############################################################
+## 5. Robustness Checks
+############################################################
 library(modelsummary)
 library(sandwich)
 library(lmtest)
@@ -347,7 +349,7 @@ model_no_de <- lm(
   data = data_no_germany
 )
 
-# --- Export Table: Main vs Checks ---
+#Export Table: Main vs Checks
 robustness_list <- list(
   "Main Model (All)" = model_4,
   "Catholics Only" = model_catholic,
@@ -367,20 +369,30 @@ msummary(
 message("Subsample table saved to ./figures/10_robustness_subsamples.png")
 
 
-# --- Check 3: Leave-One-Out Analysis ---
-# We run the model 30 times, dropping one country each time.
-# If the coefficient changes wildly, that country is driving the result.
 
-countries <- unique(as.character(dataEnvironmental$c_abrv))
+# --- Check 3: Leave-One-Out (Map Countries Only) ---
+
+# MANUAL LIST: Matches the countries visible in your Environmental Index Map.
+# We explicitly exclude countries that are greyed out or missing from the visualization 
+# (e.g., RU, UA, AL, AM, AZ, IS, TR, etc.)
+map_visible_countries <- c(
+  "AT", "BG", "CH", "CZ", "DE", "DK", "EE", "ES", "FI", "FR", 
+  "GB", "HR", "HU", "IT", "LT", "LV", "NL", "NO", "PL", "PT", 
+  "RO", "SE", "SI", "SK"
+)
+
+message("Generating plot for the ", length(map_visible_countries), " MAP-VISIBLE countries:")
+message(paste(map_visible_countries, collapse=", "))
+
+# 2. Run the Loop
 results_leave_one_out <- data.frame()
 
-message("Running Leave-One-Out analysis (this may take a minute)...")
-
-for(cntry in countries) {
-  # 1. Filter out the specific country
+for(cntry in map_visible_countries) {
+  
+  # Filter the ORIGINAL data to remove the specific country
   data_subset <- dataEnvironmental %>% filter(c_abrv != cntry)
   
-  # 2. Run the model
+  # Run model
   model_temp <- lm(
     env_index_scaled ~ 
       franc_exposure_1500 + dom_exposure_1500 + 
@@ -390,12 +402,11 @@ for(cntry in countries) {
     data = data_subset
   )
   
-  # 3. Get Clustered SEs
-  res <- coeftest(model_temp, vcov = vcovCL, cluster = ~NUTS_ID)
-  
-  # 4. Extract Franciscan & Dominican stats
-  # We use tryCatch in case a country is too small and breaks the model
+  # Get Clustered SEs
+  # We use tryCatch to safely skip if a model fails (e.g. if a country was already dropped due to missing vars)
   tryCatch({
+    res <- coeftest(model_temp, vcov = vcovCL, cluster = ~NUTS_ID)
+    
     franc_est <- res["franc_exposure_1500", 1]
     franc_se  <- res["franc_exposure_1500", 2]
     dom_est   <- res["dom_exposure_1500", 1]
@@ -419,9 +430,9 @@ for(cntry in countries) {
   }, error = function(e) { return(NULL) })
 }
 
-# --- Plot the Leave-One-Out Results ---
+# 3. Plot
 gg_jack <- ggplot(results_leave_one_out, aes(x = Country_Dropped, y = Estimate)) +
-  geom_point() +
+  geom_point(size = 2) +
   geom_errorbar(aes(ymin = Lower, ymax = Upper), width = 0.2) +
   geom_hline(yintercept = 0, color = "red", linetype = "dashed") +
   facet_wrap(~Order, scales = "free_y", ncol = 1) +
@@ -432,10 +443,167 @@ gg_jack <- ggplot(results_leave_one_out, aes(x = Country_Dropped, y = Estimate))
     x = "Excluded Country"
   ) +
   theme_minimal() +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, face = "bold"))
 
 print(gg_jack)
 ggsave("./figures/11_robustness_leave_one_out.png", plot = gg_jack, width = 8, height = 8)
 
-message("leave_one_out plot saved to ./figures/11_robustness_leave_one_out.png")
 
+############################################################
+## 6. Sensitivity Analysis (Leave-One-Control-Out)
+############################################################
+
+library(ggplot2)
+library(dplyr)
+library(sandwich)
+library(lmtest)
+
+# 1. List of controls to test
+controls_list <- c("gender_female", "age_clean", "education", "income_ppp", 
+                   "political_right", "town_size", "isei_status", 
+                   "is_catholic", "is_protestant")
+
+# 2. Define the Base Formula (Full Model 4)
+base_formula_str <- "env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500 + gender_female + age_clean + education + income_ppp + political_right + town_size + isei_status + is_catholic + is_protestant + factor(c_abrv)"
+
+# 3. Storage for results
+results_sensitivity <- data.frame()
+
+# 4. First, calculate the "Full Model" baseline for comparison
+message("Calculating baseline (Full Model)...")
+model_full <- lm(as.formula(base_formula_str), data = dataEnvironmental)
+res_full <- coeftest(model_full, vcov = vcovCL, cluster = ~NUTS_ID)
+
+# Store Baseline
+for(ord in c("franc_exposure_1500", "dom_exposure_1500")) {
+  results_sensitivity <- rbind(results_sensitivity, data.frame(
+    Dropped_Control = "None (Full Model)",
+    Order = ifelse(grepl("franc", ord), "Franciscan", "Dominican"),
+    Estimate = res_full[ord, 1],
+    Lower = res_full[ord, 1] - 1.96 * res_full[ord, 2],
+    Upper = res_full[ord, 1] + 1.96 * res_full[ord, 2]
+  ))
+}
+
+# 5. Run the Loop: Drop one control at a time
+message("Running sensitivity loop...")
+
+for(var_to_drop in controls_list) {
+  
+  # Create a new formula by removing the variable string
+  # (We use a regex replacement to remove the variable cleanly)
+  new_formula_str <- gsub(paste0("\\+ ", var_to_drop), "", base_formula_str)
+  
+  # Run the model
+  model_temp <- lm(as.formula(new_formula_str), data = dataEnvironmental)
+  
+  # Get Clustered SEs
+  res <- coeftest(model_temp, vcov = vcovCL, cluster = ~NUTS_ID)
+  
+  # Extract Coefficients
+  franc_est <- res["franc_exposure_1500", 1]
+  franc_se  <- res["franc_exposure_1500", 2]
+  dom_est   <- res["dom_exposure_1500", 1]
+  dom_se    <- res["dom_exposure_1500", 2]
+  
+  # Append to results
+  results_sensitivity <- rbind(results_sensitivity, data.frame(
+    Dropped_Control = var_to_drop,
+    Order = "Franciscan",
+    Estimate = franc_est,
+    Lower = franc_est - 1.96 * franc_se,
+    Upper = franc_est + 1.96 * franc_se
+  ))
+  
+  results_sensitivity <- rbind(results_sensitivity, data.frame(
+    Dropped_Control = var_to_drop,
+    Order = "Dominican",
+    Estimate = dom_est,
+    Lower = dom_est - 1.96 * dom_se,
+    Upper = dom_est + 1.96 * dom_se
+  ))
+}
+
+# 6. Plotting
+# We want "None (Full Model)" to be at the top or bottom for reference
+results_sensitivity$Dropped_Control <- factor(
+  results_sensitivity$Dropped_Control, 
+  levels = c("None (Full Model)", controls_list)
+)
+
+p_sensitivity <- ggplot(results_sensitivity, aes(x = Dropped_Control, y = Estimate)) +
+  geom_point(size = 3, aes(color = (Dropped_Control == "None (Full Model)"))) +
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), width = 0.2) +
+  geom_hline(yintercept = 0, color = "black", linetype = "dashed") +
+  
+  # Add a reference line for the Full Model estimate
+  geom_hline(data = filter(results_sensitivity, Dropped_Control == "None (Full Model)"),
+             aes(yintercept = Estimate), color = "blue", linetype = "dotted", alpha = 0.6) +
+  
+  facet_wrap(~ Order, scales = "free_y", ncol = 1) +
+  scale_color_manual(values = c("black", "red"), guide = "none") +
+  labs(
+    title = "Sensitivity Analysis: Leave-One-Control-Out",
+    subtitle = "Does dropping a specific control variable change the result?",
+    y = "Coefficient Estimate (Clustered 95% CI)",
+    x = "Excluded Control Variable"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    strip.text = element_text(face = "bold", size = 11)
+  )
+
+print(p_sensitivity)
+ggsave("./figures/13_robustness_sensitivity_plot.png", p_sensitivity, width = 8, height = 8, bg = "white")
+
+message("Sensitivity plot saved to ./figures/13_robustness_sensitivity_plot.png")
+
+
+## Sensitivity table
+
+library(modelsummary)
+
+# 1. Helper Function
+simpleCap <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2), sep="", collapse=" ")
+}
+
+# 2. Initialize list with the Full Model
+models_sensitivity <- list("Full Model" = model_4)
+
+# 3. Define the list of controls to drop
+controls_list <- c("gender_female", "age_clean", "education", "income_ppp", 
+                   "political_right", "town_size", "isei_status", 
+                   "is_catholic") 
+
+# 4. Loop through controls to create the "Drop X" models
+for(var_to_drop in controls_list) {
+  
+  # Create a nice column name (e.g., "No Income Ppp")
+  col_name <- paste("No", simpleCap(gsub("_", " ", var_to_drop)))
+  
+  # Create the new formula by removing the variable
+  # We use regex to safely remove "+ variable" from the string
+  new_formula_str <- gsub(paste0("\\+ ", var_to_drop), "", base_formula_str)
+  
+  # Run the model
+  models_sensitivity[[col_name]] <- lm(as.formula(new_formula_str), data = dataEnvironmental)
+}
+
+# 5. Create the Table
+msummary(
+  models_sensitivity,
+  coef_map = c(
+    "franc_exposure_1500" = "Franciscan Exp.",
+    "dom_exposure_1500" = "Dominican Exp."
+  ),
+  vcov = ~NUTS_ID,
+  stars = c('*' = .05, '**' = .01, '***' = .001),
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  output = "./figures/12_robustness_sensitivity_table.png",
+  title = "Sensitivity Analysis: Coefficients when Dropping Controls"
+)
+
+message("Success! Sensitivity table saved to ./figures/12_robustness_sensitivity_table.png")
