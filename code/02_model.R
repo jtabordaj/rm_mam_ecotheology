@@ -564,46 +564,47 @@ message("Sensitivity plot saved to ./figures/13_robustness_sensitivity_plot.png"
 
 library(modelsummary)
 
-# 1. Helper Function
-simpleCap <- function(x) {
-  s <- strsplit(x, " ")[[1]]
-  paste(toupper(substring(s, 1,1)), substring(s, 2), sep="", collapse=" ")
-}
+# 1. Titles
+title_lookup <- c(
+  "gender_female"   = "Excl. Gender",
+  "age_clean"       = "Excl. Age",
+  "education"       = "Excl. Education",
+  "income_ppp"      = "Excl. Income",
+  "political_right" = "Excl. Politics",
+  "town_size"       = "Excl. Town Size", 
+  "isei_status"     = "Excl. Socio-Economic Index",
+  "is_catholic"     = "Excl. Religion"
+)
 
 # 2. Initialize list with the Full Model
 models_sensitivity <- list("Full Model" = model_4)
 
-# 3. Define the list of controls to drop
-controls_list <- c("gender_female", "age_clean", "education", "income_ppp", 
-                   "political_right", "town_size", "isei_status", 
-                   "is_catholic") 
-
-# 4. Loop through controls to create the "Drop X" models
-for(var_to_drop in controls_list) {
+# 3. Loop using the names from your lookup dictionary
+for(var_to_drop in names(title_lookup)) {
   
-  # Create a nice column name (e.g., "No Income Ppp")
-  col_name <- paste("No", simpleCap(gsub("_", " ", var_to_drop)))
+  col_name <- title_lookup[[var_to_drop]]
   
-  # Create the new formula by removing the variable
-  # We use regex to safely remove "+ variable" from the string
+  # Create the new formula
+  base_formula_str <- "env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500 + gender_female + age_clean + education + income_ppp + political_right + town_size + isei_status + is_catholic + is_protestant + factor(c_abrv)"
   new_formula_str <- gsub(paste0("\\+ ", var_to_drop), "", base_formula_str)
   
-  # Run the model
+  # Run model and save with the Nice Name
   models_sensitivity[[col_name]] <- lm(as.formula(new_formula_str), data = dataEnvironmental)
 }
 
-# 5. Create the Table
+# 4. Create the Table
 msummary(
   models_sensitivity,
   coef_map = c(
     "franc_exposure_1500" = "Franciscan Exp.",
-    "dom_exposure_1500" = "Dominican Exp."
+    "dom_exposure_1500"   = "Dominican Exp."
   ),
   vcov = ~NUTS_ID,
+  statistic = NULL,
   stars = c('*' = .05, '**' = .01, '***' = .001),
-  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE|Std.Errors",
   output = "./figures/12_robustness_sensitivity_table.png",
   title = "Sensitivity Analysis: Coefficients when Dropping Controls"
 )
 
-message("Success! Sensitivity table saved to ./figures/12_robustness_sensitivity_table.png")
+message("Success! Sensitivity table saved.")
