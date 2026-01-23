@@ -185,7 +185,7 @@ msummary(
   coef_map = coef_map,
   vcov = ~NUTS_ID,
   stars = c('*' = .05, '**' = .01, '***' = .001),
-  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE", 
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE|Std.Errors", 
   output = "./figures/08_regressions_table_4_models.png",
   title = "Regression Results (SE Clustered by Region)"
 )
@@ -289,7 +289,7 @@ msummary(
   coef_map = coef_map_robust,
   vcov = ~NUTS_ID, 
   stars = c('*' = .05, '**' = .01, '***' = .001),
-  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE|Std.Errors",
   output = "./figures/09_regressions_individual_questions.png",
   title = "Individual Environmental Questions (Clustered SEs)"
 )
@@ -362,7 +362,7 @@ msummary(
                "dom_exposure_1500" = "Dominican Exposure"),
   vcov = ~NUTS_ID,
   stars = c('*' = .05, '**' = .01, '***' = .001),
-  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE",
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE|Std.Errors",
   output = "./figures/10_robustness_subsamples.png",
   title = "Robustness Checks: Subsamples"
 )

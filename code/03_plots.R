@@ -64,7 +64,7 @@ p_hyde_nuts1 <- ggplot(nuts_pop_sf) +
   theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
 
 ########################################################
-# 4. Franciscan Exposure (1200-1500)
+# 4a. Franciscan Exposure (1200-1500)
 ########################################################
 
 exposure_file <- "./cache/dataFranciscan_popExposure.rds"
@@ -111,6 +111,103 @@ if(file.exists(exposure_file)) {
 } else {
   p_franciscan_exposure <- NULL
 }
+
+########################################################
+# 4b. Dominican Exposure (1200-1500) - Faceted
+########################################################
+
+# We assume a similar cache file exists for Dominicans. 
+# If you generated the Franciscan one in 01_data_adequation.R, the Dominican one should be there too.
+dom_exposure_file <- "./cache/dataDominican_popExposure.rds"
+
+if(file.exists(dom_exposure_file)) {
+  dominican_exp <- readRDS(dom_exposure_file)
+  dominican_exp$NUTS_ID <- as.character(dominican_exp$NUTS_ID)
+
+  # 1. Clean and Pivot
+  dominican_long_df <- dominican_exp %>%
+    as.data.frame() %>% 
+    select(-matches("geom")) %>% 
+    select(NUTS_ID, matches("exposure_1[2-5]00")) %>% 
+    pivot_longer(cols = -NUTS_ID, names_to = "year_raw", values_to = "exposure") %>%
+    mutate(year = gsub("exposure_", "", year_raw))
+  
+  # 2. Join
+  dominican_sf_plot <- left_join(mapEurope, dominican_long_df, by = "NUTS_ID") %>%
+    filter(!is.na(year))
+  
+  # 3. Plot (Using Orange Palette for Dominicans)
+  p_dominican_exposure <- ggplot(dominican_sf_plot) +
+    geom_sf(aes(fill = exposure), color = NA) +
+    scale_fill_gradient(
+      low = "#fff5eb",   # Lightest Orange
+      high = "#d94801",  # Darkest Orange
+      na.value = "grey95",
+      name = "Exposure\nIndex (0-1)"
+    ) +
+    facet_wrap(~ year, ncol = 2) +
+    labs(
+      title = "Dominican Exposure (1200–1500)", 
+      subtitle = "Normalized Index (0 = None, 1 = High Exposure)"
+    ) +
+    theme_minimal() +
+    theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+  
+} else {
+  message("Warning: './cache/dataDominican_popExposure.rds' not found. Skipping Dominican faceted plot.")
+}
+
+
+########################################################
+# 4c. Presentation Plots - High Visibility
+########################################################
+
+# --- A. Franciscan Exposure 1500 (Teal Theme) ---
+p_franciscan_pres <- ggplot(dataEnvironmental) +
+  # Use the map geometry linked to the data
+  geom_sf(data = mapEurope %>% right_join(dataEnvironmental, by="NUTS_ID"), 
+          aes(fill = franc_exposure_1500), color = NA) +
+  geom_sf(data = mapEurope, fill = NA, color = "white", size=0.1) + # Add borders for clarity
+  
+  scale_fill_gradient(
+    low = "#e0f2f1",   # Very Light Teal
+    high = "#004d40",  # Deep Teal (Franciscan Color)
+    na.value = "grey92",
+    name = "Intensity"
+  ) +
+  labs(title = "Franciscan Exposure") + # Simple title for slides
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+    legend.position = "right"
+  )
+
+
+# --- B. Dominican Exposure 1500 (Orange Theme) ---
+p_dominican_pres <- ggplot(dataEnvironmental) +
+  geom_sf(data = mapEurope %>% right_join(dataEnvironmental, by="NUTS_ID"), 
+          aes(fill = dom_exposure_1500), color = NA) +
+  geom_sf(data = mapEurope, fill = NA, color = "white", size=0.1) +
+  
+  scale_fill_gradient(
+    low = "#fff3e0",   # Very Light Orange
+    high = "#e65100",  # Deep Orange (Dominican Color)
+    na.value = "grey92",
+    name = "Intensity"
+  ) +
+  labs(title = "Dominican Exposure") + 
+  theme_minimal() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    plot.title = element_text(size = 20, face = "bold", hjust = 0.5),
+    legend.position = "right"
+  )
+
 
 ########################################################
 # 5. Environmental Questions
@@ -220,8 +317,11 @@ ggsave("figures/02_hyde_grid.png", p_hyde_grid, width = 10, height = 10, bg = "w
 ggsave("figures/03_hyde_nuts.png", p_hyde_nuts1, width = 10, height = 10, bg = "white")
 
 if(!is.null(p_franciscan_exposure)) {
-  ggsave("figures/04_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
+  ggsave("figures/04a_franciscan_exposure.png", p_franciscan_exposure, width = 10, height = 10, bg = "white")
 }
+ggsave("figures/04b_dominican_exposure.png", p_dominican_exposure, width = 10, height = 10, bg = "white")
+ggsave("figures/04c_franciscan_presentation.png", p_franciscan_pres, width = 10, height = 8, bg = "white")
+ggsave("figures/04d_dominican_presentation.png", p_dominican_pres, width = 10, height = 8, bg = "white")
 
 ggsave("figures/05_env_questions.png", p_env_questions, width = 12, height = 10, bg = "white")
 ggsave("figures/06_env_index.png", p_env_index, width = 8, height = 8, bg = "white")
