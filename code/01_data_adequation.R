@@ -74,6 +74,15 @@ dataEnvironmental <- dataEnvironmental %>%
     )
 ## Note: na.omit() removes rows where ANY variable is NA.
 
+dataEnvironmental <- dataEnvironmental %>%
+  mutate(
+    across(
+      .cols = starts_with("envir_"), 
+      .fns = ~ rescale(., to = c(0, 1))
+    )
+  )
+#
+
 dataEnvironmental <- left_join(
     dataEnvironmental, 
     mapEurope %>% distinct(NUTS_ID, .keep_all = TRUE), 
