@@ -3,6 +3,7 @@
 /cache
 /data/final_merged_data.csv
 /data/final_merged_data.dta
+/output
 
 # History files
 .Rhistory

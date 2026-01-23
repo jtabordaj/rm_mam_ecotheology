@@ -169,7 +169,7 @@ if(any(duplicated(dataEnvironmental$id_cocas))) {
 ## 7. Save Final Data
 
 # Option A: Save as CSV (Best for checking in Excel)
-write_csv(dataEnvironmental, "./data/final_merged_data.csv")
+write_csv(dataEnvironmental, "./output/final_merged_data.csv")
 
 # Option B: Save as RDS (Best for loading back into R later)
-saveRDS(dataEnvironmental, "./data/final_merged_data.rds")
+saveRDS(dataEnvironmental, "./output/final_merged_data.rds")

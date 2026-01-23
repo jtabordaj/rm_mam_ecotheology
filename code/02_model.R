@@ -18,7 +18,7 @@ pcaModel <- principal(
 
 # Model Output. [0,1], where 0 approaches high environmental attitude, and 1 approaches less environmental attitude.
 # Loading signs. All must be above zero
-print(pcaModel$loadings, cutoff = 0.3)
+print(pcaModel$loadings, cutoff = -1)
 # Accounted variance. Ideally between 0.40 and 0.55
 print(pcaModel$Vaccounted) 
 
@@ -30,9 +30,6 @@ dataEnvironmental$env_index_scaled <- rescale(
 )
 
 summary(dataEnvironmental$env_index_scaled)
-
-
-
 
 ############################################################
 ## 2. Regressions with Index
