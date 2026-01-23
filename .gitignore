@@ -1,6 +1,8 @@
 # Own needs
 /data/hyde
 /cache
+/data/final_merged_data.csv
+/data/final_merged_data.dta
 
 # History files
 .Rhistory
