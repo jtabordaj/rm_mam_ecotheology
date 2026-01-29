@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex term_paper"] 0 "term_paper.aux" "term_paper.bbl" "term_paper" 0 0
+["bibtex term_paper"] 0 "term_paper.aux" "term_paper.bbl" "term_paper" 1769719373.36097 0
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/bibtex/bst/base/apalike.bst" 1741388039 24635 604dafcc79f521a11ea73e506e1fbd98 ""
   "references.bib" 0 -1 0 ""
   "term_paper.aux" 0 -1 0 "pdflatex"
@@ -7,11 +7,12 @@
   "term_paper.bbl"
   "term_paper.blg"
   (rewritten before read)
-["pdflatex"] 1769715115.70948 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1769715116.69637 0
-  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1769715114.35961 1437 8fbcbeefef72ec8749e4f0a17cfcc6e1 ""
+["pdflatex"] 1769719372.33149 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1769719373.36123 0
+  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1769719372.12581 6360 e47d5799c7351173b7542658d7a5b136 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1741388039 5466553 2748998d7db8078826afa1f272036265 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1741388039 1004 54797486969f23fa377b128694d548df ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1741388039 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1741388039 916 f87d7c45f9c908e672703b83b72241a3 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1741388039 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1741388039 908 2921f8a10601f252058503cc6570e581 ""
@@ -20,10 +21,16 @@
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1741388039 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1741388039 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1741388039 1524 4414a8315f39513458b80dfc63bff03a ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1741388039 1512 f21f83efb36853c0b70002322c1ab3ad ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1741388039 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmr10.tfm" 1741388039 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1741388039 1288 655e228510b4c2a1abe905c368440826 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1741388039 1292 296a67155bdbfc32aa9c636f21e91433 ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1741388039 1300 b62933e007d01cfd073f79b963c01526 ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1741388039 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1741388039 1124 6c73e740cf17375f03eec0ee63599741 ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1741388039 1116 933a60c408fc0a863a92debe84b2d294 ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1741388039 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1741388039 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1741388039 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1741388039 35752 024fb6c41858982481f6968b5fc26508 ""
@@ -64,10 +71,10 @@
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/tools/array.sty" 1741388039 14552 27664839421e418b87f56fa4c6f66b1a ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346062 5b41f5f1f86715961a7a7134091efb1b ""
-  "term_paper.aux" 1769715116.34575 907 43277d8a56af5fcdfc40f1ddb53601c9 "pdflatex"
+  "term_paper.aux" 1769719372.99788 1469 da1d1b428d1c124263042f0e65d13502 "pdflatex"
   "term_paper.bbl" 0 -1 0 "bibtex term_paper"
-  "term_paper.tex" 1769715114.35961 1437 8fbcbeefef72ec8749e4f0a17cfcc6e1 ""
-  "term_paper.toc" 1769715116.34656 506 62f69baf57f19869ef05669952981288 "pdflatex"
+  "term_paper.tex" 1769719372.12581 6360 e47d5799c7351173b7542658d7a5b136 ""
+  "term_paper.toc" 1769719372.99905 863 da57375203efaea491bb3ecd9bd5428c "pdflatex"
   (generated)
   "term_paper.aux"
   "term_paper.log"
