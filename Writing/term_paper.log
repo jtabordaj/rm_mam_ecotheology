@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  29 JAN 2026 20:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  29 JAN 2026 20:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -260,31 +260,44 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `term_paper.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--45
 
- []
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+No file term_paper.bbl.
 
 
-
-[2] (./term_paper.aux)
+[10] (./term_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4037 strings out of 473190
- 61855 string characters out of 5705898
- 456069 words of memory out of 5000000
- 27251 multiletter control sequences out of 15000+600000
- 563247 words of font info for 53 fonts, out of 8000000 for 9000
+ 4040 strings out of 473190
+ 61910 string characters out of 5705898
+ 456071 words of memory out of 5000000
+ 27254 multiletter control sequences out of 15000+600000
+ 563554 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,573b,207s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on term_paper.pdf (2 pages, 68735 bytes).
+Output written on term_paper.pdf (10 pages, 76582 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 62 PDF objects out of 1000 (max. 8388607)
+ 39 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -103,6 +103,7 @@ INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/
 INPUT ./term_paper.toc
 INPUT ./term_paper.toc
 INPUT term_paper.toc
+INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 OUTPUT term_paper.toc
 INPUT term_paper.aux
 INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
