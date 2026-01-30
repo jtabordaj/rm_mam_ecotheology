@@ -137,7 +137,46 @@ attitudes.
 \newpage
 
 \section{Data and Methodology}
+
 \subsection{Exposure Measure}
+
+In our reseach, exposure measure is defined as a fraction of a
+region’s historical population living geographically close to a
+monastic house. To estimate historical exposure to the Franciscan
+and Dominican orders, we borrow from a lot of datasets. First, we
+employ the geodataset covering the years between 1216 to
+1500 from the Mapping Past Societies (MAPS), which
+includes information on the geographic locations (latitude and
+longitude) of the Dominican (870 observations) and Franciscan
+houses (994 observations) and the name of the houses. The Dominican
+dataset includes the foundation centuries. The only limitation of
+this dataset is that it does not include the ending years. After we
+get the monastery location, we need to locate them within regions.
+To do so, we use the European Commision system for characterising
+geographical data - Nomenclature of Territorial Units for Statistics
+(NUTS), as well as country shapefile. NUTS 1 is for large macro regions, like states, NUTS 2 is
+for more localized regions within for all of the countries. Since
+Germany has modified their administrative borders, we
+rely only on the larger one - NUTS 1 regions. We needed to delete
+monasteries in east Ukraine, Crimea, and Middle East cities
+(Jerusalem/Acre), since those monateries lie in the locations
+that are not in the European Union. There are some monasteries
+that are a little bit outside the EU; we coerce them to
+fit in regions, such as Romania or Poland or Greece, because
+they're pretty close border wise. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/01_monasteries_map.png}
+    \caption{Map of the European Union with Franciscan and Dominican Monasteries}
+    \label{fig:eu_map}
+\end{figure}
+
+Once we habe combined the monastery locations with NUTS and shapefile,
+our next step is to observe historical population data.
+
+
+
 \subsection{Environmental Attitudes Measure}
 
 \newpage

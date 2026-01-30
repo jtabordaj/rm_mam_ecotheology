@@ -123,6 +123,11 @@ INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/ams
 INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 OUTPUT term_paper.toc
 INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT ../figures/01_monasteries_map.png
+INPUT ../figures/01_monasteries_map.png
+INPUT ../figures/01_monasteries_map.png
+INPUT ../figures/01_monasteries_map.png
+INPUT ../figures/01_monasteries_map.png
 INPUT term_paper.aux
 INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
