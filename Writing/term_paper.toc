@@ -6,8 +6,8 @@
 \contentsline {section}{\numberline {3}Literature Review}{5}{}%
 \contentsline {section}{\numberline {4}Data and Methodology}{6}{}%
 \contentsline {subsection}{\numberline {4.1}Exposure Measure}{6}{}%
-\contentsline {subsection}{\numberline {4.2}Environmental Attitudes Measure}{7}{}%
-\contentsline {section}{\numberline {5}Results}{8}{}%
-\contentsline {section}{\numberline {6}Limitations and Further Research}{9}{}%
-\contentsline {section}{\numberline {7}Conclusion}{10}{}%
-\contentsline {section}{\numberline {8}References}{11}{}%
+\contentsline {subsection}{\numberline {4.2}Environmental Attitudes Measure}{9}{}%
+\contentsline {section}{\numberline {5}Results}{10}{}%
+\contentsline {section}{\numberline {6}Limitations and Further Research}{11}{}%
+\contentsline {section}{\numberline {7}Conclusion}{12}{}%
+\contentsline {section}{\numberline {8}References}{13}{}%

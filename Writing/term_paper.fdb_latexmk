@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex term_paper"] 0 "term_paper.aux" "term_paper.bbl" "term_paper" 1769733177.28084 0
+["bibtex term_paper"] 0 "term_paper.aux" "term_paper.bbl" "term_paper" 1770074072.75459 0
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/bibtex/bst/base/apalike.bst" 1741388039 24635 604dafcc79f521a11ea73e506e1fbd98 ""
   "references.bib" 0 -1 0 ""
   "term_paper.aux" 0 -1 0 "pdflatex"
@@ -7,9 +7,13 @@
   "term_paper.bbl"
   "term_paper.blg"
   (rewritten before read)
-["pdflatex"] 1769733175.60187 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1769733177.2811 0
+["pdflatex"] 1770074067.66405 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1770074072.75488 0
   "../figures/01_monasteries_map.png" 1769708219.90624 1256162 5e307d42b287af2958e3e475645039b9 ""
-  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1769733173.54409 8240 fb44e0fffb635e6ec40388d7eb079ddc ""
+  "../figures/02_hyde_grid.png" 1769708219.93501 3241154 28d6ffebf74af4c30be2301f927ffa51 ""
+  "../figures/03_hyde_nuts.png" 1769708219.94262 1400251 586f4afe898daee32fc106957acdc217 ""
+  "../figures/04a_franciscan_exposure.png" 1769708219.94953 1006213 50b3bb09527d55c5a5c19aa6a059d58f ""
+  "../figures/04b_dominican_exposure.png" 1769708219.95429 1049560 08721a182f01091884ff8d5426b1ac3d ""
+  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1770074067.43257 10285 2507f3cb5c95acc194f549756d3f40c9 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1741388039 5466553 2748998d7db8078826afa1f272036265 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1741388039 1004 54797486969f23fa377b128694d548df ""
@@ -37,6 +41,7 @@
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1741388039 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1741388039 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1741388039 32362 179c33bbf43f19adbb3825bb4e36e57a ""
+  "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1741388039 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1741388039 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/generic/iftex/iftex.sty" 1741388039 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/generic/iftex/ifvtex.sty" 1741388039 1057 525c2192b5febbd8c1f662c9468335bb ""
@@ -72,10 +77,10 @@
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/tools/array.sty" 1741388039 14552 27664839421e418b87f56fa4c6f66b1a ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346062 5b41f5f1f86715961a7a7134091efb1b ""
-  "term_paper.aux" 1769733176.93402 1684 717601b04a6a6553561dd27f0cb59ca3 "pdflatex"
+  "term_paper.aux" 1770074072.35207 2413 ae9cb65bb0dcf8d1577756846c6c958c "pdflatex"
   "term_paper.bbl" 0 -1 0 "bibtex term_paper"
-  "term_paper.tex" 1769733173.54409 8240 fb44e0fffb635e6ec40388d7eb079ddc ""
-  "term_paper.toc" 1769733176.93501 864 eaa659710744b086c058e08e0603721b "pdflatex"
+  "term_paper.tex" 1770074067.43257 10285 2507f3cb5c95acc194f549756d3f40c9 ""
+  "term_paper.toc" 1770074072.35292 866 143255a354c57c6c4ce0848f52cf97aa "pdflatex"
   (generated)
   "term_paper.aux"
   "term_paper.log"

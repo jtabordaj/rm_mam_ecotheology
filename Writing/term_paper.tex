@@ -140,7 +140,9 @@ attitudes.
 
 \subsection{Exposure Measure}
 
-In our reseach, exposure measure is defined as a fraction of a
+In our reseach, we assume that people that are living close to the
+monasteries can get influenced or exposed to the theological beliefs
+of the monasteries. Thus, the exposure measure is defined as a fraction of a
 region’s historical population living geographically close to a
 monastic house. To estimate historical exposure to the Franciscan
 and Dominican orders, we borrow from a lot of datasets. First, we
@@ -154,7 +156,8 @@ this dataset is that it does not include the ending years. After we
 get the monastery location, we need to locate them within regions.
 To do so, we use the European Commision system for characterising
 geographical data - Nomenclature of Territorial Units for Statistics
-(NUTS), as well as country shapefile. NUTS 1 is for large macro regions, like states, NUTS 2 is
+(NUTS), as well as country shapefile. NUTS 1 is for large macro regions,
+like states, NUTS 2 is
 for more localized regions within for all of the countries. Since
 Germany has modified their administrative borders, we
 rely only on the larger one - NUTS 1 regions. We needed to delete
@@ -173,9 +176,63 @@ they're pretty close border wise.
 \end{figure}
 
 Once we habe combined the monastery locations with NUTS and shapefile,
-our next step is to observe historical population data.
+our next step is to observe historical population data .
 
 
+HYDE 3.3 (History Database of the Global Environment) Utrecht University
+population data captures where people lived historically. It is an
+estimate of population count and density on regular latitude-longitude
+grid from the very late Mediaval time to the modern period. Grids are very
+small squares of 85 $\text{km}^2$, and we have an estimate of population
+density for each grid.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/02_hyde_grid.png}
+    \caption{Map of the Population densities (Grid-level)}
+    \label{fig:eu_map}
+\end{figure}
+
+Similarly, we can think of it not in squares, but in the NUTS regions. By doing
+similar calculations, we can get the exposure measure for each NUTS 2 region (Figure 3).
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/03_hyde_nuts.png}
+    \caption{Map of Population Densities (NUTS 2 level)}
+    \label{fig:eu_map}
+\end{figure}
+
+We draw a circle around the monastery and all the
+little squares (grids) that are inside that circle are counted as exposed population.
+In our research, the exposure measure is defined as the sum of exposed
+population within a given region as a percentage of the total population
+for both Franciscan and Dominican monasteries:
+
+\[
+\text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
+\]
+
+\newpage
+
+Having all the three sources put together, we have Dominican and Franciscan
+exposure measure for Europe (Figures 4 and 5). 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/04a_franciscan_exposure.png}
+    \caption{Map of Franciscan exposure}
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/04b_dominican_exposure.png}
+    \caption{Map of Dominican exposure}
+    \label{fig:eu_map}
+\end{figure}
+
+\newpage
 
 \subsection{Environmental Attitudes Measure}
 

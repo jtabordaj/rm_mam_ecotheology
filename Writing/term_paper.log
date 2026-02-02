@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  30 JAN 2026 01:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  3 FEB 2026 00:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -173,7 +173,20 @@ Package: setspace 2022/12/04 v6.7b set line spacing
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count286
 \l__pdf_internal_box=\box56
-) (./term_paper.aux)
+) (./term_paper.aux
+
+LaTeX Warning: Label `fig:eu_map' multiply defined.
+
+
+LaTeX Warning: Label `fig:eu_map' multiply defined.
+
+
+LaTeX Warning: Label `fig:eu_map' multiply defined.
+
+
+LaTeX Warning: Label `fig:eu_map' multiply defined.
+
+)
 \openout1 = `term_paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -276,41 +289,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--118
 <../figures/01_monasteries_map.png, id=23, 3011.25pt x 2409.0pt>
 File: ../figures/01_monasteries_map.png Graphic file (type png)
 <use ../figures/01_monasteries_map.png>
-Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 170.
+Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 173.
 (pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
 
 
 [6 <../figures/01_monasteries_map.png>]
+<../figures/02_hyde_grid.png, id=29, 3011.25pt x 3011.25pt>
+File: ../figures/02_hyde_grid.png Graphic file (type png)
+<use ../figures/02_hyde_grid.png>
+Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 191.
+(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
+<../figures/03_hyde_nuts.png, id=30, 3011.25pt x 3011.25pt>
+File: ../figures/03_hyde_nuts.png Graphic file (type png)
+<use ../figures/03_hyde_nuts.png>
+Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 201.
+(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
 
-[7]
 
-[8]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9]
 
-[10]
+
+[7 <../figures/02_hyde_grid.png>]
+<../figures/04a_franciscan_exposure.png, id=37, 3011.25pt x 3011.25pt>
+File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
+<use ../figures/04a_franciscan_exposure.png>
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 223.
+(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../figures/04b_dominican_exposure.png, id=38, 3011.25pt x 3011.25pt>
+File: ../figures/04b_dominican_exposure.png Graphic file (type png)
+<use ../figures/04b_dominican_exposure.png>
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 230.
+(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[8 <../figures/03_hyde_nuts.png>]
+
+[9 <../figures/04a_franciscan_exposure.png>]
+
+[10 <../figures/04b_dominican_exposure.png>]
+
+[11]
+
+[12]
 No file term_paper.bbl.
 
 
-[11] (./term_paper.aux)
+[13] (./term_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 4076 strings out of 473190
- 62538 string characters out of 5705898
- 460093 words of memory out of 5000000
- 27283 multiletter control sequences out of 15000+600000
+ 4106 strings out of 473190
+ 63695 string characters out of 5705898
+ 460133 words of memory out of 5000000
+ 27313 multiletter control sequences out of 15000+600000
  568208 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,573b,233s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on term_paper.pdf (11 pages, 1012980 bytes).
+</usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on term_paper.pdf (13 pages, 5365343 bytes).
 PDF statistics:
- 68 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
