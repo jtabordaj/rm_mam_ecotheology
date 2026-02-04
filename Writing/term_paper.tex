@@ -236,6 +236,63 @@ exposure measure for Europe (Figures 4 and 5).
 
 \subsection{Environmental Attitudes Measure}
 
+To construct our main dependent variable - environmental attitudes,
+we use the European Values Study (EVS) dataset 2017–2021, which is
+individual-level survey data on values, beliefs, attitudes,
+and socioeconomic characteristics across European countries.
+The dataset covers over 30 European countries (of which 24 are
+relevant for our research, excluding the countries that are not
+in NUTS-2). After the data cleaning, the dataset includes 49233
+observations, and it includes geographic identifiers for NUTS-1
+(Germany) and NUTS-2 regions. \\
+\\
+From the EVS dataset, we borrow particularly 6
+environmental variables, which are the questions that are related to
+environmental attitudes. The questions are the following:
+\begin{itemize}
+    \item Choosing either "to protect the environment, even if slower
+    economic growth and loss of jobs" or "to have economic growth
+    and newly created jobs, even if environment suffers".
+
+    - Economy and Environment Trade-off question
+
+    \item "I would give part of my income if I were certain that the
+    money would be used to prevent pollution."
+
+    \item "It is just too difficult for someone like me to do much
+    about the environment."
+
+    \item "There are more important things to do in life than
+    protecting the environment."
+
+    - Tells us a bit on people's preferences
+
+    \item "There is no point in doing what I can for the environment
+    unless others do the same."
+
+    - Network effect and Collective action problem question
+
+    \item "Many of the claims about environmental threats are exaggerated."
+
+\end{itemize}
+
+The questions have categorical answers ("strongly agree",
+"agree", "neither agree nor disagree", "disagree", "strongly disagree",
+or choosing between the two statements). However, the questions differ
+in their directional interpretation. Thus, we need to standardize
+the questions by assigning 0-1 scale per answer for each question,
+such that the answers indicate the same environmental direction.
+In the standardized 0-1 scale, 1 indicates the least pro-environmental
+attitude, and 0 indicates the most pro-environmental attitude. See the
+Figure 6 for visualization. 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/05_env_questions.png}
+    \caption{Distribution of the 6 environmental questions across Europe considering the average scores per region.}
+    \label{fig:eu_map}
+\end{figure}
+
 \newpage
 
 \section{Results}
