@@ -342,8 +342,8 @@ in their directional interpretation. Thus, we need to standardize
 the questions by assigning 0-1 scale per answer for each question,
 such that the answers indicate the same environmental direction.
 In the standardized 0-1 scale, 1 indicates the least pro-environmental
-attitude, and 0 indicates the most pro-environmental attitude. See the
-Figure 6 for visualization for environmental questions within NUTs 2
+attitude, and 0 indicates the most pro-environmental attitude. See 
+Figure 4 for visualization for environmental questions within NUTs 2
 regions. The green regions are more pro-environmental,
 while the yellow regions are less pro-environmental.
 
@@ -366,14 +366,117 @@ while the yellow regions are less pro-environmental.
 Since we have 6 different closely related questions for environmental
 attitudes, we want to reduce the dimensionality of the data and
 construct a single Environmental Attitudes Index. Thus, we run a Principal
-Component Analysis (PCA) to try to extract the main components of the questions
-(invisible or underlying mechanisms that could drive the answers).
-We find that the components of the Western European countries behaving
-more green, while the Eastern European countries behaving more yellowish
-(see the Figure 7).
+Component Analysis (PCA) to try to extract the main components of the questions,
+invisible or underlying mechanisms that are driving the answers.
+The first principal component explains 45\% of the variance,
+and we take the first principal component as our Environmental Attitudes Index.
+We find that the components of Western European countries behave
+more green, while the Eastern European countries behave more yellowish as illustrated
+in Figure 5. 
 
+\subsection{Regression Model}
+
+Once we have all the variables put together, we run our regression:
+
+\begin{equation}
+Y_{irc} = \alpha + \beta_1 Franc_r + \beta_2 Dom_r + X_i^{\prime} \gamma + \delta_c + \varepsilon_{irc}
+\end{equation}
+
+where $Y_{irc}$ denotes the environmental attitude index for individual $i$ in region $r$ 
+of country $c$ (scaled 0-1), $Franc_{r}$ and $Dom_{r}$ represent population-weighted exposure to 
+Franciscan and Dominican orders in region $r$ measured in 1500, and $X_i^{\prime}$ is a vector of control
+variables, $\delta_c$ denotes country fixed effects, and $\varepsilon_{irc}$ is the error term.
+
+The control variables were also taken from the EVS data, the same dataset as the environmental question variables. 
+The vector of individual-level control variables, $X_i^{\prime}$, consists of gender, age, education, 
+household income (PPP-adjusted), socio-economic status (ISEI), town size, political orientation 
+(left–right scale), and religious denomination with dummy variables for Catholic and Protestant. 
+We cluster standard errors at the NUTS level.
 
 \section{Results}
+
+\subsection{Regressions and Robustness Checks}
+
+We started by running the first four regressions shown in Figure 6 and found the following results. 
+Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
+exposure only. And we see that the coefficient $\beta_1$ is negative and statistically significant. Because the 
+environmental index ranges from 0 to 1, where lower values indicate greater pro-environmental behavior and 
+higher values indicate less pro-environmental behavior, a negative coefficient indicates that the variable 
+makes people more pro-environmental. $\beta_1$ in Model 1 was in accordance with our initial hypothesis that higher 
+Franciscan exposure would make people more pro-environmental. In Model 2, adding the Dominican exposure decreases 
+$\beta_1$. When we add country fixed effects in Model 3, $\beta_1$ changes its sign and loses its significance. 
+In Model 4, when we finally add all the individual-level controls on top of the Dominican exposure and country 
+fixed effects, $\beta_1$ becomes fully positive and statistically significant, which means that regions that had 
+maximum Franciscan exposure had a 3.5 percentage points lower environmental index. This is quite an interesting 
+result for us. We could also see that many of the control variables have a significant effect. For example, 
+females are more pro-environmental. However, the coefficient of the Dominican exposure, $\beta_2$, is not statistically 
+significant in any of the models we have analysed. Even though we cannot say much about it, $\beta_2$ is always negative,
+indicating that generally the Dominican exposure is correlated with a more pro-environmental attitude. 
+
+All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted in Figure 7. $\beta_1$ has a steady 
+increase going from a negative to a positive sign as we move from Model 1 to Model 4, and finally becomes positive 
+and statistically significant. $\beta_2$ is never significant; however, it also decreases once we add controls. 
+
+In Figure 8, we run regressions with each of the environmental questions as dependent variables separately to see
+whether there is one variable within the PCA index driving all of the results. We run the regression in Model 4
+six times with one of the variables instead of the index. The values of $\beta_1$ and $\beta_2$ did not change 
+that much across these six regressions compared to Model 4 in Figure 6. However, there aren’t any significant results 
+for them except the variable indicating the network and collectivity effect, stating, “There is no point in doing 
+what I can for the environment unless others do the same.” The Franciscan and Dominican exposure coefficients produce 
+significant results since they have contrasting theologies regarding this variable, where the Franciscan order focused 
+more on collectivity and the Dominican order emphasized an individualistic view. 
+
+In Figure 9, we run the main regression in Model 4 twenty-four times, each time excluding one country at a time to 
+see whether there is one country driving the results. The plot on top shows the Dominican exposure coefficient, 
+$\beta_2$, estimates across these regressions, and the bottom plot shows the Franciscan exposure coefficient, 
+$\beta_1$, estimates. We see that there isn’t much difference across countries. Only Switzerland and Italy have a 
+slightly stronger effect on the results, but even excluding these countries, the results remain quite similar to 
+those in Figure 6. So the effects are homogeneous across Europe. 
+
+In Figure 10, we run the main regression again, this time excluding each control variable at a time for the 
+sensitivity analysis. We see that the estimate of $\beta_1$ remains around 0.035 and is statistically significant 
+across most of the regressions, except for one regression in which we exclude the town size control variable, which 
+accounts for urbanization. This is an important result because the Franciscans used to locate themselves within cities 
+and urban areas to reach more people. So, not controlling for the town size would bias the coefficient of Franciscan 
+exposure. This makes the town size a very important control, but apart from it, we could drop any other control and 
+find very similar results to our full model. 
+
+In Figure 11, we see the plotted regression coefficient estimates found in the sensitivity analysis in Figure 10 
+by leaving out one control in each regression, the top plot showing estimates for $\beta_2$ and the bottom one showing 
+estimates of $\beta_1$. We can clearly see that only the town size shifts the Franciscan exposure coefficient estimate. 
+The Dominican exposure coefficient estimate also changes slightly when we remove income, political orientation, 
+and town size, but none of the controls change the general direction of the results. 
+
+As the last robustness check in Figure 12, we run subsample regressions with the full model, including all controls, 
+but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
+same EVS data by asking the question “Which religious denomination do you belong to?” and taking into account only 
+those who answered with the option “Roman Catholic". Considering only Catholics, the sample size drops significantly 
+to 5899, so we don’t have any significant results and can’t say much about them. In the second subsample, we exclude 
+the observations from Germany to only keep NUTS 2 regions to see whether it was the lack of linearity in Germany driving 
+the results, since we consider NUTS 1 regions for Germany. But we see that the results stay pretty much the same as in 
+the main model. 
+
+\subsection{Possible Mechanism}
+
+Since we found contrasting results to what we were expecting to find, we didn’t want to leave it like this and want 
+to propose a possible mechanism that might be driving these results, which could be used for further hypotheses and 
+research. We have already ruled out all misleading mechanisms that could have come from the control variables, such 
+as education, income, and political views, and from country fixed effects. For example, one could have claimed that 
+Dominican exposure also meant a higher education level since they promoted teaching, which could have led to more 
+pro-environmental attitudes. However, the mechanism should be a deep, slow-moving, cultural or institutional effect. 
+
+We propose that the mechanism could lie in the opposite beliefs about taking collective action within the Franciscan 
+versus Dominican theologies. The Franciscan theology is the theology of humility and acceptance of circumstances, 
+poverty, and scarcity for the sake of imitating Christ. They value moral purity over institutional action. The lack 
+of desire for collective intervention might have shown itself through having less pro-environmental attitudes, which 
+could also be observed in our variables, beliefs about individual efforts being pointless unless others do the same, 
+and environmental threats being exaggerated. The Franciscans are not likely anti-nature but rather anti-intervention. 
+The Dominican theology, on the other hand, is the theology of persuasion and institutional coordination. Their 
+willingness to take reasoned collective action and enforce norms could have translated into more modern 
+pro-environmental attitudes. Their sense of obligation also possibly played a role in the context of the environment, 
+and they might have had greater trust in institutions for collective solutions against environmental threats.
+
+
 
 \begin{figure}[h!]
     \centering
