@@ -284,7 +284,9 @@ the questions by assigning 0-1 scale per answer for each question,
 such that the answers indicate the same environmental direction.
 In the standardized 0-1 scale, 1 indicates the least pro-environmental
 attitude, and 0 indicates the most pro-environmental attitude. See the
-Figure 6 for visualization. 
+Figure 6 for visualization for environmental questions within NUTs 2
+regions. The green regions are more pro-environmental,
+while the yellow regions are less pro-environmental.
 
 \begin{figure}[h!]
     \centering
@@ -292,6 +294,26 @@ Figure 6 for visualization.
     \caption{Distribution of the 6 environmental questions across Europe considering the average scores per region.}
     \label{fig:eu_map}
 \end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{../figures/06_env_index.png}
+    \caption{Environmentak Index (PCA) across Europe considering the average scores per region.}
+    \label{fig:eu_map}
+\end{figure}
+
+\newpage
+
+Since we have 6 different closely related questions for environmental
+attitudes, we want to reduce the dimensionality of the data and
+construct a single Environmental Attitudes Index. Thus, we run a Principal
+Component Analysis (PCA) to try to extract the main components of the questions
+(invisible or underlying mechanisms that could drive the answers).
+We find that the components of the Western European countries behaving
+more green, while the Eastern European countries behaving more yellowish
+(see the Figure 7).
+
+
 
 \newpage
 
