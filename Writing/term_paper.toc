@@ -1,0 +1,10 @@
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
+\contentsline {section}{\numberline {2}Context and Hypotheses}{3}{section.2}%
+\contentsline {section}{\numberline {3}Literature Review}{4}{section.3}%
+\contentsline {section}{\numberline {4}Data and Methodology}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Exposure Measure}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Environmental Attitudes Measure}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Results}{11}{section.5}%
+\contentsline {section}{\numberline {6}Limitations and Further Research}{12}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}%
+\contentsline {section}{\numberline {8}References}{14}{section.8}%
