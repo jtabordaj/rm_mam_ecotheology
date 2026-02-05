@@ -10,6 +10,7 @@
 \usepackage{setspace}
 \usepackage{hanging}
 \usepackage{hyperref}
+\usepackage{subcaption}
 
 
 \title{Research Project: Franciscan Eco-Theology and Environmental Attitudes}
@@ -209,12 +210,11 @@ that are a little bit outside the EU; we coerce them to
 fit in regions, such as Romania or Poland or Greece, because
 they're pretty close border wise. 
 
-\newpage
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{../figures/01_monasteries_map.png}
-    \caption{Map of the European Union with Franciscan and Dominican Monasteries}
+    \caption{Map of Locations of Mendicant Orders: Franciscan and Dominican Monasteries}
     \label{fig:eu_map}
 \end{figure}
 
@@ -229,22 +229,32 @@ grid from the very late Mediaval time to the modern period. Grids are very
 small squares of 85 $\text{km}^2$, and we have an estimate of population
 density for each grid.
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{../figures/02_hyde_grid.png}
-    \caption{Map of the Population densities (Grid-level)}
-    \label{fig:eu_map}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/02_hyde_grid.png}
+        \caption{Population densities (grid-level, log scale)}
+        \label{fig:hyde_grid}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/03_hyde_nuts.png}
+        \caption{Regional populations (NUTS 2 level)}
+        \label{fig:hyde_nuts}
+    \end{subfigure}
+    \caption{Population measures from HYDE 3.3}
+    \label{fig:hyde_maps}
 \end{figure}
+
+
+
+
 
 Similarly, we can think of it not in squares, but in the NUTS regions. By doing
 similar calculations, we can get the exposure measure for each NUTS 2 region (Figure 3).
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{../figures/03_hyde_nuts.png}
-    \caption{Map of Population Densities (NUTS 2 level)}
-    \label{fig:eu_map}
-\end{figure}
 
 We draw a circle around the monastery and all the
 little squares (grids) that are inside that circle are counted as exposed population.
@@ -256,26 +266,32 @@ for both Franciscan and Dominican monasteries:
 \text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
 \]
 
-\newpage
+
 
 Having all the three sources put together, we have Dominican and Franciscan
 exposure measure for Europe (Figures 4 and 5). 
 
-\begin{figure}[h!]
+\begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.8\textwidth]{../figures/04a_franciscan_exposure.png}
-    \caption{Map of Franciscan exposure}
-    \label{fig:eu_map}
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/04a_franciscan_exposure.png}
+        \caption{Franciscan exposure}
+        \label{fig:franciscan_exposure}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../figures/04b_dominican_exposure.png}
+        \caption{Dominican exposure}
+        \label{fig:dominican_exposure}
+    \end{subfigure}
+    \caption{\centering Map of exposure to Mendicant Orders in Europe (1200--1500)\\
+\footnotesize normalized index (0 = none, 1 = high exposure)}
 \end{figure}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{../figures/04b_dominican_exposure.png}
-    \caption{Map of Dominican exposure}
-    \label{fig:eu_map}
-\end{figure}
 
-\newpage
+
 
 \subsection{Environmental Attitudes Measure}
 
@@ -333,19 +349,19 @@ while the yellow regions are less pro-environmental.
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{../figures/05_env_questions.png}
+    \includegraphics[width=0.9\textwidth]{../figures/05_env_questions.png}
     \caption{Distribution of the 6 environmental questions across Europe considering the average scores per region.}
     \label{fig:eu_map}
 \end{figure}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\textwidth]{../figures/06_env_index.png}
+    \includegraphics[width=0.6\textwidth]{../figures/06_env_index.png}
     \caption{Environmental Index (PCA) across Europe considering the average scores per region.}
     \label{fig:eu_map}
 \end{figure}
 
-\newpage
+
 
 Since we have 6 different closely related questions for environmental
 attitudes, we want to reduce the dimensionality of the data and
@@ -357,12 +373,59 @@ more green, while the Eastern European countries behaving more yellowish
 (see the Figure 7).
 
 
-
-\newpage
-
 \section{Results}
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/07_regressions_plot_4_models.png}
+    \caption{Regressions}
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/08_regressions_table_4_models.png}
+    \caption{Regressions table}
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/09_regressions_individual_questions.png}
+    \caption{Regressions table 2} 
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/10_robustness_subsamples.png}
+    \caption{Regressions table 2} 
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/11_robustness_leave_one_out.png}
+    \caption{Regressions table 2} 
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/12_robustness_sensitivity_table.png}
+    \caption{Regressions table 2} 
+    \label{fig:eu_map}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{../figures/13_robustness_sensitivity_plot.png}
+    \caption{Regressions table 2} 
+    \label{fig:eu_map}
+\end{figure}
+
 \newpage
+
 
 \section{Limitations and Further Research}
 
