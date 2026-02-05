@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  5 FEB 2026 01:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  5 FEB 2026 01:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -316,88 +316,4 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[7 <../figures/02_hyde_grid.png>]
-<../figures/04a_franciscan_exposure.png, id=37, 3011.25pt x 3011.25pt>
-File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
-<use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 223.
-(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../figures/04b_dominican_exposure.png, id=38, 3011.25pt x 3011.25pt>
-File: ../figures/04b_dominican_exposure.png Graphic file (type png)
-<use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 230.
-(pdftex.def)             Requested size: 362.37569pt x 362.34526pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[8 <../figures/03_hyde_nuts.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 239--252
-
- []
-
-
-
-[9{/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <../figures/04a_franciscan_exposure.png>]
-<../figures/05_env_questions.png, id=48, 3613.5pt x 3011.25pt>
-File: ../figures/05_env_questions.png Graphic file (type png)
-<use ../figures/05_env_questions.png>
-Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 293.
-(pdftex.def)             Requested size: 362.37569pt x 301.9697pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../figures/06_env_index.png, id=49, 2409.0pt x 2409.0pt>
-File: ../figures/06_env_index.png Graphic file (type png)
-<use ../figures/06_env_index.png>
-Package pdftex.def Info: ../figures/06_env_index.png  used on input line 300.
-(pdftex.def)             Requested size: 362.37569pt x 362.36365pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[10 <../figures/04b_dominican_exposure.png>]
-
-[11 <../figures/05_env_questions.png>]
-
-[12 <../figures/06_env_index.png>]
-
-[13]
-
-[14]
-No file term_paper.bbl.
-
-
-[15] (./term_paper.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
-Here is how much of TeX's memory you used:
- 4126 strings out of 473190
- 64307 string characters out of 5705898
- 460133 words of memory out of 5000000
- 27331 multiletter control sequences out of 15000+600000
- 568545 words of font info for 73 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 57i,6n,65p,573b,233s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on term_paper.pdf (15 pages, 6646274 bytes).
-PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 58 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+[7 
