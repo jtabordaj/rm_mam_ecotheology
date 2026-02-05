@@ -1,7 +1,10 @@
-if(!exists("mapEurope") || !exists("dataEnvironmental")) {
-  message("Please run '02_model.R' first!")
-  source('./code/02_model.R')
+if(exists("dataEnvironmental") && "env_index_scaled" %in% names(dataEnvironmental)) {
+  message("Using dataEnvironmental from memory.")
+} else {
+  dataEnvironmental <- readRDS("./cache/dataEnvironmental_with_index.rds")
 }
+
+library(grid)
 
 ########################################################
 # 1. Monasteries Map (Franciscan & Dominican)
@@ -19,9 +22,9 @@ p_monasteries <- ggplot() +
   geom_sf(data = mapEurope, fill = "grey96", color = "grey75", linewidth = 0.1) +
   geom_sf(data = monasteries_sf, aes(color = order), size = 0.8, alpha = 0.7) +
   scale_color_manual(values = c("Franciscan" = "#008080", "Dominican" = "#E65100"), name = "Order") +
-  labs(title = "Franciscan and Dominican Houses", subtitle = "Locations of mendicant orders") +
   theme_minimal() +
   theme(legend.position = "right", panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+
 
 ########################################################
 # 2. HYDE Population Grid (1200-1500)
