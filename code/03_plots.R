@@ -6,6 +6,7 @@ if(exists("dataEnvironmental") && "env_index_scaled" %in% names(dataEnvironmenta
 
 library(grid)
 library(scales)
+guides(color = guide_legend(override.aes = list(size = 6)))
 
 ########################################################
 # 1. Monasteries Map (Franciscan & Dominican)
@@ -23,13 +24,15 @@ p_monasteries <- ggplot() +
   geom_sf(data = mapEurope, fill = "grey96", color = "grey75", linewidth = 0.1) +
   geom_sf(data = monasteries_sf, aes(color = order), size = 0.8, alpha = 0.7) +
   scale_color_manual(values = c("Franciscan" = "#008080", "Dominican" = "#E65100"), name = "Order") +
+  guides(color = guide_legend(override.aes = list(size = 8))) + 
+
   theme_minimal() +
   theme(
     panel.grid = element_blank(),
     axis.text = element_blank(),
     axis.title = element_blank(),
     plot.title = element_blank(),
-    legend.title = element_text(size = 20, face = "bold"), 
+    legend.title = element_text(size = 20), # Removed "cm" (error in your previous snippet)
     legend.text = element_text(size = 18),                 
     legend.key.height = unit(1.5, "cm"),                   
     legend.key.width = unit(0.6, "cm")
@@ -101,7 +104,6 @@ p_hyde_nuts1 <- ggplot(nuts_pop_sf) +
     breaks = c(0, 500000, 1500000)
   ) +
   facet_wrap(~ year, ncol = 2) +
-  labs(title = "Regional Population (NUTS 2)", subtitle = "Aggregated HYDE 3.3 data") +
   theme_minimal() +
   theme(
     panel.grid = element_blank(), 
@@ -287,9 +289,9 @@ env_vars_df <- dataEnvironmental %>%
   pivot_longer(cols = starts_with("envir_"), names_to = "variable", values_to = "value") %>%
   mutate(variable = factor(variable, 
                            labels = c(
-                             "Econ Priority (v204)", "Efforts Pointless (v200)", "Network Effect (v202)", 
-                             "Other Importances (v201)", "Protection Money (v199)", 
-                             "Threats Exaggerated (v203)"
+                             "Econ Priority", "Pointless", "Network Eff.", 
+                             "Other Import.", "Give Money", 
+                             "Threats Exag."
                            )))
 
 env_sf_plot <- left_join(mapEurope, env_vars_df, by = "NUTS_ID") %>%
@@ -307,9 +309,17 @@ p_env_questions <- ggplot(env_sf_plot) +
   ) +
   
   facet_wrap(~ variable, ncol = 3) +
-  labs(title = "Environmental Attitudes", subtitle = "Dark Green = Pro-Env (Low), Orange = Anti-Env (High)") +
   theme_minimal() +
-  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+  theme(
+    panel.grid = element_blank(), 
+    axis.text = element_blank(), 
+    axis.title = element_blank(),
+    strip.text = element_text(size = 16, face = "bold"),   # Facet Titles (e.g. "Econ Priority")
+    legend.title = element_text(size = 16, face = "bold"), # Legend Title ("Score")
+    legend.text = element_text(size = 14),                 # Legend Numbers
+    legend.key.height = unit(1.5, "cm"),                   # Taller Color Bar
+    legend.key.width = unit(0.6, "cm")
+  )
 
 ########################################################
 # 6. Environmental Index (PCA Result)
@@ -324,53 +334,34 @@ region_stats <- dataEnvironmental %>%
     avg_index = mean(env_index_scaled, na.rm = TRUE),
     .groups = "drop"
   ) %>%
-  filter(!is.na(avg_index)) # Remove regions with no data
+  filter(!is.na(avg_index))
 
-# 2. Join these averages back to the map geometry
+# 2. Join averages to map
 env_index_sf <- left_join(mapEurope, region_stats, by = "NUTS_ID")
 
-# 3. Identify Top 3 (Highest/Anti) and Bottom 3 (Lowest/Pro) REGIONS
-top_bottom_labels <- env_index_sf %>%
-  filter(!is.na(avg_index)) %>%    # Ensure we only look at valid data
-  arrange(avg_index) %>%           # Sort Low -> High
-  slice(c(1:3, (n()-2):n())) %>%   # Take 3 lowest and 3 highest regions
-  mutate(
-    label_text = sprintf("%.3f", avg_index),
-    coords = st_centroid(geometry)
-  ) %>%
-  mutate(
-    X = st_coordinates(coords)[,1],
-    Y = st_coordinates(coords)[,2]
-  )
-
-# 4. Plot
+# 3. Plot
 p_env_index <- ggplot(env_index_sf) +
   geom_sf(aes(fill = avg_index), color = NA) +
   
-  # --- LABELS LAYER ---
-  geom_text(
-    data = top_bottom_labels,
-    aes(x = X, y = Y, label = label_text),
-    color = "black",
-    fontface = "bold",
-    size = 3,
-    check_overlap = FALSE 
-  ) +
-  # --------------------
-
   scale_fill_gradient(
-    low = "darkgreen",   # Low Score = Pro-Env
-    high = "orange",     # High Score = Anti-Env
+    low = "darkgreen", 
+    high = "orange", 
     na.value = "grey90", 
-    name = "Index"
+    name = "PCA Index"
   ) +
-  labs(
-    title = "Environmental Index (PCA)", 
-    subtitle = "Regional Averages: Dark Green = Pro-Env, Orange = Anti-Env"
-  ) +
+
+  labs(title = NULL, subtitle = NULL) +
+  
   theme_minimal() +
-  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank()
-)
+  theme(
+    panel.grid = element_blank(), 
+    axis.text = element_blank(), 
+    axis.title = element_blank(),
+    legend.title = element_text(size = 16), 
+    legend.text = element_text(size = 14),
+    legend.key.height = unit(1.5, "cm"),
+    legend.key.width = unit(0.6, "cm")
+  )
 
 ########################################################
 # Save All Plots

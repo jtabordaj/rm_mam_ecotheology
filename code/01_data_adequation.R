@@ -78,7 +78,7 @@ dataEnvironmental <- dataEnvironmental %>%
   mutate(
     across(
       .cols = starts_with("envir_"), 
-      .fns = ~ rescale(., to = c(0, 1))
+      .fns = ~ scales::rescale(., to = c(0, 1))
     )
   )
 #
