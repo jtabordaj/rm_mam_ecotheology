@@ -5,6 +5,7 @@ if(exists("dataEnvironmental") && "env_index_scaled" %in% names(dataEnvironmenta
 }
 
 library(grid)
+library(scales)
 
 ########################################################
 # 1. Monasteries Map (Franciscan & Dominican)
@@ -23,8 +24,16 @@ p_monasteries <- ggplot() +
   geom_sf(data = monasteries_sf, aes(color = order), size = 0.8, alpha = 0.7) +
   scale_color_manual(values = c("Franciscan" = "#008080", "Dominican" = "#E65100"), name = "Order") +
   theme_minimal() +
-  theme(legend.position = "right", panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
-
+  theme(
+    panel.grid = element_blank(),
+    axis.text = element_blank(),
+    axis.title = element_blank(),
+    plot.title = element_blank(),
+    legend.title = element_text(size = 20, face = "bold"), 
+    legend.text = element_text(size = 18),                 
+    legend.key.height = unit(1.5, "cm"),                   
+    legend.key.width = unit(0.6, "cm")
+  )
 
 ########################################################
 # 2. HYDE Population Grid (1200-1500)
@@ -39,11 +48,31 @@ hyde_df <- as.data.frame(hyde_subset, xy = TRUE) %>%
 p_hyde_grid <- ggplot() +
   geom_raster(data = hyde_df, aes(x = x, y = y, fill = population)) +
   geom_sf(data = mapEurope, fill = NA, color = "white", linewidth = 0.05, alpha = 0.3) +
-  scale_fill_viridis_c(option = "magma", direction = 1, na.value = "transparent", name = "Pop (Log Scale)", trans = "pseudo_log", breaks = c(0, 100, 1000, 10000, 100000)) +
+  scale_fill_viridis_c(
+    option = "magma", 
+    direction = 1, 
+    na.value = "transparent", 
+    name = "Total Pop", 
+    trans = "pseudo_log", 
+    limits = c(0, 200000), 
+    oob = scales::squish, 
+    labels = label_number(scale = 1e-3, suffix = "K", accuracy = 1), 
+    breaks = c(0, 1000, 200000)
+  ) +
   facet_wrap(~ year, ncol = 2) +
-  labs(title = "Population Density (HYDE 3.3)", subtitle = "Grid-level estimates (Log Scale)") +
   theme_minimal() +
-  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+  theme(
+    panel.grid = element_blank(), 
+    axis.text = element_blank(), 
+    axis.title = element_blank(),
+    plot.title = element_blank(),
+    legend.position = "right",
+    legend.title = element_text(size = 16, face = "bold"), 
+    legend.text = element_text(size = 14),
+    legend.key.height = unit(2.0, "cm"),
+    legend.key.width = unit(0.8, "cm"), 
+    strip.text = element_text(size = 18, face = "bold")
+  )
 
 ########################################################
 # 3. HYDE Population NUTS2
@@ -60,11 +89,32 @@ nuts_pop_sf <- left_join(mapEurope, nuts_pop_df, by = "NUTS_ID")
 
 p_hyde_nuts1 <- ggplot(nuts_pop_sf) +
   geom_sf(aes(fill = population), color = NA) +
-  scale_fill_viridis_c(option = "magma", direction = 1, na.value = "grey90", name = "Total Pop", trans = "sqrt") +
+  scale_fill_viridis_c(
+    option = "magma", 
+    direction = 1, 
+    na.value = "grey90", 
+    name = "Total Pop", 
+    trans = "sqrt",
+    limits = c(0, 1500000),
+    oob = scales::squish,
+    labels = label_number(scale = 1e-6, suffix = "M", accuracy = 0.1), 
+    breaks = c(0, 500000, 1500000)
+  ) +
   facet_wrap(~ year, ncol = 2) +
   labs(title = "Regional Population (NUTS 2)", subtitle = "Aggregated HYDE 3.3 data") +
   theme_minimal() +
-  theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+  theme(
+    panel.grid = element_blank(), 
+    axis.text = element_blank(), 
+    axis.title = element_blank(),
+    plot.title = element_blank(),
+    legend.position = "right",
+    legend.title = element_text(size = 16, face = "bold"), 
+    legend.text = element_text(size = 14),
+    legend.key.height = unit(2.0, "cm"),
+    legend.key.width = unit(0.8, "cm"), 
+    strip.text = element_text(size = 18, face = "bold")
+  )
 
 ########################################################
 # 4a. Franciscan Exposure (1200-1500)
@@ -93,23 +143,28 @@ if(file.exists(exposure_file)) {
   p_franciscan_exposure <- ggplot(franciscan_sf_plot) +
     geom_sf(aes(fill = exposure), color = NA) +
     
-    # --- UPDATED SCALE FOR 0-1 DATA ---
     scale_fill_gradient(
-      low = "#e5f5f9",   # Lightest Green (0 / Low)
-      high = "#00441b",  # Darkest Green (1 / High)
+      low = "#e5f5f9", 
+      high = "#00441b", 
       na.value = "grey95",
-      name = "Exposure\nIndex (0-1)"
-      # Removed 'trans="pseudo_log"' because your data is already 0-1
+      name = "Exposure\nIndex"
     ) +
-    # ----------------------------------
     
     facet_wrap(~ year, ncol = 2) +
-    labs(
-      title = "Franciscan Exposure (1200–1500)", 
-      subtitle = "Normalized Index (0 = None, 1 = High Exposure)"
-    ) +
+    labs(title = NULL) +
     theme_minimal() +
-    theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
+    theme(
+      panel.grid = element_blank(), 
+      axis.text = element_blank(), 
+      axis.title = element_blank(),
+      plot.title = element_blank(),
+      legend.position = "right",
+      legend.title = element_text(size = 16, face = "bold"), 
+      legend.text = element_text(size = 14),
+      legend.key.height = unit(2.0, "cm"),
+      legend.key.width = unit(0.8, "cm"), 
+      strip.text = element_text(size = 18, face = "bold")
+    )
 
 } else {
   p_franciscan_exposure <- NULL
@@ -119,8 +174,6 @@ if(file.exists(exposure_file)) {
 # 4b. Dominican Exposure (1200-1500) - Faceted
 ########################################################
 
-# We assume a similar cache file exists for Dominicans. 
-# If you generated the Franciscan one in 01_data_adequation.R, the Dominican one should be there too.
 dom_exposure_file <- "./cache/dataDominican_popExposure.rds"
 
 if(file.exists(dom_exposure_file)) {
@@ -143,19 +196,27 @@ if(file.exists(dom_exposure_file)) {
   p_dominican_exposure <- ggplot(dominican_sf_plot) +
     geom_sf(aes(fill = exposure), color = NA) +
     scale_fill_gradient(
-      low = "#fff5eb",   # Lightest Orange
-      high = "#d94801",  # Darkest Orange
+      low = "#fff5eb",
+      high = "#d94801",
       na.value = "grey95",
-      name = "Exposure\nIndex (0-1)"
+      name = "Exposure\nIndex"
     ) +
     facet_wrap(~ year, ncol = 2) +
-    labs(
-      title = "Dominican Exposure (1200–1500)", 
-      subtitle = "Normalized Index (0 = None, 1 = High Exposure)"
-    ) +
-    theme_minimal() +
-    theme(panel.grid = element_blank(), axis.text = element_blank(), axis.title = element_blank())
-  
+    labs(title = NULL) + 
+  theme_minimal() +
+  theme(
+      panel.grid = element_blank(), 
+      axis.text = element_blank(), 
+      axis.title = element_blank(),
+      plot.title = element_blank(),
+      legend.position = "right",
+      legend.title = element_text(size = 16, face = "bold"), 
+      legend.text = element_text(size = 14),
+      legend.key.height = unit(2.0, "cm"),
+      legend.key.width = unit(0.8, "cm"), 
+      strip.text = element_text(size = 18, face = "bold")
+    )
+
 } else {
   message("Warning: './cache/dataDominican_popExposure.rds' not found. Skipping Dominican faceted plot.")
 }
