@@ -31,12 +31,14 @@ Supervised by: Paul Behler \\[1.0cm]}
 \vspace{1.5cm}
 
 \begin{abstract}
-Our project focuses on the effect of exposure to the main
-Mendicant orders of the 12th and 15th century - the Franciscan
-and Dominican - on the contemporary environmental attitudes.
-We find that that higher Franciscan is associated with less
+Our project focuses on the effect of the exposure to the Franciscan
+and Dominican orders between the 12th and 15th centuries on contemporary environmental attitudes.
+We find that that higher Franciscan exposure is associated with less
 pro-environmental attitudes, while higher Dominican exposure
-is associated with more pro-environmental attitudes.
+is associated with more pro-environmental attitudes contrary to our initial expectations. 
+We also notice that the effect of the exposure to the two orders could be driven by 
+the question on collective action, which is likely the underlying mechanism which is consistent with the 
+contrasting theologies of the two orders regarding collectivity and individualism.
 \end{abstract}
 
 \newpage
@@ -56,14 +58,14 @@ St.Francis of Assisi, who is the founder of Franciscan order. Being
 recognized by the Catholic Church as the patron saint of ecology,
 he is widely known for his deep affection towards nature and animals.
 
-In this research, we study Franciscan eco-theology and its effect
+In this research, we study the Franciscan eco-theology and its effect
 on contemporary environmental attitudes. We have also controlled for the Dominican order, which is the other
 famous Mendicant order of the Medieval Ages with comparably
 equal historical importance. Thus, our research question
 is the following:
-What is the effect of exposure to Franciscan "Eco-Theology"
+What is the effect of exposure to the Franciscan "Eco-Theology"
 from the 1200s to the 1500s on contemporary environmental
-attitudes among European populations? (compared to Dominican
+attitudes among European populations? (compared to the Dominican
 theology).
 
 To do so, we first construct our independent variable - the historical exposure measures for both
@@ -89,7 +91,7 @@ pro-environmental attitudes,while higher historical exposure
 to the Dominican Order is associated with more pro-environmental
 attitudes.
 
-\section{Context and Hypotheses}
+\section{Historical Context and Hypothesis}
 
 The Franciscan Order was founded in the early 13th century by
 St. Francis of Assisi (1181-1226), who was recognized by the
@@ -175,9 +177,8 @@ many other literature with similar research interests commonly measure
 the environemntal attitudes using the survey datasets (EVS)
 (Gelissen, 2007; Behler, 2025).
 
-Our research is the first to examine the effect of exposure
-to the two main Mendicant orders of the Medieval Ages - the
-Franciscan and the Dominican - on contemporary environmental
+Our research is the first to examine the effect of the exposure
+to Franciscan and Dominican monasteries on contemporary environmental
 attitudes.
 
 \section{Data and Methodology}
@@ -192,36 +193,34 @@ monastic house. To estimate historical exposure to the Franciscan
 and Dominican orders, we borrow from a lot of datasets. First, we
 employ the geodataset covering the years between 1216 to
 1500 from the Mapping Past Societies (MAPS), which
-includes information on the geographic locations (latitude and
-longitude) of the Dominican (870 observations) and Franciscan
-houses (994 observations) and the name of the houses. The Dominican
+includes information on the geographic locations, the latitude and
+longitude, of the Dominican monasteries consisting of 870 observations and Franciscan
+monasteries consisting of 994 observations and the names of the houses. The Dominican
 dataset includes the foundation centuries. The only limitation of
 this dataset is that it does not include the ending years. After we
 get the monastery location, we need to locate them within regions.
 To do so, we use the European Commision system for characterising
-geographical data - Nomenclature of Territorial Units for Statistics
-(NUTS), as well as country shapefile. NUTS 1 is for large macro regions,
-like states, NUTS 2 is
-for more localized regions within for all of the countries. Since
-Germany has modified their administrative borders, we
-rely only on the larger one - NUTS 1 regions. We needed to delete
-monasteries in east Ukraine, Crimea, and Middle East cities
-(Jerusalem/Acre), since those monateries lie in the locations
-that are not in the European Union. There are some monasteries
-that are a little bit outside the EU; we coerce them to
-fit in regions, such as Romania or Poland or Greece, because
-they're pretty close border wise. 
+geographical data, the Nomenclature of Territorial Units for Statistics
+(NUTS), as well as country shapefiles. NUTS-1 are for large macro regions,
+like German states, NUTS-2 are for more localized regions within countries. Since
+Germany has modified their NUTS administrative borders, we
+rely only on the larger NUTS-1 regions for Germany, and use NUTS-2 for other countries. 
+We needed to delete monasteries in east Ukraine, Crimea, and Middle Eastern cities
+(Jerusalem/Acre), since those monasteries lie in the locations
+that are not in or close to any NUTS region. There are some monasteries
+that are a little bit outside but still close to NUTS regions, so we coerce them to
+fit into the closest regions, such as into Romania, Poland or Greece. 
 
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\textwidth]{../figures/01_monasteries_map.png}
-    \caption{Locations of Mendicant Orders: Franciscan and Dominican Monasteries}
+    \caption{Locations of Franciscan and Dominican Monasteries}
     \label{fig:eu_map}
 \end{figure}
 
 Once we have combined the monastery locations with NUTS and shapefile,
-our next step is to observe historical population data .
+our next step is to observe historical population data.
 
 
 HYDE 3.3 (History Database of the Global Environment) Utrecht University
@@ -229,7 +228,7 @@ population data captures where people lived historically. It is an
 estimate of population count and density on regular latitude-longitude
 grid from the very late Mediaval time to the modern period. Grids are very
 small squares of 85 $\text{km}^2$, and we have an estimate of population
-density for each grid.
+density for each grid as seen in Figure 2(a).
 
 \begin{figure}[h!]
     \centering
@@ -243,7 +242,7 @@ density for each grid.
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/03_hyde_nuts.png}
-        \caption{Regional populations (NUTS 2 level)}
+        \caption{Regional populations (NUTS-2 level)}
         \label{fig:hyde_nuts}
     \end{subfigure}
     \caption{Population measures from HYDE 3.3}
@@ -251,17 +250,15 @@ density for each grid.
 \end{figure}
 
 
-
-
-
-Similarly, we can think of it not in squares, but in the NUTS regions. By doing
-similar calculations, we can get the exposure measure for each NUTS 2 region (Figure 3).
+Similarly, we also consider the population not only in squares, but also in the NUTS regions. By doing
+similar calculations, we can get the exposure measure for each NUTS-2 region as seen in Figure 2(b).
 
 \newpage
 \clearpage
 
-Wee draw a circle around the monastery and all the
-little squares (grids) that are inside that circle are counted as exposed population.
+Wee draw a circle around the monastery, and all the
+little squares (grids) that are inside that circle are counted as the exposed population.
+All squares that are mostly included in the circle are counted as fully exposed to the theology of that monastery.
 In our research, the exposure measure is defined as the sum of exposed
 population within a given region as a percentage of the total population
 for both Franciscan and Dominican monasteries:
@@ -273,7 +270,7 @@ for both Franciscan and Dominican monasteries:
 
 
 Having all the three sources put together, we have Dominican and Franciscan
-exposure measure for Europe (Figures 4 and 5). 
+exposure measure for Europe (Figures 3a and 3b). 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -299,16 +296,14 @@ exposure measure for Europe (Figures 4 and 5).
 
 \subsection{Environmental Attitudes Measure}
 
-
-To construct our main dependent variable - environmental attitudes,
+To construct our main dependent variable, the environmental index,
 we use the European Values Study (EVS) dataset 2017–2021, which is
 individual-level survey data on values, beliefs, attitudes,
 and socioeconomic characteristics across European countries.
-The dataset covers over 30 European countries (of which 24 are
-relevant for our research, excluding the countries that are not
-in NUTS-2). After the data cleaning, the dataset includes 49233
-observations, and it includes geographic identifiers for NUTS-1
-(Germany) and NUTS-2 regions. \\
+The dataset covers over 30 European countries of which 24 are
+relevant for our research when we exclude the countries that are not
+in NUTS-2. After the data cleaning, the dataset includes 49233
+observations and geographic identifiers for NUTS-1 regions for Germany and NUTS-2 for all other countries. \\
 \\
 From the EVS dataset, we borrow particularly 6
 environmental variables, which are the questions that are related to
@@ -394,8 +389,6 @@ The vector of individual-level control variables, $X_i^{\prime}$, consists of ge
 household income (PPP-adjusted), socio-economic status (ISEI), town size, political orientation 
 (left–right scale), and religious denomination with dummy variables for Catholic and Protestant. 
 We cluster standard errors at the NUTS level.
-
-\section{Results}
 
 \FloatBarrier
 \section{Results}
@@ -789,15 +782,13 @@ willingness to take reasoned collective action and enforce norms could have tran
 pro-environmental attitudes. Their sense of obligation also possibly played a role in the context of the environment, 
 and they might have had greater trust in institutions for collective solutions against environmental threats.
 
-
 \FloatBarrier
 
-
-\section{Limitations and Further Research}
+\section{Conclusion}
 
 \newpage
 
-\section{Conclusion}
+\section{Limitations and Further Research}
 
 \newpage
 \section{References}

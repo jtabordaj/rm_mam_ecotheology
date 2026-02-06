@@ -1,14 +1,13 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {section}{\numberline {2}Context and Hypotheses}{3}{section.2}%
+\contentsline {section}{\numberline {2}Historical Context and Hypothesis}{3}{section.2}%
 \contentsline {section}{\numberline {3}Literature Review}{4}{section.3}%
 \contentsline {section}{\numberline {4}Data and Methodology}{5}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Exposure Measure}{5}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Environmental Attitudes Measure}{8}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Regression Model}{10}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Results}{10}{section.5}%
-\contentsline {section}{\numberline {6}Results}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Regressions and Robustness Checks}{10}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Possible Mechanism}{16}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Limitations and Further Research}{17}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{18}{section.8}%
-\contentsline {section}{\numberline {9}References}{19}{section.9}%
+\contentsline {subsection}{\numberline {5.1}Regressions and Robustness Checks}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Possible Mechanism}{16}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Conclusion}{17}{section.6}%
+\contentsline {section}{\numberline {7}Limitations and Further Research}{18}{section.7}%
+\contentsline {section}{\numberline {8}References}{19}{section.8}%
