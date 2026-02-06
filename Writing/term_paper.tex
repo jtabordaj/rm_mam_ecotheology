@@ -31,8 +31,8 @@ Supervised by: Paul Behler \\[1.0cm]}
 \vspace{1.5cm}
 
 \begin{abstract}
-Our project focuses on the effect of the exposure to the Franciscan
-and Dominican orders between the 12th and 15th centuries on contemporary environmental attitudes.
+Our project focuses on the effect of the exposure to two major Mendicant orders of the Middle Ages, 
+the Franciscan and Dominican, between the 12th and 15th centuries on contemporary environmental attitudes.
 We find that that higher Franciscan exposure is associated with less
 pro-environmental attitudes, while higher Dominican exposure
 is associated with more pro-environmental attitudes contrary to our initial expectations. 
@@ -53,26 +53,24 @@ contrasting theologies of the two orders regarding collectivity and individualis
 Religious institutions, in particular the Church, played a pervasive
 role in every aspect of life in medieval Europe, shaping people’s
 lives, values, and behavior throughout the Middle Ages (Lynch, 2014).
-One of the most famous religious figures of the Medieval Ages is
-St.Francis of Assisi, who is the founder of Franciscan order. Being
+One of the most famous religious figures of the Middle Ages is
+St. Francis of Assisi, who is the founder of Franciscan order. Being
 recognized by the Catholic Church as the patron saint of ecology,
 he is widely known for his deep affection towards nature and animals.
 
 In this research, we study the Franciscan eco-theology and its effect
 on contemporary environmental attitudes. We have also controlled for the Dominican order, which is the other
-famous Mendicant order of the Medieval Ages with comparably
-equal historical importance. Thus, our research question
-is the following:
+major Mendicant order of the Middle Ages with comparably
+equal historical importance. Thus, our research question is the following:
 What is the effect of exposure to the Franciscan "Eco-Theology"
 from the 1200s to the 1500s on contemporary environmental
-attitudes among European populations? (compared to the Dominican
-theology).
+attitudes among European populations (compared to the Dominican
+theology)?
 
-To do so, we first construct our independent variable - the historical exposure measures for both
+To do so, we first construct our independent variables, the historical exposure measures for both
 Franciscan and Dominican orders, defined as a fraction of a region’s
 historical population living geographically close to a monastic
-house. We then construct our dependent variable -
-environmental attitudes index - by applying Principal Component
+house. We then construct our dependent variable, the environmental index, by applying Principal Component
 Analysis to the individual-level survey data on environmental
 attitudes from the European Values Study (EVS) 2017–2021 dataset.
 Using those variables and the set of controls, we empirically
@@ -128,8 +126,8 @@ state the opposite.
 
 \section{Literature Review}
 A similar study was conducted by Arruñada and López-Manuel (2024),
-who examined the effects of the two main Mendicant orders of the
-Late Middle Ages - the Dominican and the Franciscan. Through their
+who examined the effects of the two major Mendicant orders of the 
+Middle Ages, the Dominican and the Franciscan. Through their
 emphasis on guilt, shame, compassion, and analytical thinking,
 these orders shape outcomes at the cognitive, interpersonal, and
 institutional levels, which together constitute the “foundations”
@@ -146,7 +144,7 @@ on impersonal exchange. Thus, their findings supports our results
 for distinct effects of the two orders on environmental attitudes. \\
 \\
 Our study also relates to the broader literature on the role of
-Medieval Churches and persistance of cultural norms. The Church,
+medieval churches and persistance of cultural norms. The Church,
 as an institution, played a pervasive role in every aspect of life
 in medieval Europe, shaping people’s lives, values, and behavior
 throughout the Middle Ages (Lynch, 2024). Once a religious institution
@@ -209,8 +207,13 @@ We needed to delete monasteries in east Ukraine, Crimea, and Middle Eastern citi
 (Jerusalem/Acre), since those monasteries lie in the locations
 that are not in or close to any NUTS region. There are some monasteries
 that are a little bit outside but still close to NUTS regions, so we coerce them to
-fit into the closest regions, such as into Romania, Poland or Greece. 
-
+fit into the closest regions. As seen in Figure 1, the two Ukrainian monasteries were coerced to 
+Eastern Romania since they are pretty close to it. The Turkish monasteries appear because 
+some Turkish data is also collected by the EU, but does not pass along to the regression. 
+They do not affect the results or procedure and we gain some storytelling by keeping it.
+Similarly, we can also see monastary data in Greece as it appears in EU datasets. 
+It should not affect the quantitative approach because there seems to be no entries for Greece in 
+the EVS environmental survey data.
 
 \begin{figure}[h!]
     \centering
@@ -226,9 +229,10 @@ our next step is to observe historical population data.
 HYDE 3.3 (History Database of the Global Environment) Utrecht University
 population data captures where people lived historically. It is an
 estimate of population count and density on regular latitude-longitude
-grid from the very late Mediaval time to the modern period. Grids are very
+grid from the very late medieval time to the modern period. Grids are very
 small squares of 85 $\text{km}^2$, and we have an estimate of population
-density for each grid as seen in Figure 2(a).
+density for each grid. In Figure 2(a), each cell represents estimated population counts for a 
+historical year (1200–1500). 
 
 \begin{figure}[h!]
     \centering
@@ -250,15 +254,18 @@ density for each grid as seen in Figure 2(a).
 \end{figure}
 
 
-Similarly, we also consider the population not only in squares, but also in the NUTS regions. By doing
-similar calculations, we can get the exposure measure for each NUTS-2 region as seen in Figure 2(b).
+Similarly, we also consider the population not only in squares, but also in the NUTS regions. In Figure 2(b), 
+population data from HYDE 3.3 grids are overlaid with NUTS-2 boundaries where each grid cell is assigned to a 
+modern NUTS region and the total population within a NUTS region is calculated as the sum of the population of 
+all grid cells that fall within that region. If a grid cell is partially within a NUTS region, we assign the 
+population of that grid cell to the NUTS region if more than half of the grid cell's area falls within the region. 
+This way, we can estimate the population of each NUTS region based on the HYDE 3.3 grid data.
 
-\newpage
-\clearpage
 
-Wee draw a circle around the monastery, and all the
+We draw a 25 $\text{km}$ radius circle around the monastery, and all the
 little squares (grids) that are inside that circle are counted as the exposed population.
-All squares that are mostly included in the circle are counted as fully exposed to the theology of that monastery.
+All squares that are mostly (more than half) included in the circle are counted as fully exposed to the 
+theology of that monastery.
 In our research, the exposure measure is defined as the sum of exposed
 population within a given region as a percentage of the total population
 for both Franciscan and Dominican monasteries:
@@ -270,7 +277,7 @@ for both Franciscan and Dominican monasteries:
 
 
 Having all the three sources put together, we have Dominican and Franciscan
-exposure measure for Europe (Figures 3a and 3b). 
+exposure measure for Europe (Figures 3(a) and 3(b)). 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -312,7 +319,7 @@ environmental attitudes. The questions are the following:
     \item Choosing either "to protect the environment, even if slower
     economic growth and loss of jobs" or "to have economic growth
     and newly created jobs, even if environment suffers".
-    - Economy and Environment Trade-off question
+    (economy and environment trade-off)
 
     \item "I would give part of my income if I were certain that the
     money would be used to prevent pollution."
@@ -324,7 +331,7 @@ environmental attitudes. The questions are the following:
     protecting the environment."
 
     \item "There is no point in doing what I can for the environment
-    unless others do the same." - Collective action question
+    unless others do the same." (collective action)
 
     \item "Many of the claims about environmental threats are exaggerated."
 
@@ -786,7 +793,30 @@ and they might have had greater trust in institutions for collective solutions a
 
 \section{Conclusion}
 
-\newpage
+In this research, we amalyzed whether the exposure to the two major Mendicant orders of the Middle Ages, 
+Franciscan and Dominican monasteries, has an effect on contemporary environmental attitudes. We constructed an 
+exposure measure by combining the geodataset of monastery locations with historical population data, 
+and we constructed an environmental attitudes index using the European Values Study survey data on 
+individual environmental questions. We ran regressions controlling for various individual-level characteristics 
+and country fixed effects. Through this, we have found that higher Franciscan exposure is associated 
+with less pro-environmental attitudes, while the Dominican exposure is associated with more pro-environmental 
+attitudes. More specifically, in our main regression model, $\beta_1$ is 0.035 and statistically significant, 
+while $\beta_2$ is -0.016 and not statistically significant. Through various robustness checks, we have found 
+that the results are quite robust and homogeneous across Europe and persist even when we exclude certain controls 
+or countries. 
+
+We also proposed a possible mechanism 
+that could be driving these results, which is the contrasting beliefs about collective action within the Franciscan 
+and Dominican theologies. The Franciscan theology of humility and acceptance of circumstances might have led to less
+pro-environmental attitudes, while the Dominican theology of persuasion and institutional coordination might have 
+led to more pro-environmental attitudes. The results might have been driven by underlying beliefs about whether 
+the environmental  threats are exaggerated, whether individual efforts are pointless unless others do the same, 
+and whether individual efforts are important for the environment. 
+
+We can conclude our results by saying that long-run cultural and theological beliefs and monasteries can have 
+a significant influence on contemporary attitudes toward the environment. The results of this research are quite 
+interesting and surprising, but we cannot help but mention the limitations of our research and the need for 
+further research.
 
 \section{Limitations and Further Research}
 
