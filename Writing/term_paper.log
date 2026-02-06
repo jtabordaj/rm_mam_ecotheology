@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  6 FEB 2026 04:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  6 FEB 2026 04:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,29 +470,31 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <../figures/04a_franciscan_exposure.png, id=115, 3011.25pt x 3011.25pt>
 File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
 <use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 280.
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 281.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 <../figures/04b_dominican_exposure.png, id=116, 3011.25pt x 3011.25pt>
 File: ../figures/04b_dominican_exposure.png Graphic file (type png)
 <use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 287.
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 288.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 
 
-[7 <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 302--315
+[7
+
+ <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 303--316
 
  []
 
 <../figures/05_env_questions.png, id=125, 3613.5pt x 3011.25pt>
 File: ../figures/05_env_questions.png Graphic file (type png)
 <use ../figures/05_env_questions.png>
-Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 351.
+Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 352.
 (pdftex.def)             Requested size: 317.07614pt x 264.20052pt.
 <../figures/06_env_index.png, id=126, 2409.0pt x 2409.0pt>
 File: ../figures/06_env_index.png Graphic file (type png)
 <use ../figures/06_env_index.png>
-Package pdftex.def Info: ../figures/06_env_index.png  used on input line 358.
+Package pdftex.def Info: ../figures/06_env_index.png  used on input line 359.
 (pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
 
 
@@ -504,14 +506,14 @@ Package pdftex.def Info: ../figures/06_env_index.png  used on input line 358.
 <../figures/07_regressions_plot_4_models.png, id=148, 2409.0pt x 1505.625pt>
 File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
 <use ../figures/07_regressions_plot_4_models.png>
-Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 531.
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 532.
 (pdftex.def)             Requested size: 452.9679pt x 283.08511pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (54.9638pt too wide) in paragraph at lines 551--623
+Overfull \hbox (54.9638pt too wide) in paragraph at lines 552--624
 [][] 
  []
 
@@ -523,8 +525,8 @@ Overfull \hbox (54.9638pt too wide) in paragraph at lines 551--623
 <../figures/11_robustness_leave_one_out.png, id=166, 2409.0pt x 2409.0pt>
 File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
 <use ../figures/11_robustness_leave_one_out.png>
-Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 644.
-(pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 645.
+(pdftex.def)             Requested size: 362.37569pt x 362.36365pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -532,7 +534,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [13]
-Overfull \hbox (34.29698pt too wide) in paragraph at lines 667--692
+Overfull \hbox (34.29698pt too wide) in paragraph at lines 668--693
  [][] 
  []
 
@@ -542,13 +544,17 @@ Overfull \hbox (34.29698pt too wide) in paragraph at lines 667--692
 <../figures/13_robustness_sensitivity_plot.png, id=181, 2409.0pt x 2409.0pt>
 File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
 <use ../figures/13_robustness_sensitivity_plot.png>
-Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 761.
-(pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 762.
+(pdftex.def)             Requested size: 362.37569pt x 362.36365pt.
 
 
-[15 <../figures/13_robustness_sensitivity_plot.png>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16]
+
+
+[15]
+
+[16 <../figures/13_robustness_sensitivity_plot.png>]
 
 [17]
 
@@ -569,13 +575,13 @@ Package rerunfilecheck Info: File `term_paper.out' has not changed.
 Here is how much of TeX's memory you used:
  12117 strings out of 473190
  195973 string characters out of 5705898
- 608941 words of memory out of 5000000
+ 609941 words of memory out of 5000000
  35169 multiletter control sequences out of 15000+600000
  570058 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,10n,79p,573b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on term_paper.pdf (19 pages, 7365785 bytes).
+Output written on term_paper.pdf (19 pages, 7365926 bytes).
 PDF statistics:
  303 PDF objects out of 1000 (max. 8388607)
  223 compressed objects within 3 object streams
