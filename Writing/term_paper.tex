@@ -188,15 +188,17 @@ monasteries can get influenced or exposed to the theological beliefs
 of the monasteries. Thus, the exposure measure is defined as a fraction of a
 region’s historical population living geographically close to a
 monastic house. To estimate historical exposure to the Franciscan
-and Dominican orders, we borrow from a lot of datasets. First, we
-employ the geodataset covering the years between 1216 to
+and Dominican orders, we employ the geodataset covering the years between 1216 to
 1500 from the Mapping Past Societies (MAPS), which
 includes information on the geographic locations, the latitude and
 longitude, of the Dominican monasteries consisting of 870 observations and Franciscan
-monasteries consisting of 994 observations and the names of the houses. The Dominican
-dataset includes the foundation centuries. The only limitation of
-this dataset is that it does not include the ending years. After we
-get the monastery location, we need to locate them within regions.
+monasteries consisting of 994 observations. The MAPS dataset also includes 
+the foundation centuries only for Dominican monasteries, but doesn't include them for Franciscan monasteries. 
+So we assume that all monasteries in our dataset existed throughout the period of 1200-1500 since 
+the majority of the monasteries were founded in the 13th century.
+However, this is also a major limitation of our approach, since it means that we are not able to capture 
+the changes in the exposure over time, and we are only able to capture the overall exposure level.
+After we get the monastery location, we need to locate them within regions.
 To do so, we use the European Commision system for characterising
 geographical data, the Nomenclature of Territorial Units for Statistics
 (NUTS), as well as country shapefiles. NUTS-1 are for large macro regions,
@@ -819,6 +821,28 @@ interesting and surprising, but we cannot help but mention the limitations of ou
 further research.
 
 \section{Limitations and Further Research}
+
+The main limitation of our research is the Mapping Past Societies (MAPS) dataset, which contains foundation
+centuries only for Dominican monasteries, but not the specific dates, and it doesn't contain closing dates for any 
+monasteries. Thus, we had to assume that all the monasteries were active throughout the period of 1200-1500.
+So our exposure measure treats monastery presence as time-invariant.
+
+Another limitation is that our specification is purely historical and correlational, so we cannot make any causal 
+claims about the relationship between monastic exposure and environmental attitudes without a proper experiment. 
+We should think about what the perfect experiment would look like. We could have a randomized controlled 
+trial where we randomly assign people to be exposed to Franciscan or Dominican theology and then measure their 
+environmental attitudes after a certain period of time. 
+
+The main extension of this research would be to find more detailed data on the foundation and closing dates of the 
+monasteries to construct a more accurate exposure measure. As a first step, we propose to use another existing 
+dataset from Boranbay and Guerriero (2019) contaning only data for the Franciscan monasteries. They use a novel
+dataset which contains 2980 observations (compared to 994 observations in MAPS) with specific foundation dates 
+only for Franciscan monasteries. But all of the closing dates are coded as 2011, 
+which means that there are no closing dates. But this would allow us to construct a more accurate exposure 
+measure for the Franciscan monasteries. 
+
+
+
 
 \newpage
 \section{References}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.28)  7 FEB 2026 02:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.28)  8 FEB 2026 12:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -443,56 +443,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--161
 <../figures/01_monasteries_map.png, id=92, 3011.25pt x 2409.0pt>
 File: ../figures/01_monasteries_map.png Graphic file (type png)
 <use ../figures/01_monasteries_map.png>
-Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 220.
+Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 222.
 (pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../figures/02_hyde_grid.png, id=94, 3011.25pt x 3011.25pt>
-File: ../figures/02_hyde_grid.png Graphic file (type png)
-<use ../figures/02_hyde_grid.png>
-Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 241.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/03_hyde_nuts.png, id=95, 3011.25pt x 3011.25pt>
-File: ../figures/03_hyde_nuts.png Graphic file (type png)
-<use ../figures/03_hyde_nuts.png>
-Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 248.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
 [5]
+<../figures/02_hyde_grid.png, id=99, 3011.25pt x 3011.25pt>
+File: ../figures/02_hyde_grid.png Graphic file (type png)
+<use ../figures/02_hyde_grid.png>
+Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 243.
+(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+<../figures/03_hyde_nuts.png, id=100, 3011.25pt x 3011.25pt>
+File: ../figures/03_hyde_nuts.png Graphic file (type png)
+<use ../figures/03_hyde_nuts.png>
+Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 250.
+(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+
 
 [6 <../figures/01_monasteries_map.png> <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png>]
 <../figures/04a_franciscan_exposure.png, id=110, 3011.25pt x 3011.25pt>
 File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
 <use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 285.
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 287.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 <../figures/04b_dominican_exposure.png, id=111, 3011.25pt x 3011.25pt>
 File: ../figures/04b_dominican_exposure.png Graphic file (type png)
 <use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 292.
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 294.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 
 
 [7 <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 306--318
+Underfull \hbox (badness 10000) in paragraph at lines 308--320
 
  []
 
 <../figures/05_env_questions.png, id=120, 3613.5pt x 3011.25pt>
 File: ../figures/05_env_questions.png Graphic file (type png)
 <use ../figures/05_env_questions.png>
-Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 354.
+Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 356.
 (pdftex.def)             Requested size: 317.07614pt x 264.20052pt.
 <../figures/06_env_index.png, id=121, 2409.0pt x 2409.0pt>
 File: ../figures/06_env_index.png Graphic file (type png)
 <use ../figures/06_env_index.png>
-Package pdftex.def Info: ../figures/06_env_index.png  used on input line 361.
+Package pdftex.def Info: ../figures/06_env_index.png  used on input line 363.
 (pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
 
 
@@ -504,14 +502,14 @@ Package pdftex.def Info: ../figures/06_env_index.png  used on input line 361.
 <../figures/07_regressions_plot_4_models.png, id=143, 2409.0pt x 1505.625pt>
 File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
 <use ../figures/07_regressions_plot_4_models.png>
-Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 532.
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 534.
 (pdftex.def)             Requested size: 452.9679pt x 283.08511pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (54.9638pt too wide) in paragraph at lines 552--624
+Overfull \hbox (54.9638pt too wide) in paragraph at lines 554--626
 [][] 
  []
 
@@ -523,7 +521,7 @@ Overfull \hbox (54.9638pt too wide) in paragraph at lines 552--624
 <../figures/11_robustness_leave_one_out.png, id=161, 2409.0pt x 2409.0pt>
 File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
 <use ../figures/11_robustness_leave_one_out.png>
-Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 645.
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 647.
 (pdftex.def)             Requested size: 362.37569pt x 362.36365pt.
 
 
@@ -532,7 +530,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 [13]
-Overfull \hbox (34.29698pt too wide) in paragraph at lines 668--693
+Overfull \hbox (34.29698pt too wide) in paragraph at lines 670--695
  [][] 
  []
 
@@ -542,7 +540,7 @@ Overfull \hbox (34.29698pt too wide) in paragraph at lines 668--693
 <../figures/13_robustness_sensitivity_plot.png, id=176, 2409.0pt x 2409.0pt>
 File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
 <use ../figures/13_robustness_sensitivity_plot.png>
-Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 762.
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 764.
 (pdftex.def)             Requested size: 362.37569pt x 362.36365pt.
 
 
@@ -556,7 +554,9 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [17]
 
-[18] (./term_paper.aux)
+[18]
+
+[19] (./term_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -569,18 +569,18 @@ Package rerunfilecheck Info: File `term_paper.out' has not changed.
 (rerunfilecheck)             Checksum: 6294CA25B5752D6DA5C7CF3773DB09D0;1959.
  ) 
 Here is how much of TeX's memory you used:
- 12114 strings out of 473190
- 193036 string characters out of 5715800
- 609941 words of memory out of 5000000
+ 12115 strings out of 473190
+ 193043 string characters out of 5715800
+ 608941 words of memory out of 5000000
  35168 multiletter control sequences out of 15000+600000
  570058 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,10n,79p,589b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on term_paper.pdf (18 pages, 7368831 bytes).
+Output written on term_paper.pdf (19 pages, 7370872 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 298 PDF objects out of 1000 (max. 8388607)
+ 218 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
  155 words of extra memory for PDF output out of 10000 (max. 10000000)
 
