@@ -7,7 +7,8 @@
 \contentsline {subsection}{\numberline {4.3}Regression Model}{10}{subsection.4.3}%
 \contentsline {section}{\numberline {5}Results}{10}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Regressions and Robustness Checks}{10}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Possible Mechanism}{17}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Conclusion}{18}{section.6}%
-\contentsline {section}{\numberline {7}Limitations and Further Research}{18}{section.7}%
-\contentsline {section}{\numberline {8}References}{20}{section.8}%
+\contentsline {subsection}{\numberline {5.2}Possible Mechanism}{12}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Conclusion}{13}{section.6}%
+\contentsline {section}{\numberline {7}Limitations and Further Research}{13}{section.7}%
+\contentsline {section}{\numberline {8}References}{16}{section.8}%
+\contentsline {section}{\numberline {9}Appendix}{17}{section.9}%
