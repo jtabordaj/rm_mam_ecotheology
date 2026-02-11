@@ -13,6 +13,9 @@
 \usepackage{subcaption}
 \usepackage{booktabs}
 \usepackage{placeins}
+\usepackage{tabularx}
+
+
 
 
 \title{Research Project: Franciscan Eco-Theology and Environmental Attitudes}
@@ -62,7 +65,7 @@ In this research, we study the Franciscan eco-theology and its effect
 on contemporary environmental attitudes. We have also controlled for the Dominican order, which is the other
 major Mendicant order of the Middle Ages with comparably
 equal historical importance. Thus, our research question is the following:
-What is the effect of exposure to the Franciscan "Eco-Theology"
+What is the effect of exposure to the Franciscan ``Eco-Theology''
 from the 1200s to the 1500s on contemporary environmental
 attitudes among European populations (compared to the Dominican
 theology)?
@@ -96,13 +99,13 @@ St. Francis of Assisi (1181-1226), who was recognized by the
 Catholic Church as the patron saint of ecology, widely known
 for his profound affection towards nature and animals. This
 deep affection towards animals and nature can be seen in his
-"Canticles of the Creatures," where St. Francis refers to the sun and
+``Canticles of the Creatures,'' where St. Francis refers to the sun and
 the moon as brother and sister. Importantly, Francis and his followers
 emphasized the close imitation of life of Christ and apostles
-through the ideals of poverty and humility. "He wanted to embrace
+through the ideals of poverty and humility. ``He wanted to embrace
 real poverty, without any rationalisations or modifications. His band
 of followers would beg for their daily food, would take no care for
-tomorrow, and would own nothing – really nothing." (Lynch, 2014, p. 258).
+tomorrow, and would own nothing – really nothing.'' (Lynch, 2014, p. 258).
 Thus, the Franciscan Order focuses on collective life, communal care,
 antimateralism, shame, compassion, simplicity, and humbleness
 (Arrunada and Lopez-Manuel, 2024).
@@ -317,30 +320,66 @@ observations and geographic identifiers for NUTS-1 regions for Germany and NUTS-
 From the EVS dataset, we borrow particularly 6
 environmental variables, which are the questions that are related to
 environmental attitudes. The questions are the following:
-\begin{itemize}
-    \item Choosing either "to protect the environment, even if slower
-    economic growth and loss of jobs" or "to have economic growth
-    and newly created jobs, even if environment suffers".
-    (economy and environment trade-off)
+%\begin{itemize}
+%    \item Choosing either ``to protect the environment, even if slower
+%    economic growth and loss of jobs'' or ``to have economic growth
+%    and newly created jobs, even if environment suffers''.
+%    (economy and environment trade-off)
 
-    \item "I would give part of my income if I were certain that the
-    money would be used to prevent pollution."
+%    \item ``I would give part of my income if I were certain that the
+%    money would be used to prevent pollution.''
 
-    \item "It is just too difficult for someone like me to do much
-    about the environment."
+%    \item ``It is just too difficult for someone like me to do much
+%    about the environment.''
 
-    \item "There are more important things to do in life than
-    protecting the environment."
+%    \item ``There are more important things to do in life than
+%    protecting the environment.''
 
-    \item "There is no point in doing what I can for the environment
-    unless others do the same." (collective action)
+%    \item ``There is no point in doing what I can for the environment
+%    unless others do the same.'' (collective action)
 
-    \item "Many of the claims about environmental threats are exaggerated."
+%    \item ``Many of the claims about environmental threats are exaggerated.''
 
-\end{itemize}
+%\end{itemize}
 
-The questions have categorical answers ("strongly agree",
-"agree", "neither agree nor disagree", "disagree", "strongly disagree",
+\begin{table}[htbp]
+\centering
+\caption{Six questions from the EVS dataset related to environmental attitudes}
+\label{tab:evs_env_questions}
+
+\makebox[\textwidth][c]{%
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{12cm} p{4cm}}
+\hline
+\textbf{Question} & \textbf{Dimension} \\
+\hline
+Choosing either ``to protect the environment, even if slower economic growth and loss of jobs'' or ``to have economic growth and newly created jobs, even if the environment suffers'' 
+& Economy--environment trade-off \\
+
+``I would give part of my income if I were certain that the money would be used to prevent pollution.'' 
+& Willingness to pay \\
+
+``It is just too difficult for someone like me to do much about the environment.'' 
+& Self-efficacy \\
+
+``There are more important things to do in life than protecting the environment.'' 
+& Priority of environmental protection \\
+
+``There is no point in doing what I can for the environment unless others do the same.'' 
+& Collective action \\
+
+``Many of the claims about environmental threats are exaggerated.'' 
+& Env.\ skepticism \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+
+The questions have categorical answers (``strongly agree'',
+``agree'', ``neither agree nor disagree'', ``disagree'', ``strongly disagree'',
 or choosing between the two statements). However, the questions differ
 in their directional interpretation. Thus, we need to standardize
 the questions by assigning 0-1 scale per answer for each question,
@@ -561,8 +600,8 @@ and town size, but none of the controls change the general direction of the resu
 
 As the last robustness check in Table 4, we run subsample regressions with the full model, including all controls, 
 but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
-same EVS data by asking the question “Which religious denomination do you belong to?” and taking into account only 
-those who answered with the option “Roman Catholic". Considering only Catholics, the sample size drops significantly 
+same EVS data by asking the question ``Which religious denomination do you belong to?'' and taking into account only 
+those who answered with the option ``Roman Catholic''. Considering only Catholics, the sample size drops significantly 
 to 5899, so we don’t have any significant results and can’t say much about them. In the second subsample, we exclude 
 the observations from Germany to only keep NUTS 2 regions to see whether it was the lack of linearity in Germany driving 
 the results, since we consider NUTS 1 regions for Germany. But we see that the results stay pretty much the same as in 
