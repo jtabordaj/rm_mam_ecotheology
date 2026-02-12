@@ -58,3 +58,8 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 
+*.pdf
+*.aux
+*.log
+*.synctex.gz
+*.fdb_latexmk
