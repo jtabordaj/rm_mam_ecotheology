@@ -350,27 +350,6 @@ observations and geographic identifiers for NUTS-1 regions for Germany and NUTS-
 \\
 From the EVS dataset, we select six environmental variables in particular, which
 correspond to questions related to environmental attitudes. The questions are the following:
-%\begin{itemize}
-%    \item Choosing either ``to protect the environment, even if slower
-%    economic growth and loss of jobs'' or ``to have economic growth
-%    and newly created jobs, even if environment suffers''.
-%    (economy and environment trade-off)
-
-%    \item ``I would give part of my income if I were certain that the
-%    money would be used to prevent pollution.''
-
-%    \item ``It is just too difficult for someone like me to do much
-%    about the environment.''
-
-%    \item ``There are more important things to do in life than
-%    protecting the environment.''
-
-%    \item ``There is no point in doing what I can for the environment
-%    unless others do the same.'' (collective action)
-
-%    \item ``Many of the claims about environmental threats are exaggerated.''
-
-%\end{itemize}
 
 \begin{table}[htbp]
 \centering
@@ -380,18 +359,20 @@ correspond to questions related to environmental attitudes. The questions are th
 \renewcommand{\arraystretch}{1.25}
 \begin{tabular}{p{12cm} p{4cm}}
 \hline
-\textbf{Question} & \textbf{Dimension} \\
+\textbf{Survey Question (EVS)} & \textbf{Dimension} \\
 \hline
-Choosing either ``to protect the environment, even if slower economic growth and loss of jobs'' or ``to have economic growth and newly created jobs, even if the environment suffers'' 
+Choosing either ``protecting the environment priority, 
+even if slower economic growth and loss of jobs'' vs. ``economic growth and creating jobs priority, even if environment 
+suffers'' 
 & Economy--environment trade-off \\
 
-``I would give part of my income if I were certain that the money would be used to prevent pollution.'' 
+``I would give part of my income if I were certain that the money would be used to prevent environmental pollution.'' 
 & Willingness to pay \\
 
 ``It is just too difficult for someone like me to do much about the environment.'' 
 & Self-efficacy \\
 
-``There are more important things to do in life than protecting the environment.'' 
+``There are more important things to do in life than protect the environment.'' 
 & Priority of environmental protection \\
 
 ``There is no point in doing what I can for the environment unless others do the same.'' 
@@ -407,11 +388,11 @@ Choosing either ``to protect the environment, even if slower economic growth and
 
 
 
-The questions have categorical answers (``strongly agree'',
-``agree'', ``neither agree nor disagree'', ``disagree'', ``strongly disagree'',
+The questions have categorical answers (``agree strongly'',
+``agree'', ``neither agree nor disagree'', ``disagree'', ``disagree strongly'',
 or choosing between the two statements). However, the questions differ
 in their directional interpretation. Thus, we need to standardize
-the questions by assigning a 0-1 scale for each answer to each question,
+the questions by assigning a 0-1 scale for each answer to each question (see Table 2 in the Appendix),
 such that the answers indicate the same environmental direction.
 In the standardized 0-1 scale, 1 indicates the least pro-environmental
 attitude, and 0 indicates the most pro-environmental attitude. See 
@@ -441,10 +422,9 @@ construct a single Environmental Attitudes Index. Thus, we run a Principal
 Component Analysis (PCA) to try to extract the main components of the questions,
 invisible or underlying mechanisms that are driving the answers.
 The first principal component explains 45\% of the variance,
-and we take the first principal component as our Environmental Attitudes Index.
-We find that the components of Western European countries behave
-more green, while the Eastern European countries behave more yellowish as illustrated
-in Figure 5. 
+and we take the first principal component as our Environmental Attitudes Index. See Table 3 in the Appendix for PC1 
+loadings. We find that the components of Western European countries behave more green, while the Eastern European 
+countries behave more yellowish as illustrated in Figure 5. 
 
 \FloatBarrier
 
@@ -596,11 +576,11 @@ All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted 
 increase going from a negative to a positive sign as we move from Model 1 to Model 4, and finally becomes positive 
 and statistically significant. $\beta_2$ is never significant; however, it also decreases once we add controls. 
 
-In Table 2 (see Appendix), we run regressions with each of the environmental questions as dependent variables separately to see
+In Table 4 (see Appendix), we run regressions with each of the environmental questions as dependent variables separately to see
 whether there is one variable within the PCA index driving all of the results. We run the regression in Model 4
 six times with one of the variables instead of the index. The values of $\beta_1$ and $\beta_2$ did not change 
 that much across these six regressions compared to Model 4 in Table 1. However, there aren’t any significant results 
-for them except the variable indicating the network and collectivity effect, stating, “There is no point in doing 
+except for the coefficients of the variable indicating the collectivity effect, stating, “There is no point in doing 
 what I can for the environment unless others do the same.” The Franciscan and Dominican exposure coefficients produce 
 significant results since they have contrasting theologies regarding this variable, where the Franciscan Order focused 
 more on collectivity and the Dominican Order emphasized an individualistic view. 
@@ -612,7 +592,7 @@ $\beta_1$, estimates. We see that there isn’t much difference across countries
 slightly stronger effect on the results, but even excluding these countries, the results remain quite similar to 
 those in Table 1. So the effects are homogeneous across Europe.
 
-In Table 3 (see Appendix), we run the main regression again, this time excluding each control variable at a time for the 
+In Table 5 (see Appendix), we run the main regression again, this time excluding each control variable at a time for the 
 sensitivity analysis. We see that the estimate of $\beta_1$ remains around 0.035 and is statistically significant 
 across most of the regressions, except for one regression in which we exclude the town size control variable, which 
 accounts for urbanization. This is an important result because the Franciscans used to locate themselves within cities 
@@ -620,13 +600,13 @@ and urban areas to reach more people. So, not controlling for the town size woul
 exposure. This makes the town size a very important control, but apart from it, we could drop any other control and 
 find very similar results to our full model.
 
-In Figure 8 (see Appendix), we see the plotted regression coefficient estimates found in the sensitivity analysis in Table 3 
+In Figure 8 (see Appendix), we see the plotted regression coefficient estimates found in the sensitivity analysis in Table 5 
 by leaving out one control in each regression, the top plot showing estimates for $\beta_2$ and the bottom one showing 
 estimates of $\beta_1$. We can clearly see that only the town size shifts the Franciscan exposure coefficient estimate. 
 The Dominican exposure coefficient estimate also changes slightly when we remove income, political orientation, 
 and town size, but none of the controls change the general direction of the results. 
 
-As the last robustness check in Table 4 (see Appendix), we run subsample regressions with the full model, including all controls, 
+As the last robustness check in Table 6 (see Appendix), we run subsample regressions with the full model, including all controls, 
 but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
 same EVS data by asking the question ``Which religious denomination do you belong to?'' and taking into account only 
 those who answered with the option ``Roman Catholic''. Considering only Catholics, the sample size drops significantly 
@@ -677,8 +657,8 @@ that could be driving these results, which is the contrasting beliefs about coll
 and Dominican theologies. The Franciscan theology of humility and acceptance of circumstances might have led to less
 pro-environmental attitudes, while the Dominican theology of persuasion and institutional coordination might have 
 led to more pro-environmental attitudes. The results might have been driven by underlying beliefs about whether 
-the environmental  threats are exaggerated, whether individual efforts are pointless unless others do the same, 
-and whether individual efforts are important for the environment. 
+environmental threats are exaggerated and whether individual efforts are pointless unless others do the same 
+for the environment. 
 
 We can conclude our results by saying that long-run cultural and theological beliefs and monasteries can have 
 a significant influence on contemporary attitudes toward the environment. The results of this research are quite 
@@ -792,6 +772,83 @@ Waldinger, M. (2017). The long-run effects of missionary orders in Mexico. \text
 \newpage
 \section{Appendix}
 
+\section*{Environmental Attitude Survey Questions}
+
+Table 2 reports the exact wording and coding of the six environmental attitude questions from the European 
+Values Study (EVS) used in the construction of the Environmental Attitudes Index.
+Five of the questions with possible answers agree strongly, agree, neither agree nor disagree, disagree, 
+disagree strongly, are originally measured on a five-point Likert scale (1, 2, 3, 4, 5). 
+The other one question with possible answers to choose between two statements "protecting the environment priority, 
+even if slower economic growth and loss of jobs" vs. "economic growth and creating jobs priority, even if environment 
+suffers" has two answers, scaled 1 or 5. In this case, choosing protecting the environment is coded as 1, 
+and choosing economic growth is coded as 5.
+
+We rescale all variables to a common interval between 0 and 1 and treat them as continuous in the analysis 
+to make it easy to combine all questions into our PCA on a 0-1 scale. Due to the discrete nature of the original response 
+categories, the rescaled variables only assume the values 0.0, 0.2, 0.4, 0.6, 0.8, and 1.0. Higher values indicate 
+less pro-environmental attitudes, while lower values indicate more pro-environmental attitudes.
+The rescaling is implemented using a linear transformation of each variable to the unit interval. 
+
+
+\begin{table}[htbp]
+\centering
+\caption{Environmental Attitude Survey Questions (European Values Study)}
+\label{tab:evs_questions}
+\begin{tabular}{p{12cm} p{5cm}}
+\hline
+\textbf{Survey Question (EVS)} & \textbf{Scale} \\
+\hline
+``"protecting the environment priority, 
+even if slower economic growth and loss of jobs" vs. "economic growth and creating jobs priority, even if environment 
+suffers"'' & only 1 and 5 rescaled to [0,1]\\
+
+``I would give part of my income if I were certain that the money would be used to prevent environmental pollution.'' & 1, 2, 3, 4, 5 rescaled to [0,1]\\
+
+``It is just too difficult for someone like me to do much about the environment.'' & 1, 2, 3, 4, 5 rescaled to [0,1]\\
+
+``There are more important things to do in life than protect the environment.'' & 1, 2, 3, 4, 5 rescaled to [0,1]\\
+
+``There is no point in doing what I can for the environment unless others do the same.'' & 1, 2, 3, 4, 5 rescaled to [0,1]\\
+
+``Many of the claims about environmental threats are exaggerated.'' & 1, 2, 3, 4, 5 rescaled to [0,1]\\
+\hline
+\end{tabular}
+\end{table}
+\newpage
+
+\begin{table}[htbp]
+    \centering
+    \caption{Environmental Index: PC1 Loadings}
+    \label{tab:pc1_loadings}
+
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{l c}
+        \hline
+        & \textbf{PC1 Loading} \\
+        \hline
+        envir\_econ\_priority       & 0.855 \\
+        envir\_efforts\_pointless   & -0.287 \\
+        envir\_other\_importances   & 0.498 \\
+        envir\_network\_effect      & 0.200 \\
+        envir\_threats\_exaggerated & 0.510 \\
+        envir\_protection\_money    & 0.085 \\
+        \hline
+        \end{tabular}
+
+        \vspace{0.4cm}
+
+        \begin{tabular}{l c}
+        \hline
+        & \textbf{Value} \\
+        \hline
+        SS Loadings (PC1)                 & 1.368 \\
+        Proportion of Variance Explained  & 0.228 \\
+        \hline
+    \end{tabular}
+
+\end{table}
+
+\section*{Regression Results and Robustness Checks}
 \begin{figure}[h!]
     \centering
     \caption{\centering Impact of Monastic Orders (Clustered SEs) \\ \footnotesize 95$\%$ CI clustered by region. Crossing 0 = Not Significant}
@@ -986,37 +1043,6 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \end{figure}
 
 
-\begin{table}[htbp]
-    \centering
-    \caption{Environmental Index: PC1 Loadings}
-    \label{tab:pc1_loadings}
-
-    \renewcommand{\arraystretch}{1.2}
-    \begin{tabular}{l c}
-        \hline
-        & \textbf{PC1 Loading} \\
-        \hline
-        envir\_econ\_priority        & 0.855 \\
-        envir\_efforts\_pointless   & -0.287 \\
-        envir\_other\_importances   & 0.498 \\
-        envir\_network\_effect      & 0.200 \\
-        envir\_threats\_exaggerated & 0.510 \\
-        envir\_protection\_money    & 0.085 \\
-        \hline
-        \end{tabular}
-
-        \vspace{0.4cm}
-
-        \begin{tabular}{l c}
-        \hline
-        & \textbf{Value} \\
-        \hline
-        SS Loadings (PC1)                 & 1.368 \\
-        Proportion of Variance Explained  & 0.228 \\
-        \hline
-    \end{tabular}
-
-\end{table}
 
 
 \end{document}
