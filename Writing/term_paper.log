@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  11 FEB 2026 16:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  12 FEB 2026 15:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -450,37 +450,33 @@ File: ../figures/01_monasteries_map.png Graphic file (type png)
 <use ../figures/01_monasteries_map.png>
 Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 255.
 (pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
-<../figures/02_hyde_grid.png, id=84, 3011.25pt x 3011.25pt>
+
+
+[5 <../figures/01_monasteries_map.png>]
+<../figures/02_hyde_grid.png, id=91, 3011.25pt x 3011.25pt>
 File: ../figures/02_hyde_grid.png Graphic file (type png)
 <use ../figures/02_hyde_grid.png>
 Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 276.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/03_hyde_nuts.png, id=85, 3011.25pt x 3011.25pt>
+<../figures/03_hyde_nuts.png, id=92, 3011.25pt x 3011.25pt>
 File: ../figures/03_hyde_nuts.png Graphic file (type png)
 <use ../figures/03_hyde_nuts.png>
 Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 283.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-
-[5 <../figures/01_monasteries_map.png>]
 <../figures/04a_franciscan_exposure.png, id=93, 3011.25pt x 3011.25pt>
 File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
 <use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 320.
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 321.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 <../figures/04b_dominican_exposure.png, id=94, 3011.25pt x 3011.25pt>
 File: ../figures/04b_dominican_exposure.png Graphic file (type png)
 <use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 327.
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 328.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 
 
 [6 <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 341--358
+Underfull \hbox (badness 10000) in paragraph at lines 342--358
 
  []
 
@@ -588,7 +584,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  69i,11n,79p,573b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on term_paper.pdf (19 pages, 7375927 bytes).
+Output written on term_paper.pdf (19 pages, 7375985 bytes).
 PDF statistics:
  300 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams
