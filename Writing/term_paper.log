@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.1.28)  13 FEB 2026 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.5)  13 FEB 2026 22:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing/term_paper.tex"
-(/Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing/term_paper.tex
+**"/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex"
+(/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -324,23 +324,8 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 \l__pdf_internal_box=\box56
-) (./term_paper.aux
-
-LaTeX Warning: Label `fig:eu_map' multiply defined.
-
-
-LaTeX Warning: Label `fig:eu_map' multiply defined.
-
-
-LaTeX Warning: Label `fig:eu_map' multiply defined.
-
-
-LaTeX Warning: Label `fig:eu_map' multiply defined.
-
-
-LaTeX Warning: Label `fig:eu_map' multiply defined.
-
 )
+No file term_paper.aux.
 \openout1 = `term_paper.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
@@ -361,7 +346,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
 LaTeX Font Info:    ... okay on input line 31.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -416,7 +400,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 31.
- (./term_paper.out) (./term_paper.out)
 \@outlinefile=\write3
 \openout3 = `term_paper.out'.
 
@@ -436,7 +419,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 153--194
+Underfull \hbox (badness 10000) in paragraph at lines 139--179
 
  []
 
@@ -445,63 +428,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--194
 [3]
 
 [4]
-<../figures/01_monasteries_map.png, id=82, 3011.25pt x 2409.0pt>
+<../figures/01_monasteries_map.png, id=31, 3011.25pt x 2409.0pt>
 File: ../figures/01_monasteries_map.png Graphic file (type png)
 <use ../figures/01_monasteries_map.png>
-Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 255.
+Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 241.
 (pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
+<../figures/02_hyde_grid.png, id=33, 3011.25pt x 3011.25pt>
+File: ../figures/02_hyde_grid.png Graphic file (type png)
+<use ../figures/02_hyde_grid.png>
+Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 262.
+(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+<../figures/03_hyde_nuts.png, id=34, 3011.25pt x 3011.25pt>
+File: ../figures/03_hyde_nuts.png Graphic file (type png)
+<use ../figures/03_hyde_nuts.png>
+Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 269.
+(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 
 [5 <../figures/01_monasteries_map.png>]
-<../figures/02_hyde_grid.png, id=91, 3011.25pt x 3011.25pt>
-File: ../figures/02_hyde_grid.png Graphic file (type png)
-<use ../figures/02_hyde_grid.png>
-Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 276.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/03_hyde_nuts.png, id=92, 3011.25pt x 3011.25pt>
-File: ../figures/03_hyde_nuts.png Graphic file (type png)
-<use ../figures/03_hyde_nuts.png>
-Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 283.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/04a_franciscan_exposure.png, id=93, 3011.25pt x 3011.25pt>
+<../figures/04a_franciscan_exposure.png, id=42, 3011.25pt x 3011.25pt>
 File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
 <use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 321.
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 309.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/04b_dominican_exposure.png, id=94, 3011.25pt x 3011.25pt>
+<../figures/04b_dominican_exposure.png, id=43, 3011.25pt x 3011.25pt>
 File: ../figures/04b_dominican_exposure.png Graphic file (type png)
 <use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 328.
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 316.
 (pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
 
 
 [6 <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 342--353
+Underfull \hbox (badness 10000) in paragraph at lines 330--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
+Underfull \hbox (badness 10000) in paragraph at lines 374--374
 []|\OT1/cmr/m/n/12 Economy--
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 385--385
+Underfull \hbox (badness 5331) in paragraph at lines 374--374
 []|\OT1/cmr/m/n/12 Priority of en-vi-ron-
  []
 
 
 
 [7 <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
-<../figures/05_env_questions.png, id=111, 3613.5pt x 3011.25pt>
+<../figures/05_env_questions.png, id=61, 3613.5pt x 3011.25pt>
 File: ../figures/05_env_questions.png Graphic file (type png)
 <use ../figures/05_env_questions.png>
-Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 405.
+Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 393.
 (pdftex.def)             Requested size: 317.07614pt x 264.20052pt.
-<../figures/06_env_index.png, id=112, 2409.0pt x 2409.0pt>
+<../figures/06_env_index.png, id=62, 2409.0pt x 2409.0pt>
 File: ../figures/06_env_index.png Graphic file (type png)
 <use ../figures/06_env_index.png>
-Package pdftex.def Info: ../figures/06_env_index.png  used on input line 412.
+Package pdftex.def Info: ../figures/06_env_index.png  used on input line 400.
 (pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
 
 
@@ -515,54 +502,116 @@ Package pdftex.def Info: ../figures/06_env_index.png  used on input line 412.
 
 [12]
 
+/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex:685: LaTeX Error: Environment comment undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.685 \begin{comment}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex:693: LaTeX Error: \begin{document} ended by \end{comment}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.693 \end{comment}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+
 [13]
+
+/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex:716: LaTeX Error: Environment comment undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.716 \begin{comment}
+                     
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex:729: LaTeX Error: \begin{document} ended by \end{comment}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.729 \end{comment}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
 
 [14]
 
 [15]
-Overfull \hbox (54.72894pt too wide) in paragraph at lines 797--816
+Overfull \hbox (54.72894pt too wide) in paragraph at lines 787--806
  [][] 
  []
 
 
 
 [16]
-<../figures/07_regressions_plot_4_models.png, id=184, 2409.0pt x 1505.625pt>
+<../figures/07_regressions_plot_4_models.png, id=141, 2409.0pt x 1505.625pt>
 File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
 <use ../figures/07_regressions_plot_4_models.png>
-Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 855.
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 845.
 (pdftex.def)             Requested size: 452.9679pt x 256.76254pt.
 
-Overfull \hbox (54.9638pt too wide) in paragraph at lines 865--937
+Overfull \hbox (54.9638pt too wide) in paragraph at lines 855--927
 [][] 
  []
 
 
 
 [17 <../figures/07_regressions_plot_4_models.png>]
-<../figures/11_robustness_leave_one_out.png, id=195, 2409.0pt x 2409.0pt>
+<../figures/11_robustness_leave_one_out.png, id=152, 2409.0pt x 2409.0pt>
 File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
 <use ../figures/11_robustness_leave_one_out.png>
-Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 950.
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 940.
 (pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (34.29698pt too wide) in paragraph at lines 963--988
+Overfull \hbox (34.29698pt too wide) in paragraph at lines 953--978
  [][] 
  []
 
 
 
 [18]
-<../figures/13_robustness_sensitivity_plot.png, id=203, 2409.0pt x 2409.0pt>
+<../figures/13_robustness_sensitivity_plot.png, id=161, 2409.0pt x 2409.0pt>
 File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
 <use ../figures/13_robustness_sensitivity_plot.png>
-Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 1041.
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 1031.
 (pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../figures/14_models_same_sample.png, id=163, 1445.4pt x 797.98125pt>
+File: ../figures/14_models_same_sample.png Graphic file (type png)
+<use ../figures/14_models_same_sample.png>
+Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 1040.
+(pdftex.def)             Requested size: 362.37569pt x 164.95674pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -570,31 +619,37 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [19 <../figures/11_robustness_leave_one_out.png>]
 
-[20 <../figures/13_robustness_sensitivity_plot.png>] (./term_paper.aux)
+[20 <../figures/13_robustness_sensitivity_plot.png> <../figures/14_models_same_sample.png>] (./term_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: File `term_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 39BB2B5AC2D41FF9E41412DC7D417096;2043.
+
+Package rerunfilecheck Warning: File `term_paper.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `term_paper.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  39BB2B5AC2D41FF9E41412DC7D417096;2043.
  ) 
 Here is how much of TeX's memory you used:
- 12172 strings out of 473190
- 193911 string characters out of 5715800
- 610347 words of memory out of 5000000
- 35221 multiletter control sequences out of 15000+600000
+ 12161 strings out of 473190
+ 194022 string characters out of 5715801
+ 608985 words of memory out of 5000000
+ 35215 multiletter control sequences out of 15000+600000
  569721 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,79p,589b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 69i,11n,79p,603b,537s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on term_paper.pdf (20 pages, 7378755 bytes).
+Output written on term_paper.pdf (20 pages, 7612198 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 268 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
+ 54 named destinations out of 1000 (max. 500000)
+ 80 words of extra memory for PDF output out of 10000 (max. 10000000)
 

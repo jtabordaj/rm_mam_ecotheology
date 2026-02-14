@@ -1,8 +1,8 @@
-PWD /Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing
+PWD /Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing/term_paper.tex
+INPUT /Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex
 OUTPUT term_paper.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -124,9 +124,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/tools/tabularx.sty
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT ./term_paper.aux
-INPUT ./term_paper.aux
-INPUT term_paper.aux
 OUTPUT term_paper.aux
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -136,14 +133,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-INPUT ./term_paper.out
-INPUT ./term_paper.out
-INPUT term_paper.out
-INPUT term_paper.out
-OUTPUT term_paper.pdf
-INPUT ./term_paper.out
-INPUT ./term_paper.out
 OUTPUT term_paper.out
+OUTPUT term_paper.pdf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -242,6 +233,11 @@ INPUT ../figures/13_robustness_sensitivity_plot.png
 INPUT ../figures/13_robustness_sensitivity_plot.png
 INPUT ../figures/13_robustness_sensitivity_plot.png
 INPUT ../figures/13_robustness_sensitivity_plot.png
+INPUT ../figures/14_models_same_sample.png
+INPUT ../figures/14_models_same_sample.png
+INPUT ../figures/14_models_same_sample.png
+INPUT ../figures/14_models_same_sample.png
+INPUT ../figures/14_models_same_sample.png
 INPUT term_paper.aux
 INPUT ./term_paper.out
 INPUT ./term_paper.out
