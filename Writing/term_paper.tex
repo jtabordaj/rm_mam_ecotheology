@@ -80,7 +80,7 @@ Because of the strong association of the Franciscan Order with nature and animal
 
 \section{Literature Review}
 
-Similar to our approach, Arruñada and López-Manuel (2024) examined the effects of the two major Mendicant Orders of the  Middle Ages, the Dominican and the Franciscan, on the traits of the  interpersonal exchange. Through their emphasis on guilt, shame, compassion, and analytical thinking, these orders shaped cognitive, interpersonal, and institutional outcomes, which together constitute the “foundations” of impersonal exchange. They further argue that eco-theological beliefs of both Mendicant Orders ''\textit{differ sharply in their approach to both spiritual and mundane life'' and can foster distinct values and cultural norms}'' (Arruñada and López-Manuel, 2024, p. 2). 
+Similar to our approach, Arruñada and López-Manuel (2024) examined the effects of the two major Mendicant Orders of the  Middle Ages, the Dominican and the Franciscan, on the traits of the  interpersonal exchange. Through their emphasis on guilt, shame, compassion, and analytical thinking, these orders shaped cognitive, interpersonal, and institutional outcomes, which together constitute the “foundations” of impersonal exchange. They further argue that eco-theological beliefs of both Mendicant Orders ``\textit{differ sharply in their approach to both spiritual and mundane life and can foster distinct values and cultural norms}'' (Arruñada and López-Manuel, 2024, p. 2). 
 
 For example, at the interpersonal level, “Dominicans promoted guilt as a driver of prosocial behaviour toward strangers”, fostering a culture of individual accountability, independence, generalized fairness and trust, “\textit{whereas Franciscans encouraged compassion and shame, which strengthened bonds within the group but limited cooperation beyond it}” (Arruñada and López-Manuel, 2024, p. 4). 
 
@@ -101,39 +101,45 @@ our research, which examines the effect of historical exposure to Franciscan and
 
 \subsection{Exposure Measure}
 
-In our reseach, we assume that people who are living close to a
-monastery get influenced or exposed to its theological beliefs. 
-Thus, the exposure measure is defined as the fraction of a
-region’s historical population living geographically close to a
-monastic house. To estimate historical exposure to the Franciscan
-and Dominican Orders, we employ the geodataset covering the years between 1216 to
-1500 from the Mapping Past Societies (MAPS), which
-includes information on the geographic locations of the Dominican 
-monasteries consisting of 870 observations and Franciscan
-monasteries consisting of 994 observations. The MAPS dataset reports foundation centuries
+In our research, we assume that individuals residing in close proximity to a
+monastery were exposed to and influenced by its theological beliefs. We define
+``close proximity'' as residence within a 25 km radius of a monastery.
+Thus, we construct the exposure measure as the fraction of a region’s
+historical population residing within 25 km of a monastic house.
+
+To estimate historical exposure to the Franciscan
+and Dominican Orders, we employ a geospatial dataset from the Mapping Past Societies (MAPS)
+covering the period 1216-1500, which
+includes information on the geographic locations of 870 Dominican 
+monasteries and 994 Franciscan
+monasteries.
+
+The MAPS dataset reports foundation centuries
 for Dominican monasteries only, but not for Franciscan monasteries.
-Due to the lack of this information, we assume that all monasteries 
-in our dataset existed throughout the period of 1200-1500 since 
-the majority of the monasteries were founded in the 13th century.
-However, this is also a major limitation of our approach, since it means that we are not able to capture 
-the changes in the exposure over time, and we are only able to capture the overall exposure level.
-After we get the monastery location, we need to locate them within regions.
-To do so, we use the European Commision system for characterising
-geographical data, the Nomenclature of Territorial Units for Statistics
-(NUTS), as well as country shapefiles. NUTS-1 correspond large macro regions,
-such as German federal states, while NUTS-2 are more localized regions within countries. Since
-Germany has modified its NUTS-2 administrative borders during the collection period of the EVS data, 
-we rely only on the larger NUTS-1 regions for Germany, and use NUTS-2 for all other countries. 
-We additionally needed to delete monasteries in east Ukraine, Crimea, and Middle Eastern cities
-(Jerusalem/Acre), since those monasteries lie in locations
-that are not in or close to any NUTS region. There are some monasteries, however,
-that are outside but still close enough to a NUTS region, so we coerce them to
-fit into the closest region. As seen in Figure 1, the two Ukrainian monasteries were coerced to 
-Eastern Romania, since they are pretty close to it. Some Turkish monasteries appear in the dataset because
-the EU also collects data on parts of Turkey, although these observations are not 
-included in the analysis (for lack of matching environmental attitudes data).
-They do not affect the results or procedure and we retain these observations for completeness.
-Similarly, we can also see monasteries in Greece, but those should not affect the quantitative 
+In the absence of corresponding information for Franciscan houses, we assume that all monasteries 
+in our dataset existed throughout the period 1200-1500 given that the majority were founded in the thirteenth century.
+This assumption is a key limitation of our approach, as it prevents us from capturing
+ changes in exposure over time and restricts the analysis to measures of aggregate exposure over the period.
+
+After obtaining the geographic coordinates of monasteries,
+we assign each monastery to its corresponding administrative region.
+For this purpose, we employ the European Commission’s Nomenclature of Territorial Units for Statistics (NUTS)
+classification, in combination with country-level shapefiles. NUTS-1 correspond large macro regions,
+such as German federal states, while NUTS-2 capture more localized regions within countries. Since Germany
+modified its NUTS-2 administrative boundaries over the EVS data collection period, we rely on NUTS-1
+regions for Germany and use NUTS-2 regions for all other countries.
+
+We exclude monasteries located in east Ukraine, Crimea, and Middle Eastern cities
+(Jerusalem/Acre), as those monasteries fall outside or are not sufficiently proximate to any NUTS region.
+There are some monasteries located just beyond NUTS boundaries but remain geographically close
+to a NUTS region; we assign these observations to the nearest region. As illustrated in Figure 1,
+the two monasteries located in Ukraine are assigned to Eastern Romania due to their close geographic
+proximity.
+
+The dataset includes some monasteries located in Turkey, as the EU also collects data for
+parts of Turkish territory. However, these observations are not included in the analysis
+due to the absence of corresponding environmental attitudes data. They do not affect the results or procedure, and we retain these observations for completeness.
+Similarly, some monasteries are also observed in Greece, but these do not affect the quantitative
 approach, since there are no entries for Greece in the EVS environmental survey data.
 
 \begin{figure}[h!]
@@ -143,16 +149,16 @@ approach, since there are no entries for Greece in the EVS environmental survey 
     \label{fig:eu_map}
 \end{figure}
 
-Once we have combined the monastery locations with NUTS shapefiles,
-our next step is to observe historical population data.
+Once we have combined the monastery locations with NUTS shapefiles (see Figure 1),
+the next step is to observe historical population data.
 
 
 HYDE 3.3 (History Database of the Global Environment) Utrecht University
-population data captures where people lived historically. It provides
+population data captures where people lived historically. The dataset provides
 estimates of population counts and density on a regular latitude-longitude
-grid from the very late medieval time to the modern period. Grids are squares 
-of 85 $\text{km}^2$, which is quite granular, and we have population estimates
-for each grid. In Figure 2(a), each cell represents estimated population 
+grid from the very late medieval period to the modern period. Grid cells are squares 
+of 85 $\text{km}^2$, which is relatively granular, and population estimates are
+available for each grid. In Figure 2(a), each cell represents estimated population 
 counts for a historical year (1200–1500). 
 
 \begin{figure}[h!]
@@ -229,7 +235,7 @@ exposure measures for Europe (Figures 3(a) and 3(b)).
 
 \subsection{Environmental Attitudes Measure}
 
-To construct our main dependent variable, the environmental index,
+To construct the main dependent variable, the environmental index,
 we use the European Values Study (EVS) 2017–2021 dataset, which is
 individual-level survey data on values, beliefs, attitudes,
 and socioeconomic characteristics across European countries.
@@ -284,9 +290,10 @@ or choosing between the two statements). However, the questions differ
 in their directional interpretation. Thus, we need to standardize
 the questions by assigning a 0-1 scale for each answer to each question (see Table 2 in the Appendix),
 such that the answers indicate the same environmental direction.
+
 In the standardized 0-1 scale, 1 indicates the least pro-environmental
 attitude, and 0 indicates the most pro-environmental attitude. See 
-Figure 4 for visualization for environmental questions within the NUTS
+Figure 4 for the visualization for environmental questions within the NUTS
 regions. The green regions indicate being more pro-environmental,
 while the yellow regions indicate less pro-environmental attitudes.
 
@@ -312,7 +319,9 @@ To do so, we run a Principal Component Analysis (PCA) to combine all 6 variables
 The first principal component explains 45\% of the variance, and we take the first 
 principal component as our Environmental Attitudes Index (see Table 3 in the Appendix for PC1 
 loadings). The index is continuous between 0 and 1, with 0 being more pro-environment, 
-and 1 being less pro-environment. We find that the components of Western European 
+and 1 being less pro-environment.
+
+We find that the components of Western European 
 countries behave more pro-environment (green), while generally Eastern European 
 countries have less pro-environmental attitudes (yellow), as illustrated in Figure 5. 
 
@@ -343,8 +352,7 @@ We cluster standard errors at the NUTS level.
 \FloatBarrier
 \subsection{Regressions and Robustness Checks}
 
-We started by running the first four regressions shown in Table 1 and found the following results. 
-Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
+We start by running the first four regressions shown in Table 1 and found the following results. Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
 exposure only. We see that the coefficient $\beta_1$ is negative and statistically significant. Because the 
 environmental index ranges from 0 to 1, where lower values indicate greater pro-environmental behavior and 
 higher values indicate less pro-environmental behavior, a negative coefficient indicates that the variable 
@@ -465,12 +473,12 @@ All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted 
 increase going from a negative to a positive sign as we move from Model 1 to Model 4, and finally becomes positive 
 and statistically significant. $\beta_2$ is never significant. 
 
-Table 4 (see Appendix) reports the ìresults when we run regressions with each of the environmental questions separately, in order to assess
+Table 4 (see Appendix) reports the results when we run regressions with each of the environmental questions separately, in order to assess
 whether there is one variable within the PCA index driving all of the results. We run the regression in Model 4
 six times with one of the variables instead of the index. The values of $\beta_1$ and $\beta_2$ do not change 
 drastically across these six regressions compared to Model 4 in Table 1. However, there aren’t any significant results 
-except for the coefficients of the variable indicating the collectivity effect, stating, “There is no point in doing 
-what I can for the environment unless others do the same.” The Franciscan and Dominican exposure coefficients produce 
+except for the coefficients of the variable indicating the collectivity effect, stating, ``There is no point in doing 
+what I can for the environment unless others do the same.'' The Franciscan and Dominican exposure coefficients produce 
 significant results since they have contrasting theologies regarding this variable, where the Franciscan Order focused 
 more on collectivity and the Dominican Order emphasized an individualistic view. 
 
@@ -504,12 +512,12 @@ the observations from Germany to only keep NUTS-2 regions, to account for the la
 However, the results stay the same as in the main model. 
 
 Lastly, to account for possible selection bias into answering the survey questions about the control variables, 
-We run the 4 models in the same, final aìsample. Results stay similar (see figure 9 in the Appendix).
+We run the 4 models in the same final sample, and the results stay similar (see Figure 9 in the Appendix).
 
 \subsection{Possible Mechanism}
 
 
-Since we found contrasting results to what we were expecting to find, we find it important
+Since the results differ from our prior expectations, we find it important
 to propose a possible mechanism that might be driving these results, which could be used for further hypotheses and 
 research. We have already ruled out all misleading mechanisms that could have come from the control variables, such 
 as education, income, and political views, and from country fixed effects. For example, one could have claimed that 
@@ -597,8 +605,8 @@ is driven by sample composition and how much of it is driven by the inclusion of
 Another possible consideration is whether all of the controls are indeed good controls. Some of the effect of the 
 exposure might be biased because of the control variables, and so we would call these 
 bad controls. This is probably not the case for the controls age and gender, but it might be the case for all the 
-other controls, such as education, income, political orientation, and town size.A possible extention is thus to consider 
-the controls more carefully, and run different combinations of Model 4.
+other controls, such as education, income, political orientation, and town size. A possible extension is thus to consider 
+the controls more carefully and run different combinations of Model 4.
 
 As other possible extensions, we could check for the choice of monastery locations. It is possible (and expected) that monasteries were not randomly located 
 across Europe. In this scenario, we could construct insturumental variables for the monastery locations, such as the distance 
