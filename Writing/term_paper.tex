@@ -14,9 +14,7 @@
 \usepackage{booktabs}
 \usepackage{placeins}
 \usepackage{tabularx}
-
-
-
+\usepackage{comment}
 
 \title{Research Project: Franciscan Eco-Theology and Environmental Attitudes}
 \author{
@@ -34,13 +32,7 @@ Supervised by: Paul Behler \\[1.0cm]}
 \vspace{1.5cm}
 
 \begin{abstract}
-Our project analyzes the effect of exposure to two major Mendicant orders of the Middle Ages, 
-the Franciscan and Dominican, between the 13th and 15th centuries on contemporary environmental attitudes.
-We find that higher Franciscan exposure is associated with less pro-environmental attitudes, contrary to 
-our initial expectations, whereas the effect of Dominican exposure is statistically insignificant. 
-We suggest that these results could be driven by differences in orientation 
-toward collective action. This possible underlying mechanism is consistent with the 
-contrasting theologies of the two orders regarding collectivity and individualism.
+We analyse the effect of exposure to two Franciscan and Dominican Mendicant orders between the 13th and 15th centuries on contemporary environmental attitudes. We find that higher Franciscan exposure is associated with less pro-environmental attitudes, contrary to our initial expectations, whereas the effect of Dominican exposure is statistically insignificant. We suggest that these results could be driven by differences in orientation toward collective action. This possible underlying mechanism is consistent with the contrasting theologies of the two orders regarding collectivity and individualism.
 \end{abstract}
 
 %\newpage
@@ -52,150 +44,58 @@ contrasting theologies of the two orders regarding collectivity and individualis
 \newpage
 
 \section{Introduction}
-Religious institutions, in particular the Catholic Church, played a pervasive
-role in every aspect of life in medieval Europe, shaping people’s
-lives, values, and behavior throughout the Middle Ages (Lynch, 2014).
-One of the most famous religious figures of the Middle Ages is
-St. Francis of Assisi, founder of the Franciscan Order. Being
-recognized by the Catholic Church as the patron saint of ecology,
-he is widely known for his deep affection towards nature and animals.
+The Catholic Church, played an important role in medieval Europe, shaping people’s lives, values, and behaviour throughout the Middle Ages (Lynch, 2014). One of the most famous religious figures of the Middle Ages is St. Francis of Assisi, founder of the Franciscan Order and patron saint of ecology within the Catholic Church, widely known for his deep affection towards nature and animals.
 
-We thus investigate what is the effect of exposure to the Franciscan 
-``Eco-Theology'' from the 1200s to the 1500s on contemporary environmental
-attitudes among European populations. We use as a control the exposure to the Dominican order, 
-which is the other major Mendicant Order of the Middle Ages, with comparable historical importance. 
+We investigate what is the effect of exposure to the Franciscan 
+``Eco-Theology'' between the 13th and 15th centuries on contemporary environmental attitudes among Europeans. We use as a control the exposure to the Dominican order, which was another major Mendicant Order during the Middle Ages.
 
-To do so, we first construct our independent variables, the historical exposure measures for both
-Franciscan and Dominican Orders, defined as a fraction of a region’s
-historical population living geographically close to a monastic
-house. We then construct our dependent variable, the environmental index, by applying Principal Component
-Analysis to the individual-level survey data on environmental
-attitudes from the European Values Study (EVS) 2017–2021.
-Using those variables and a set of individual-level controls, we empirically
-examine how historical exposure to the two Mendicant Orders affects
-contemporary environmental attitudes.
+To do so, we construct historical exposure measures for both
+Franciscan and Dominican Orders as independent variables, defined as the fraction of a region’s historical population living geographically close to a monastic house. We then construct our dependent variable, the environmental index, via Principal Component Analysis to individual-level survey data on environmental
+attitudes from the European Values Study (EVS). Using those variables and a set of individual-level controls, we empirically examine how historical exposure to the two Mendicant Orders affects contemporary environmental attitudes.
 
 Given the historical background of St. Francis of Assisi, we
-have set the following initial hypothesis: we expected that higher historical exposure to the
-Franciscan Order is associated with more pro-environmental attitudes,
-while higher historical exposure to the Dominican Order is associated
-with less pro-environmental attitudes. However, our empirical results
-show the opposite. Contrary to our initial expectations, we find that higher historical
-exposure to the Franciscan Order is associated with less
-pro-environmental attitudes, while exposure to the Dominican Order had statistically insignificant results.
+have set the following initial hypothesis: higher historical exposure to the Franciscan Order is associated with more pro-environmental attitudes, while higher exposure to the Dominican Order is associated with less pro-environmental attitudes. However, contrary to our expectations, we find that higher exposure to the Franciscan Order is associated with less pro-environmental attitudes, while exposure to the Dominican Order had statistically insignificant results.
 
-We also propose a possible mechanism that might have driven those results: 
-the underlying differences in the approaches of
-both Catholic Orders on the collective action and individualism. The Franciscan
-theology of humility and acceptance of circumstances might have led to less
-pro-environmental attitudes, while the Dominican theology of persuasion and 
-institutional coordination might have led to more pro-environmental attitudes.
+We propose a possible mechanism that might have driven those results, grounded on the underlying structural differences of
+both Catholic Orders on the collective action and individualism. The Franciscan theology of humility and acceptance of circumstances might have led to less pro-environmental attitudes, while the Dominican theology of persuasion and institutional coordination might have led to more pro-environmental attitudes.
 
 \section{Historical Context and Hypothesis}
 
-Both Franciscan and Dominican Orders shared substantial structural and institutional similarities.
-For example, both were Mendicant Orders, meaning that they
-relied on charity and begging for their livelihood and were more commited to
-preaching and teaching than owning land or monastic seclusion. Founded
-in the same century, both orders were operating as branches of the Catholic Church.
-Both orders were widespread across Europe, and had a significant influence on
-the medieval society. However, despite having substantial similarities, the two orders 
-differ in their theological emphasis and approaches (Arrunada and Lopez-Manuel, 2024).
+At a glance, both Franciscans and Dominicans were Mendicant Orders, meaning that they relied on charity and begging for their livelihood and were more committed to preaching and teaching than owning land or monastic seclusion. Founded in the same century, both orders were operating as branches of the Catholic Church and operated widespread across Europe, with significant influence on
+the medieval society. However, despite having these similarities, the two orders differ in their theological emphasis and approaches (Arruñada and Lopez-Manuel, 2024).
 
 The Franciscan Order was founded in the early 13th century by
 St. Francis of Assisi (1181-1226), who was recognized by the
 Catholic Church as the patron saint of ecology, widely known
-for his profound affection towards nature and animals. This
-tendency can be seen in his ``Canticles of the Creatures,'' 
-where St. Francis refers to the sun and the moon as brother and sister. 
-Importantly, Francis and his followers
-emphasized the close imitation of the life of Christ and the apostles
-through the ideals of poverty and humility. ``He wanted to embrace
-real poverty, without any rationalisations or modifications. His band
-of followers would beg for their daily food, would take no care for
-tomorrow, and would own nothing – really nothing.'' (Lynch, 2014, p. 258).
-Thus, the Franciscan Order focuses on collective life, communal care,
-antimateralism, shame, compassion, simplicity, and humbleness (Arrunada and Lopez-Manuel, 2024).
+for his profound affection towards nature and animals, as seen in his ``Canticles of the Creatures,'' where he refers to sun and moon as brother and sister. Francis, together with his followers, emphasized the close imitation of Christ and the apostles through poverty and humility. ``\textit{He wanted to embrace real poverty, without any rationalisations or modifications. His band of followers would beg for their daily food, would take no care for tomorrow, and would own nothing – really nothing.}'' (Lynch, 2014, p. 258).
 
-In contrast, the Dominican Order (founded by St. Dominic
-(1170-1221) in the early 13th century) prioritized intellectual
-and educational mission of medieval Catholic Church. ``For Dominic,
-a life of poverty and begging was a means to an end, whereas
-for Francis, it was an end in itself'' (Lynch, 2014, p. 262).
-Having recognized that learning was important to train preachers, the
-Dominican Order had internal schools (Lynch, 2014). They also founded
-and staffed universities and produced extensive theological and
-practical writings (Le Goff, 1980; Boyle, 1981). The Dominicans
-emphasized the importance of critical thinking, self-examination,
-and moral development (Hinnebusch 1966; Lesnick 1989).
+In contrast, the Dominican Order, founded by St. Dominic
+(1170-1221) in the early 13th century, prioritized intellectual
+and educational mission of medieval Catholic Church. ``\textit{For Dominic, a life of poverty and begging was a means to an end, whereas for Francis, it was an end in itself}'' (Lynch, 2014, p. 262). Recognizing that learning was important to train preachers, the Dominican Order had internal schools (Lynch, 2014). They also founded universities, and produced extensive theological and
+practical writings (Le Goff, 1980; Boyle, 1981).
 
-Because of the strong association of the Franciscan Order with nature
-and animals, we naturally hypothesized that higher historical exposure to the
-Franciscan Order would be associated with more pro-environmental attitudes,
-while higher historical exposure to the Dominican Order would be associated
-with less pro-environmental attitudes.
+In short, Franciscans focus on collective life, communal care, antimateralism, shame, compassion, simplicity, and humbleness (Arrunada and Lopez-Manuel, 2024). In contrast, given the nature of their activities, Dominicans emphasized critical thinking, self-examination, and moral development (Hinnebusch 1966; Lesnick 1989).
+
+Because of the strong association of the Franciscan Order with nature and animals, we hypothesized that higher historical exposure to the Franciscan Order would be associated with more pro-environmental attitudes, while higher historical exposure to the Dominican Order would be associated with less pro-environmental attitudes.
 
 \section{Literature Review}
-A similar study was conducted by Arruñada and López-Manuel (2024),
-who examined the effects of the two major Mendicant Orders of the 
-Middle Ages, the Dominican and the Franciscan, on the traits of the 
-interpersonal exchange. Through their
-emphasis on guilt, shame, compassion, and analytical thinking,
-these orders shape outcomes at the cognitive, interpersonal, and
-institutional levels, which together constitute the “foundations”
-of impersonal exchange. They further argue that eco-theological
-beliefs of both Mendicant Orders ``differ sharply in their approach
-to both spiritual and mundane life'' and
-can foster distinct values and cultural norms (Arruñada and
-López-Manuel, 2024, p. 2). For example,
-at the interpersonal level, “Dominicans promoted guilt as a driver
-of prosocial behavior toward strangers”, fostering a culture of
-individual accountability, independence, generalized fairness and trust,
-“whereas Franciscans encouraged compassion and shame, which strengthened bonds within
-the group but limited cooperation beyond it” (Arruñada and
-López-Manuel, 2024, p. 4). Consistent with these differences, the authors
-document contrasting effects of Dominican and Franciscan influence
-on impersonal exchange. Thus, their findings are consistent with our
-results regarding the contrasting effects of the two orders,
-as well as support our proposed mechanism that the underlying differences
-in theological beliefs might have driven the results.
-\\
-\\
-Our study also relates to the broader literature on the role of
-medieval churches and persistance of cultural norms. The Catholic Church,
-as an institution, played a pervasive role in every aspect of life
-in medieval Europe, shaping people’s lives, values, and behavior
-throughout the Middle Ages (Lynch, 2024). Once a religious institution
-becomes established, the values and norms it historically imposes
-tend to persist, as such cultural legacies “leave an imprint on
-values that endures” over time (Inglehart and Baker, 2000, p. 19).
-Although religious institutions have lost some of the formal
-allegiance of their followers in modern Europe, Inglehart and
-Baker’s findings suggest that religiously rooted value orientations
-continue to influence individuals, as these become embedded
-in national cultures and are transmitted through educational
-institutions and mass media, allowing religiously rooted values
-to persist.
+
+Similar to our approach, Arruñada and López-Manuel (2024) examined the effects of the two major Mendicant Orders of the  Middle Ages, the Dominican and the Franciscan, on the traits of the  interpersonal exchange. Through their emphasis on guilt, shame, compassion, and analytical thinking, these orders shaped cognitive, interpersonal, and institutional outcomes, which together constitute the “foundations” of impersonal exchange. They further argue that eco-theological beliefs of both Mendicant Orders ''\textit{differ sharply in their approach to both spiritual and mundane life'' and can foster distinct values and cultural norms}'' (Arruñada and López-Manuel, 2024, p. 2). 
+
+For example, at the interpersonal level, “Dominicans promoted guilt as a driver of prosocial behaviour toward strangers”, fostering a culture of individual accountability, independence, generalized fairness and trust, “\textit{whereas Franciscans encouraged compassion and shame, which strengthened bonds within the group but limited cooperation beyond it}” (Arruñada and López-Manuel, 2024, p. 4). 
+
+Consistent with these differences, the authors document contrasting effects of Dominican and Franciscan influence on impersonal exchange. Their findings are consistent with our results regarding the contrasting effects of the two orders, as well as our proposed mechanism that the underlying differences in theological beliefs might have driven the results.
+
+Our study also relates to the broader literature on the role of medieval churches and persistence of cultural norms. The Catholic Church played an influential role in every aspect of life in medieval Europe, shaping people’s lives, values, and behaviour
+throughout the Middle Ages (Lynch, 2024). Once a religious institution establishes in a community, its values and norms tend to persist as cultural legacies, embedded in national cultures and are transmitted through educational institutions,  even after losing some of the formal allegiance of their followers in modern Europe (Inglehart and Baker, 2000). 
 
 Another important strand of literature relates to the determinants
-of environmental attitudes. In much of the literature, it has been examined
-how cultural differences might influence environmental attitudes
-(Chwialkowska et al., 2020; Khan et al., 2024; Yang et al., 2024;
-Tam, 2025, as cited in Behler, 2025). Some literature also suggests that 
-religiously grounded moral worldview of nature is associated
-with how people understand and relate to the environment
-(Cohen et al., 1976). Some theoretical models argue that pro-environmental
-attitudes may be rooted in self-interest and utility maximization.
-In particilar, a longer life expectancy may increase individuals’
-willingness to support environmental efforts to fight climate change
-(Mariani et al.,2010). Additionally, importantly for our research,
-many other studies with similar research interests commonly measure
-the environmental attitudes using the survey datasets (EVS)
-(Gelissen, 2007; Behler, 2025).
+of environmental attitudes. It has been examined how cultural differences might influence environmental attitudes (Chwialkowska et al., 2020; Khan et al., 2024; Yang et al., 2024; Tam, 2025, as cited in Behler, 2025). Some literature also suggests that  religiously grounded nature world-view is associated with how people understand and relate to the environment (Cohen et al., 1976). 
+
+On top of that, some theoretical models argue that pro-environmental attitudes may be rooted in self-interest and utility maximization. In particular, a longer life expectancy may increase individuals’ willingness to support environmental efforts to fight climate change (Mariani et al.,2010). Additionally, importantly for our research, many other studies with similar interests commonly measure the environmental attitudes using survey datasets, such as the EVS (Gelissen, 2007; Behler, 2025).
 
 Taken together, these strands of literature support and motivate
-our research, which examines the effect of historical exposure to Franciscan and
-Dominican monasteries on contemporary environmental attitudes.
+our research, which examines the effect of historical exposure to Franciscan and Dominican monasteries on contemporary environmental attitudes. Now the task is to come forward with a methodological strategy to isolate the effects previously discussed.
 
 \section{Data and Methodology}
 
@@ -294,9 +194,11 @@ In our research, the exposure measure is defined as the sum of exposed
 population within a given region as a percentage of the total population
 for both Franciscan and Dominican monasteries:
 
-\[
-\text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
-\]
+\begin{equation}
+	\text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
+\end{equation}
+
+
 
 
 
