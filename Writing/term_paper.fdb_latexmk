@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1771339061.61127 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1771339070.09226 0
+["pdflatex"] 1771339179.38489 "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1771339187.51014 0
   "../figures/01_monasteries_map.png" 1770346606.26002 1302491 4ab9c61425721dfea8e05cc1716c4893 ""
   "../figures/02_hyde_grid.png" 1770346606.27573 3291756 7fe57861d069988ed7f9a93090767757 ""
   "../figures/03_hyde_nuts.png" 1770346606.28308 1422207 9c0db63493759b6b5b62636411682b5d ""
@@ -11,7 +11,7 @@
   "../figures/11_robustness_leave_one_out.png" 1770346606.33941 264053 770a1fd2c91b8d87e7d3caf3d2b53257 ""
   "../figures/13_robustness_sensitivity_plot.png" 1770346606.34752 296219 a20b53cea9ae142893ebd4c0c893a59f ""
   "../figures/14_models_same_sample.png" 1771101930.19397 342920 520ace664f02bdf9e162ef618afc76a3 ""
-  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1771339061.35423 50013 308b6d7b855faca9ac5a29451e35c7be ""
+  "/Users/kamillaospanova/rm_mam_ecotheology/Writing/term_paper.tex" 1771339179.00671 50015 053dc9338be5bfb514cb32195a2d2494 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/fontname/texfonts.map" 1741388039 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map" 1741388039 5466553 2748998d7db8078826afa1f272036265 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1741388039 1004 54797486969f23fa377b128694d548df ""
@@ -121,9 +121,9 @@
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/url/url.sty" 1741388039 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/web2c/texmf.cnf" 1741388039 42151 79f67285bdd95beca4d137b380b4b9e5 ""
   "/usr/local/Cellar/texlive/20250308_2/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1741388039 3346062 5b41f5f1f86715961a7a7134091efb1b ""
-  "term_paper.aux" 1771339069.91022 7763 38a4456450253a4ffac2760ee742393a "pdflatex"
-  "term_paper.out" 1771339069.91146 2043 39bb2b5ac2d41ff9e41412dc7d417096 "pdflatex"
-  "term_paper.tex" 1771339061.35423 50013 308b6d7b855faca9ac5a29451e35c7be ""
+  "term_paper.aux" 1771339187.33068 7763 38a4456450253a4ffac2760ee742393a "pdflatex"
+  "term_paper.out" 1771339187.33211 2043 39bb2b5ac2d41ff9e41412dc7d417096 "pdflatex"
+  "term_paper.tex" 1771339179.00671 50015 053dc9338be5bfb514cb32195a2d2494 ""
   (generated)
   "term_paper.aux"
   "term_paper.log"
