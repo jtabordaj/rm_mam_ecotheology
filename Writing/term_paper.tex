@@ -110,18 +110,10 @@ After geo locating monasteries, we assign them to its corresponding administrati
 modified its NUTS-2 administrative boundaries over the EVS data collection period, we rely on NUTS-1
 regions for Germany and NUTS-2 for all other countries.
 
-We exclude monasteries located in east Ukraine, Crimea, and Middle Eastern cities
-(Jerusalem/Acre), as those monasteries fall outside or are not sufficiently proximate to any NUTS region.
-There are some monasteries located just beyond NUTS boundaries but remain geographically close
-to a NUTS region. We assign these observations to the nearest region. As illustrated in Figure 1,
-the two monasteries located in Ukraine are assigned to Eastern Romania due to their close geographic
-proximity.
+We exclude monasteries located too far away from NUTS regions, such as those in east Ukraine, Crimea and the Levant. There are some monasteries located just beyond NUTS boundaries but remain geographically close
+to a NUTS region. We assign these observations to the nearest region. As illustrated in Figure 1.
 
-The dataset includes some monasteries located in Turkey, as the EU also collects data for
-parts of Turkish territory. However, these observations are not included in the analysis
-due to the absence of corresponding environmental attitudes data. They do not affect the results or procedure, and we retain these observations for completeness.
-Similarly, some monasteries are also observed in Greece, but these do not affect the quantitative
-approach, since there are no entries for Greece in the EVS environmental survey data.
+The dataset includes some monasteries located in Turkey, as the EU also collects data for parts of Turkish territory. However, these observations are not included in the analysis due to the absence of corresponding environmental attitudes data. This does not affect the results or procedure. Similarly, some monasteries are also observed in Greece, but these do not affect the quantitative approach, since there are no entries for Greece in the EVS environmental survey data.
 
 \begin{figure}[h!]
     \centering
@@ -130,16 +122,7 @@ approach, since there are no entries for Greece in the EVS environmental survey 
     \label{fig:eu_map}
 \end{figure}
 
-Once we have combined the monastery locations with NUTS shapefiles (see Figure 1),
-the next step is to observe historical population data.
-
-
-HYDE 3.3 (History Database of the Global Environment) Utrecht University
-population data captures where people lived historically. The dataset provides
-estimates of population counts and density on a regular latitude-longitude
-grid from the very late medieval period to the modern period. Grid cells are squares 
-of 85 $\text{km}^2$, which is relatively granular, and population estimates are
-available for each grid. In Figure 2(a), each cell represents estimated population 
+Once we have combined the monastery locations with NUTS shapefiles, the next step is to observe historical population data. To this end, we employ the HYDE 3.3 (History Database of the Global Environment) dataset maintained by Utrecht University, which captures population numbers historically. Grid cells are squares of 85 $\text{km}^2$, which is relatively granular, and population estimates are available for each grid. In Figure 2(a), each cell represents estimated population 
 counts for a historical year (1200–1500). 
 
 \begin{figure}[h!]
@@ -162,35 +145,18 @@ counts for a historical year (1200–1500).
 \end{figure}
 
 
-Based on the population densities in grid squares, we construct population estimates 
-at the NUTS level. In Figure 2(b), population data from HYDE 3.3 
-grids are overlaid with NUTS boundaries where each grid cell is assigned to a 
-modern NUTS region and the total population within a NUTS region is calculated as 
-the sum of the population of all grid cells that fall within that region. 
-If a grid cell is partially within a NUTS region, we assign the population of that 
-grid cell to the NUTS region if more than half of the grid cell's area falls within the region. 
-This way, we can estimate the population of each NUTS region based on the HYDE 3.3 grid data.
+Based on the population grid, we construct estimates 
+at the NUTS level. In Figure 2(b), population data from HYDE 3.3 grids are overlaid on NUTS boundaries, with total population calculated as the sum of the population of all grid cells that fall within. If a cell is partially within a NUTS region, it counts as a full cell if more than half of its area falls within the region. This way, we can estimate the population of each NUTS region based on the HYDE grid data.
 
-
-Finally, we match the population estimates with the monasteries locations. 
-We draw a 25 $\text{km}$ radius circle around each monastery, and all the
-grids that are inside that circle are counted as the exposed population.
-All grids which have more than half its area included in the radius are counted 
-as fully exposed to the theology of that monastery.
-In our research, the exposure measure is defined as the sum of exposed
-population within a given region as a percentage of the total population
-for both Franciscan and Dominican monasteries:
+Finally, we match the population estimates with the monasteries locations. As said, we draw a 25 kilometers radius circle around each monastery, and all the
+grids inside circle count as the exposed population. All grids which have more than half its area included in the radius are counted as fully exposed to the theology of that monastery. In our research, the exposure measure is defined as the sum of exposed population within a given region as a percentage of the total population for both Franciscan and Dominican monasteries:
 
 \begin{equation}
 	\text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
 \end{equation}
 
+With all three data sources combined, we have Dominican and Franciscan exposure measures for Europe (Figures 3(a) and 3(b)).
 
-
-
-
-With all three data sources combined, we have Dominican and Franciscan
-exposure measures for Europe (Figures 3(a) and 3(b)). 
 \begin{figure}[htbp]
     \centering
     \begin{subfigure}{0.48\textwidth}
@@ -210,21 +176,14 @@ exposure measures for Europe (Figures 3(a) and 3(b)).
 \footnotesize normalized index (0 = none, 1 = high exposure)}
 \end{figure}
 
-
 \newpage
 \FloatBarrier
 
 \subsection{Environmental Attitudes Measure}
 
-To construct the main dependent variable, the environmental index,
-we use the European Values Study (EVS) 2017–2021 dataset, which is
-individual-level survey data on values, beliefs, attitudes,
-and socioeconomic characteristics across European countries.
-The dataset covers over 30 European countries, of which 24 are
-relevant for our research when we exclude the countries that are not
-in NUTS-2. After data cleaning, the final dataset includes 49233
-observations and geographic identifiers for NUTS-1 regions for Germany 
-and NUTS-2 for all other countries. \\
+To construct the main dependent variable we use the European Values Study (EVS) 2017–2021 dataset, which is
+individual-level survey data on values, beliefs, attitudes, and socioeconomic characteristics across European countries. The dataset covers over 30 European countries, 24 of which are relevant for our research. After data cleaning, the final dataset includes 49233
+observations and geographic identifiers for NUTS-1 regions for Germany and NUTS-2 for all other countries. \\
 \\
 From the EVS dataset, we select six environmental variables in particular, which
 correspond to questions related to environmental attitudes. The questions are the following:
