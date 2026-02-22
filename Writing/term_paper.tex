@@ -26,15 +26,17 @@
   citecolor  = blue
 }
 
-\title{Research Project: Franciscan Eco-Theology and Environmental Attitudes}
+\title{Franciscan Eco-Theology and \\ Environmental Attitudes}
 \author{
-Term paper submitted for the\\
-RM in Management and Applied Microeconomics\\ [1.0cm]
-Juan Taborda (50261644), \\
-Lidiia Levytska (50274891), \\
-Giovanna C. Pantalena (50266467), \\
-Kamilla Ospanova (50266102) \\[1.0cm]
+Term paper submitted for the \\
+Research Module in Management and Applied Microeconomics\\ [1.0cm]
+Juan Taborda (50261644) \\
+Giovanna C. Pantalena (50266467) \\
+Kamilla Ospanova (50266102) \\
+Lidiia Levytska (50274891) \\[1.0cm]
 Supervised by: Paul Behler \\[1.0cm]}
+
+\date{\vspace{0.7cm} University of Bonn, WiSe 2025-26 \\ \vspace{0.5cm} \today}
 
 \begin{document}
 \maketitle
@@ -42,7 +44,7 @@ Supervised by: Paul Behler \\[1.0cm]}
 \vspace{1.5cm}
 
 \begin{abstract}
-We analyse the effect of exposure to two Franciscan and Dominican Mendicant orders between the 13th and 15th centuries on contemporary environmental attitudes. We find that higher Franciscan exposure is associated with less pro-environmental attitudes, contrary to our initial expectations, whereas the effect of Dominican exposure is statistically insignificant. We suggest that these results could be driven by differences in orientation toward collective action. This possible underlying mechanism is consistent with the contrasting theologies of the two orders regarding collectivity and individualism.
+We analyse the effect of exposure to Franciscan and Dominican Mendicant orders between the 13th and 15th centuries on contemporary environmental attitudes. We find that higher Franciscan exposure is associated with less pro-environmental attitudes, contrary to our initial expectations, whereas the effect of Dominican exposure is statistically insignificant. We suggest that these results could be driven by differences in orientation toward collective action. This possible underlying mechanism is consistent with the contrasting theologies of the two orders regarding collectivity and individualism.
 \end{abstract}
 
 %\newpage
@@ -94,7 +96,7 @@ Similar to our approach, \textcite{arrunada2024} examined the effects of the two
 
 For example, at the interpersonal level, “Dominicans promoted guilt as a driver of prosocial behaviour toward strangers”, fostering a culture of individual accountability, independence, generalized fairness and trust, “\textit{whereas Franciscans encouraged compassion and shame, which strengthened bonds within the group but limited cooperation beyond it}” (\cite{arrunada2024}, p. 4). 
 
-Consistent with these differences, the authors document contrasting effects of Dominican and Franciscan influence on impersonal exchange. Their findings are consistent with our results regarding the contrasting effects of the two orders, as well as our proposed mechanism that the underlying differences in theological beliefs might have driven the results.
+The author's findings are consistent with our results regarding the contrasting effects of the two orders, as well as our proposed mechanism that the underlying differences in theological beliefs might have driven the results.
 
 Our study also relates to the broader literature on the role of medieval churches and persistence of cultural norms. The Catholic Church played an influential role in shaping people’s lives, values, and behaviour
 throughout the Middle Ages \parencite{lynch2014}. Once a religious institution establishes, its values and norms tend to persist as cultural legacies, embedded in national cultures and are transmitted through educational institutions,  even after losing some of the formal allegiance of their followers in modern Europe \parencite{inglehart2000}. 
@@ -109,19 +111,22 @@ Taken together, these strands of literature support and motivate our research, w
 
 \subsection{Exposure Measure}
 
-In our research, we raise the assumption that individuals residing in close proximity to a monastery were exposed to and influenced by its theological beliefs. While "close" can mean many things, we decide to establish it as those residing in a twenty five kilometre radius of a monastery.
+This study assumes that individuals residing in close proximity to a monastery were exposed to and influenced by its theological beliefs. 
+We define geographic proximity as residence within a 25-kilometer radius of a monastery. 
 
-To understand where the monasteries were located at the time, we employ a geospatial dataset from the Mapping Past Societies (MAPS) between 1216 and 1500, which includes information on the geographic locations of 870 Dominican and 994 Franciscan monasteries.
+To establish historical monastery locations, we employ a geospatial dataset from the Mapping Past Societies (MAPS) project covering the period between 1216 and 1500. 
+This dataset provides the geographic coordinates for 870 Dominican and 994 Franciscan monasteries.
 
-The MAPS dataset reports foundation centuries
-for Dominican monasteries only, but not for Franciscan monasteries. In the absence of corresponding information for Franciscan houses, we assume that all monasteries (or their subsequent influence) persisted throughout the entire time frame. This assumption raises a key limitation, as it prevents from capturing dynamic changes in exposure, constraining the analysis to measures of aggregate exposure.
+The MAPS dataset reports foundation centuries for Dominican monasteries only, but not for Franciscan monasteries. 
+In the absence of corresponding information for Franciscan houses, we assume that all monasteries (or their subsequent influence) persisted throughout the entire time frame. 
+This assumption raises a key limitation, as it prevents from capturing dynamic changes in exposure, constraining the analysis to measures of aggregate exposure.
 
-After geo locating monasteries, we assign them to its corresponding administrative region. For this purpose, we employ the European Commission’s Nomenclature of Territorial Units for Statistics (NUTS) classification, in combination with country-level shapefiles. NUTS-1 correspond large macro regions, while NUTS-2 capture more localized regions within countries. Since Germany
-modified its NUTS-2 administrative boundaries over the EVS data collection period, we rely on NUTS-1
-regions for Germany and NUTS-2 for all other countries.
+After geolocating the monasteries, we assign them to their corresponding administrative regions. 
+For this purpose, we employ the European Commission’s Nomenclature of Territorial Units for Statistics (NUTS) classification, combined with country-level shapefiles. 
+NUTS-1 corresponds to large macro-regions, while NUTS-2 captures more localized regions within countries. 
+Because Germany modified its NUTS-2 administrative boundaries over the EVS data collection period, we rely on NUTS-1 regions for Germany and NUTS-2 regions for all other countries.
 
-We exclude monasteries located too far away from NUTS regions, such as those in east Ukraine, Crimea and the Levant. There are some monasteries located just beyond NUTS boundaries but remain geographically close
-to a NUTS region. We assign these observations to the nearest region. As illustrated in \autoref{fig:01_monasteries_map}.
+We exclude monasteries located substantially beyond the relevant NUTS regions, such as those in Eastern Ukraine, Crimea, and the Levant. Monasteries situated just outside formal NUTS boundaries but geographically adjacent to a NUTS region are assigned to the nearest valid region, as illustrated in \autoref{fig:01_monasteries_map}.
 
 The dataset includes some monasteries located in Turkey, as the EU also collects data for parts of Turkish territory. However, these observations are not included in the analysis due to the absence of corresponding environmental attitudes data. This does not affect the results or procedure. Similarly, some monasteries are also observed in Greece, but these do not affect the quantitative approach, since there are no entries for Greece in the EVS environmental survey data.
 
@@ -137,14 +142,14 @@ counts for a historical year (1200–1500).
 
 \begin{figure}[h!]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/02_hyde_grid.png}
         \caption{Population densities (grid-level, log scale)}
         \label{fig:02_hyde_grid}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/03_hyde_nuts.png}
         \caption{Regional populations (NUTS-2 level)}
@@ -158,25 +163,27 @@ counts for a historical year (1200–1500).
 Based on the population grid, we construct estimates 
 at the NUTS level. In \autoref{fig:03_hyde_nuts}, population data from HYDE 3.3 grids are overlaid on NUTS boundaries, with total population calculated as the sum of the population of all grid cells that fall within. If a cell is partially within a NUTS region, it counts as a full cell if more than half of its area falls within the region. This way, we can estimate the population of each NUTS region based on the HYDE grid data.
 
-Finally, we match the population estimates with the monasteries locations. As said, we draw a 25 kilometers radius circle around each monastery, and all the
-grids inside circle count as the exposed population. All grids which have more than half its area included in the radius are counted as fully exposed to the theology of that monastery. In our research, the exposure measure is defined as the sum of exposed population within a given region as a percentage of the total population for both Franciscan and Dominican monasteries:
+Finally, we match the population estimates with the monastery locations. As previously stated, we define the exposed population using a 25-kilometer radius around each monastery. 
+Grid cells with more than half of their area falling within this radius are classified as fully exposed to the respective order's theology.
+
+\vspace{-0.3cm}
 
 \begin{equation}
 	\text{Exposure} = \frac{\text{Exposed Population}}{\text{Total Population}}
 \end{equation}
 
-With all three data sources combined, we have Dominican and Franciscan exposure measures for Europe (Figures 3(a) and 3(b)).
+With all three data sources combined, we have Dominican and Franciscan exposures:
 
 \begin{figure}[htbp]
     \centering
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/04a_franciscan_exposure.png}
         \caption{Franciscan exposure}
         \label{fig:04a_franciscan_exposure}
     \end{subfigure}
     \hfill
-    \begin{subfigure}{0.48\textwidth}
+    \begin{subfigure}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/04b_dominican_exposure.png}
         \caption{Dominican exposure}
@@ -256,7 +263,7 @@ while the yellow regions indicate less pro-environmental attitudes.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{../figures/06_env_index.png}
+    \includegraphics[width=0.7\textwidth]{../figures/06_env_index.png}
     \caption{\centering Environmental Index (PCA) across Europe \\considering the average scores per region.}
     \label{fig:06_env_index}
 \end{figure}
@@ -277,9 +284,14 @@ countries have less pro-environmental attitudes (yellow), as illustrated in \aut
 
 \FloatBarrier
 
-\subsection{Regression Model}
+\section{Analysis and Results}
+
+
+\subsection{Main Specification}
 
 Once we have all the variables together, we start our regression analysis. Our main specification is:
+
+\vspace{-0.5cm}
 
 \begin{equation}
 Y_{irc} = \alpha + \beta_1 Franc_r + \beta_2 Dom_r + X_i^{\prime} \gamma + \delta_c + \varepsilon_{irc}
@@ -290,32 +302,25 @@ of country $c$ (scaled 0-1), $Franc_{r}$ and $Dom_{r}$ represent population-weig
 Franciscan and Dominican Orders in region $r$ measured in 1500, and $X_i^{\prime}$ is a vector of control
 variables, $\delta_c$ denotes country fixed effects, and $\varepsilon_{irc}$ is the error term.
 
-The control variables were taken from the EVS data, the same dataset as the environmental question variables. 
+The control variables were taken from the EVS data. 
 The vector of individual-level control variables, $X_i^{\prime}$, consists of: gender, age, education level, 
 household income (PPP-adjusted), socio-economic status (ISEI), town size, political orientation 
 (left–right scale), and religious denomination with dummy variables for Catholic and Protestant. 
 We cluster standard errors at the NUTS level.
 
 \FloatBarrier
-\section{Results}
 
 \FloatBarrier
-\subsection{Regressions and Robustness Checks}
+\subsection{Regression Results}
 
-We start by running the first four regressions shown in \autoref{tab:reg_results_horizontal} and found the following results. 
-Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
-exposure only. We see that the coefficient $\beta_1$ is negative and statistically significant. Because the 
-environmental index ranges from 0 to 1, where lower values indicate greater pro-environmental behavior and 
-higher values indicate less pro-environmental behavior, a negative coefficient indicates that the variable 
-correlates with people being more pro-environmental. Thus, $\beta_1$ in Model 1 was in accordance with our 
-initial hypothesis. In Model 2, adding the Dominican exposure decreases $\beta_1$. 
-When we add country fixed effects in Model 3, $\beta_1$ changes its sign and loses its significance. 
-In Model 4, when we add all the individual-level controls with the Dominican exposure and country 
-fixed effects, $\beta_1$ becomes positive and statistically significant, which means that regions that had 
-maximum Franciscan exposure had a 3.5 percentage points higher environmental index, opposite to our hypothesis. 
-It is also worth noticing that many of the control variables are significant. For example, 
-females are more pro-environmental. However, the coefficient of the Dominican exposure, $\beta_2$, is not statistically 
-significant in any of the models we have analysed.
+\autoref{tab:reg_results_horizontal} presents the baseline regression results. Model 1 regresses the environmental index solely on Franciscan exposure, yielding a negative and statistically significant coefficient ($\beta_1$). 
+Because the index is scaled from 0 (most pro-environmental) to 1 (least pro-environmental), this negative coefficient indicates a positive correlation with pro-environmental attitudes, aligning with our initial hypothesis. 
+In Model 2, the inclusion of Dominican exposure attenuates the magnitude of $\beta_1$. When country fixed effects are introduced in Model 3, $\beta_1$ changes sign and loses statistical significance. 
+
+In our full specification (Model 4), which incorporates all individual-level controls, Dominican exposure, and country fixed effects, $\beta_1$ becomes positive and statistically significant. 
+This indicates that moving from zero to maximum Franciscan exposure is associated with a 3.5 percentage point increase in the environmental index (i.e., less pro-environmental attitudes), directly contradicting our initial hypothesis. 
+Notably, several control variables are also significant; for instance, identifying as female correlates with more pro-environmental attitudes. 
+The coefficient for Dominican exposure ($\beta_2$) remains statistically insignificant across all specifications.
 
 
 \begin{table}[ht]
@@ -424,21 +429,17 @@ All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted 
 increase going from a negative to a positive sign as we move from Model 1 to Model 4, and finally becomes positive 
 and statistically significant. $\beta_2$ is never significant. 
 
-\autoref{tab:env_questions} reports the results when we run regressions with each of the environmental questions separately, in order to assess
-whether there is one variable within the PCA index driving all of the results. We run the regression in Model 4
-six times with one of the variables instead of the index. The values of $\beta_1$ and $\beta_2$ do not change 
-drastically across these six regressions compared to Model 4 in \autoref{tab:reg_results_horizontal}. However, there aren’t any significant results 
-except for the coefficients of the variable indicating the collectivity effect, stating, ``There is no point in doing 
-what I can for the environment unless others do the same.'' The Franciscan and Dominican exposure coefficients produce 
-significant results since they have contrasting theologies regarding this variable, where the Franciscan Order focused 
-more on collectivity and the Dominican Order emphasized an individualistic view. 
 
-In \autoref{fig:11_robustness_leave_one_out}, we run the main regression in Model 4 twenty-four times, each time excluding one country at a time to 
-see whether there is one country driving the results. The plot on top shows the Dominican exposure coefficient, 
-$\beta_2$, estimates across these regressions, and the bottom plot shows the Franciscan exposure coefficient, 
-$\beta_1$, estimates. We see that there isn’t much difference across countries. Only Switzerland and Italy have a 
-slightly stronger effect on the results, but even excluding these countries, the results remain similar to 
-those in \autoref{tab:reg_results_horizontal}. So the effects are homogeneous across Europe.
+\subsection{Robustness Checks}
+To assess whether a specific component of the PCA index drives these results, \autoref{tab:env_questions} presents regressions for each environmental question separately using the full specification (Model 4). 
+While the magnitudes of $\beta_1$ and $\beta_2$ remain relatively stable across these disaggregated models, the only statistically significant effects emerge in the context of collective action (``There is no point in doing what I can for the environment unless others do the same''). 
+The Franciscan and Dominican exposure coefficients yield contrasting, significant results for this specific variable. 
+This divergence is consistent with the theological approaches of the two orders, where the Franciscans placed greater emphasis on collective, communal living, while the Dominicans favored an individualistic framework.
+
+To ensure our results are not driven by outlier countries, \autoref{fig:11_robustness_leave_one_out} presents a leave-one-out sensitivity analysis estimating Model 4 while iteratively excluding one country at a time. 
+The top and bottom plots display the estimated coefficients for Dominican ($\beta_2$) and Franciscan ($\beta_1$) exposure, respectively. 
+The estimates remain highly stable, demonstrating that the observed effects are homogeneous across Europe. 
+Only the exclusion of Switzerland or Italy yields minor deviations, though the core findings remain consistent with \autoref{tab:reg_results_horizontal}.
 
 In \autoref{tab:sensitivity}, we run the main regression again, this time excluding each control variable at a time for the 
 sensitivity analysis. We see that the estimate of $\beta_1$ remains around 0.035 and is statistically significant 
@@ -462,21 +463,21 @@ to 5899, and we don’t have any significant results. In the second subsample, w
 the observations from Germany to only keep NUTS-2 regions, to account for the lack of granularity in Germany. 
 However, the results stay the same as in the main model. 
 
-Lastly, to account for possible selection bias into answering the survey questions about the control variables,
-we run the 4 models in the same final sample. The results stay similar, as shwon in \autoref{fig:14_models_same_sample}.
+Lastly, to rule out potential selection bias arising from missing observations in the survey control variables, 
+we re-estimate all four models on a restricted sample containing no missing covariates. 
+The results, shown in \autoref{fig:14_models_same_sample}, remain fully consistent with our baseline findings.
+
+
 
 \subsection{Possible Mechanism}
 
-
 Since the results differ from our prior expectations, we find it important
-to propose a possible mechanism that might be driving these results, which could be used for further hypotheses and 
-research.
+to propose a possible mechanism that might be driving these results, for further research.
 
-We have already ruled out all misleading mechanisms that could have come from the control variables, such 
-as education, income, and political views, and from country fixed effects.For example, one could have claimed that 
-Dominican exposure also meant a higher education level since they promoted teaching, which could have led to more 
-pro-environmental attitudes. However, we do control for education level. Thus, the mechanism should be a deep, 
-slow-moving, cultural or institutional effect. 
+Our set of individual-level controls and country fixed effects helps mitigate several confounding channels. 
+For instance, the (insignificant) positive environmental attitudes associated with Dominican exposure are not simply a byproduct of 
+higher regional education levels driven by the order's historical emphasis on teaching, as education is controlled for in our full specification. 
+Therefore, the divergence in contemporary attitudes is likely rooted in deep, slow-moving cultural or institutional traits.
 
 We propose that the mechanism could lie in the opposite beliefs about taking collective action within the Franciscan 
 versus Dominican theologies. The Franciscan theology prioritizes humility, acceptance of circumstances, 
@@ -485,13 +486,66 @@ of desire for collective intervention might have shown itself through having les
 could also be observed in our \autoref{tab:env_questions} results (specifically beliefs about individual efforts being pointless unless others do the same, 
 and environmental threats being exaggerated).
 
-We then theorize that Franciscans are not likely anti-nature, but rather anti-intervention. 
-The Dominican theology, on the other hand, highlights persuasion and institutional coordination. Their 
-willingness to take reasoned collective action and enforce norms could have translated into more modern 
-pro-environmental attitudes. Their sense of obligation also possibly played a role in the context of the environment, 
-and they might have had greater trust in institutions for collective solutions against environmental threats.
+We theorize that the Franciscan legacy is not inherently anti-nature, but rather anti-interventionist. 
+On the other hand, Dominican theology highlights persuasion and institutional coordination. 
+This willingness to enforce norms and engage in reasoned collective action may have translated into stronger contemporary trust in institutional solutions to environmental threats.
 
 \FloatBarrier
+
+\section{Limitations and Further Research}
+
+One main limitation of our research is the Mapping Past Societies (MAPS) dataset, which contains foundation
+centuries only for Dominican monasteries, but not the specific dates, and it doesn't contain closing dates for any 
+monasteries. Thus, we had to assume that all the monasteries were active throughout the period of 1200-1500, and so 
+our exposure measure treats monastery presence as time-invariant.
+
+The main extension that we propose is to use data on the foundation and closing dates of the 
+monasteries to construct a more accurate exposure measure. We propose to use another existing 
+dataset from Boranbay and Guerriero (2019) specifically for the Franciscan monasteries. They use a novel
+dataset which contains 2980 observations (while only 994 observations in MAPS) with specific foundation dates 
+and monastery names for Franciscan monasteries. However, there are still no closing dates available in this dataset. 
+Still, this would allow us to construct a more accurate exposure measure for the Franciscan monasteries. 
+
+Furthermore, our empirical strategy is purely historical and correlational. 
+Because medieval monastery locations were not randomly assigned, we cannot definitively rule out unobserved regional 
+characteristics that might have influenced both monastic settlement and modern cultural attitudes. 
+Future research could address this potential endogeneity by employing instrumental variable (IV) strategies—such as distance to 
+historical trade routes—or by explicitly modeling endogenous monastery placement to improve causal identification.
+There is also a problem with the fact that there are no Franciscan monasteries in some NUTS regions in Northern Europe, 
+or no Dominican monasteries in some NUTS regions in Eastern Europe. Therefore, we cannot compare the effects of the two orders in those regions. 
+A possible extension is thus to exclude the regions that do not have either of the monasteries. 
+
+A related limitation stems from our dependency on historical exposure from more than five centuries ago, and assumption that
+this influence has persisted within local populations. However, modern environmental attitudes measured in the EVS may not perfectly reflect the 
+exposure of current residents due to migration flows. Future studies should account for internal and cross-border migration to refine these regional exposure estimates.
+
+Finally, while our covariates successfully control for many individual-level traits, there is a risk of over-controlling (i.e., including "bad controls"). 
+Variables such as income, education, and political orientation might themselves be outcomes of historical monastic exposure. 
+Including them in the regression could absorb part of the true historical effect. 
+A future research extention could thus be to consider more carefully the control variables.
+
+As other possible extensions, we could check for the choice of monastery locations. It is possible (and expected) that monasteries were not randomly located 
+across Europe. In this scenario, we could construct instrumental variables for the monastery locations, such as the distance 
+to the nearest city or trade route, use additional controls, or explicitly model the endogenous placement to 
+improve the causal identification and remove the endogeneity problem. 
+
+We could also construct a distance-weighted or decay-based exposure measure. Instead of assuming that everyone 
+within a 25 $\text{km}$ radius of the monastery is exposed to the theology of that monastery in the same way, we could assume 
+that the influence decays with distance and people are less exposed the further they are. 
+
+We would also like to test the effects of monasteries on other outcomes, such as climate policy support, 
+trust in institutions, and collective action. By using other datasets, we could extend our research to other 
+countries outside of Europe, such as Latin America, where the influence of the Catholic Church is also quite strong.
+For example, \cite{waldinger2017} uses a Mexican dataset to show the long-term effects of missionary orders, 
+such as the Franciscans, Dominicans, and the Jesuits, on outcomes such as education and Catholicism.
+
+In summary, investigating long-run cultural persistence using historical data inherently requires strong identifying assumptions. 
+It is fundamental to evaluate our empirical choices against an ideal experimental benchmark, such as the random historical assignment 
+of monasteries, to explicitly recognize where data constraints force deviations from ideal causal inference. 
+Acknowledging these limitations ensures that our results are interpreted with appropriate nuance. 
+Ultimately, we hope this research provides a robust baseline for future studies exploring the long-term institutional and theological 
+determinants of modern environmental attitudes.
+
 
 \section{Conclusion}
 
@@ -522,80 +576,6 @@ a significant influence on contemporary attitudes toward the environment. The re
 interesting and surprising, but we cannot help but mention the limitations of our research and the need for 
 further research.
 
-\section{Limitations and Further Research}
-
-One main limitation of our research is the Mapping Past Societies (MAPS) dataset, which contains foundation
-centuries only for Dominican monasteries, but not the specific dates, and it doesn't contain closing dates for any 
-monasteries. Thus, we had to assume that all the monasteries were active throughout the period of 1200-1500, and so 
-our exposure measure treats monastery presence as time-invariant.
-
-The main extension that we propose is to use data on the foundation and closing dates of the 
-monasteries to construct a more accurate exposure measure. We propose to use another existing 
-dataset from Boranbay and Guerriero (2019) specifically for the Franciscan monasteries. They use a novel
-dataset which contains 2980 observations (while only 994 observations in MAPS) with specific foundation dates 
-and monastery names for Franciscan monasteries. However, there are still no closing dates available in this dataset. 
-Still, this would allow us to construct a more accurate exposure measure for the Franciscan monasteries. 
-
-Another limitation is that our specification is purely historical and correlational. We cannot fully rule out the deep 
-unobserved regional culture, so we cannot make any causal claims without a proper experiment.
-The ideal experiment would be to randomly have a Franciscan monastery and then
-see what happens to these people who live there over time relative to everybody else. But for that we need the 
-random assignment of monasteries. There is also a problem with the fact that there are no Franciscan monasteries 
-in some NUTS regions in Northern Europe, and also no Dominican monasteries in some NUTS regions in Eastern Europe, 
-so we cannot compare the effects of the two orders in those regions. A possible extension is thus to exclude 
-the regions that do not have either of the monasteries. 
-
-Another major issue is that we rely on data from 800-500 years ago and assume that the influence of the monasteries 
-has persisted until today on the local populations, but don't know whether the people in the EVS dataset who
-live there now are the ones whose ancestors were affected or exposed to the monasteries in those regions during 
-the Middle Ages. So as an extension, we would have to think about migration flows, to see how much of the population 
-is actually exposed to the monastic influence.
-
-\begin{comment}
-One thing that we would also do if we had more time, is to run the regression specification that we have in Model 4 
-(main model) with the sample size that we have in Model 1, which is the full sample without any missing values 
-for the control variables. We lose a lot of observations in Model 4 when we include controls because there are many 
-unreported control variables. But then it becomes hard for us to judge whether it is the inclusion of the control variables 
-that flips the coefficients, or whether it is the sample composition. Or we could also run Model 1 with the sample size 
-of Model 4 including only observations with all control variables. It would be good to know how much of the change 
-is driven by sample composition and how much of it is driven by the inclusion of controls.
-\end{comment}
-
-Another possible consideration is whether all of the controls are indeed good controls. Some of the effect of the 
-exposure might be biased because of the control variables, and so we would call these 
-bad controls. This is probably not the case for the controls age and gender, but it might be the case for all the 
-other controls, such as education, income, political orientation, and town size. A possible extension is thus to consider 
-the controls more carefully and run different combinations of Model 4.
-
-As other possible extensions, we could check for the choice of monastery locations. It is possible (and expected) that monasteries were not randomly located 
-across Europe. In this scenario, we could construct instrumental variables for the monastery locations, such as the distance 
-to the nearest city or trade route, use additional controls, or explicitly model the endogenous placement to 
-improve the causal identification and remove the endogeneity problem. 
-
-We could also construct a distance-weighted or decay-based exposure measure. Instead of assuming that everyone 
-within a 25 $\text{km}$ radius of the monastery is exposed to the theology of that monastery in the same way, we could assume 
-that the influence decays with distance and people are less exposed the further they are. 
-
-We would also like to test the effects of monasteries on other outcomes, such as climate policy support, 
-trust in institutions, and collective action. By using other datasets, we could extend our research to other 
-countries outside of Europe, such as Latin America, where the influence of the Catholic Church is also quite strong.
-For example, \cite{waldinger2017} uses a Mexican dataset to show the long-term effects of missionary orders, 
-such as the Franciscans, Dominicans, and the Jesuits, on outcomes such as education and Catholicism.
-
-\begin{comment}
-    This is too informal, not needed. 
-In summary, due to our quite challenging cultural research and working with historical data, our paper so far has 
-many issues and limitations, and it is important to acknowledge them. 
-It is fundamental to go over the choices that we made in this specification to try to think about 
-what the ideal experiment is, even though oftentimes we do not have the data to do that experiment. As we
-think about where we make choices, we would think about where we deviate from the ideal experiment for many reasons 
-such as not having ideal data. This is a good way of thinking about the problem and seeing our limitations. 
-Because maybe the source of some awkward findings could be these choices. 
-And only when we believe all of these choices and assumptions can we trust the results.
-So then the next step in further research could be to get better data and try to solve particular problems and limitations. 
-We hope that our research can be a starting point for further research on the long-term effects 
-of religious institutions on environmental attitudes and other outcomes.
-\end{comment}
 
 \newpage
 \setlength{\parindent}{0pt}
@@ -607,20 +587,17 @@ of religious institutions on environmental attitudes and other outcomes.
 
 \newpage
 
-\section{Appendix}
 
-\section*{Environmental Attitude Survey Questions}
 
-\autoref{tab:evs_questions} reports the exact wording and coding of the six environmental attitude questions from the European 
-Values Study (EVS) used in the construction of the Environmental Attitudes Index.
-Five of the questions with possible answers agree strongly, agree, neither agree nor disagree, disagree, 
-disagree strongly, are originally measured on a five-point Likert scale (1, 2, 3, 4, 5). 
-The other one question with possible answers to choose between two statements "protecting the environment priority, 
-even if slower economic growth and loss of jobs" vs. "economic growth and creating jobs priority, even if environment 
-suffers" has two answers, scaled 1 or 5. In this case, choosing protecting the environment is coded as 1, 
-and choosing economic growth is coded as 5.
+\section*{Appendix I: Environmental Attitude}
 
-We rescale all variables to a common interval between 0 and 1 and treat them as continuous in the analysis 
+\autoref{tab:evs_questions} reports the exact wording and coding of the six environmental 
+attitude questions from the EVS used in the construction of the Environmental Attitudes Index.
+Five of the questions are originally measured on a five-point Likert scale. 
+One question gave the possibility to choose between two statements. 
+In this case, choosing protecting the environment is coded as 1, and choosing economic growth is coded as 5.
+
+We rescale all variables to an interval between 0 and 1 and treat them as continuous in the analysis 
 to make it easy to combine all questions into our PCA on a 0-1 scale. Due to the discrete nature of the original response 
 categories, the rescaled variables only assume the values 0.0, 0.2, 0.4, 0.6, 0.8, and 1.0. Higher values indicate 
 less pro-environmental attitudes, while lower values indicate more pro-environmental attitudes.
@@ -652,8 +629,9 @@ suffers'' & only 1 and 5 to [0,1]\\
 \hline
 \end{tabular}
 \end{table}
-\newpage
 
+
+%Table 3: Environmental Index: PC1 Loadings
 \begin{table}[htbp]
     \centering
     \caption{Environmental Index: PC1 Loadings}
@@ -670,10 +648,7 @@ suffers'' & only 1 and 5 to [0,1]\\
         envir\_network\_effect      & 0.200 \\
         envir\_threats\_exaggerated & 0.510 \\
         envir\_protection\_money    & 0.085 \\
-        \hline
         \end{tabular}
-
-        \vspace{0.4cm}
 
         \begin{tabular}{l c}
         \hline
@@ -686,19 +661,26 @@ suffers'' & only 1 and 5 to [0,1]\\
 
 \end{table}
 
-\section*{Regression Results and Robustness Checks}
+
+
+\section*{Appendix II: Regression Results and Robustness Checks}
+
+%Figure 6: 4 models estimates plot
 \begin{figure}[h!]
     \centering
-    \caption{\centering Impact of Monastic Orders (Clustered SEs) \\ \footnotesize 95$\%$ CI clustered by region. Crossing 0 = Not Significant}
-    \includegraphics[trim=0 0 0 140pt, clip, width=1\textwidth]{../figures/07_regressions_plot_4_models.png}
+    \caption{\centering Impact of Monastic Orders (Clustered SEs)}
+    \includegraphics[trim=0 0 0 140pt, clip, width=0.9\textwidth]{../figures/07_regressions_plot_4_models.png}
     \label{fig:07_regressions_plot_4_models}
 \end{figure}
 
-\begin{table}[ht]
-\caption{Individual Environmental Questions (Clustered SEs)}
-\label{tab:env_questions}
-\footnotesize
-\setlength{\tabcolsep}{0 pt}
+
+%Table 4: Individual env questions
+\begin{table}[h!]
+    \centering
+    \caption{Individual Environmental Questions (Clustered SEs)}
+    \label{tab:env_questions}
+    \scriptsize
+    \setlength{\tabcolsep}{0 pt}
 
 \begin{tabular}{lcccccc}
 \toprule
@@ -709,57 +691,57 @@ suffers'' & only 1 and 5 to [0,1]\\
 Franciscan Exp.
 & 0.052 & 0.016 & 0.034 & 0.030 & 0.064** & 0.037 \\
 & (0.038) & (0.021) & (0.021) & (0.019) & (0.021) & (0.021) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Dominican Exp.
 & -0.020 & -0.026 & -0.014 & -0.018 & -0.039* & -0.017 \\
 & (0.037) & (0.021) & (0.018) & (0.016) & (0.016) & (0.015) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Gender (Female)
 & -0.027*** & -0.002 & -0.023*** & -0.040*** & -0.028*** & -0.047*** \\
 & (0.007) & (0.004) & (0.004) & (0.004) & (0.005) & (0.004) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Age
 & 0.001** & 0.001*** & 0.002*** & 0.000* & 0.001*** & 0.001*** \\
 & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Education
 & -0.000** & -0.000*** & -0.000*** & -0.000*** & -0.000*** & -0.000*** \\
 & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Income (PPP)
 & -0.002 & -0.004* & -0.011*** & -0.004** & -0.010*** & -0.004** \\
 & (0.002) & (0.002) & (0.002) & (0.001) & (0.002) & (0.001) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Socio-Econ. Ind.
 & -0.002*** & -0.001*** & -0.001*** & -0.001*** & -0.001*** & -0.001*** \\
 & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) & (0.000) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Town Size
 & -0.003 & -0.006** & -0.001 & -0.004* & -0.009*** & -0.012*** \\
 & (0.004) & (0.002) & (0.002) & (0.002) & (0.002) & (0.002) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Polit. Orient. (R)
 & 0.011*** & 0.006*** & 0.003** & 0.004*** & 0.005*** & 0.010*** \\
 & (0.003) & (0.002) & (0.001) & (0.001) & (0.001) & (0.002) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Catholic
 & 0.007 & 0.005 & 0.011* & 0.010 & 0.017* & 0.007 \\
 & (0.009) & (0.007) & (0.006) & (0.005) & (0.007) & (0.007) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Protestant
 & -0.003 & 0.003 & -0.007 & -0.017** & -0.004 & 0.008 \\
 & (0.013) & (0.012) & (0.006) & (0.005) & (0.006) & (0.008) \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 \midrule
 Num. Obs.
@@ -773,7 +755,6 @@ Adj. $R^2$
 \bottomrule
 \end{tabular}
 
-\vspace{0.3em}
 \scriptsize
 \textit{Notes:} Standard errors in parentheses. 
 $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
@@ -782,15 +763,18 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 
 \newpage
 
+%Figure 7: excluding a country
 \begin{figure}[h!]
     \centering
-    \caption{\centering Does one country drive the results? \\ \footnotesize Coefficients when excluding each country one at a time (Clustered 95$\%$ CI)} 
-    \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/11_robustness_leave_one_out.png}
+    \caption{\centering Coefficients when excluding each Country} 
+    \includegraphics[trim=0 0 0 140pt, clip, width=1.0\textwidth]{../figures/11_robustness_leave_one_out.png}
     \label{fig:11_robustness_leave_one_out}
 \end{figure}
 
+
 \newpage
 
+%Table 5: leave-one-control out
 \begin{table}[h!]
 \centering
 \caption{Sensitivity Analysis: Coefficients when Dropping Controls}
@@ -824,13 +808,24 @@ Adj. $R^2$
 \bottomrule
 \end{tabular}
 
-\vspace{0.3em}
 \scriptsize
 \textit{Notes:} $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \normalsize
 \end{table}
 
+\vspace{0.4cm}
+
+%Figure 8: leave one control out plot
+\begin{figure}[h!]
+    \centering
+    \caption{\centering Sensitivity Analysis Plot} 
+    \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/13_robustness_sensitivity_plot.png}
+    \label{fig:13_robustness_sensitivity_plot}
+\end{figure}
+
 \newpage
+
+%Table 6: Subsamples
 \begin{table}[h!]
 \centering
 \caption{Robustness Checks: Subsamples}
@@ -864,28 +859,19 @@ Adj. $R^2$
 \bottomrule
 \end{tabular}
 
-\vspace{0.3em}
 \scriptsize
 \textit{Notes:} Standard errors in parentheses. 
 $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \end{table}
 
 
+\vspace{0.5cm}
 
-
+%Figure 9: 4 models with same sample
 \begin{figure}[h!]
     \centering
-    \caption{\centering Sensitivity Analysis: Leave-One-Control-Out \\ \footnotesize Does dropping a specific control variable change the results? \\} 
-    \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/13_robustness_sensitivity_plot.png}
-    \label{fig:13_robustness_sensitivity_plot}
-\end{figure}
-
-
-
-\begin{figure}[h!]
-    \centering
-    \caption{\centering 4 Regression models in the same sample \\ \footnotesize Are results affected by self selection into answering the control variables questions? \\} 
-    \includegraphics[width=0.8\textwidth]{../figures/14_models_same_sample.png}
+    \caption{\centering Regression models of Table 1, using the same sample} 
+    \includegraphics[width=1\textwidth]{../figures/14_models_same_sample.png}
     \label{fig:14_models_same_sample}
 \end{figure}
 

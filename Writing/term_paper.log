@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.5)  22 FEB 2026 18:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.5)  22 FEB 2026 20:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -555,24 +555,24 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 27.
  (./term_paper.aux)
 \openout1 = `term_paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 39.
-LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -633,7 +633,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 39.
+Package hyperref Info: Link coloring ON on input line 41.
  (./term_paper.out) (./term_paper.out)
 \@outlinefile=\write5
 \openout5 = `term_paper.out'.
@@ -653,13 +653,13 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'term_paper.bbl' found.
  (./term_paper.bbl)
-Package biblatex Info: Reference section=0 on input line 39.
-Package biblatex Info: Reference segment=0 on input line 39.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 41.
+Package biblatex Info: Reference section=0 on input line 41.
+Package biblatex Info: Reference segment=0 on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -673,22 +673,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [3]
 
 [4]
-<../figures/01_monasteries_map.png, id=111, 3011.25pt x 2409.0pt>
+<../figures/01_monasteries_map.png, id=112, 3011.25pt x 2409.0pt>
 File: ../figures/01_monasteries_map.png Graphic file (type png)
 <use ../figures/01_monasteries_map.png>
-Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 130.
+Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 135.
 (pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
-<../figures/02_hyde_grid.png, id=114, 3011.25pt x 3011.25pt>
+<../figures/02_hyde_grid.png, id=115, 3011.25pt x 3011.25pt>
 File: ../figures/02_hyde_grid.png Graphic file (type png)
 <use ../figures/02_hyde_grid.png>
-Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 142.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-<../figures/03_hyde_nuts.png, id=115, 3011.25pt x 3011.25pt>
+Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 147.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
+
+Underfull \hbox (badness 1062) in paragraph at lines 148--148
+[]\OT1/cmr/m/n/10.95 (a) |Pop-u-la-tion den-si-ties (grid-level, log
+ []
+
+<../figures/03_hyde_nuts.png, id=116, 3011.25pt x 3011.25pt>
 File: ../figures/03_hyde_nuts.png Graphic file (type png)
 <use ../figures/03_hyde_nuts.png>
-Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 149.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
-
+Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 154.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -698,147 +702,132 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <../figures/04a_franciscan_exposure.png, id=125, 3011.25pt x 3011.25pt>
 File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
 <use ../figures/04a_franciscan_exposure.png>
-Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 174.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 181.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
 <../figures/04b_dominican_exposure.png, id=126, 3011.25pt x 3011.25pt>
 File: ../figures/04b_dominican_exposure.png Graphic file (type png)
 <use ../figures/04b_dominican_exposure.png>
-Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 181.
-(pdftex.def)             Requested size: 217.42265pt x 217.3796pt.
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 188.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
 
 
-[6 <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--200
+[6 <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png> <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 201--207
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 232--232
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
 []|\OT1/cmr/m/n/12 Economy--
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 232--232
+Underfull \hbox (badness 5331) in paragraph at lines 239--239
 []|\OT1/cmr/m/n/12 Priority of en-vi-ron-
  []
 
-
-
-[7 <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
-<../figures/05_env_questions.png, id=145, 3613.5pt x 3011.25pt>
+<../figures/05_env_questions.png, id=139, 3613.5pt x 3011.25pt>
 File: ../figures/05_env_questions.png Graphic file (type png)
 <use ../figures/05_env_questions.png>
-Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 252.
+Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 259.
 (pdftex.def)             Requested size: 317.07614pt x 264.20052pt.
-<../figures/06_env_index.png, id=146, 2409.0pt x 2409.0pt>
+<../figures/06_env_index.png, id=140, 2409.0pt x 2409.0pt>
 File: ../figures/06_env_index.png Graphic file (type png)
 <use ../figures/06_env_index.png>
-Package pdftex.def Info: ../figures/06_env_index.png  used on input line 259.
-(pdftex.def)             Requested size: 226.48395pt x 226.46808pt.
+Package pdftex.def Info: ../figures/06_env_index.png  used on input line 266.
+(pdftex.def)             Requested size: 317.07614pt x 317.07738pt.
 
-Overfull \hbox (2.3621pt too wide) in paragraph at lines 274--277
+Overfull \hbox (2.3621pt too wide) in paragraph at lines 281--284
 []\OT1/cmr/m/n/12 We find that the com-po-nents of West-ern Eu-ro-pean coun-tries be-have more pro-environment
  []
 
 
 
-[8 <../figures/05_env_questions.png>]
+[7]
 
-[9 <../figures/06_env_index.png>]
+[8 <../figures/05_env_questions.png> <../figures/06_env_index.png>]
+
+[9]
 
 [10]
 
 [11]
 
-[12] Excluding 'comment' comment.
+[12]
 
-[13] Excluding 'comment' comment.
+[13]
 
 [14]
-
-[15]
-Overfull \hbox (12.0498pt too wide) in paragraph at lines 635--654
+Overfull \hbox (12.0498pt too wide) in paragraph at lines 612--631
  [][] 
  []
 
 
+Overfull \hbox (16.78604pt too wide) in paragraph at lines 666--666
+[][]\OT1/cmr/bx/n/17.28 Appendix II: Re-gres-sion Re-sults and Ro-bust-ness Checks 
+ []
 
-[16]
-<../figures/07_regressions_plot_4_models.png, id=241, 2409.0pt x 1505.625pt>
+<../figures/07_regressions_plot_4_models.png, id=231, 2409.0pt x 1505.625pt>
 File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
 <use ../figures/07_regressions_plot_4_models.png>
-Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 693.
-(pdftex.def)             Requested size: 452.9679pt x 256.76254pt.
-
-Overfull \hbox (54.9638pt too wide) in paragraph at lines 703--775
-[][] 
- []
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 672.
+(pdftex.def)             Requested size: 407.66833pt x 231.09045pt.
 
 
+[15]
 
-[17 <../figures/07_regressions_plot_4_models.png>]
-<../figures/11_robustness_leave_one_out.png, id=250, 2409.0pt x 2409.0pt>
+[16 <../figures/07_regressions_plot_4_models.png>]
+<../figures/11_robustness_leave_one_out.png, id=246, 2409.0pt x 2409.0pt>
 File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
 <use ../figures/11_robustness_leave_one_out.png>
-Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 788.
-(pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 770.
+(pdftex.def)             Requested size: 452.9679pt x 426.61362pt.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (28.32472pt too wide) in paragraph at lines 801--826
+[17 <../figures/11_robustness_leave_one_out.png>]
+Overfull \hbox (28.32472pt too wide) in paragraph at lines 785--810
  [][] 
  []
 
-
-
-[18]
-<../figures/13_robustness_sensitivity_plot.png, id=256, 2409.0pt x 2409.0pt>
+<../figures/13_robustness_sensitivity_plot.png, id=254, 2409.0pt x 2409.0pt>
 File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
 <use ../figures/13_robustness_sensitivity_plot.png>
-Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 879.
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 822.
 (pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
 
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<../figures/14_models_same_sample.png, id=258, 1445.4pt x 797.98125pt>
+[18 <../figures/13_robustness_sensitivity_plot.png>]
+<../figures/14_models_same_sample.png, id=262, 1445.4pt x 797.98125pt>
 File: ../figures/14_models_same_sample.png Graphic file (type png)
 <use ../figures/14_models_same_sample.png>
-Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 888.
-(pdftex.def)             Requested size: 362.37569pt x 200.05492pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 874.
+(pdftex.def)             Requested size: 452.9679pt x 250.07474pt.
 
 
-
-[19 <../figures/11_robustness_leave_one_out.png>]
-
-[20 <../figures/14_models_same_sample.png> <../figures/13_robustness_sensitivity_plot.png>] (./term_paper.aux)
+[19 <../figures/14_models_same_sample.png>] (./term_paper.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `term_paper.out' has not changed.
-(rerunfilecheck)             Checksum: 1CA530A1979E7B342360E19C353D626C;1949.
+(rerunfilecheck)             Checksum: D4F4ACD835C520955D78CA2C36CE32E1;2011.
 Package logreq Info: Writing requests to 'term_paper.run.xml'.
 \openout1 = `term_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19702 strings out of 473190
- 347161 string characters out of 5715801
- 1177543 words of memory out of 5000000
- 42670 multiletter control sequences out of 15000+600000
+ 19698 strings out of 473190
+ 347096 string characters out of 5715801
+ 1170291 words of memory out of 5000000
+ 42667 multiletter control sequences out of 15000+600000
  570022 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,11n,81p,1267b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on term_paper.pdf (20 pages, 7621646 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on term_paper.pdf (19 pages, 7634313 bytes).
 PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 280 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 365 PDF objects out of 1000 (max. 8388607)
+ 278 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
