@@ -44,7 +44,7 @@ We analyse the effect of exposure to two Franciscan and Dominican Mendicant orde
 \newpage
 
 \section{Introduction}
-The Catholic Church, played an important role in medieval Europe, shaping people’s lives, values, and behaviour throughout the Middle Ages (Lynch, 2014). One of the most famous religious figures of the Middle Ages is St. Francis of Assisi, founder of the Franciscan Order and patron saint of ecology within the Catholic Church, widely known for his deep affection towards nature and animals.
+The Catholic Church played an important role in medieval Europe, shaping people’s lives, values, and behaviour throughout the Middle Ages (Lynch, 2014). One of the most famous religious figures of the Middle Ages is St. Francis of Assisi, founder of the Franciscan Order and patron saint of ecology within the Catholic Church, widely known for his deep affection towards nature and animals.
 
 We investigate what is the effect of exposure to the Franciscan 
 ``Eco-Theology'' between the 13th and 15th centuries on contemporary environmental attitudes among Europeans. We use as a control the exposure to the Dominican order, which was another major Mendicant Order during the Middle Ages.
@@ -87,7 +87,7 @@ For example, at the interpersonal level, “Dominicans promoted guilt as a drive
 Consistent with these differences, the authors document contrasting effects of Dominican and Franciscan influence on impersonal exchange. Their findings are consistent with our results regarding the contrasting effects of the two orders, as well as our proposed mechanism that the underlying differences in theological beliefs might have driven the results.
 
 Our study also relates to the broader literature on the role of medieval churches and persistence of cultural norms. The Catholic Church played an influential role in shaping people’s lives, values, and behaviour
-throughout the Middle Ages (Lynch, 2024). Once a religious institution establishes, its values and norms tend to persist as cultural legacies, embedded in national cultures and are transmitted through educational institutions,  even after losing some of the formal allegiance of their followers in modern Europe (Inglehart and Baker, 2000). 
+throughout the Middle Ages (Lynch, 2014). Once a religious institution establishes, its values and norms tend to persist as cultural legacies, embedded in national cultures and are transmitted through educational institutions,  even after losing some of the formal allegiance of their followers in modern Europe (Inglehart and Baker, 2000). 
 
 Another important strand of literature relates to the determinants of environmental attitudes. It has been examined how cultural differences might influence environmental attitudes (Chwialkowska et al., 2020; Khan et al., 2024; Yang et al., 2024; Tam, 2025, as cited in Behler, 2025). Some literature also suggests that  religiously grounded nature world-view is associated with how people understand and relate to the environment (Cohen et al., 1976). 
 
@@ -256,7 +256,7 @@ while the yellow regions indicate less pro-environmental attitudes.
 Since we have 6 different closely related questions for environmental
 attitudes, we construct a single Environmental Attitudes Index. 
 To do so, we run a Principal Component Analysis (PCA) to combine all 6 variables. 
-The first principal component explains 45\% of the variance, and we take the first 
+The first principal component explains 22.8\% of the variance, and we take the first 
 principal component as our Environmental Attitudes Index (see Table 3 in the Appendix for PC1 
 loadings). The index is continuous between 0 and 1, with 0 being more pro-environment, 
 and 1 being less pro-environment.
@@ -292,7 +292,8 @@ We cluster standard errors at the NUTS level.
 \FloatBarrier
 \subsection{Regressions and Robustness Checks}
 
-We start by running the first four regressions shown in Table 1 and found the following results. Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
+We start by running the first four regressions shown in Table 1 and found the following results. 
+Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
 exposure only. We see that the coefficient $\beta_1$ is negative and statistically significant. Because the 
 environmental index ranges from 0 to 1, where lower values indicate greater pro-environmental behavior and 
 higher values indicate less pro-environmental behavior, a negative coefficient indicates that the variable 
@@ -301,8 +302,8 @@ initial hypothesis. In Model 2, adding the Dominican exposure decreases $\beta_1
 When we add country fixed effects in Model 3, $\beta_1$ changes its sign and loses its significance. 
 In Model 4, when we add all the individual-level controls with the Dominican exposure and country 
 fixed effects, $\beta_1$ becomes positive and statistically significant, which means that regions that had 
-maximum Franciscan exposure had a 3.5 percentage points lower environmental index, opposite to our hypotesis. 
-It is also woth noticing that many of the control variables are significant. For example, 
+maximum Franciscan exposure had a 3.5 percentage points higher environmental index, opposite to our hypothesis. 
+It is also worth noticing that many of the control variables are significant. For example, 
 females are more pro-environmental. However, the coefficient of the Dominican exposure, $\beta_2$, is not statistically 
 significant in any of the models we have analysed.
 
@@ -452,7 +453,7 @@ the observations from Germany to only keep NUTS-2 regions, to account for the la
 However, the results stay the same as in the main model. 
 
 Lastly, to account for possible selection bias into answering the survey questions about the control variables,
-we run the 4 models in the same final sample. The results stay similar (see Figure 9 in the Appendix).
+we run the 4 models in the same final sample. The results stay similar (see \ref{fig:same_sample} in the Appendix).
 
 \subsection{Possible Mechanism}
 
@@ -531,12 +532,12 @@ The ideal experiment would be to randomly have a Franciscan monastery and then
 see what happens to these people who live there over time relative to everybody else. But for that we need the 
 random assignment of monasteries. There is also a problem with the fact that there are no Franciscan monasteries 
 in some NUTS regions in Northern Europe, and also no Dominican monasteries in some NUTS regions in Eastern Europe, 
-so we cannot compare the effects of the two orders in those regions. A possible extentiuon is thus to exclude 
+so we cannot compare the effects of the two orders in those regions. A possible extension is thus to exclude 
 the regions that do not have either of the monasteries. 
 
 Another major issue is that we rely on data from 800-500 years ago and assume that the influence of the monasteries 
 has persisted until today on the local populations, but don't know whether the people in the EVS dataset who
-live there now are the ones whose ancestors were effected or exposed to the monasteries in those regions during 
+live there now are the ones whose ancestors were affected or exposed to the monasteries in those regions during 
 the Middle Ages. So as an extension, we would have to think about migration flows, to see how much of the population 
 is actually exposed to the monastic influence.
 
@@ -557,7 +558,7 @@ other controls, such as education, income, political orientation, and town size.
 the controls more carefully and run different combinations of Model 4.
 
 As other possible extensions, we could check for the choice of monastery locations. It is possible (and expected) that monasteries were not randomly located 
-across Europe. In this scenario, we could construct insturumental variables for the monastery locations, such as the distance 
+across Europe. In this scenario, we could construct instrumental variables for the monastery locations, such as the distance 
 to the nearest city or trade route, use additional controls, or explicitly model the endogenous placement to 
 improve the causal identification and remove the endogeneity problem. 
 
@@ -593,7 +594,7 @@ of religious institutions on environmental attitudes and other outcomes.
 \setlength{\parskip}{6pt}
 
 \begin{hangparas}{0.5in}{1}
-Arruñada, B., \& Lopez-Manuel, L. (2026). Mendicant Orders and the foundations of impersonal exchange. \textit{Journal of Economic Behavior \& Organization}. Advance online publication. \url{https://doi.org/10.2139/ssrn.4717940}
+Arruñada, B., \& Lopez-Manuel, L. (2024). Mendicant Orders and the foundations of impersonal exchange. \textit{Journal of Economic Behavior \& Organization}. Advance online publication. \url{https://doi.org/10.2139/ssrn.4717940}
 
 Behler, P. C., \& Schröder, P. (2025). Historical ecospirituality and environmental attitudes.
 
@@ -811,8 +812,8 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 
 \begin{tabular}{lccccccccc}
 \toprule
- & Full & Excl. & Excl. & Excl. & Excl. & Excl. & Excl. Town & Excl. Socio- & Excl. \\
- & Model & Gender & Age & Education & Income & Politics & Size & Econ. Index & Religion \\
+ & Full & Excl. & Excl. & Excl. & Excl. & Excl. & Excl. & Excl. Socio- & Excl. \\
+ & Model & Gender & Age & Education & Income & Politics & Town Size & Econ. Index & Religion \\
 \midrule
 
 Franc. Exp.
