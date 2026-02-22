@@ -16,9 +16,16 @@
 \usepackage{tabularx}
 \usepackage{comment}
 
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = blue,
+  urlcolor   = blue,
+  citecolor  = blue
+}
+
 \title{Research Project: Franciscan Eco-Theology and Environmental Attitudes}
 \author{
-A term paper submitted for the\\
+Term paper submitted for the\\
 RM in Management and Applied Microeconomics\\ [1.0cm]
 Juan Taborda (50261644), \\
 Lidiia Levytska (50274891), \\
@@ -111,7 +118,7 @@ modified its NUTS-2 administrative boundaries over the EVS data collection perio
 regions for Germany and NUTS-2 for all other countries.
 
 We exclude monasteries located too far away from NUTS regions, such as those in east Ukraine, Crimea and the Levant. There are some monasteries located just beyond NUTS boundaries but remain geographically close
-to a NUTS region. We assign these observations to the nearest region. As illustrated in Figure 1.
+to a NUTS region. We assign these observations to the nearest region. As illustrated in \autoref{fig:01_monasteries_map}.
 
 The dataset includes some monasteries located in Turkey, as the EU also collects data for parts of Turkish territory. However, these observations are not included in the analysis due to the absence of corresponding environmental attitudes data. This does not affect the results or procedure. Similarly, some monasteries are also observed in Greece, but these do not affect the quantitative approach, since there are no entries for Greece in the EVS environmental survey data.
 
@@ -119,10 +126,10 @@ The dataset includes some monasteries located in Turkey, as the EU also collects
     \centering
     \includegraphics[width=0.8\textwidth]{../figures/01_monasteries_map.png}
     \caption{Locations of Franciscan and Dominican Monasteries}
-    \label{fig:eu_map}
+    \label{fig:01_monasteries_map}
 \end{figure}
 
-Once we have combined the monastery locations with NUTS shapefiles, the next step is to observe historical population data. To this end, we employ the HYDE 3.3 (History Database of the Global Environment) dataset maintained by Utrecht University, which captures population numbers historically. Grid cells are squares of 85 $\text{km}^2$, which is relatively granular, and population estimates are available for each grid. In Figure 2(a), each cell represents estimated population 
+Once we have combined the monastery locations with NUTS shapefiles, the next step is to observe historical population data. To this end, we employ the HYDE 3.3 (History Database of the Global Environment) dataset maintained by Utrecht University, which captures population numbers historically. Grid cells are squares of 85 $\text{km}^2$, which is relatively granular, and population estimates are available for each grid. In \autoref{fig:02_hyde_grid}, each cell represents estimated population 
 counts for a historical year (1200–1500). 
 
 \begin{figure}[h!]
@@ -131,14 +138,14 @@ counts for a historical year (1200–1500).
         \centering
         \includegraphics[width=\textwidth]{../figures/02_hyde_grid.png}
         \caption{Population densities (grid-level, log scale)}
-        \label{fig:hyde_grid}
+        \label{fig:02_hyde_grid}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/03_hyde_nuts.png}
         \caption{Regional populations (NUTS-2 level)}
-        \label{fig:hyde_nuts}
+        \label{fig:03_hyde_nuts}
     \end{subfigure}
     \caption{Population measures from HYDE 3.3}
     \label{fig:hyde_maps}
@@ -146,7 +153,7 @@ counts for a historical year (1200–1500).
 
 
 Based on the population grid, we construct estimates 
-at the NUTS level. In Figure 2(b), population data from HYDE 3.3 grids are overlaid on NUTS boundaries, with total population calculated as the sum of the population of all grid cells that fall within. If a cell is partially within a NUTS region, it counts as a full cell if more than half of its area falls within the region. This way, we can estimate the population of each NUTS region based on the HYDE grid data.
+at the NUTS level. In \autoref{fig:03_hyde_nuts}, population data from HYDE 3.3 grids are overlaid on NUTS boundaries, with total population calculated as the sum of the population of all grid cells that fall within. If a cell is partially within a NUTS region, it counts as a full cell if more than half of its area falls within the region. This way, we can estimate the population of each NUTS region based on the HYDE grid data.
 
 Finally, we match the population estimates with the monasteries locations. As said, we draw a 25 kilometers radius circle around each monastery, and all the
 grids inside circle count as the exposed population. All grids which have more than half its area included in the radius are counted as fully exposed to the theology of that monastery. In our research, the exposure measure is defined as the sum of exposed population within a given region as a percentage of the total population for both Franciscan and Dominican monasteries:
@@ -163,14 +170,14 @@ With all three data sources combined, we have Dominican and Franciscan exposure 
         \centering
         \includegraphics[width=\textwidth]{../figures/04a_franciscan_exposure.png}
         \caption{Franciscan exposure}
-        \label{fig:franciscan_exposure}
+        \label{fig:04a_franciscan_exposure}
     \end{subfigure}
     \hfill
     \begin{subfigure}{0.48\textwidth}
         \centering
         \includegraphics[width=\textwidth]{../figures/04b_dominican_exposure.png}
         \caption{Dominican exposure}
-        \label{fig:dominican_exposure}
+        \label{fig:04b_dominican_exposure}
     \end{subfigure}
     \caption{\centering Map of exposure to Mendicant Orders in Europe (1200--1500)\\
 \footnotesize normalized index (0 = none, 1 = high exposure)}
@@ -218,22 +225,22 @@ suffers''
 ``Many of the claims about environmental threats are exaggerated.'' 
 & Env.\ skepticism \\
 \hline
-\end{tabular}%
+\end{tabular}
 }
 \end{table}
 
-
+\vspace{0.4cm}
 
 The questions have categorical answers (``agree strongly'',
 ``agree'', ``neither agree nor disagree'', ``disagree'', ``disagree strongly'',
 or choosing between the two statements). However, the questions differ
 in their directional interpretation. Thus, we need to standardize
-the questions by assigning a 0-1 scale for each answer to each question (see Table 2 in the Appendix),
+the questions by assigning a 0-1 scale for each answer to each question (see \autoref{tab:evs_questions}),
 such that the answers indicate the same environmental direction.
 
 In the standardized 0-1 scale, 1 indicates the least pro-environmental
 attitude, and 0 indicates the most pro-environmental attitude. See 
-Figure 4 for the visualization for environmental questions within the NUTS
+\autoref{fig:05_env_questions} for the visualization for environmental questions within the NUTS
 regions. The green regions indicate being more pro-environmental,
 while the yellow regions indicate less pro-environmental attitudes.
 
@@ -241,14 +248,14 @@ while the yellow regions indicate less pro-environmental attitudes.
     \centering
     \includegraphics[width=0.7\textwidth]{../figures/05_env_questions.png}
     \caption{\centering Distribution of the 6 environmental questions across Europe \\ considering the average scores per region.}
-    \label{fig:eu_map}
+    \label{fig:05_env_questions}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.5\textwidth]{../figures/06_env_index.png}
     \caption{\centering Environmental Index (PCA) across Europe \\considering the average scores per region.}
-    \label{fig:eu_map}
+    \label{fig:06_env_index}
 \end{figure}
 
 
@@ -257,13 +264,13 @@ Since we have 6 different closely related questions for environmental
 attitudes, we construct a single Environmental Attitudes Index. 
 To do so, we run a Principal Component Analysis (PCA) to combine all 6 variables. 
 The first principal component explains 22.8\% of the variance, and we take the first 
-principal component as our Environmental Attitudes Index (see Table 3 in the Appendix for PC1 
+principal component as our Environmental Attitudes Index (see \autoref{tab:pc1_loadings} in the Appendix for PC1 
 loadings). The index is continuous between 0 and 1, with 0 being more pro-environment, 
 and 1 being less pro-environment.
 
 We find that the components of Western European 
 countries behave more pro-environment (green), while generally Eastern European 
-countries have less pro-environmental attitudes (yellow), as illustrated in Figure 5. 
+countries have less pro-environmental attitudes (yellow), as illustrated in \autoref{fig:06_env_index}. 
 
 \FloatBarrier
 
@@ -292,7 +299,7 @@ We cluster standard errors at the NUTS level.
 \FloatBarrier
 \subsection{Regressions and Robustness Checks}
 
-We start by running the first four regressions shown in Table 1 and found the following results. 
+We start by running the first four regressions shown in \autoref{tab:reg_results_horizontal} and found the following results. 
 Model 1 is the simplest form of the regression, where we regressed the environmental index on the Franciscan 
 exposure only. We see that the coefficient $\beta_1$ is negative and statistically significant. Because the 
 environmental index ranges from 0 to 1, where lower values indicate greater pro-environmental behavior and 
@@ -410,27 +417,27 @@ Adj.\ $R^2$
 $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \end{table}
 
-All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted in Figure 6 (see Appendix). $\beta_1$ has a steady 
+All the $\beta_1$ and $\beta_2$ coefficients from these regressions are plotted in \autoref{fig:07_regressions_plot_4_models}. $\beta_1$ has a steady 
 increase going from a negative to a positive sign as we move from Model 1 to Model 4, and finally becomes positive 
 and statistically significant. $\beta_2$ is never significant. 
 
-Table 4 (see Appendix) reports the results when we run regressions with each of the environmental questions separately, in order to assess
+\autoref{tab:env_questions} reports the results when we run regressions with each of the environmental questions separately, in order to assess
 whether there is one variable within the PCA index driving all of the results. We run the regression in Model 4
 six times with one of the variables instead of the index. The values of $\beta_1$ and $\beta_2$ do not change 
-drastically across these six regressions compared to Model 4 in Table 1. However, there aren’t any significant results 
+drastically across these six regressions compared to Model 4 in \autoref{tab:reg_results_horizontal}. However, there aren’t any significant results 
 except for the coefficients of the variable indicating the collectivity effect, stating, ``There is no point in doing 
 what I can for the environment unless others do the same.'' The Franciscan and Dominican exposure coefficients produce 
 significant results since they have contrasting theologies regarding this variable, where the Franciscan Order focused 
 more on collectivity and the Dominican Order emphasized an individualistic view. 
 
-In Figure 7 (see Appendix), we run the main regression in Model 4 twenty-four times, each time excluding one country at a time to 
+In \autoref{fig:11_robustness_leave_one_out}, we run the main regression in Model 4 twenty-four times, each time excluding one country at a time to 
 see whether there is one country driving the results. The plot on top shows the Dominican exposure coefficient, 
 $\beta_2$, estimates across these regressions, and the bottom plot shows the Franciscan exposure coefficient, 
 $\beta_1$, estimates. We see that there isn’t much difference across countries. Only Switzerland and Italy have a 
 slightly stronger effect on the results, but even excluding these countries, the results remain similar to 
-those in Table 1. So the effects are homogeneous across Europe.
+those in \autoref{tab:reg_results_horizontal}. So the effects are homogeneous across Europe.
 
-In Table 5 (see Appendix), we run the main regression again, this time excluding each control variable at a time for the 
+In \autoref{tab:sensitivity}, we run the main regression again, this time excluding each control variable at a time for the 
 sensitivity analysis. We see that the estimate of $\beta_1$ remains around 0.035 and is statistically significant 
 across most of the regressions, except for one regression in which we exclude the town size control variable. 
 This is an important result, as the Franciscans choose to locate themselves within urban areas to reach more people. 
@@ -438,13 +445,13 @@ Thus, not controlling for the town size would bias the coefficient of Franciscan
 exposure. This makes the town size a very important control, but apart from it, we could drop any other control and 
 find very similar results to our full model.
 
-In Figure 8 (see Appendix), we see the plotted regression coefficient estimates found in the sensitivity analysis in Table 5 
+In \autoref{fig:13_robustness_sensitivity_plot}, we see the plotted regression coefficient estimates found in the sensitivity analysis in \autoref{tab:sensitivity} 
 by leaving out one control in each regression, the top plot showing estimates for $\beta_2$ and the bottom one showing 
 estimates of $\beta_1$. We can clearly see that only the town size shifts the Franciscan exposure coefficient estimate. 
 The Dominican exposure coefficient estimate also changes slightly when we remove income, political orientation, 
 and town size, but none of the controls change the general direction of the results. 
 
-As additional robustness checks in Table 6 (see Appendix), we run subsample regressions with the full model, including all controls, 
+As additional robustness checks in \autoref{tab:robustness_subsamples}, we run subsample regressions with the full model, including all controls, 
 but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
 same EVS data by asking the question ``Which religious denomination do you belong to?'' and taking into account only 
 those who answered with the option ``Roman Catholic''. Considering only Catholics, the sample size drops significantly 
@@ -453,7 +460,7 @@ the observations from Germany to only keep NUTS-2 regions, to account for the la
 However, the results stay the same as in the main model. 
 
 Lastly, to account for possible selection bias into answering the survey questions about the control variables,
-we run the 4 models in the same final sample. The results stay similar (see \ref{fig:same_sample} in the Appendix).
+we run the 4 models in the same final sample. The results stay similar, as shwon in \autoref{fig:14_models_same_sample}.
 
 \subsection{Possible Mechanism}
 
@@ -472,7 +479,7 @@ We propose that the mechanism could lie in the opposite beliefs about taking col
 versus Dominican theologies. The Franciscan theology prioritizes humility, acceptance of circumstances, 
 poverty, and scarcity for the sake of imitating Christ, thus valuing moral purity over institutional action. The lack 
 of desire for collective intervention might have shown itself through having less pro-environmental attitudes, which 
-could also be observed in our Table 4 results (specifically beliefs about individual efforts being pointless unless others do the same, 
+could also be observed in our \autoref{tab:env_questions} results (specifically beliefs about individual efforts being pointless unless others do the same, 
 and environmental threats being exaggerated).
 
 We then theorize that Franciscans are not likely anti-nature, but rather anti-intervention. 
@@ -623,7 +630,7 @@ Waldinger, M. (2017). The long-run effects of missionary orders in Mexico. \text
 
 \section*{Environmental Attitude Survey Questions}
 
-Table 2 reports the exact wording and coding of the six environmental attitude questions from the European 
+\autoref{tab:evs_questions} reports the exact wording and coding of the six environmental attitude questions from the European 
 Values Study (EVS) used in the construction of the Environmental Attitudes Index.
 Five of the questions with possible answers agree strongly, agree, neither agree nor disagree, disagree, 
 disagree strongly, are originally measured on a five-point Likert scale (1, 2, 3, 4, 5). 
@@ -703,7 +710,7 @@ suffers'' & only 1 and 5 to [0,1]\\
     \centering
     \caption{\centering Impact of Monastic Orders (Clustered SEs) \\ \footnotesize 95$\%$ CI clustered by region. Crossing 0 = Not Significant}
     \includegraphics[trim=0 0 0 140pt, clip, width=1\textwidth]{../figures/07_regressions_plot_4_models.png}
-    \label{fig:eu_map}
+    \label{fig:07_regressions_plot_4_models}
 \end{figure}
 
 \begin{table}[ht]
@@ -798,7 +805,7 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
     \centering
     \caption{\centering Does one country drive the results? \\ \footnotesize Coefficients when excluding each country one at a time (Clustered 95$\%$ CI)} 
     \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/11_robustness_leave_one_out.png}
-    \label{fig:eu_map}
+    \label{fig:11_robustness_leave_one_out}
 \end{figure}
 
 \newpage
@@ -889,7 +896,7 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
     \centering
     \caption{\centering Sensitivity Analysis: Leave-One-Control-Out \\ \footnotesize Does dropping a specific control variable change the results? \\} 
     \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/13_robustness_sensitivity_plot.png}
-    \label{fig:eu_map}
+    \label{fig:13_robustness_sensitivity_plot}
 \end{figure}
 
 
@@ -897,8 +904,8 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \begin{figure}[h!]
     \centering
     \caption{\centering 4 Regression models in the same sample \\ \footnotesize Are results affected by self selection into answering the control variables questions? \\} 
-    \includegraphics[trim=0 0 0 140pt, clip, width=0.8\textwidth]{../figures/14_models_same_sample.png}
-    \label{fig:eu_map}
+    \includegraphics[width=0.8\textwidth]{../figures/14_models_same_sample.png}
+    \label{fig:14_models_same_sample}
 \end{figure}
 
 

@@ -138,6 +138,14 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.st
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
+INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx
 INPUT ./term_paper.out
 INPUT ./term_paper.out
 INPUT term_paper.out

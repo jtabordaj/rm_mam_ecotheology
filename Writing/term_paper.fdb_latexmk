@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1771788851.91454 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1771788863.33428 0
+["pdflatex"] 1771792577.7797 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1771792584.73975 0
   "../figures/01_monasteries_map.png" 1770305913.88469 1302491 4ab9c61425721dfea8e05cc1716c4893 ""
   "../figures/02_hyde_grid.png" 1770305915.97036 3291756 7fe57861d069988ed7f9a93090767757 ""
   "../figures/03_hyde_nuts.png" 1770305916.26135 1422207 9c0db63493759b6b5b62636411682b5d ""
@@ -11,7 +11,7 @@
   "../figures/11_robustness_leave_one_out.png" 1770301521.69279 264053 770a1fd2c91b8d87e7d3caf3d2b53257 ""
   "../figures/13_robustness_sensitivity_plot.png" 1770301524.95446 296219 a20b53cea9ae142893ebd4c0c893a59f ""
   "../figures/14_models_same_sample.png" 1771032256.61145 342920 520ace664f02bdf9e162ef618afc76a3 ""
-  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1771788851.69747 49052 120ab013faab8eb03083b2e405a49191 ""
+  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1771792577.45475 49608 c05599ec2035deebfd8b0fb659b83bca ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -93,11 +93,14 @@
   "/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1579991033 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1739306980 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/color.cfg" 1459978653 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/pdftex.def" 1713382759 19440 9da9dcbb27470349a580fca7372d454b ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/color.sty" 1730496337 7245 57f7defed4fb41562dc4b6ca13958ca9 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty" 1730496337 18363 dee506cb8d56825d8a4d020f5d5f8704 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty" 1717359999 8010 6f2ad8c2b2ffbd607af6475441c7b5e4 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty" 1717359999 2671 70891d50dac933918b827d326687c6e8 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/mathcolor.ltx" 1667332637 2885 9c645d672ae17285bba324998918efd8 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty" 1717359999 4023 2c9f39712cf7b43d3eb93a8bbd5c8f67 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/hanging/hanging.sty" 1252025495 4463 c6799c846e929ba38d06f5b592b4b2e3 ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/hycolor/hycolor.sty" 1580250785 17914 4c28a13fc3d975e6e81c9bea1d697276 ""
@@ -122,9 +125,9 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770306883 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1770306862 3345729 881605eda0798fc4af59cb72563a6265 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "term_paper.aux" 1771788863.21294 7763 d1956e3d8f6a8b06485bf6da3ebbbb2d "pdflatex"
-  "term_paper.out" 1771788863.21423 2043 39bb2b5ac2d41ff9e41412dc7d417096 "pdflatex"
-  "term_paper.tex" 1771788851.69747 49052 120ab013faab8eb03083b2e405a49191 ""
+  "term_paper.aux" 1771792584.66384 7901 c90f84ab136832fd3fbc9194c69e6de1 "pdflatex"
+  "term_paper.out" 1771792584.66478 2043 39bb2b5ac2d41ff9e41412dc7d417096 "pdflatex"
+  "term_paper.tex" 1771792577.45475 49608 c05599ec2035deebfd8b0fb659b83bca ""
   (generated)
   "term_paper.aux"
   "term_paper.log"
