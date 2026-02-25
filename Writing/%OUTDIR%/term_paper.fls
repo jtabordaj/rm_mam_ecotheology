@@ -1,8 +1,8 @@
-PWD /Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing
+PWD /Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing
 INPUT /usr/local/texlive/2025/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/lydia/Desktop/Research Module/rm_mam_ecotheology/Writing/term_paper.tex
+INPUT /Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex
 OUTPUT %OUTDIR%/term_paper.log
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -194,11 +194,11 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 OUTPUT %OUTDIR%/term_paper.bcf
-INPUT term_paper.bbl
-INPUT ./term_paper.bbl
-INPUT ./term_paper.bbl
-INPUT ./term_paper.bbl
-INPUT term_paper.bbl
+INPUT %OUTDIR%/term_paper.bbl
+INPUT %OUTDIR%/term_paper.bbl
+INPUT %OUTDIR%/term_paper.bbl
+INPUT %OUTDIR%/term_paper.bbl
+INPUT %OUTDIR%/term_paper.bbl
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
@@ -221,7 +221,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
@@ -267,6 +266,7 @@ INPUT ../figures/04b_dominican_exposure.png
 INPUT ../figures/04b_dominican_exposure.png
 INPUT ../figures/04b_dominican_exposure.png
 INPUT ../figures/04b_dominican_exposure.png
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT ../figures/05_env_questions.png
 INPUT ../figures/05_env_questions.png
 INPUT ../figures/05_env_questions.png
@@ -281,6 +281,8 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm
 INPUT ../figures/07_regressions_plot_4_models.png
 INPUT ../figures/07_regressions_plot_4_models.png
 INPUT ../figures/07_regressions_plot_4_models.png
@@ -309,6 +311,7 @@ INPUT %OUTDIR%/term_paper.run.xml
 OUTPUT %OUTDIR%/term_paper.run.xml
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
@@ -325,3 +328,4 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb

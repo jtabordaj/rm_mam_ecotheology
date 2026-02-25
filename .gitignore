@@ -57,3 +57,7 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+#Temporary files for paper
+%OUTDIR%/
+*.bbl

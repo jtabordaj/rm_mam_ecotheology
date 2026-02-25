@@ -8,7 +8,6 @@
 \usepackage{parskip}
 \usepackage{hanging}
 \usepackage{setspace}
-\usepackage{hanging}
 \usepackage{hyperref}
 \usepackage{subcaption}
 \usepackage{booktabs}
@@ -903,12 +902,10 @@ Please typeset the following equation/line in LaTeX: \\
 
 \begin{quote}
 There is an error in the LaTeX equation. Please help to solve the error:
-{\footnotesize
-\begin{verbatim}
-\begin{equation} Y_{irc} = \alpha + \beta_1 Franc_{r} + \beta_2 Dom_{r}
- + X_i' \gamma + \delta_{c} + \varepsilon_{irc} \end{equation}
-\end{verbatim}
-}
+
+\vspace{0.2cm}
+\footnotesize
+\texttt{\textbackslash begin\{equation\} Y\_\{irc\} = \textbackslash alpha + \textbackslash beta\_1 Franc\_\{r\} + \textbackslash beta\_2 Dom\_\{r\} + X\_i' \textbackslash gamma + \textbackslash delta\_\{c\} + \textbackslash varepsilon\_\{irc\} \textbackslash end\{equation\}}
 \end{quote}
 
 \begin{quote}
