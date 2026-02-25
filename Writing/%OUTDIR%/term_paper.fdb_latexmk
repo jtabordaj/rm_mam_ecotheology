@@ -1,16 +1,16 @@
 # Fdb version 4
-["biber %OUTDIR%/term_paper"] 1772043191.86019 "%OUTDIR%/term_paper.bcf" "%OUTDIR%/term_paper.bbl" "%OUTDIR%/term_paper" 1772043215.42442 0
-  "%OUTDIR%/term_paper.bcf" 1772043215.33587 110004 2e2e6fd71f3507557f496437a0b6d34a "pdflatex"
+["biber %OUTDIR%/term_paper"] 1772043191.86019 "%OUTDIR%/term_paper.bcf" "%OUTDIR%/term_paper.bbl" "%OUTDIR%/term_paper" 1772045732.02538 0
+  "%OUTDIR%/term_paper.bcf" 1772045731.92761 110004 2e2e6fd71f3507557f496437a0b6d34a "pdflatex"
   "references.bib" 1771794284.79 3378 04807a90c81028820c3f9eab8f0c9fac ""
   (generated)
   "%OUTDIR%/term_paper.bbl"
   "%OUTDIR%/term_paper.blg"
   (rewritten before read)
-["pdflatex"] 1772043208.07125 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1772043215.42468 0
-  "%OUTDIR%/term_paper.aux" 1772043215.33307 10167 5d1759b15c03b3496111406bea4b8fcb "pdflatex"
+["pdflatex"] 1772045724.62884 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1772045732.02566 0
+  "%OUTDIR%/term_paper.aux" 1772045731.92525 10478 aa9a830e0d8b58da5f8a5b8d56ee689c "pdflatex"
   "%OUTDIR%/term_paper.bbl" 1772043193.43749 22192 95fc5ce55d855f71ad2bfe131ec0c622 "biber %OUTDIR%/term_paper"
-  "%OUTDIR%/term_paper.out" 1772043215.33502 2011 d4f4acd835c520955d78ca2c36ce32e1 "pdflatex"
-  "%OUTDIR%/term_paper.run.xml" 1772043215.33647 2353 69b1d0cd61c69a46c23e912b140a2e26 "pdflatex"
+  "%OUTDIR%/term_paper.out" 1772045731.92646 2011 d4f4acd835c520955d78ca2c36ce32e1 "pdflatex"
+  "%OUTDIR%/term_paper.run.xml" 1772045731.92821 2353 69b1d0cd61c69a46c23e912b140a2e26 "pdflatex"
   "../figures/01_monasteries_map.png" 1770305913.88469 1302491 4ab9c61425721dfea8e05cc1716c4893 ""
   "../figures/02_hyde_grid.png" 1770305915.97036 3291756 7fe57861d069988ed7f9a93090767757 ""
   "../figures/03_hyde_nuts.png" 1770305916.26135 1422207 9c0db63493759b6b5b62636411682b5d ""
@@ -22,7 +22,7 @@
   "../figures/11_robustness_leave_one_out.png" 1772041469.83437 264053 770a1fd2c91b8d87e7d3caf3d2b53257 ""
   "../figures/13_robustness_sensitivity_plot.png" 1772041471.01317 296219 a20b53cea9ae142893ebd4c0c893a59f ""
   "../figures/14_models_same_sample.png" 1772041474.08012 157518 94f8b5dd1c202970cd645cc065a2aa60 ""
-  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1772042982.22944 49349 02e05ffd8ddfba16251bcf75dc7162b2 ""
+  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1772045724.34124 51845 2b34b7f4956ea874134e6b0e1cd1a296 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -156,7 +156,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770306883 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1770306862 3345729 881605eda0798fc4af59cb72563a6265 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "term_paper.tex" 1772042982.22944 49349 02e05ffd8ddfba16251bcf75dc7162b2 ""
+  "term_paper.tex" 1772045724.34124 51845 2b34b7f4956ea874134e6b0e1cd1a296 ""
   (generated)
   "%OUTDIR%/term_paper.aux"
   "%OUTDIR%/term_paper.bcf"

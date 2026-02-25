@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.5)  25 FEB 2026 15:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2026.2.5)  25 FEB 2026 15:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -760,63 +760,63 @@ Overfull \hbox (2.3621pt too wide) in paragraph at lines 281--284
 [14]
 
 [15]
-Overfull \hbox (12.0498pt too wide) in paragraph at lines 616--635
+Overfull \hbox (12.0498pt too wide) in paragraph at lines 729--748
  [][] 
  []
 
 
-Overfull \hbox (16.78604pt too wide) in paragraph at lines 670--670
+Overfull \hbox (16.78604pt too wide) in paragraph at lines 783--783
 [][]\OT1/cmr/bx/n/17.28 Appendix II: Re-gres-sion Re-sults and Ro-bust-ness Checks 
  []
 
-<../figures/07_regressions_plot_4_models.png, id=236, 2409.0pt x 1505.625pt>
+<../figures/07_regressions_plot_4_models.png, id=238, 2409.0pt x 1505.625pt>
 File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
 <use ../figures/07_regressions_plot_4_models.png>
-Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 676.
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 789.
 (pdftex.def)             Requested size: 407.66833pt x 231.09045pt.
 
 
 [16]
 
 [17 <../figures/07_regressions_plot_4_models.png>]
-<../figures/11_robustness_leave_one_out.png, id=251, 2409.0pt x 2409.0pt>
+<../figures/11_robustness_leave_one_out.png, id=253, 2409.0pt x 2409.0pt>
 File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
 <use ../figures/11_robustness_leave_one_out.png>
-Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 774.
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 887.
 (pdftex.def)             Requested size: 452.9679pt x 426.61362pt.
 
 
 [18 <../figures/11_robustness_leave_one_out.png>]
-Overfull \hbox (28.32472pt too wide) in paragraph at lines 789--814
+Overfull \hbox (28.32472pt too wide) in paragraph at lines 902--927
  [][] 
  []
 
-<../figures/13_robustness_sensitivity_plot.png, id=259, 2409.0pt x 2409.0pt>
+<../figures/13_robustness_sensitivity_plot.png, id=261, 2409.0pt x 2409.0pt>
 File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
 <use ../figures/13_robustness_sensitivity_plot.png>
-Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 826.
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 939.
 (pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
 
 
 [19 <../figures/13_robustness_sensitivity_plot.png>]
-<../figures/14_models_same_sample.png, id=268, 2409.0pt x 1505.625pt>
+<../figures/14_models_same_sample.png, id=270, 2409.0pt x 1505.625pt>
 File: ../figures/14_models_same_sample.png Graphic file (type png)
 <use ../figures/14_models_same_sample.png>
-Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 878.
+Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 991.
 (pdftex.def)             Requested size: 452.9679pt x 283.08511pt.
 
 
 [20 <../figures/14_models_same_sample.png>]
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 908.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 908.
+LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 1021.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 1021.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 908.
+(Font)              for symbol `textbackslash' on input line 1021.
 
 
-Overfull \hbox (3.45865pt too wide) in paragraph at lines 908--909
+Overfull \hbox (3.45865pt too wide) in paragraph at lines 1021--1022
 []\OMS/cmtt/m/n/10 n\OT1/cmtt/m/n/10 begin\OMS/cmtt/m/n/10 f\OT1/cmtt/m/n/10 equation\OMS/cmtt/m/n/10 g \OT1/cmtt/m/n/10 Y[]\OMS/cmtt/m/n/10 f\OT1/cmtt/m/n/10 irc\OMS/cmtt/m/n/10 g \OT1/cmtt/m/n/10 = \OMS/cmtt/m/n/10 n\OT1/cmtt/m/n/10 alpha + \OMS/cmtt/m/n/10 n\OT1/cmtt/m/n/10 beta[]1 Franc[]\OMS/cmtt/m/n/10 f\OT1/cmtt/m/n/10 r\OMS/cmtt/m/n/10 g \OT1/cmtt/m/n/10 + \OMS/cmtt/m/n/10 n\OT1/cmtt/m/n/10 beta[]2 Dom[]\OMS/cmtt/m/n/10 f\OT1/cmtt/m/n/10 r\OMS/cmtt/m/n/10 g \OT1/cmtt/m/n/10 + X[]i'
  []
 
@@ -838,18 +838,18 @@ Package logreq Info: Writing requests to 'term_paper.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 19719 strings out of 473190
- 347487 string characters out of 5715801
- 1170291 words of memory out of 5000000
- 42680 multiletter control sequences out of 15000+600000
+ 19721 strings out of 473190
+ 347536 string characters out of 5715801
+ 1170381 words of memory out of 5000000
+ 42681 multiletter control sequences out of 15000+600000
  570190 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  69i,11n,81p,1267b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on %OUTDIR%/term_paper.pdf (21 pages, 7508446 bytes).
+Output written on %OUTDIR%/term_paper.pdf (21 pages, 7510069 bytes).
 PDF statistics:
- 384 PDF objects out of 1000 (max. 8388607)
- 293 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
+ 388 PDF objects out of 1000 (max. 8388607)
+ 297 compressed objects within 3 object streams
+ 73 named destinations out of 1000 (max. 500000)
  178 words of extra memory for PDF output out of 10000 (max. 10000000)
 

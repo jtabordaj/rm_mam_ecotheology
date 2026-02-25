@@ -322,12 +322,13 @@ This indicates that moving from zero to maximum Franciscan exposure is associate
 Notably, several control variables are also significant; for instance, identifying as female correlates with more pro-environmental attitudes. 
 The coefficient for Dominican exposure ($\beta_2$) remains statistically insignificant across all specifications.
 
-
+%Table 1: Regression Results 4 models
 \begin{table}[ht]
 \centering
 \caption{Regression Results (SE clustered by region)}
 \label{tab:reg_results_horizontal}
 \footnotesize
+\renewcommand{\arraystretch}{0.9}
 \setlength{\tabcolsep}{7pt}
 
 \begin{tabular}{lcccc}
@@ -342,7 +343,7 @@ Franciscan Exposure
 & $0.004$ 
 & $0.035^{*}$ \\
 & $(0.016)$ & $(0.027)$ & $(0.014)$ & $(0.015)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Dominican Exposure 
 & -- 
@@ -357,49 +358,49 @@ Female
 & -- & -- & -- 
 & $-0.028^{***}$ \\
 &  &  &  & $(0.003)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Age 
 & -- & -- & -- 
 & $0.000^{**}$ \\
 &  &  &  & $(0.000)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Education 
 & -- & -- & -- 
 & $-0.000^{***}$ \\
 &  &  &  & $(0.000)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Income (PPP) 
 & -- & -- & -- 
 & $-0.002$ \\
 &  &  &  & $(0.001)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Right-wing 
 & -- & -- & -- 
 & $0.007^{***}$ \\
 &  &  &  & $(0.001)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Town Size 
 & -- & -- & -- 
 & $-0.005^{**}$ \\
 &  &  &  & $(0.001)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Socio-Economic Index 
 & -- & -- & -- 
 & $-0.001^{***}$ \\
 &  &  &  & $(0.000)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Catholic 
 & -- & -- & -- 
 & $0.004$ \\
 &  &  &  & $(0.004)$ \\
-\addlinespace[0.4em]
+\addlinespace[0.2em]
 
 Protestant 
 & -- & -- & -- 
@@ -419,7 +420,7 @@ Adj.\ $R^2$
 \bottomrule
 \end{tabular}
 
-\vspace{0.3em}
+\vspace{0.2em}
 \scriptsize
 \textit{Notes:} Standard errors in parentheses. 
 $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
@@ -459,19 +460,131 @@ As additional robustness checks in \autoref{tab:robustness_subsamples}, we run s
 but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
 same EVS data by asking the question ``Which religious denomination do you belong to?'' and taking into account only 
 those who answered with the option ``Roman Catholic''. Considering only Catholics, the sample size drops significantly 
-to 5899, and we don’t have any significant results. In the second subsample, we exclude 
-the observations from Germany to only keep NUTS-2 regions, to account for the lack of granularity in Germany. 
-However, the results stay the same as in the main model. 
+to 5899, and we don’t have any significant results. In the second subsample, we exclude Germany to only keep NUTS-2 regions, 
+to account for the lack of granularity in Germany. However, the results stay the same as in the main model. 
 
-Lastly, we extend the analysis by running the same four models as in \autoref{tab:reg_results_horizontal} but with 
-the same restricted sample size that we have in Model 4 (full specification). When we include all controls, the number of observations 
-falls significantly from a full sample size of 49233 to 24379 observations. We lose a large number of observations because of the missing values for the control variables. 
-When someone did not provide an answer to a question in the survey that we use as a control, we exclude that observation from the sample.
-All remaining observations are such that there are answers to all control variables. However, this allows us to check 
-whether the results and the change in sign are driven by the sample composition. To rule out potential selection bias arising from missing observations in the survey 
-control variables, we re-estimate all four models on a restricted sample containing no missing covariates in \autoref{fig:14_models_same_sample}.
-The results remain fully consistent with our baseline findings. 
+Lastly, we extend the analysis by running the same four models as in \autoref{tab:reg_results_horizontal}, but with 
+the same restricted sample that we have in Model 4. When we include all controls, the number of 
+observations falls from 49,233 to 24,379 observations. We therefore lose a large number 
+of observations because of the missing values for the controls. Thus, runnig the 4 models again, but in the same samppe, 
+allows us to check whether the results and the change in sign are driven by the sample composition and the potential 
+selection bias. The results are shown in \autoref{tab:reg_results_constant_sample} (and coefficirnts are plotted in \autoref{fig:14_models_same_sample}).
 
+
+%Table 2: Regression results 4 models with same sample
+\begin{table}[ht]
+\centering
+\caption{Regression Results (Constant Sample, SE clustered by region)}
+\label{tab:reg_results_constant_sample}
+\footnotesize
+\renewcommand{\arraystretch}{0.9}
+\setlength{\tabcolsep}{7pt}
+
+\begin{tabular}{lcccc}
+\toprule
+ & Model 1 & Model 2 & Model 3 & Model 4 \\
+ & Franciscans & Fran vs Dom & Country FE & Full + FE \\
+\midrule
+
+Franciscan Exposure 
+& $-0.092^{***}$ 
+& $-0.036$ 
+& $0.030$ 
+& $0.035^{*}$ \\
+& $(0.019)$ & $(0.034)$ & $(0.018)$ & $(0.015)$ \\
+\addlinespace[0.2em]
+
+Dominican Exposure 
+& -- 
+& $-0.077^{*}$ 
+& $-0.037^{*}$ 
+& $-0.016$ \\
+&  & $(0.036)$ & $(0.017)$ & $(0.014)$ \\
+
+\midrule
+
+Female 
+& -- & -- & -- 
+& $-0.028^{***}$ \\
+&  &  &  & $(0.003)$ \\
+\addlinespace[0.2em]
+
+Age 
+& -- & -- & -- 
+& $0.000^{**}$ \\
+&  &  &  & $(0.000)$ \\
+\addlinespace[0.2em]
+
+Education 
+& -- & -- & -- 
+& $-0.000^{***}$ \\
+&  &  &  & $(0.000)$ \\
+\addlinespace[0.2em]
+
+Income (PPP) 
+& -- & -- & -- 
+& $-0.002$ \\
+&  &  &  & $(0.001)$ \\
+\addlinespace[0.2em]
+
+Right-wing 
+& -- & -- & -- 
+& $0.007^{***}$ \\
+&  &  &  & $(0.001)$ \\
+\addlinespace[0.2em]
+
+Town Size 
+& -- & -- & -- 
+& $-0.005^{**}$ \\
+&  &  &  & $(0.001)$ \\
+\addlinespace[0.2em]
+
+Socio-Economic Index 
+& -- & -- & -- 
+& $-0.001^{***}$ \\
+&  &  &  & $(0.000)$ \\
+\addlinespace[0.2em]
+
+Catholic 
+& -- & -- & -- 
+& $0.004$ \\
+&  &  &  & $(0.004)$ \\
+\addlinespace[0.2em]
+
+Protestant 
+& -- & -- & -- 
+& $-0.001$ \\
+&  &  &  & $(0.005)$ \\
+
+\midrule
+
+Observations 
+& 24,379 & 24,379 & 24,379 & 24,379 \\
+
+$R^2$ 
+& 0.021 & 0.024 & 0.117 & 0.149 \\
+
+Adj.\ $R^2$ 
+& 0.021 & 0.024 & 0.115 & 0.148 \\
+\bottomrule
+\end{tabular}
+
+\vspace{0.2em}
+\scriptsize
+\textit{Notes:} Standard errors in parentheses. 
+$^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
+\end{table}
+
+\pagebreak
+
+The results remain consistent with our baseline findings. Even within the restricted sample, Model 1
+yields a negative and statistically significant coefficient for Franciscan exposure. As we progressively introduce country 
+fixed effects and individual controls, the coefficient steadily increases, ultimately flipping to a positive 0.035 in the full 
+specification (Model 4). This confirms that the reversal of the Franciscan effect is driven by the inclusion of confounding 
+variables and fixed effects, rather than sample composition or selection bias. Interestingly, in this restricted sample, 
+the coefficient for Dominican exposure gains marginal statistical significance in models 2 and 3, but not in Model 4. 
+However, because this effect is sensitive to sample composition and remains absent in our broader baseline models, 
+we maintain our conclusion that the effects are not significant.
 
 \subsection{Possible Mechanism}
 
@@ -607,7 +720,7 @@ categories, the rescaled variables only assume the values 0.0, 0.2, 0.4, 0.6, 0.
 less pro-environmental attitudes, while lower values indicate more pro-environmental attitudes.
 The rescaling is implemented using a linear transformation of each variable to the unit interval. 
 
-
+%Table 3: Environmental Attitude Survey Questions
 \begin{table}[htbp]
 \centering
 \caption{Environmental Attitude Survey Questions (European Values Study)}
@@ -635,7 +748,7 @@ suffers'' & only 1 and 5 to [0,1]\\
 \end{table}
 
 
-%Table 3: Environmental Index: PC1 Loadings
+%Table 4: Environmental Index: PC1 Loadings
 \begin{table}[htbp]
     \centering
     \caption{Environmental Index: PC1 Loadings}
@@ -678,7 +791,7 @@ suffers'' & only 1 and 5 to [0,1]\\
 \end{figure}
 
 
-%Table 4: Individual env questions
+%Table 5: Individual env questions
 \begin{table}[h!]
     \centering
     \caption{Individual Environmental Questions (Clustered SEs)}
@@ -778,7 +891,7 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 
 \newpage
 
-%Table 5: leave-one-control out
+%Table 6: leave-one-control out
 \begin{table}[h!]
 \centering
 \caption{Sensitivity Analysis: Coefficients when Dropping Controls}
@@ -829,7 +942,7 @@ Adj. $R^2$
 
 \newpage
 
-%Table 6: Subsamples
+%Table 7: Subsamples
 \begin{table}[h!]
 \centering
 \caption{Robustness Checks: Subsamples}
@@ -869,7 +982,7 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 \end{table}
 
 
-\vspace{0.5cm}
+\vspace{0.7cm}
 
 %Figure 9: 4 models with same sample
 \begin{figure}[h!]
@@ -955,9 +1068,10 @@ Figure 8: fig:13_robustness_sensitivity_plot
 Figure 9: fig:14_models_same_sample
 
 Table 1: tab:reg_results_horizontal
-Table 2: tab:evs_questions
-Table 3: tab:pc1_loadings
-Table 4: tab:env_questions
-Table 5: tab:sensitivity
-Table 6: tab:robustness_subsamples
+Table 2: tab:reg_results_constant_sample
+Tabke 3: tab:evs_questions
+Table 4: tab:pc1_loadings
+Table 5: tab:env_questions
+Table 6: tab:sensitivity
+Table 7: tab:robustness_subsamples
 \end{comment}
