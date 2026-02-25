@@ -605,3 +605,84 @@ msummary(
 )
 
 message("Success! Sensitivity table saved.")
+
+
+############################################################
+## 7. Constant Sample Analysis (Addressing Selection Bias)
+############################################################
+library(tidyr)
+
+# Step 1: Restrict the sample to only observations that have NO missing 
+# values in ANY of the variables used in the full specification (Model 4).
+dataEnvironmental_same_sample <- dataEnvironmental %>%
+  drop_na(
+    env_index_scaled, franc_exposure_1500, dom_exposure_1500, 
+    gender_female, age_clean, education, income_ppp, political_right, 
+    town_size, isei_status, is_catholic, is_protestant, c_abrv, NUTS_ID
+  )
+
+message("Original observations: ", nrow(dataEnvironmental))
+message("Observations in restricted sample: ", nrow(dataEnvironmental_same_sample))
+
+# Step 2: Rerun the 4 models on this restricted dataset
+model_1_same <- lm(env_index_scaled ~ franc_exposure_1500, data = dataEnvironmental_same_sample)
+
+model_2_same <- lm(env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500, data = dataEnvironmental_same_sample)
+
+model_3_same <- lm(env_index_scaled ~ franc_exposure_1500 + dom_exposure_1500 + factor(c_abrv), data = dataEnvironmental_same_sample)
+
+model_4_same <- lm(
+  env_index_scaled ~ 
+    franc_exposure_1500 + dom_exposure_1500 + 
+    gender_female + age_clean + education + income_ppp + political_right + 
+    town_size + isei_status + is_catholic + is_protestant + 
+    factor(c_abrv), 
+  data = dataEnvironmental_same_sample
+)
+
+# Step 3: Create and Export the Plot
+# We reuse the get_clustered_stats() function defined earlier
+plot_data_same <- bind_rows(
+  get_clustered_stats(model_1_same, "1. Simple"),
+  get_clustered_stats(model_2_same, "2. No FE"),
+  get_clustered_stats(model_3_same, "3. With FE"),
+  get_clustered_stats(model_4_same, "4. Full Controls")
+) %>% 
+  filter(term %in% c("franc_exposure_1500", "dom_exposure_1500"))
+
+gg_coef_same <- ggplot(plot_data_same, aes(x = term, y = estimate, color = Model)) +
+  geom_point(position = position_dodge(width = 0.5), size = 3) +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2, position = position_dodge(width = 0.5)) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(
+    subtitle = "Restricted to observations with no missing controls. Clustered SEs.",
+    y = "Effect Size (Std. Devs)",
+    x = "Monastic Order"
+  ) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "bottom")
+
+print(gg_coef_same)
+ggsave("./figures/14_models_same_sample.png", plot = gg_coef_same, width = 8, height = 5, bg = "white")
+
+
+# Step 4: Create and Export the Table
+models_table_same <- list(
+  "Model 1 (Same)" = model_1_same,
+  "Model 2 (Same)" = model_2_same,
+  "Model 3 (Same)" = model_3_same,
+  "Model 4 (Same)" = model_4_same
+)
+
+msummary(
+  models_table_same,
+  coef_map = coef_map, 
+  vcov = ~NUTS_ID,
+  stars = c('*' = .05, '**' = .01, '***' = .001),
+  gof_omit = "AIC|BIC|Log.Lik.|F|RMSE|Std.Errors", 
+  output = "./figures/15_table_same_sample.png",
+  title = "Regression Results (Constant Sample, SE Clustered by Region)"
+)
+
+message("Success! Constant sample plot and table saved to ./figures/")
