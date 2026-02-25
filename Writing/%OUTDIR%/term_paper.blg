@@ -1,0 +1,15 @@
+[0] Config.pm:308> INFO - This is Biber 2.20
+[0] Config.pm:311> INFO - Logfile is '%OUTDIR%/term_paper.blg'
+[67] biber-darwin:340> INFO - === Wed Feb 25, 2026, 07:41:22
+[83] Biber.pm:420> INFO - Reading '%OUTDIR%/term_paper.bcf'
+[157] Biber.pm:991> INFO - Using all citekeys in bib section 0
+[170] Biber.pm:4463> INFO - Processing section 0
+[179] Biber.pm:4654> INFO - Looking for bibtex file 'references.bib' for section 0
+[181] bibtex.pm:1713> INFO - LaTeX decoding ...
+[190] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[276] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[276] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[276] Biber.pm:4283> INFO - Sorting list 'nyt/global//global/global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[276] Biber.pm:4289> INFO - No sort tailoring available for locale 'en-US'
+[292] bbl.pm:676> INFO - Writing '%OUTDIR%/term_paper.bbl' with encoding 'UTF-8'
+[298] bbl.pm:779> INFO - Output to %OUTDIR%/term_paper.bbl
