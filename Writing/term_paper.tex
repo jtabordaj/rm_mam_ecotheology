@@ -463,10 +463,14 @@ to 5899, and we don’t have any significant results. In the second subsample, w
 the observations from Germany to only keep NUTS-2 regions, to account for the lack of granularity in Germany. 
 However, the results stay the same as in the main model. 
 
-Lastly, to rule out potential selection bias arising from missing observations in the survey control variables, 
-we re-estimate all four models on a restricted sample containing no missing covariates. 
-The results, shown in \autoref{fig:14_models_same_sample}, remain fully consistent with our baseline findings.
-
+Lastly, we extend the analysis by running the same four models as in \autoref{tab:reg_results_horizontal} but with 
+the same restricted sample size that we have in Model 4 (full specification). When we include all controls, the number of observations 
+falls significantly from a full sample size of 49233 to 24379 observations. We lose a large number of observations because of the missing values for the control variables. 
+When someone did not provide an answer to a question in the survey that we use as a control, we exclude that observation from the sample.
+All remaining observations are such that there are answers to all control variables. However, this allows us to check 
+whether the results and the change in sign are driven by the sample composition. To rule out potential selection bias arising from missing observations in the survey 
+control variables, we re-estimate all four models on a restricted sample containing no missing covariates in \autoref{fig:14_models_same_sample}.
+The results remain fully consistent with our baseline findings. 
 
 
 \subsection{Possible Mechanism}
