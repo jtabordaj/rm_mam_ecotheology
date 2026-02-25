@@ -1,16 +1,16 @@
 # Fdb version 4
-["biber %OUTDIR%/term_paper"] 1772043191.86019 "%OUTDIR%/term_paper.bcf" "%OUTDIR%/term_paper.bbl" "%OUTDIR%/term_paper" 1772045732.02538 0
-  "%OUTDIR%/term_paper.bcf" 1772045731.92761 110004 2e2e6fd71f3507557f496437a0b6d34a "pdflatex"
+["biber %OUTDIR%/term_paper"] 1772043191.86019 "%OUTDIR%/term_paper.bcf" "%OUTDIR%/term_paper.bbl" "%OUTDIR%/term_paper" 1772047676.18764 0
+  "%OUTDIR%/term_paper.bcf" 1772047676.10113 110004 2e2e6fd71f3507557f496437a0b6d34a "pdflatex"
   "references.bib" 1771794284.79 3378 04807a90c81028820c3f9eab8f0c9fac ""
   (generated)
   "%OUTDIR%/term_paper.bbl"
   "%OUTDIR%/term_paper.blg"
   (rewritten before read)
-["pdflatex"] 1772045724.62884 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1772045732.02566 0
-  "%OUTDIR%/term_paper.aux" 1772045731.92525 10478 aa9a830e0d8b58da5f8a5b8d56ee689c "pdflatex"
+["pdflatex"] 1772047668.95528 "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" "term_paper.pdf" "term_paper" 1772047676.18791 0
+  "%OUTDIR%/term_paper.aux" 1772047676.09894 10478 5504d04ed3b6f846b2db615454356dc5 "pdflatex"
   "%OUTDIR%/term_paper.bbl" 1772043193.43749 22192 95fc5ce55d855f71ad2bfe131ec0c622 "biber %OUTDIR%/term_paper"
-  "%OUTDIR%/term_paper.out" 1772045731.92646 2011 d4f4acd835c520955d78ca2c36ce32e1 "pdflatex"
-  "%OUTDIR%/term_paper.run.xml" 1772045731.92821 2353 69b1d0cd61c69a46c23e912b140a2e26 "pdflatex"
+  "%OUTDIR%/term_paper.out" 1772047676.1003 2011 d4f4acd835c520955d78ca2c36ce32e1 "pdflatex"
+  "%OUTDIR%/term_paper.run.xml" 1772047676.10172 2353 69b1d0cd61c69a46c23e912b140a2e26 "pdflatex"
   "../figures/01_monasteries_map.png" 1770305913.88469 1302491 4ab9c61425721dfea8e05cc1716c4893 ""
   "../figures/02_hyde_grid.png" 1770305915.97036 3291756 7fe57861d069988ed7f9a93090767757 ""
   "../figures/03_hyde_nuts.png" 1770305916.26135 1422207 9c0db63493759b6b5b62636411682b5d ""
@@ -22,8 +22,10 @@
   "../figures/11_robustness_leave_one_out.png" 1772041469.83437 264053 770a1fd2c91b8d87e7d3caf3d2b53257 ""
   "../figures/13_robustness_sensitivity_plot.png" 1772041471.01317 296219 a20b53cea9ae142893ebd4c0c893a59f ""
   "../figures/14_models_same_sample.png" 1772041474.08012 157518 94f8b5dd1c202970cd645cc065a2aa60 ""
-  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1772045724.34124 51845 2b34b7f4956ea874134e6b0e1cd1a296 ""
+  "/Users/giovanna.pantalena/Desktop/RM Applied Micro/rm_mam_ecotheology/Writing/term_paper.tex" 1772047661.31659 55918 324a81ed10e0669fe54a9c2591030b09 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -49,7 +51,6 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm" 1136768653 768 1321e9409b4137d6fb428ac9dc956269 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1136768653 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1248133631 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
@@ -69,8 +70,8 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb" 1248133631 35660 fb24af7afbadb71801619f1415838111 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb" 1248133631 31099 c85edf1dd5b9e826d67c9c7293b6786c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1248133631 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -156,7 +157,7 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1770306883 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1770306862 3345729 881605eda0798fc4af59cb72563a6265 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "term_paper.tex" 1772045724.34124 51845 2b34b7f4956ea874134e6b0e1cd1a296 ""
+  "term_paper.tex" 1772047661.31659 55918 324a81ed10e0669fe54a9c2591030b09 ""
   (generated)
   "%OUTDIR%/term_paper.aux"
   "%OUTDIR%/term_paper.bcf"

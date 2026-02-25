@@ -994,60 +994,111 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 
 \newpage
 
-\section*{Appendix III: The ChatGPT 5.2 Prompts}
+\section*{Appendix III: AI Prompts Used}
 
-In this paper, we consulted ChatGPT for specific editing-related tasks, including identifying errors in code segments that were not running as intended, assisting with LaTeX formatting, and improving grammar and flow. The prompts did not always yield ready-to-use results. We therefore carefully reviewed and verified all outputs, as we were aware that ChatGPT could produce incorrect or misleading suggestions. The specific prompts used are listed below.
+In this paper, we consulted ChatGPT 5.2 and Gemini 3.1 Pro for specific editing-related tasks, including identifying errors in code segments that were not running as intended, assisting with LaTeX formatting, and improving grammar and flow. The prompts did not always yield ready-to-use results. We therefore carefully reviewed and verified all outputs, as we were aware that AI could produce incorrect or misleading suggestions. The specific prompts used are listed below.
 
-\subsubsection*{Code Debugging for Data Preparation and Analysis}
 
-\begin{quote}
-Please help identify the problem in the following lines of code: \\
-\emph{[Area where specific code lines and the corresponding error message was provided.]}
-\end{quote}
-This prompt was used to debug code segments that did not initially work as intended during the construction of the exposure measure, the environmental attitudes index, and the generation of plots and regression results.
+\subsubsection*{1. Project Setup and Code Understanding}
 
-\subsubsection*{LaTeX Formatting}
+\begin{itemize}
+\item \textit{I will use this chat for a group research project for a MSc Economics course. I will upload lots of information about our project. For now, focus on understanding what we need to do and ask me any clarification questions if needed.}
 
-\begin{quote}
-Please typeset the following equation/line in LaTeX: \\
-\emph{[Area where the text or equation was provided.]}
-\end{quote}
+\item \textit{Understand the code we already have for 01\_data\_adequation.R and 02\_model.R. [Both code files were pasted in full.]}
 
-\begin{quote}
-There is an error in the LaTeX equation. Please help to solve the error:
+\item \textit{We made some changes to the 01\_data\_adequation.R code. Here is the current version (with now a hybrid NUTS1 and NUTS2 version), for future reference. [Updated code was pasted in full.]}
+\end{itemize}
 
-\vspace{0.2cm}
-\footnotesize
-\texttt{\textbackslash begin\{equation\} Y\_\{irc\} = \textbackslash alpha + \textbackslash beta\_1 Franc\_\{r\} + \textbackslash beta\_2 Dom\_\{r\} + X\_i' \textbackslash gamma + \textbackslash delta\_\{c\} + \textbackslash varepsilon\_\{irc\} \textbackslash end\{equation\}}
-\end{quote}
+These prompts were used to ensure consistency in data preparation, regional matching, and model construction.
 
-\begin{quote}
-Please transform our regression results \emph{[screenshot of the regression table]} into a shorter and cleaner table, such that the numbers are larger and more readable for presentation. 
-\end{quote}
 
-\begin{quote}
-How to link code-generated plots into LaTeX?
-\end{quote}
+\subsubsection*{2. Construction of the Environmental Index}
 
-\begin{quote}
-The plots take up substantial space in our paper, and we are constrained by a page limit. How to arrange these plots horizontally and adjust their size? \emph{[Area where existing code lines for plotting were provided.]}
-\end{quote}
+\begin{itemize}
+\item \textit{Please look at how we construct our environmental index variable in 02\_model.R. Some variables have opposite directions, so we had to revert them to keep it consistent. Do we do this correctly? You can find the complete description of each variable in the ``RM Project'' Google Docs.}
 
-\begin{quote}
-Please typeset the following citation in LaTeX format for the bibliography section of the paper: 
-\emph{[Area where the APA-formatted citation was provided.]}
-\end{quote}
+\item \textit{These are the PCA loadings: [R output pasted.] Please explain how to interpret them and compare them to usual literature results.}
+\end{itemize}
 
-These and similar formatting-related prompts were used whenever we needed assistance converting specific elements into LaTeX format.
+These prompts were used to verify the internal consistency and interpretation of the constructed environmental attitudes index.
 
-\subsubsection*{Language Polishing}
 
-\begin{quote}
-Please review the following text for grammar, clarity, and flow. Revise for readability while preserving the original meaning and academic tone. 
-\emph{[Area where the text was placed. Short excerpts (usually no more than 2--3 sentences at a time) from selected parts of the paper were provided.]}
-\end{quote}
+\subsubsection*{3. Regression Specification and Estimation}
 
-This prompt was used consistently during the editing process to improve the clarity and readability of selected sections of the text.
+\begin{itemize}
+\item \textit{This is the additional code I wrote for 02\_model.R (after the PCA), in order to run the initial regressions. I want model 1 to have only franc\_exposure\_1500, model 2 to have both franc\_exposure\_1500 and dom\_exposure\_1500, and model 3 to have both exposure and country fixed effects. Please revise it and make sure it does exactly what I expect. [Code was pasted in full.]}
+
+\item \textit{I now wrote this code for model 4, which is model 3 plus all individual-level control variables (cleaned in 01\_data\_adequation.R). Please make sure it is also correct. [Code was pasted in full.]}
+
+\item \textit{How can I add cluster standard errors to all our analysis?}
+
+\item \textit{I now wrote this code to make 6 regressions using each individual environmental question instead of the env\_index. I want to run these regressions using all controls (same as model 4), and make sure the directions are the same for all (negative coefficients indicate more pro-environment attitudes). Please review my code and create a similar table as for the first 4 models. [Code was pasted in full.]}
+\end{itemize}
+
+These prompts ensured that each regression specification corresponded to the intended empirical design.
+
+
+\subsubsection*{4. Error Diagnosis and Robustness Checks}
+
+\begin{itemize}
+\item \textit{When running the 01 file I got this warning: [Warning message pasted.] Is this a problem? What is causing it?}
+
+\item \textit{I will now run the following robustness checks: (1) only include Catholics, (2) exclude Germany (with NUTS1), (3) check whether the results are driven by specific countries (e.g. excluding one country at a time), and (4) check whether the results are driven by specific controls (excluding one control at a time). This is the outline of the code I have for this: [Code pasted.] When running it, I get this error: [Error message pasted.] Please localise the error and suggest how I can fix it.}
+\end{itemize}
+
+These prompts were used to diagnose runtime issues and ensure correct implementation of robustness analyses.
+
+
+\subsubsection*{5. Table and Plot Generation}
+
+\begin{itemize}
+\item \textit{Please create the code to make a paper-ready table with the 4 regression models results. I would like the table to contain all 4 models, with titles (``Model 1: Franciscans Only'', ``Model 2: Franciscans vs Dominicans'', ``Model 3: Country FE'', ``Model 4: Full Controls + FE'').}
+
+\item \textit{I will now create the images and plots in the 03\_plots.R file. First, I want to create a plot showing the map of our NUTS regions, and the position of Franciscan monasteries (in green) and Dominican monasteries (in red). Save all plots in the figures folder.}
+
+\item \textit{Similar prompts were used for additional plots, specifying variables, layout, colours, and formatting requirements. Follow-up prompts adjusted details such as colours and label sizes.}
+\end{itemize}
+
+These prompts were used to generate publication-ready tables and visualisations consistent with the paper’s formatting requirements.
+
+
+\subsubsection*{6. LaTeX Formatting}
+
+\begin{itemize}
+\item \textit{Please typeset the following equation/line in LaTeX. [Text or equation provided.]}
+
+\item \textit{There is an error in the LaTeX equation. Please help to solve the error.}
+
+\item \textit{Please transform our regression results [screenshot provided] into a shorter and cleaner table, such that the numbers are larger and more readable for presentation.}
+
+\item \textit{How to link code-generated plots into LaTeX?}
+
+\item \textit{The plots take up substantial space in our paper, and we are constrained by a page limit. How to arrange these plots horizontally and adjust their size?}
+
+\item \textit{Please typeset the following citation in LaTeX format for the bibliography section of the paper. [APA citation provided.]}
+\end{itemize}
+
+These and similar formatting-related prompts were used whenever assistance was needed converting elements into LaTeX format.
+
+
+\subsubsection*{7. Presentation and Paper Review}
+
+\begin{itemize}
+\item \textit{Based on our whole project, please suggest some options for a presentation outline.}
+
+\item \textit{Please analyse the current version of our final paper. We have a 15-page limit that excludes only the appendix. First, please verify whether all information and interpretations are correct according to our regression tables. [Full LaTeX code was pasted.]}
+\end{itemize}
+
+These prompts were used to improve the structure, coherence, and internal consistency of the final manuscript and presentation materials.
+
+
+\subsubsection*{8. Language Polishing}
+
+\begin{itemize}
+\item \textit{Please review the following text for grammar, clarity, and flow. Revise for readability while preserving the original meaning and academic tone. [Short excerpts of text were provided.]}
+\end{itemize}
+
+This prompt was used selectively during the editing process to improve clarity and readability.
 
 
 \end{document}
