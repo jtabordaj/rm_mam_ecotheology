@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  25 FEB 2026 18:39
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025/Homebrew) (preloaded format=pdflatex 2025.11.7)  25 FEB 2026 20:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -585,4 +585,253 @@ LaTeX Font Info:    ... okay on input line 41.
 * h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
 * v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
 * \paperwidth=597.50787pt
-* \paperheight=845.04
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count435
+\scratchdimen=\dimen193
+\scratchbox=\box57
+\nofMPsegments=\count436
+\nofMParguments=\count437
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count438
+\MPscratchDim=\dimen194
+\MPnumerator=\count439
+\makeMPintoPDFobject=\count440
+\everyMPtoPDFconversion=\toks29
+) (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+)) (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2024/06/23 v1.3e Standard LaTeX Color (DPC)
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 149.
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+Package hyperref Info: Link coloring ON on input line 41.
+ (%OUTDIR%/term_paper.out) (%OUTDIR%/term_paper.out)
+\@outlinefile=\write5
+\openout5 = `term_paper.out'.
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2024/03/21 v3.20 biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `term_paper.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'term_paper.bbl' found.
+ (./term_paper.bbl)
+Package biblatex Info: Reference section=0 on input line 41.
+Package biblatex Info: Reference segment=0 on input line 41.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 43.
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 43.
+ (/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+[1
+
+{/usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/map/pdftex/updmap/pdftex.map}]
+
+[2]
+
+[3]
+
+[4]
+<../figures/01_monasteries_map.png, id=112, 3011.25pt x 2409.0pt>
+File: ../figures/01_monasteries_map.png Graphic file (type png)
+<use ../figures/01_monasteries_map.png>
+Package pdftex.def Info: ../figures/01_monasteries_map.png  used on input line 135.
+(pdftex.def)             Requested size: 362.37569pt x 289.8762pt.
+<../figures/02_hyde_grid.png, id=115, 3011.25pt x 3011.25pt>
+File: ../figures/02_hyde_grid.png Graphic file (type png)
+<use ../figures/02_hyde_grid.png>
+Package pdftex.def Info: ../figures/02_hyde_grid.png  used on input line 147.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
+
+Underfull \hbox (badness 1062) in paragraph at lines 148--148
+[]\OT1/cmr/m/n/10.95 (a) |Pop-u-la-tion den-si-ties (grid-level, log
+ []
+
+<../figures/03_hyde_nuts.png, id=116, 3011.25pt x 3011.25pt>
+File: ../figures/03_hyde_nuts.png Graphic file (type png)
+<use ../figures/03_hyde_nuts.png>
+Package pdftex.def Info: ../figures/03_hyde_nuts.png  used on input line 154.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[5 <../figures/01_monasteries_map.png>]
+<../figures/04a_franciscan_exposure.png, id=125, 3011.25pt x 3011.25pt>
+File: ../figures/04a_franciscan_exposure.png Graphic file (type png)
+<use ../figures/04a_franciscan_exposure.png>
+Package pdftex.def Info: ../figures/04a_franciscan_exposure.png  used on input line 181.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
+<../figures/04b_dominican_exposure.png, id=126, 3011.25pt x 3011.25pt>
+File: ../figures/04b_dominican_exposure.png Graphic file (type png)
+<use ../figures/04b_dominican_exposure.png>
+Package pdftex.def Info: ../figures/04b_dominican_exposure.png  used on input line 188.
+(pdftex.def)             Requested size: 203.83417pt x 203.82495pt.
+
+
+[6 <../figures/02_hyde_grid.png> <../figures/03_hyde_nuts.png> <../figures/04a_franciscan_exposure.png> <../figures/04b_dominican_exposure.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 201--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
+[]|\OT1/cmr/m/n/12 Economy--
+ []
+
+
+Underfull \hbox (badness 5331) in paragraph at lines 239--239
+[]|\OT1/cmr/m/n/12 Priority of en-vi-ron-
+ []
+
+<../figures/05_env_questions.png, id=139, 3613.5pt x 3011.25pt>
+File: ../figures/05_env_questions.png Graphic file (type png)
+<use ../figures/05_env_questions.png>
+Package pdftex.def Info: ../figures/05_env_questions.png  used on input line 259.
+(pdftex.def)             Requested size: 317.07614pt x 264.20052pt.
+<../figures/06_env_index.png, id=140, 2409.0pt x 2409.0pt>
+File: ../figures/06_env_index.png Graphic file (type png)
+<use ../figures/06_env_index.png>
+Package pdftex.def Info: ../figures/06_env_index.png  used on input line 266.
+(pdftex.def)             Requested size: 317.07614pt x 317.07738pt.
+
+Overfull \hbox (2.3621pt too wide) in paragraph at lines 281--284
+[]\OT1/cmr/m/n/12 We find that the com-po-nents of West-ern Eu-ro-pean coun-tries be-have more pro-environment
+ []
+
+
+
+[7]
+
+[8 <../figures/05_env_questions.png> <../figures/06_env_index.png>]
+
+[9]
+
+[10]
+
+[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15]
+Overfull \hbox (12.0498pt too wide) in paragraph at lines 616--635
+ [][] 
+ []
+
+
+Overfull \hbox (16.78604pt too wide) in paragraph at lines 670--670
+[][]\OT1/cmr/bx/n/17.28 Appendix II: Re-gres-sion Re-sults and Ro-bust-ness Checks 
+ []
+
+<../figures/07_regressions_plot_4_models.png, id=236, 2409.0pt x 1505.625pt>
+File: ../figures/07_regressions_plot_4_models.png Graphic file (type png)
+<use ../figures/07_regressions_plot_4_models.png>
+Package pdftex.def Info: ../figures/07_regressions_plot_4_models.png  used on input line 676.
+(pdftex.def)             Requested size: 407.66833pt x 231.09045pt.
+
+
+[16]
+
+[17 <../figures/07_regressions_plot_4_models.png>]
+<../figures/11_robustness_leave_one_out.png, id=251, 2409.0pt x 2409.0pt>
+File: ../figures/11_robustness_leave_one_out.png Graphic file (type png)
+<use ../figures/11_robustness_leave_one_out.png>
+Package pdftex.def Info: ../figures/11_robustness_leave_one_out.png  used on input line 774.
+(pdftex.def)             Requested size: 452.9679pt x 426.61362pt.
+
+
+[18 <../figures/11_robustness_leave_one_out.png>]
+Overfull \hbox (28.32472pt too wide) in paragraph at lines 789--814
+ [][] 
+ []
+
+<../figures/13_robustness_sensitivity_plot.png, id=259, 2409.0pt x 2409.0pt>
+File: ../figures/13_robustness_sensitivity_plot.png Graphic file (type png)
+<use ../figures/13_robustness_sensitivity_plot.png>
+Package pdftex.def Info: ../figures/13_robustness_sensitivity_plot.png  used on input line 826.
+(pdftex.def)             Requested size: 362.37569pt x 341.30473pt.
+
+
+[19 <../figures/13_robustness_sensitivity_plot.png>]
+<../figures/14_models_same_sample.png, id=268, 1445.4pt x 797.98125pt>
+File: ../figures/14_models_same_sample.png Graphic file (type png)
+<use ../figures/14_models_same_sample.png>
+Package pdftex.def Info: ../figures/14_models_same_sample.png  used on input line 878.
+(pdftex.def)             Requested size: 452.9679pt x 250.07474pt.
+
+
+[20 <../figures/14_models_same_sample.png>]
+
+[21] (%OUTDIR%/term_paper.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+Package rerunfilecheck Info: File `term_paper.out' has not changed.
+(rerunfilecheck)             Checksum: D4F4ACD835C520955D78CA2C36CE32E1;2011.
+Package logreq Info: Writing requests to 'term_paper.run.xml'.
+\openout1 = `term_paper.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 19711 strings out of 473190
+ 351141 string characters out of 5705898
+ 1170291 words of memory out of 5000000
+ 42672 multiletter control sequences out of 15000+600000
+ 570190 words of font info for 80 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 69i,11n,81p,1237b,1532s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/Cellar/texlive/20250308_2/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on %OUTDIR%/term_paper.pdf (21 pages, 7654017 bytes).
+PDF statistics:
+ 384 PDF objects out of 1000 (max. 8388607)
+ 293 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
+
