@@ -625,28 +625,27 @@ dataset which contains 2980 observations (while only 994 observations in MAPS) w
 and monastery names for Franciscan monasteries. However, there are still no closing dates available in this dataset. 
 Still, this would allow us to construct a more accurate exposure measure for the Franciscan monasteries. 
 
-Furthermore, our empirical strategy is purely historical and correlational. 
-Because medieval monastery locations were not randomly assigned, we cannot definitively rule out unobserved regional 
-characteristics that might have influenced both monastic settlement and modern cultural attitudes. 
-Future research could address this potential endogeneity by employing instrumental variable (IV) strategies—such as distance to 
-historical trade routes—or by explicitly modeling endogenous monastery placement to improve causal identification.
+Furthermore, our empirical strategy is purely historical and correlational. Since it is
+possible (and expected) that medieval monasteries were not randomly located across Europe,
+we cannot definitively rule out unobserved regional characteristics that may have influenced
+both monastic settlement and modern cultural attitudes. Evaluating the choice of monastery
+locations is therefore essential. Future research could address this potential endogeneity
+by employing instrumental variable (IV) strategies, such as measuring distance to the nearest
+city or historical trade routes, or by explicitly modeling endogenous monastery placement
+to strengthen causal identification.
+
 There is also a problem with the fact that there are no Franciscan monasteries in some NUTS regions in Northern Europe, 
 or no Dominican monasteries in some NUTS regions in Eastern Europe. Therefore, we cannot compare the effects of the two orders in those regions. 
-A possible extension is thus to exclude the regions that do not have either of the monasteries. 
+A possible extension is to exclude the regions that do not have either of the monasteries. 
 
 A related limitation stems from our dependency on historical exposure from more than five centuries ago, and assumption that
 this influence has persisted within local populations. However, modern environmental attitudes measured in the EVS may not perfectly reflect the 
 exposure of current residents due to migration flows. Future studies should account for internal and cross-border migration to refine these regional exposure estimates.
 
-Finally, while our covariates successfully control for many individual-level traits, there is a risk of over-controlling (i.e., including "bad controls"). 
+Finally, while our covariates successfully control for many individual-level traits, there is a risk of over-controlling (i.e., including ``bad controls''). 
 Variables such as income, education, and political orientation might themselves be outcomes of historical monastic exposure. 
 Including them in the regression could absorb part of the true historical effect. 
-A future research extention could thus be to consider more carefully the control variables.
-
-As other possible extensions, we could check for the choice of monastery locations. It is possible (and expected) that monasteries were not randomly located 
-across Europe. In this scenario, we could construct instrumental variables for the monastery locations, such as the distance 
-to the nearest city or trade route, use additional controls, or explicitly model the endogenous placement to 
-improve the causal identification and remove the endogeneity problem. 
+A future research extension could thus be to consider the control variables more carefully
 
 We could also construct a distance-weighted or decay-based exposure measure. Instead of assuming that everyone 
 within a 25 $\text{km}$ radius of the monastery is exposed to the theology of that monastery in the same way, we could assume 
@@ -690,10 +689,7 @@ Thus, the results might have been driven by underlying beliefs about whether
 environmental threats are exaggerated and whether individual efforts are pointless unless others do the same 
 for the environment. 
 
-We can conclude our results by saying that long-run cultural and theological beliefs and monasteries can have 
-a significant influence on contemporary attitudes toward the environment. The results of this research are quite 
-interesting and surprising, but we cannot help but mention the limitations of our research and the need for 
-further research.
+Overall, acknowledging that data constraints force deviations from an ideal experimental benchmark is fundamental to our analysis. Thus, this paper discusses key limitations, such as the time-invariant nature of our exposure measure and the potential endogeneity of monastic settlement. By proposing extensions such as instrumental variable (IV) strategies, distance-weighted measures, or accounting for migration flows, we provide a clear foundation for future research.
 
 
 \newpage
@@ -1070,7 +1066,7 @@ These prompts were used to generate publication-ready tables and visualisations 
 
 \item \textit{Please transform our regression results [screenshot provided] into a shorter and cleaner table, such that the numbers are larger and more readable for presentation.}
 
-\item \textit{How to link code-generated plots into LaTeX?}
+\item \textit{How to link code-generated plots into LaTeX file?}
 
 \item \textit{The plots take up substantial space in our paper, and we are constrained by a page limit. How to arrange these plots horizontally and adjust their size?}
 
