@@ -199,7 +199,7 @@ With all three data sources combined, we have Dominican and Franciscan exposures
 
 To construct the main dependent variable we use the European Values Study (EVS) 2017–2021 dataset, which contains
 individual-level survey data on values, beliefs, attitudes, and socioeconomic characteristics across European countries. 
-The dataset covers over 30 European countries, 24 of which are relevant for our research. After data cleaning, the final dataset includes 49233
+The dataset covers over 30 European countries, 24 of which are relevant for our research. After data cleaning, the final dataset includes 49,233
 observations and geographic identifiers for NUTS-1 regions for Germany and NUTS-2 for all the other countries. \\
 \\
 From the EVS dataset, we select six environmental variables in particular, which
@@ -460,15 +460,15 @@ As additional robustness checks in \autoref{tab:robustness_subsamples}, we run s
 but keeping only Catholic individuals in the first subsample. The Catholicism of individuals is determined from the 
 same EVS data by asking the question ``Which religious denomination do you belong to?'' and taking into account only 
 those who answered with the option ``Roman Catholic''. Considering only Catholics, the sample size drops significantly 
-to 5899, and we don’t have any significant results. In the second subsample, we exclude Germany to only keep NUTS-2 regions, 
+to 5,899, and we don’t have any significant results. In the second subsample, we exclude Germany to only keep NUTS-2 regions, 
 to account for the lack of granularity in Germany. However, the results stay the same as in the main model. 
 
 Lastly, we extend the analysis by running the same four models as in \autoref{tab:reg_results_horizontal}, but with 
 the same restricted sample that we have in Model 4. When we include all controls, the number of 
 observations falls from 49,233 to 24,379 observations. We therefore lose a large number 
-of observations because of the missing values for the controls. Thus, runnig the 4 models again, but in the same samppe, 
+of observations because of the missing values for the controls. Thus, runnig the 4 models again, but with the same sample, 
 allows us to check whether the results and the change in sign are driven by the sample composition and the potential 
-selection bias. The results are shown in \autoref{tab:reg_results_constant_sample} (and coefficirnts are plotted in \autoref{fig:14_models_same_sample}).
+selection bias. The results are shown in \autoref{tab:reg_results_constant_sample} (and coefficients are plotted in \autoref{fig:14_models_same_sample}).
 
 
 %Table 2: Regression results 4 models with same sample
@@ -579,11 +579,11 @@ $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.
 
 The results remain consistent with our baseline findings. Even within the restricted sample, Model 1
 yields a negative and statistically significant coefficient for Franciscan exposure. As we progressively introduce country 
-fixed effects and individual controls, the coefficient steadily increases, ultimately flipping to a positive 0.035 in the full 
+fixed effects and individual controls, the coefficient steadily increases, ultimately changing sign to a positive 0.035 in the full 
 specification (Model 4). This confirms that the reversal of the Franciscan effect is driven by the inclusion of confounding 
-variables and fixed effects, rather than sample composition or selection bias. Interestingly, in this restricted sample, 
+variables and fixed effects, rather than the sample composition or the selection bias. Interestingly, in this restricted sample, 
 the coefficient for Dominican exposure gains marginal statistical significance in models 2 and 3, but not in Model 4. 
-However, because this effect is sensitive to sample composition and remains absent in our broader baseline models, 
+However, because this effect is sensitive to the sample composition and remains absent in our broader baseline models, 
 we maintain our conclusion that the effects are not significant.
 
 \subsection{Possible Mechanism}
@@ -1015,7 +1015,7 @@ These prompts were used to ensure consistency in data preparation, regional matc
 \subsubsection*{2. Construction of the Environmental Index}
 
 \begin{itemize}
-\item \textit{Please look at how we construct our environmental index variable in 02\_model.R. Some variables have opposite directions, so we had to revert them to keep it consistent. Do we do this correctly? You can find the complete description of each variable in the ``RM Project'' Google Docs.}
+\item \textit{Please look at how we construct our environmental index variable in 02\_model.R. Some variables have opposite directions, so we had to revert them to keep it consistent. Did we do this correctly? You can find the complete description of each variable in the ``RM Project'' Google Docs.}
 \end{itemize}
 
 This prompt was used to verify the internal consistency of the constructed environmental attitudes index.
@@ -1054,21 +1054,25 @@ These prompts were used to diagnose runtime issues and ensure correct implementa
 
 \item \textit{I will now create the images and plots in the 03\_plots.R file. First, I want to create a plot showing the map of our NUTS regions, and the position of Franciscan monasteries (in green) and Dominican monasteries (in red). Save all plots in the figures folder.}
 
-These prompts were used to generate publication-ready tables and visualisations consistent with the paper’s formatting requirements. Similar prompts were used for additional plots, specifying variables, layout, colours, and formatting requirements. Follow-up prompts adjusted details such as colours and label sizes.
+\item \textit{We want to state the environmental survey questions that we used from EVS. What format is used to do this in a research paper?}
+\end{itemize}
 
+These prompts were used to generate publication-ready tables and visualisations consistent with the paper’s formatting requirements. Similar prompts were used for additional plots, specifying variables, layout, colours, and formatting requirements. Follow-up prompts adjusted details such as colours and label sizes.
 
 \subsubsection*{6. LaTeX Formatting}
 
 \begin{itemize}
 \item \textit{Please typeset the following equation in LaTeX. [Equation provided.]}
 
-\item \textit{There is an error in the LaTeX equation. Please help to solve the error.}
+\item \textit{I am getting an error in the equation I wrote in LaTeX. Please help me solve the error in my code. [LaTeX code and error message provided.]}
 
 \item \textit{Please transform our regression results [screenshot provided] into a shorter and cleaner table, such that the numbers are larger and more readable for presentation.}
 
 \item \textit{How to link code-generated plots into LaTeX?}
 
 \item \textit{The plots take up substantial space in our paper, and we are constrained by a page limit. How to arrange these plots horizontally and adjust their size?}
+
+\item \textit{⁠How to remove a column of a table in LaTeX?}
 
 \item \textit{Please typeset the following citation in LaTeX format for the bibliography section of the paper. [APA citation provided.]}
 \end{itemize}
@@ -1082,7 +1086,6 @@ These and similar formatting-related prompts were used whenever assistance was n
 \end{itemize}
 
 This prompt was used selectively during the editing process to improve clarity and readability.
-
 
 \end{document}
 
