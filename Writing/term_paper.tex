@@ -44,7 +44,12 @@ Supervised by: Paul Behler \\}
 \vspace{1.5cm}
 
 \begin{abstract}
-We analyse the effect of exposure to Franciscan and Dominican Mendicant orders between the 13th and 15th centuries on contemporary environmental attitudes. We find that higher Franciscan exposure is associated with less pro-environmental attitudes, contrary to our initial expectations, whereas the effect of Dominican exposure is statistically insignificant. We suggest that these results could be driven by differences in orientation toward collective action. This possible underlying mechanism is consistent with the contrasting theologies of the two orders regarding collectivity and individualism.
+We analyse the effect of exposure to Franciscan and Dominican Mendicant orders between the 13th and 15th centuries 
+on contemporary environmental attitudes. We find that higher Franciscan exposure is associated with less 
+pro-environmental attitudes, contrary to our initial expectations, whereas the effect of Dominican exposure is 
+statistically insignificant. We suggest that these results could be driven by differences in orientation toward 
+collective action. This possible underlying mechanism is consistent with the contrasting theologies of the two orders 
+regarding collectivity and individualism.
 \end{abstract}
 
 %\newpage
@@ -56,20 +61,31 @@ We analyse the effect of exposure to Franciscan and Dominican Mendicant orders b
 \newpage
 
 \section{Introduction}
-The Catholic Church played an important role in medieval Europe, shaping people’s lives, values, and behaviour throughout the Middle Ages \parencite{lynch2014}. One of the most famous religious figures of the Middle Ages is St. Francis of Assisi, founder of the Franciscan Order and patron saint of ecology within the Catholic Church, widely known for his deep affection towards nature and animals.
+The Catholic Church played an important role in medieval Europe, shaping people’s lives, values, and behaviour 
+throughout the Middle Ages \parencite{lynch2014}. One of the most famous Catholic figures of the Middle Ages was
+St. Francis of Assisi, the founder of the Franciscan Order and the patron saint of ecology within the Catholic Church, 
+widely known for his deep affection towards nature and animals.
 
-We investigate what is the effect of exposure to the Franciscan 
-``Eco-Theology'' between the 13th and 15th centuries on contemporary environmental attitudes among Europeans. We use as a control the exposure to the Dominican order, which was another major Mendicant Order during the Middle Ages.
+We investigate the effect of the exposure to the Franciscan 
+``Eco-Theology'' between the 13th and 15th centuries on contemporary environmental attitudes among Europeans. 
+As a control, we use the exposure to the Dominican order, which was another major Mendicant Order during the 
+Middle Ages. To do so, we construct historical exposure measures for both
+Franciscan and Dominican Orders as independent variables, defined as the fraction of a region’s historical population 
+living geographically close to a monastic house. We then construct our dependent variable, the Environmental Attitudes Index, 
+by applying Principal Component Analysis to individual-level survey data on environmental
+attitudes from the European Values Study (EVS). Using these variables and a set of individual-level controls, 
+we empirically examine how historical exposure to the two Mendicant Orders affects contemporary environmental attitudes.
 
-To do so, we construct historical exposure measures for both
-Franciscan and Dominican Orders as independent variables, defined as the fraction of a region’s historical population living geographically close to a monastic house. We then construct our dependent variable, the environmental index, via Principal Component Analysis to individual-level survey data on environmental
-attitudes from the European Values Study (EVS). Using those variables and a set of individual-level controls, we empirically examine how historical exposure to the two Mendicant Orders affects contemporary environmental attitudes.
+Given the historical background of St. Francis of Assisi, we have set the following initial hypothesis: higher 
+historical exposure to the Franciscan Order is associated with more pro-environmental attitudes, while higher exposure 
+to the Dominican Order is associated with less pro-environmental attitudes. However, contrary to our expectations, 
+we find that higher exposure to the Franciscan Order is associated with less pro-environmental attitudes, while 
+exposure to the Dominican Order had statistically insignificant results.
 
-Given the historical background of St. Francis of Assisi, we
-have set the following initial hypothesis: higher historical exposure to the Franciscan Order is associated with more pro-environmental attitudes, while higher exposure to the Dominican Order is associated with less pro-environmental attitudes. However, contrary to our expectations, we find that higher exposure to the Franciscan Order is associated with less pro-environmental attitudes, while exposure to the Dominican Order had statistically insignificant results.
-
-We propose a possible mechanism that might have driven those results, grounded on the underlying structural differences of
-both Catholic Orders on the collective action and individualism. The Franciscan theology of humility and acceptance of circumstances might have led to less pro-environmental attitudes, while the Dominican theology of persuasion and institutional coordination might have led to more pro-environmental attitudes.
+We propose a possible mechanism that might have driven these results, grounded in the underlying differences of
+both Catholic Orders in their theological beliefs on collective action. The Franciscan theology of humility and acceptance 
+of circumstances might have led to less pro-environmental attitudes, while the Dominican theology of persuasion and 
+institutional coordination might have led to more pro-environmental attitudes.
 
 \section{Historical Context and Hypothesis}
 
@@ -196,7 +212,7 @@ With all three data sources combined, we have Dominican and Franciscan exposures
 \newpage
 \FloatBarrier
 
-\subsection{Environmental Attitudes Measure}
+\subsection{Environmental Attitudes Index}
 
 To construct the main dependent variable we use the European Values Study (EVS) 2017–2021 dataset, which contains
 individual-level survey data on values, beliefs, attitudes, and socioeconomic characteristics across European countries. 
@@ -266,7 +282,7 @@ while the yellow regions indicate less pro-environmental attitudes.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{../figures/06_env_index.png}
-    \caption{\centering Environmental Index (PCA) across Europe \\considering the average scores per region.}
+    \caption{\centering Environmental Attitudes Index (PCA) across Europe \\considering the average scores per region.}
     \label{fig:06_env_index}
 \end{figure}
 
@@ -299,7 +315,7 @@ Once we have all the variables together, we start our regression analysis. Our m
 Y_{irc} = \alpha + \beta_1 Franc_r + \beta_2 Dom_r + X_i^{\prime} \gamma + \delta_c + \varepsilon_{irc}
 \end{equation}
 
-where $Y_{irc}$ denotes the environmental attitude index for individual $i$ in region $r$ 
+where $Y_{irc}$ denotes the Environmental Attitudes Index for individual $i$ in region $r$ 
 of country $c$ (scaled 0-1), $Franc_{r}$ and $Dom_{r}$ represent population-weighted exposure to 
 Franciscan and Dominican Orders in region $r$ measured in 1500, and $X_i^{\prime}$ is a vector of control
 variables, $\delta_c$ denotes country fixed effects, and $\varepsilon_{irc}$ is the error term.
@@ -315,12 +331,12 @@ We cluster standard errors at the NUTS level.
 \FloatBarrier
 \subsection{Regression Results}
 
-\autoref{tab:reg_results_horizontal} presents the baseline regression results. Model 1 regresses the environmental index solely on Franciscan exposure, yielding a negative and statistically significant coefficient ($\beta_1$). 
+\autoref{tab:reg_results_horizontal} presents the baseline regression results. Model 1 regresses the Environmental Attitudes Index solely on Franciscan exposure, yielding a negative and statistically significant coefficient ($\beta_1$). 
 Because the index is scaled from 0 (most pro-environmental) to 1 (least pro-environmental), this negative coefficient indicates a positive correlation with pro-environmental attitudes, aligning with our initial hypothesis. 
 In Model 2, the inclusion of Dominican exposure attenuates the magnitude of $\beta_1$. When country fixed effects are introduced in Model 3, $\beta_1$ changes sign and loses statistical significance. 
 
 In our full specification (Model 4), which incorporates all individual-level controls, Dominican exposure, and country fixed effects, $\beta_1$ becomes positive and statistically significant. 
-This indicates that moving from zero to maximum Franciscan exposure is associated with a 3.5 percentage point increase in the environmental index (i.e., less pro-environmental attitudes), directly contradicting our initial hypothesis. 
+This indicates that moving from zero to maximum Franciscan exposure is associated with a 3.5 percentage point increase in the Environmental Attitudes Index (i.e., less pro-environmental attitudes), directly contradicting our initial hypothesis. 
 Notably, several control variables are also significant; for instance, identifying as female correlates with more pro-environmental attitudes. 
 The coefficient for Dominican exposure ($\beta_2$) remains statistically insignificant across all specifications.
 
@@ -586,7 +602,7 @@ specification (Model 4). This confirms that the reversal of the Franciscan effec
 variables and fixed effects, rather than the sample composition or the selection bias. Interestingly, in this restricted sample, 
 the coefficient for Dominican exposure gains marginal statistical significance in models 2 and 3, but not in Model 4. 
 However, because this effect is sensitive to the sample composition and remains absent in our broader baseline models, 
-we maintain our conclusion that the effects are not significant.
+we maintain our conclusion that the effect is not significant.
 
 \subsection{Possible Mechanism}
 
@@ -619,75 +635,74 @@ monasteries. Thus, we had to assume that all the monasteries were active through
 our exposure measure treats monastery presence as time-invariant.
 
 The main extension that we propose is to use data on the foundation and closing dates of the 
-monasteries to construct a more accurate exposure measure. We propose to use another existing 
+monasteries to construct a more accurate exposure measure. We propose using another existing 
 dataset from Boranbay and Guerriero (2019) specifically for the Franciscan monasteries. They use a novel
-dataset which contains 2980 observations (while only 994 observations in MAPS) with specific foundation dates 
+dataset which contains 2,980 observations (while only 994 observations in MAPS) with specific foundation dates 
 and monastery names for Franciscan monasteries. However, closing dates are still unavailable in this dataset.
 Nevertheless, this approach would allow us to construct a more accurate exposure measure for Franciscan monasteries.
 
 Furthermore, our empirical strategy is purely historical and correlational. Since it is
 possible (and expected) that medieval monasteries were not randomly located across Europe,
-we cannot definitively rule out unobserved regional characteristics that may have influenced
-both monastic settlement and modern cultural attitudes. Evaluating the choice of monastery
-locations is therefore essential. Future research could address this potential endogeneity
-by employing instrumental variable (IV) strategies, such as measuring distance to the nearest
-city or historical trade routes, or by explicitly modeling endogenous monastery placement
-to strengthen causal identification.
+we cannot rule out unobserved regional characteristics that may have influenced both monastic settlement and 
+contemporary environmental attitudes. Therefore, for future research, it is essential to check for underlying 
+reasons in monastery location choice to address this endogeneity problem by constructing instrumental variables (IV), 
+such as the distance to the nearest city or historical trade routes, or by explicitly modeling endogenous 
+monastery placement to strengthen causal identification.
 
 There is also a problem with the fact that there are no Franciscan monasteries in some NUTS regions in Northern Europe, 
 or no Dominican monasteries in some NUTS regions in Eastern Europe. Therefore, we cannot compare the effects of the two orders in those regions. 
 A possible extension is to exclude the regions that do not have either of the monasteries. 
 
-A related limitation stems from our dependency on historical exposure from more than five centuries ago, and assumption that
-this influence has persisted within local populations. However, modern environmental attitudes measured in the EVS may not perfectly reflect the 
+A related limitation stems from our dependency on historical exposure from more than five centuries ago, and th assumption that
+this influence has persisted within local populations. However, contemporary environmental attitudes measured in the EVS may not perfectly reflect the 
 exposure of current residents due to migration flows. Future studies should account for internal and cross-border migration to refine these regional exposure estimates.
 
-Finally, while our covariates successfully control for many individual-level traits, there is a risk of over-controlling (i.e., including ``bad controls''). 
+While our covariates successfully control for many individual-level traits, there is a risk of over-controlling (i.e., including ``bad controls''). 
 Variables such as income, education, and political orientation might themselves be outcomes of historical monastic exposure. 
 Including them in the regression could absorb part of the true historical effect. 
-A future research extension could thus be to consider the control variables more carefully
+A future research extension could thus be to consider the control variables more carefully. 
 
-We could also construct a distance-weighted or decay-based exposure measure. Instead of assuming that everyone within a 25 km radius of the monastery is exposed to its theology in the same way, we could assume that the influence diminishes with distance, such that people are less exposed the further away they are.
+We could also construct a distance-weighted or a decay-based exposure measure. Instead of assuming that everyone within 
+a 25 km radius of the monastery is exposed to its theology equally, we could assume that the influence 
+diminishes with distance, such that people are less exposed the further away they are from the monastery and the exposure level decreases accordingly. 
 
 We would also like to test the effects of monasteries on other outcomes, such as climate policy support, 
 trust in institutions, and collective action. By using other datasets, we could extend our research to other 
-countries outside of Europe, such as Latin America, where the influence of the Catholic Church is also quite strong.
+countries outside of Europe, such as countries in Latin America, where the influence of the Catholic Church is also quite strong.
 For example, \textcite{waldinger2017} uses a Mexican dataset to show the long-term effects of missionary orders, 
 such as the Franciscans, Dominicans, and the Jesuits, on outcomes such as education and Catholicism.
 
 In summary, investigating long-run cultural persistence using historical data inherently requires strong identifying assumptions. 
-It is fundamental to evaluate our empirical choices against an ideal experimental benchmark, such as the random historical assignment 
-of monasteries, to explicitly recognize where data constraints force deviations from ideal causal inference. 
+It is fundamental to evaluate our empirical choices against an ideal experimental benchmark to explicitly recognize where data constraints force deviations from ideal causal inference. 
 Acknowledging these limitations ensures that our results are interpreted with appropriate nuance. 
 Ultimately, we hope this research provides a robust baseline for future studies exploring the long-term institutional and theological 
-determinants of modern environmental attitudes.
-
+effects on contemporary environmental attitudes.
 
 \section{Conclusion}
 
 In this research, we analyzed whether the exposure to the two major Mendicant Orders of the Middle Ages, 
 Franciscan and Dominican monasteries, has an effect on contemporary environmental attitudes. We constructed an 
 exposure measure by combining the geodataset of monastery locations with historical population data, 
-and we constructed an environmental attitudes index using the European Values Study survey data on 
+and constructed an Environmental Attitudes Index using the EVS survey data on six different
 individual environmental questions. We ran regressions controlling for various individual-level characteristics 
 and country fixed effects.
 
-Through this, we have found that higher Franciscan exposure is associated 
+We have found that higher Franciscan exposure is associated 
 with less pro-environmental attitudes. More specifically, in our main regression model, $\beta_1$ is 0.035 and 
 statistically significant. Through various robustness checks, we have found that the results are quite robust 
 and homogeneous across Europe and persist even when we exclude certain controls or countries. 
 
-We also proposed a possible mechanism 
-that could be driving these results, which is the contrasting beliefs about collective action within the Franciscan 
-and Dominican theologies. The Franciscan theology of humility and acceptance of circumstances might have led to less
+We also proposed a mechanism that could be driving these results, which is the contrast in collective action between the 
+Franciscan and Dominican theologies. The Franciscan theology of humility and acceptance of circumstances might have led to less
 pro-environmental attitudes, while the Dominican theology of persuasion and institutional coordination might have 
-led to more pro-environmental attitudes.
-
-Thus, the results might have been driven by underlying beliefs about whether 
+led to more pro-environmental attitudes. Thus, the results might have been driven by underlying beliefs about whether 
 environmental threats are exaggerated and whether individual efforts are pointless unless others do the same 
 for the environment. 
 
-Overall, acknowledging that data constraints force deviations from an ideal experimental benchmark is fundamental to our analysis. Thus, this paper discusses key limitations, such as the time-invariant nature of our exposure measure and the potential endogeneity of monastic settlement. By proposing extensions such as instrumental variable (IV) strategies, distance-weighted measures, or accounting for migration flows, we provide a clear foundation for future research.
+To conclude, it is fundamental to acknowledge that historical data constraints in our paper force deviations from an ideal experimental 
+analysis. Therefore, in this paper we have also discussed key limitations, such as the time-invariant nature of our exposure 
+measure and the potential endogeneity of monastic settlement. By proposing important extensions such as better datasets, IV strategies, 
+distance-weighted measures, or accounting for migration flows, we provide a clear foundation for future research.
 
 
 \newpage
@@ -744,10 +759,10 @@ suffers'' & only 1 and 5 to [0,1]\\
 \end{table}
 
 
-%Table 4: Environmental Index: PC1 Loadings
+%Table 4: Environmental Attitudes Index: PC1 Loadings
 \begin{table}[htbp]
     \centering
-    \caption{Environmental Index: PC1 Loadings}
+    \caption{Environmental Attitudes Index: PC1 Loadings}
     \label{tab:pc1_loadings}
 
     \renewcommand{\arraystretch}{1.2}
@@ -1008,13 +1023,13 @@ In this paper, we consulted ChatGPT 5.2 and Gemini 3.1 Pro for specific editing-
 These prompts were used to ensure consistency in data preparation, regional matching, and model construction.
 
 
-\subsubsection*{2. Construction of the Environmental Index}
+\subsubsection*{2. Construction of the Environmental Attitudes Index}
 
 \begin{itemize}
-\item \textit{Please look at how we construct our environmental index variable in 02\_model.R. Some variables have opposite directions, so we had to revert them to keep it consistent. Did we do this correctly? You can find the complete description of each variable in the ``RM Project'' Google Docs.}
+\item \textit{Please look at how we construct our Environmental Attitudes Index variable in 02\_model.R. Some variables have opposite directions, so we had to revert them to keep it consistent. Did we do this correctly? You can find the complete description of each variable in the ``RM Project'' Google Docs.}
 \end{itemize}
 
-This prompt was used to verify the internal consistency of the constructed environmental attitudes index.
+This prompt was used to verify the internal consistency of the constructed Environmental Attitudes Index.
 
 
 \subsubsection*{3. Regression Specification and Estimation}
